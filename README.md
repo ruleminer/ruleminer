@@ -32,7 +32,34 @@ As it was mentioned, RuleMiner is based on RuleKit tool. The main RuleKit reposi
 * [SCARI](https://github.com/adaa-polsl/SCARI) - sequential covering action rule induction algoithm,
 * [LR-Rules](https://github.com/adaa-polsl/LR-Rules) - survival rules induction,
 * [GuideR](https://github.com/adaa-polsl/GuideR) - user-guided induction.
+* [MAINE](http://maine.ibemag.pl/) - web application that allows carrying out survival and classification analyses based on experimental, multi-omic patient data. In the reports, RuleKit is used to model data.
 
+## Team
+
+Management and scientific mentoring
+
+* Marek Sikora, dr hab., prof. SUT, prof. EMAG – team leader, senior researcher
+* Łukasz Wróbel PhD. – main advisor, senior researcher
+* Dawid Macha, PhD student – project manager, researcher
+
+Research
+
+* Joanna Badura, PhD. – researcher
+* Adam Gudyś, PhD. – senior researcher 
+* Marek Hermansa, PhD student – devops
+* Cezary Maszczyk, PhD student – developer
+
+IT Team
+
+* Sławomir Chmielarz
+* Adam Grzelak, PhD.
+* Bartosz Jasak
+* Dawid Leśniak
+* Paweł Lizner
+* Łukasz Macha
+* Angelika Podlaszewska
+* Jakub Rutka
+* Bożena Sarna
 
 ## Key publications
 
