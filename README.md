@@ -38,21 +38,23 @@ As it was mentioned, RuleMiner is based on RuleKit tool. The main RuleKit reposi
 
 Management and scientific mentoring
 
-* Marek Sikora, dr hab., prof. SUT, prof. EMAG – team leader, senior researcher
-* Łukasz Wróbel PhD. – main advisor, senior researcher
+* Marek Sikora, PhD, DSc, Associate Prof. at SUT and EMAG – team leader, senior researcher
+* Łukasz Wróbel, PhD – main advisor, senior researcher
 * Dawid Macha, PhD student – project manager, researcher
 
 Research
 
-* Joanna Badura, PhD. – researcher
-* Adam Gudyś, PhD. – senior researcher 
+* Joanna Badura, PhD – researcher
+* Adam Gudyś, PhD – senior researcher 
 * Marek Hermansa, PhD student – devops
 * Cezary Maszczyk, PhD student – developer
+* Michał Kozielski, PhD – senior researcher
+* Łukasz Wawrowski, PhD – senior researcher, developer
 
 IT Team
 
 * Sławomir Chmielarz
-* Adam Grzelak, PhD.
+* Adam Grzelak, PhD
 * Bartosz Jasak
 * Dawid Leśniak
 * Paweł Lizner
