@@ -1,11 +1,11 @@
-# RuleMiner  <a href="https://ruleminer.ai/"><img src="img/RuleMiner_logo_full.png" align="right" height="70" /></a>
+# RuleMiner  <a href="https://ruleminer.ai/"><img src="img/RuleMiner_logo_full.png" align="right" height="90" /></a>
 
 
 ## Introduction
 
-RuleMiner is a system for rule-based data mining and building predictive models based on rules. Rules, as the most intuitive form of knowledge representation for humans, allow us to understand the relationships that occur in data. RuleMiner is dedicated to solving problems of data description -- classification, regression and survival analysis problems. It can be also used for predictions.
+RuleMiner is a system for rule-based data mining and building predictive models based on rules. Rules, as the most intuitive form of knowledge representation for humans, allow us to understand the relationships that occur in data. RuleMiner is dedicated to solving problems of data description — classification, regression and survival analysis problems. It can be also used for predictions.
 
-RuleMiner is based on the **RuleKit** -- a versatile rule learning tool based on a sequential coverage induction algorithm.
+RuleMiner is based on the **RuleKit** — a versatile rule learning tool based on a sequential coverage induction algorithm.
 
 
 ## Getting started
@@ -26,14 +26,42 @@ As it was mentioned, RuleMiner is based on RuleKit tool. The main RuleKit reposi
 
 * [RuleKit](https://github.com/adaa-polsl/RuleKit) - main RuleKit repository,
 * [RuleKit-python](https://github.com/adaa-polsl/RuleKit-python) - python wrapper for RuleKit library,
-* [RuleKit GUI](https://github.com/ruleminer/rulekit-gui) - GUI for RuleKit
 * [RuleXAI](https://github.com/adaa-polsl/RuleXAI) - library for rule-based aproach to explain the output of any machine learning model,
 * [survival-action-rules](https://github.com/adaa-polsl/survival-action-rules) - action rules for survival analysis,
 * [m-of-n-rules](https://github.com/adaa-polsl/m-of-n-rules) - proposed algorithm of rule induction with complex elementary conditions,
 * [SCARI](https://github.com/adaa-polsl/SCARI) - sequential covering action rule induction algoithm,
 * [LR-Rules](https://github.com/adaa-polsl/LR-Rules) - survival rules induction,
 * [GuideR](https://github.com/adaa-polsl/GuideR) - user-guided induction.
+* [MAINE](http://maine.ibemag.pl/) - web application that allows carrying out survival and classification analyses based on experimental, multi-omic patient data. In the reports, RuleKit is used to model data.
 
+## Team
+
+Management and scientific mentoring
+
+* Marek Sikora, PhD, DSc, Associate Prof. at SUT and EMAG – team leader, senior researcher
+* Łukasz Wróbel, PhD – main advisor, senior researcher
+* Dawid Macha, PhD student – project manager, researcher
+
+Research
+
+* Joanna Badura, PhD – researcher
+* Adam Gudyś, PhD – senior researcher 
+* Marek Hermansa, PhD student – devops
+* Cezary Maszczyk, PhD student – developer
+* Michał Kozielski, PhD – senior researcher
+* Łukasz Wawrowski, PhD – senior researcher, developer
+
+IT Team
+
+* Sławomir Chmielarz
+* Adam Grzelak, PhD
+* Bartosz Jasak
+* Dawid Leśniak
+* Paweł Lizner
+* Łukasz Macha
+* Angelika Podlaszewska
+* Jakub Rutka
+* Bożena Sarna
 
 ## Key publications
 
