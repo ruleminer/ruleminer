@@ -85,4 +85,6 @@ The most important publications related to the RuleMiner platform and the RuleKi
 15. Sikora M., Wróbel Ł.: Application of rule induction algorithms for analysis of data collected by seismic hazard monitoring systems in coal mines. Archives of Mining Sciences, 55(1), s. 91-114, 2010, available [here](https://www.researchgate.net/publication/281395657_Application_of_rule_induction_algorithms_for_analysis_of_data_collected_by_seismic_hazard_monitoring_systems_in_coal_mines).
 
 
-<!-- ## Comparision of RuleKit to other rule-based algorithms -->
+## Comparison of RuleKit to other rule-based algorithms
+
+The latest version of a report comparing RuleKit (RuleMiner computational kernel) with other rule-based methods is available in the repository [here](https://github.com/ruleminer/ruleminer/blob/main/reports/comparing_RuleKit_with_other_methods/classification_summary.md).
