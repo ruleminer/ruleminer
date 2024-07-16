@@ -26,6 +26,7 @@ As it was mentioned, RuleMiner is based on RuleKit tool. The main RuleKit reposi
 
 * [RuleKit](https://github.com/adaa-polsl/RuleKit) - main RuleKit repository,
 * [RuleKit-python](https://github.com/adaa-polsl/RuleKit-python) - python wrapper for RuleKit library,
+* [RuleKit-GUI](https://github.com/ruleminer/rulekit-gui) - Streamlit app for RuleKit,
 * [RuleXAI](https://github.com/adaa-polsl/RuleXAI) - library for rule-based aproach to explain the output of any machine learning model,
 * [survival-action-rules](https://github.com/adaa-polsl/survival-action-rules) - action rules for survival analysis,
 * [m-of-n-rules](https://github.com/adaa-polsl/m-of-n-rules) - proposed algorithm of rule induction with complex elementary conditions,
