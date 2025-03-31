@@ -68,7 +68,7 @@ IT Team
 
 The most important publications related to the RuleMiner platform and the RuleKit tool are as follows.
 
-
+1. Sikora M, Macha D, Badura J, Kozłowski A, Wróbel Ł. RuleMiner: An Interactive Web Tool for Rule-Based Data Analysis. In Companion Proceedings of the 8th International Joint Conference on Rules and Reasoning (RuleML+ RR-Companion 2024) 2024, available [here](https://ceur-ws.org/Vol-3816/paper3.pdf).
 1. Maszczyk C., Sikora M., Wróbel Ł.: Classification, regression and survival rule induction with complex and M-of-N elementary conditions. Machine Learning and Knowledge Extraction 6.1, 554-579, 2024, https://doi.org/10.3390/make6010026.
 2. Gudyś A, Sikora M., Wróbel Ł.: Separate and conquer heuristic allows robust mining of contrast sets in classification, regression and survival data. Expert Systems with Applications, 123376, 2024, https://doi.org/10.1016/j.eswa.2024.123376.
 3. Badura J., Hermansa M, Kozielski, Sikora M., Wróbel Ł.: Separate-and-conquer survival action rule learning. Knowledge-Based Systems 280, 110981, 2023, https://doi.org/10.1016/j.knosys.2023.110981.
