@@ -1,0 +1,29 @@
+<div *ngIf="dataSetSelectionItems" class="flex mb2 items-center">
+  <label [attr.for]="inputName" class="block label mr2">{{
+    'project.rules.rules_manual_selection.dataset_selection' | translate
+  }}</label>
+  <dx-select-box
+    [(ngModel)]="selectedDataSetId"
+    [dataSource]="dataSetSelectionItems"
+    [name]="inputName"
+    (valueChange)="onDataSetSelected()"
+    [width]="'270px'"
+    valueChangeEvent="keyup"
+    stylingMode="outlined"
+    valueExpr="id"
+    displayExpr="name"
+    fieldTemplate="field"
+    [labelMode]="'outside'">
+    <!-- SELECTED VALUE TEMPLATE -->
+    <div *dxTemplate="let data of 'field'">
+      <dx-text-box
+        [value]="data?.name | translate"
+        [inputAttr]="{ 'aria-label': 'Name' }"
+        [readOnly]="true"></dx-text-box>
+    </div>
+    <!-- ITEM TEMPLATE -->
+    <div *dxTemplate="let data of 'item'">
+      {{ data.name | translate }}
+    </div>
+  </dx-select-box>
+</div>
