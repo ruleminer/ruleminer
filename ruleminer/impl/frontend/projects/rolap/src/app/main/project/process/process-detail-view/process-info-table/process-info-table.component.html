@@ -1,0 +1,36 @@
+<ng-container *ngIf="processDetailsSignal() as details">
+  <strong>{{ 'process.table.details.info' | translate }}</strong>
+  <div class="info-group">
+    <dl class="process-description">
+      <dt>{{ 'process.table.details.data_set' | translate }}:</dt>
+      <dd>
+        <rolap-process-data-set [processDetails]="details"></rolap-process-data-set>
+      </dd>
+
+      <dt>{{ 'process.table.details.create_time' | translate }}:</dt>
+      <dd>{{ details.create_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+
+      <dt>{{ 'process.table.details.start_time' | translate }}:</dt>
+      <dd>
+        {{ details.start_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}
+        <span
+          class="waiting-time"
+          *ngIf="waitingTime() as waitingTime"
+          [title]="'process.table.pending_time' | translate"
+          >({{ waitingTime | executionTime }})</span
+        >
+      </dd>
+
+      <dt>{{ 'process.table.details.end_time' | translate }}:</dt>
+      <dd>
+        {{ details.finish_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}
+        <span
+          class="waiting-time"
+          *ngIf="executionTime() as executionTime"
+          [title]="'process.table.execution_time' | translate"
+          >({{ executionTime | executionTime : 'milis' }})</span
+        >
+      </dd>
+    </dl>
+  </div>
+</ng-container>

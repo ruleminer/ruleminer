@@ -1,0 +1,46 @@
+<rolap-card>
+  <rolap-title>{{ 'project.rules.table.headers.displayConclusion' | translate }}</rolap-title>
+  <rolap-survival-curve-plot *ngIf="finalEstimators" [noMargin]="true" [height]="250" [estimators]="finalEstimators" />
+  <table *ngIf="conclusionMap()">
+    <tr class="dx-row">
+      <td>
+        {{ 'visualisation.coverage_table_columns.median_survival_time' | translate }}
+      </td>
+      <td>
+        {{ conclusionMap()?.medianSurvivalTime || 'N/A' }}
+      </td>
+    </tr>
+    <tr class="dx-row">
+      <td>
+        {{ 'visualisation.coverage_table_columns.median_survival_time_ci_lower' | translate }}
+      </td>
+      <td>
+        {{ conclusionMap()?.medianSurvivalTimeCiLower || 'N/A' }}
+      </td>
+    </tr>
+    <tr class="dx-row">
+      <td>
+        {{ 'visualisation.coverage_table_columns.median_survival_time_ci_upper' | translate }}
+      </td>
+      <td>
+        {{ conclusionMap()?.medianSurvivalTimeCiUpper || 'N/A' }}
+      </td>
+    </tr>
+    <tr class="dx-row">
+      <td>
+        {{ 'visualisation.coverage_table_columns.events_count_sum' | translate }}
+      </td>
+      <td>
+        {{ conclusionMap()?.eventsCount || 0 }}
+      </td>
+    </tr>
+    <tr class="dx-row">
+      <td>
+        {{ 'visualisation.coverage_table_columns.censored_count_sum' | translate }}
+      </td>
+      <td>
+        {{ conclusionMap()?.censoredCount || 0 }}
+      </td>
+    </tr>
+  </table>
+</rolap-card>

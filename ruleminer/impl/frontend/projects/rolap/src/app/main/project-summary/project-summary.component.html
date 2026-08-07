@@ -1,0 +1,22 @@
+<dx-button class="mb2" [text]="'project_summary.back_btn' | translate" type="default" (onClick)="onBackBtnClick()">
+</dx-button>
+
+<rolap-card class="block mb2">
+  <rolap-title class="flex justify-between">
+    <h2>
+      {{ 'project_summary.title' | translate }}
+    </h2>
+
+    <rolap-project-summary-refresh-btn></rolap-project-summary-refresh-btn>
+  </rolap-title>
+  <rolap-project-summary-table [userLimits]="limits"></rolap-project-summary-table>
+</rolap-card>
+
+<rolap-card class="block mb2">
+  <rolap-title>
+    <h2>
+      {{ 'project_space_usage.title' | translate }}
+    </h2>
+  </rolap-title>
+  <rolap-project-space-usage [userLimits]="limits"></rolap-project-space-usage>
+</rolap-card>

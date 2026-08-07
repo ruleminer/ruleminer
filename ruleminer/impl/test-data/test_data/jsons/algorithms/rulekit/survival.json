@@ -1,0 +1,472 @@
+{
+  "problem_type": "survival",
+  "name": "RuleKit",
+  "version": "1.9.0",
+  "description_pl": "RuleKit to algorytm...",
+  "description_en": "RuleKit is a separate-and-conquer algorithm for rule induction...",
+  "parameters": [
+    {
+      "name": "minsupp_new",
+      "parameter_name_pl": "Minimalna liczba pokrywanych przykładów (na regułę)",
+      "parameter_name_en": "The minimal number of covered examples (per rule)",
+      "parameter_type": "float",
+      "description_pl": "Minimalna liczba dotychczas niepokrytych przykładów, które muszą zostać objęte regułą (dotyczy pozytywnych przykładów w problemach klasyfikacyjnych). Gdy wartość jest w zakresie [0,1], oznacza procent przykładów, natomiast wartość > 1 wskazuje liczbę przykładów.",
+      "description_en": "Minimum number of previously uncovered examples that must be covered by the rule (applies to positive examples in classification problems). When expressed as a value in the range [0,1], it indicates the percentage of examples, while a value > 1 indicates the number of examples.",
+      "default_value": "0.05",
+      "min_value": 0,
+      "max_value": 250
+    },
+    {
+      "name": "max_uncovered_fraction",
+      "parameter_name_pl": "Maksymalny procent (wyrażany jako liczba [0,1]) przykładów jaki może zostać nie pokryty",
+      "parameter_name_en": "The maximum fraction of examples tha may not be covered during rule induction",
+      "parameter_type": "float",
+      "description_pl": "Maksymalny procent (wyrażany jako liczba [0,1]) przykładów jaki może zostać nie pokryty podczas indukcji reguł",
+      "description_en": "The maximum fraction of examples tha may not be covered during rule induction",
+      "default_value": "0.02",
+      "min_value": 0,
+      "max_value": 1
+    },
+    {
+      "name": "max_growing",
+      "parameter_name_pl": "Maksymalna liczba warunków w regule",
+      "parameter_name_en": "The maximum number of conditions in a rule",
+      "parameter_type": "int",
+      "description_pl": "Maksymalna liczba warunków, które mogą zostać dodane do przesłanki reguły fazie wzrostu (użyj tego parametru dla dużych zbiorów danych, jeśli czas wykonania jest ograniczający); 0 oznacza brak ograniczeń",
+      "description_en": "The maximum number of conditions that can be added to the rule in the growing phase (use this parameter for large datasets if execution time is prohibitive); 0 indicates no limitation",
+      "default_value": "0",
+      "min_value": 0,
+      "max_value": 14
+    },
+    {
+      "name": "select_best_candidate",
+      "parameter_name_pl": "Wybierz najlepszą regułę po fazie wzrostu",
+      "parameter_name_en": "Choose the best rule after growing phase",
+      "parameter_type": "bool",
+      "description_pl": "Jako wynik fazy specjalizacji (wzrostu) zwracana jest reguła o najwyższej jakości",
+      "description_en": "As a result of the specialization (growing) phase, the rule with the highest quality is returned",
+      "default_value": "True",
+      "min_value": null,
+      "max_value": null
+    },
+    {
+      "name": "complementary_conditions",
+      "parameter_name_pl": "Warunki zanegowane",
+      "parameter_name_en": "Nagated conditions",
+      "parameter_type": "bool",
+      "description_pl": "Dopuszczaj do indukcji reguł zawierających zanegowane warunki elementarne (dotyczy atrybutów nominalnych)",
+      "description_en": "Allow induction of rules with negated elementary conditions (applies to nominal attributes)",
+      "default_value": "True",
+      "min_value": null,
+      "max_value": null
+    },
+    {
+      "name": "max_rule_count",
+      "parameter_name_pl": "Maksymalna liczba reguł",
+      "parameter_name_en": "The maximum number of rules",
+      "parameter_type": "int",
+      "description_pl": "Maksymalna liczba reguł które zostaną wygenerowane (w przypadku klasyfikacji maksymalne liczba reguł jakie zostaną wygenerowane dla każdej z klas decyzyjnych); 0 oznacza brak ograniczeń",
+      "description_en": "The maximum number of rules to be generated for a single class; 0 indicates no limitations",
+      "default_value": "0",
+      "min_value": 0,
+      "max_value": 500
+    }
+  ],
+  "expert_parameters": [
+    {
+      "name": "expert_rules",
+      "parameter_name_pl": "Reguły definiowane przez użytkownika",
+      "parameter_name_en": "User-defined rules",
+      "parameter_type": "expert_rules",
+      "description_pl": "Reguły definiowane przez użytkownika",
+      "description_en": "User-defined rules",
+      "default_value": "",
+      "min_value": null,
+      "max_value": null
+    },
+    {
+      "name": "expert_preferred_conditions",
+      "parameter_name_pl": "Warunki preferowane przez użytkownika",
+      "parameter_name_en": "User preferred conditions",
+      "parameter_type": "expert_conditions",
+      "description_pl": "Warunki wskazane przez użytkownika jako istotne, które w pierwszej kolejności powinny znaleźć się w przesłankach reguł",
+      "description_en": "Conditions indicated by the user as important. The conditions should be included in the rule premise in the first place.",
+      "default_value": "",
+      "min_value": null,
+      "max_value": null
+    },
+    {
+      "name": "expert_forbidden_conditions",
+      "parameter_name_pl": "Warunki zabronione przez użytkownika",
+      "parameter_name_en": "User forbidden conditions",
+      "parameter_type": "expert_conditions",
+      "description_pl": "Warunki uznane przez użytkownika za niedozwolone, warunki te nie mogę się pojawić w przesłankach reguł",
+      "description_en": "Conditions not allowed, these conditions can not appear in the rule premises",
+      "default_value": "",
+      "min_value": null,
+      "max_value": null
+    },
+    {
+      "name": "expert_preferred_attributes",
+      "parameter_name_pl": "Atrybuty preferowane przez użytkownika",
+      "parameter_name_en": "User preferred attributes",
+      "parameter_type": "expert_attributes",
+      "description_pl": "Atrybuty wskazana przez użytkownika jako istotne. Warunki elementarne generowanych reguł powinny być w pierwszej kolejnośći budowane na podstawie tych atrybutów",
+      "description_en": "Attributes indicated by the user as important. The elementary conditions of the generated rules should be primarily built based on these attributes.",
+      "default_value": "",
+      "min_value": null,
+      "max_value": null
+    },
+    {
+      "name": "expert_forbidden_attributes",
+      "parameter_name_pl": "Atrybuty zabronione użytkownika",
+      "parameter_name_en": "User forbidden attributes",
+      "parameter_type": "expert_attributes",
+      "description_pl": "Atrybuty uznane przez użytkownika za niedozwolone. Generowane reguły nie mogą zaiwerać awarunków zbudowanych w oparciu o te atrybuty",
+      "description_en": "Attributes deemed by the user as forbidden. The generated rules cannot include conditions built based on these attributes",
+      "default_value": "",
+      "min_value": null,
+      "max_value": null
+    },
+    {
+      "name": "extend_using_preferred",
+      "parameter_name_pl": "Dodaj warunki preferowane do istniejących reguł",
+      "parameter_name_en": "Add preferred conditions to the existing rules",
+      "parameter_type": "bool",
+      "description_pl": "Włączenie tej opcji spowoduje, że istniejące reguły mogą zostać rozszerzone o warunki i atrybuty preferowane przez użytkownika",
+      "description_en": "Enabling this option will allow the existing rules to be expanded with conditions and attributes preferred by the user",
+      "default_value": "True",
+      "min_value": null,
+      "max_value": null
+    },
+    {
+      "name": "extend_using_automatic",
+      "parameter_name_pl": "Dodaj warunki do istniejących reguł",
+      "parameter_name_en": "Add conditions to the existing rules",
+      "parameter_type": "bool",
+      "description_pl": "Włączenie tej opcji spowoduje, że istniejące reguły mogą zostać rozszerzone o nowe warunki elementarne",
+      "description_en": "Enabling this option will allow the existing rules to be expanded with new elementary conditions",
+      "default_value": "True",
+      "min_value": null,
+      "max_value": null
+    },
+    {
+      "name": "induce_using_preferred",
+      "parameter_name_pl": "Dopuszczaj do indukcji nowych reguł warunki preferowane lub zbudowane na preferowanych atrybutach",
+      "parameter_name_en": "Allow induction of new rules that contain preferred conditions or are based on preferred attributes",
+      "parameter_type": "bool",
+      "description_pl": "Zmienna logiczna wskazująca czy nowe (dodatkowe reguły) reguły powinny być indukowane przy użyciu preferowanych warunków lub być zbudowane na podstawie preferowanych atrybutów",
+      "description_en": "Boolean variable indicating whether new rules should be induced with a use of preferred conditions and attributes",
+      "default_value": "True",
+      "min_value": null,
+      "max_value": null
+    },
+    {
+      "name": "induce_using_automatic",
+      "parameter_name_pl": "Dopuszczaj do indukcji nowych reguł w sposób w pełni automatyczny",
+      "parameter_name_en": "Allow the induction of new rules in a fully automatic manner",
+      "parameter_type": "bool",
+      "description_pl": "Zmienna logiczna wskazująca czy nowe reguły mają być generowane w sposób w pełni automatyczny bez użycia informacji o preferencjach użytkownika",
+      "description_en": "Boolean variable indicating whether new rules should be generated in a fully automatic manner without using user preference information",
+      "default_value": "True",
+      "min_value": null,
+      "max_value": null
+    },
+    {
+      "name": "preferred_conditions_per_rule",
+      "parameter_name_pl": "Maksymalna liczba warunków preferowanych na regułę",
+      "parameter_name_en": "The maximum number of preferred conditions per rule",
+      "parameter_type": "int",
+      "description_pl": "Maksymalna liczba warunków preferowanych na regułę; 0 oznacza brak ograniczeń",
+      "description_en": "The maximum number of preferred conditions per rule; 0 indicates no limitations",
+      "default_value": "0",
+      "min_value": 0,
+      "max_value": 500
+    },
+    {
+      "name": "preferred_attributes_per_rule",
+      "parameter_name_pl": "Maksymalna liczba warunków zbudowanych na podstawie atrybutów preferowanych (na regułę)",
+      "parameter_name_en": "The maximum number of conditions built based on preferred attributes (per rule)",
+      "parameter_type": "int",
+      "description_pl": "Maksymalna liczba warunków zbudowanych na podstawie atrybutów preferowanych (na regułę); 0 oznacza brak ograniczeń",
+      "description_en": "The maximum number of conditions built based on preferred attributes (per rule); 0 indicates no limitations",
+      "default_value": "0",
+      "min_value": 0,
+      "max_value": 500
+    }
+  ],
+  "questions": [
+    {
+      "question_number": 1,
+      "question_text_pl": "Cel badania",
+      "question_text_en": "Aim of the analysis",
+      "question_answers": [
+        {
+          "answer_number": 1,
+          "answer_text_pl": "Odkrywanie wiedzy (eksploracja danych)",
+          "answer_text_en": "Knowledge discovery (data mining)",
+          "next_question_number": 2
+        },
+        {
+          "answer_number": 2,
+          "answer_text_pl": "Budowa systemu predykcyjnego (zdefiniowanego jako zbiór reguł)",
+          "answer_text_en": "Induction of rule-based classification system",
+          "next_question_number": 3
+        },
+        {
+          "answer_number": 3,
+          "answer_text_pl": "Oba cele są dla mnie tak samo ważne",
+          "answer_text_en": "Both objectives are equally important",
+          "next_question_number": 2
+        }
+      ]
+    },
+    {
+      "question_number": 2,
+      "question_text_pl": "Odkrywanie wiedzy",
+      "question_text_en": "Knowledge discovery",
+      "question_answers": [
+        {
+          "answer_number": 1,
+          "answer_text_pl": "Interesują mnie zależności ogólniejsze (obejmujące więcej przykładów), godzę się, że niektóre z nich mogą być niedokładne tzn. pokrywać też pewną liczbę przykładów negatywnych",
+          "answer_text_en": "More general rules (covering more examples) are preferred, I accept that some of them may be inaccurate, i.e. they may also cover a number of negative examples",
+          "next_question_number": 3
+        },
+        {
+          "answer_number": 2,
+          "answer_text_pl": "Interesują mnie reguły dokładne, jeśli to możliwe najlepiej jakby nie pokrywały przykładów negatywnych chociaż wiem, że reguły takie mogą pokrywać niewiele przykładów",
+          "answer_text_en": "More precise rules are preferred, preferably not covering negative examples I accept that such rules may cover few examples",
+          "next_question_number": 3
+        },
+        {
+          "answer_number": 3,
+          "answer_text_pl": "Kompromis pomiędzy opcją pierwszą i drugą",
+          "answer_text_en": "The trade-off between the above options",
+          "next_question_number": 3
+        }
+      ]
+    },
+    {
+      "question_number": 3,
+      "question_text_pl": "Informacje o zbiorze danych",
+      "question_text_en": "Dataset quality",
+      "question_answers": [
+        {
+          "answer_number": 1,
+          "answer_text_pl": "Zbiór danych został przygotowany pieczołowicie, nie ma w nim przekłamania szumów etc.",
+          "answer_text_en": "The dataset has been prepared carefully, with no errors, noise etc.",
+          "next_question_number": 4
+        },
+        {
+          "answer_number": 2,
+          "answer_text_pl": "W zbiorze danych mogą występować przekłamania, szum, etc. oceniam że dotyczy to około {prct_of_noise}% przykładów.",
+          "answer_text_en": "There may be errors and noise in the dataset, this applies to approximately {prct_of_noise}% of the examples.",
+          "next_question_number": 4
+        }
+      ]
+    },
+    {
+      "question_number": 4,
+      "question_text_pl": "Informacje o czasie obliczeń (Calculation time)",
+      "question_text_en": "Calculation time",
+      "question_answers": [
+        {
+          "answer_number": 1,
+          "answer_text_pl": "Mogę czekać na wyniki długo",
+          "answer_text_en": "I can wait a long time for the results",
+          "next_question_number": null
+        },
+        {
+          "answer_number": 2,
+          "answer_text_pl": "Chciałbym uzyskać wyniki jak najszybciej, chcę się wstępnie zorientować jakie są możliwości budowy systemu regułowego",
+          "answer_text_en": "I would like to get the results as soon as possible, I want to find out what patterns/rules exist in the data",
+          "next_question_number": null
+        }
+      ]
+    }
+  ],
+  "na_algorithm_parameters": [
+    {
+      "answer_string": "default",
+      "params_json": {}
+    },
+    {
+      "answer_string": "1.1_2.1_3.1_4.1",
+      "params_json": {
+        "max_uncovered_fraction": 0
+      }
+    },
+    {
+      "answer_string": "1.1_2.1_3.1_4.2",
+      "params_json": {
+        "max_uncovered_fraction": 0,
+        "max_growing": 6
+      }
+    },
+    {
+      "answer_string": "1.1_2.1_3.2_4.1",
+      "params_json": {
+        "max_uncovered_fraction": 0.5
+      }
+    },
+    {
+      "answer_string": "1.1_2.1_3.2_4.2",
+      "params_json": {
+        "max_uncovered_fraction": 0.5,
+        "max_growing": 6
+      }
+    },
+    {
+      "answer_string": "1.1_2.2_3.1_4.1",
+      "params_json": {
+        "max_uncovered_fraction": 0
+      }
+    },
+    {
+      "answer_string": "1.1_2.2_3.1_4.2",
+      "params_json": {
+        "max_uncovered_fraction": 0,
+        "max_growing": 6
+      }
+    },
+    {
+      "answer_string": "1.1_2.2_3.2_4.1",
+      "params_json": {
+        "max_uncovered_fraction": 0.5
+      }
+    },
+    {
+      "answer_string": "1.1_2.2_3.2_4.2",
+      "params_json": {
+        "max_uncovered_fraction": 0.5,
+        "max_growing": 6
+      }
+    },
+    {
+      "answer_string": "1.1_2.3_3.1_4.1",
+      "params_json": {
+        "max_uncovered_fraction": 0
+      }
+    },
+    {
+      "answer_string": "1.1_2.3_3.1_4.2",
+      "params_json": {
+        "max_uncovered_fraction": 0,
+        "max_growing": 6
+      }
+    },
+    {
+      "answer_string": "1.1_2.3_3.2_4.1",
+      "params_json": {
+        "max_uncovered_fraction": 0.5
+      }
+    },
+    {
+      "answer_string": "1.1_2.3_3.2_4.2",
+      "params_json": {
+        "max_uncovered_fraction": 0.5,
+        "max_growing": 8
+      }
+    },
+    {
+      "answer_string": "1.2_3.1_4.1",
+      "params_json": {
+        "max_uncovered_fraction": 0
+      }
+    },
+    {
+      "answer_string": "1.2_3.1_4.2",
+      "params_json": {}
+    },
+    {
+      "answer_string": "1.2_3.2_4.1",
+      "params_json": {
+        "max_uncovered_fraction": 0.25
+      }
+    },
+    {
+      "answer_string": "1.2_3.2_4.2",
+      "params_json": {
+        "max_uncovered_fraction": 0.25
+      }
+    },
+    {
+      "answer_string": "1.3_2.1_3.1_4.1",
+      "params_json": {
+        "max_uncovered_fraction": 0
+      }
+    },
+    {
+      "answer_string": "1.3_2.1_3.1_4.2",
+      "params_json": {
+        "max_uncovered_fraction": 0,
+        "max_growing": 6
+      }
+    },
+    {
+      "answer_string": "1.3_2.1_3.2_4.1",
+      "params_json": {
+        "max_uncovered_fraction": 0.5
+      }
+    },
+    {
+      "answer_string": "1.3_2.1_3.2_4.2",
+      "params_json": {
+        "max_uncovered_fraction": 0.5,
+        "max_growing": 6
+      }
+    },
+    {
+      "answer_string": "1.3_2.2_3.1_4.1",
+      "params_json": {
+        "max_uncovered_fraction": 0
+      }
+    },
+    {
+      "answer_string": "1.3_2.2_3.1_4.2",
+      "params_json": {
+        "max_uncovered_fraction": 0,
+        "max_growing": 6
+      }
+    },
+    {
+      "answer_string": "1.3_2.2_3.2_4.1",
+      "params_json": {
+        "max_uncovered_fraction": 0.5
+      }
+    },
+    {
+      "answer_string": "1.3_2.2_3.2_4.2",
+      "params_json": {
+        "max_uncovered_fraction": 0.5,
+        "max_growing": 6
+      }
+    },
+    {
+      "answer_string": "1.3_2.3_3.1_4.1",
+      "params_json": {
+        "max_uncovered_fraction": 0
+      }
+    },
+    {
+      "answer_string": "1.3_2.3_3.1_4.2",
+      "params_json": {
+        "max_uncovered_fraction": 0,
+        "max_growing": 6
+      }
+    },
+    {
+      "answer_string": "1.3_2.3_3.2_4.1",
+      "params_json": {
+        "max_uncovered_fraction": 0.5
+      }
+    },
+    {
+      "answer_string": "1.3_2.3_3.2_4.2",
+      "params_json": {
+        "max_uncovered_fraction": 0.5,
+        "max_growing": 8
+      }
+    }
+  ]
+}

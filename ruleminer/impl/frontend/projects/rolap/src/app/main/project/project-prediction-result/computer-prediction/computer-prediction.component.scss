@@ -1,0 +1,97 @@
+@import 'variables';
+
+:host {
+  width: 100%;
+}
+
+.file-format {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    width: 40%;
+  }
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 5px;
+}
+
+.item-0 {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+
+.item-1 {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+}
+
+.item-2 {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+
+  .input {
+    margin-bottom: auto;
+  }
+}
+
+.item-3 {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+}
+
+dx-data-grid {
+  margin: auto;
+}
+
+.tooltip-wrapper {
+  width: 40%;
+
+  @media (max-width: 768px) {
+    p {
+      flex-basis: 40%;
+    }
+  }
+}
+
+::ng-deep .dx-header-row .header-error {
+  color: $data-grid-error-color;
+  border-top: 1px solid $data-grid-border-color !important;
+  border-right: 1px solid $data-grid-border-color !important;
+  border-bottom: 2px solid $data-grid-border-color !important;
+  border-left: 1px solid $data-grid-border-color !important;
+  background-color: $data-grid-background-color;
+}
+
+input,
+.input,
+.dx-texteditor-container,
+.dx-selectbox {
+  flex: 1;
+}
+
+.errors-list {
+  list-style-type: unset;
+  padding-left: 0.5rem;
+
+  li {
+    margin-bottom: 0.25rem;
+  }
+}
+
+.test {
+  display: flex;
+  justify-content: center;
+}
+
+.loading {
+  color: $label-color;
+}
+
+.submit-btn.dx-state-disabled {
+  color: $label-color !important;
+}

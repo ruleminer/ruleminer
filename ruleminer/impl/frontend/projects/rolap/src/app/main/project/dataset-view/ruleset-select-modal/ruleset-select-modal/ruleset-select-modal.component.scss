@@ -1,0 +1,28 @@
+@import 'variables';
+
+:host {
+  height: 100%;
+  position: relative;
+}
+
+.no-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.rule {
+  padding: 5px 10px;
+  width: 100%;
+  text-align: left;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken($white, 4rem);
+  }
+}
+
+dx-scroll-view {
+  position: absolute;
+}

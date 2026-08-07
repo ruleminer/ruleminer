@@ -1,0 +1,25 @@
+@import 'variables';
+
+.no-data-template {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.chips-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.chips {
+  padding: 0 12px;
+  border-radius: 32px;
+  font-size: 13px;
+  background-color: $chips;
+  margin-right: 5px;
+  margin-top: 5px;
+
+  &:hover {
+    background: $chips-hover;
+  }
+}

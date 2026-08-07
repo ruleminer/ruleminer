@@ -1,0 +1,17 @@
+@import 'styles/_variables.scss';
+
+:host {
+  display: block;
+  height: 100%;
+
+  div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .white {
+      color: $white;
+    }
+  }
+}

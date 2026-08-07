@@ -1,0 +1,15 @@
+<div class="flex flex-wrap content-center align-baseline w-full">
+  <div class="validation-wrapper w-full">
+    <dx-text-box
+      #textBox
+      [label]="'project.rule_name' | translate"
+      [formControl]="nameFormControl"
+      (onInitialized)="autoFocusTextBox(textBox)"
+      class="my1 w-full"
+      stylingMode="outlined"
+      valueChangeEvent="keyup" />
+    <div class="ml2">
+      <rolap-validation-message [fieldName]="FieldName.RULE_NAME" [control]="nameFormControl" />
+    </div>
+  </div>
+</div>

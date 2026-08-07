@@ -1,0 +1,139 @@
+@import 'variables';
+
+:host {
+    display: contents;
+}
+
+.condition-group {
+    border-left: 3px solid transparent;
+    margin-left: 20px;
+    position: relative;
+}
+
+.condition-group-and {
+    border-left: 3px solid $condition-group-and-border;
+}
+
+.condition-group-or {
+    border-left: 3px solid $condition-group-or-border;
+}
+
+:host-context(.root-group) .condition-group {
+    margin-left: 0;
+}
+
+.group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+}
+
+.group-header-and {
+    background-color: rgba($condition-group-and-border, .05);
+}
+
+.group-header-or {
+    background-color: rgba($condition-group-or-border, .05);
+}
+
+.group-logic {
+    flex-shrink: 0;
+    display: flex;
+}
+
+.group-logic label {
+    margin-right: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.group-logic input[type="radio"] {
+    margin-right: 5px;
+}
+
+.group-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-left: auto;
+}
+
+.group-actions button {
+    padding: 5px 10px;
+    border: 1px solid $secondary-color;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.group-actions button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.add-button {
+    background-color: $add-button-bg;
+    color: $white;
+    border-color: $add-button-border;
+}
+
+.add-button:hover:not(:disabled) {
+    background-color: $add-button-hover-bg;
+    border-color: $add-button-hover-border;
+}
+
+.remove-group-button {
+    background-color: $remove-group-button-bg;
+    color: $color-text-dark;
+    border-color: $remove-group-button-border;
+}
+
+.remove-group-button:hover {
+    background-color: $remove-group-button-hover-bg;
+    border-color: $remove-group-button-hover-border;
+}
+
+.rules-container {
+    min-height: 20px;
+    padding-left: 15px;
+}
+
+.rule-item {
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.rule-item:first-child {
+    margin-top: 5px;
+}
+
+.empty-group-message {
+    color: $empty-group-message-color;
+    font-style: italic;
+    padding: 10px 0;
+    text-align: center;
+    border: 1px dashed $empty-group-message-border;
+    margin-top: 5px;
+}
+
+.filter-action-button-spaced {
+    margin-left: 5px;
+
+    &:first-child {
+        margin-left: 0;
+    }
+
+    fa-icon {
+        color: $filter-action-icon-color;
+    }
+
+    &:hover {
+        fa-icon {
+            color: $button-color;
+        }
+    }
+}

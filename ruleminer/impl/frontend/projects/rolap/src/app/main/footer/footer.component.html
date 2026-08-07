@@ -1,0 +1,29 @@
+<div class="main-wrapper flex">
+  <span
+    *ngIf="sidebarVisible | async"
+    class="spacer"
+    [ngStyle]="{ 'margin-left': (sidebarWidth | async) + 'px' }"></span>
+  <div class="footer-content">
+    <div class="flex justify-center p3">
+      <div class="inline-flex menu-container">
+        <img
+          class="lukasiewicz-logo mr4 mb2"
+          decoding="async"
+          src="assets/images/logo_ai.svg"
+          [attr.alt]="'footer.lukasiewicz-logo-alt' | translate" />
+        <nav class="col mb2" *ngFor="let menuColumn of menuDefinition">
+          <ul class="menu">
+            <li *ngFor="let item of menuColumn">
+              <a [attr.href]="item.urls[currentLanguage$ | async]" target="_blank" class="menu-link">{{
+                item.labelTranslateKey | translate
+              }}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="bottom-row flex justify-center p1">
+      <span>{{ 'footer.copyright' | translate : { year: currentYear } }}</span>
+    </div>
+  </div>
+</div>

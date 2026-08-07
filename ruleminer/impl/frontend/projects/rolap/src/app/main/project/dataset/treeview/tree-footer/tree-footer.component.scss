@@ -1,0 +1,89 @@
+@import 'variables';
+
+:host {
+  display: block;
+}
+
+.button-container {
+  row-gap: 0.9375rem;
+  margin: 0.9375rem;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.button-wrapper {
+  max-width: 200px;
+  width: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.button-disabled {
+  background-color: $tree-footer-disabled-bg-color !important;
+  color: $tree-footer-disabled-color !important;
+}
+
+.custom-button {
+  border-radius: 4px;
+  background-color: $button-color;
+  color: $white;
+  box-shadow: none;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  width: auto;
+  text-align: center;
+  box-sizing: border-box;
+  display: inline-block;
+
+  &:hover {
+    background-color: darken($button-color, 15%);
+  }
+}
+
+.custom-button:disabled {
+  background-color: $tree-footer-disabled-bg-color !important;
+  color: $tree-footer-disabled-color !important;
+  cursor: not-allowed;
+}
+
+.button-content {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.flex-wrapper {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  flex: 1;
+  justify-content: center;
+  min-width: 0;
+  width: auto;
+}
+
+fa-icon,
+rolap-tab-type-icon {
+  margin-right: 0.3rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: inherit;
+}
+
+@media (max-width: 80px) {
+  .truncated-text {
+    display: none;
+  }
+
+  .flex-wrapper {
+    justify-content: center;
+    width: auto;
+  }
+
+  .custom-button {
+    width: auto;
+    padding: 8px;
+  }
+}

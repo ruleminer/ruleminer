@@ -1,0 +1,13 @@
+@import 'variables';
+
+::ng-deep {
+  .dx-datagrid .dx-row>td {
+    padding: 4px;
+  }
+}
+
+.cancel-btn {
+  background-color: $process-status-aborted-bg-color;
+  color: $white;
+  width: 100%;
+}

@@ -1,0 +1,7 @@
+<dx-scroll-view [height]="'100%'" [showScrollbar]="'always'" *ngIf="ruleSets.length">
+  <button *ngFor="let ruleSet of ruleSets" class="rule" (click)="ruleClick(ruleSet.id, ruleSet.name)">
+    {{ ruleSet.name }}
+  </button>
+</dx-scroll-view>
+
+<div *ngIf="!ruleSets.length" class="no-data">{{ 'dataset.ruleset_select_modal.no_ruleset' | translate }}</div>

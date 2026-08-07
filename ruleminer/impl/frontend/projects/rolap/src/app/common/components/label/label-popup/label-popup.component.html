@@ -1,0 +1,88 @@
+<div [ngSwitch]="labelPopupType" class="label-popup">
+  <!-- POPUP TO SELECT EXISTING LABEL -->
+  <ng-container *ngSwitchCase="'select'">
+    <div class="popup-header">
+      <button class="popup-back-btn header-padding header-btn" (click)="toggleSearch()">
+        <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
+      </button>
+      <div class="popup-title header-padding">{{ 'labels.select_popup.title' | translate }}</div>
+      <button class="popup-close-btn header-padding header-btn" (click)="closePopup()">
+        <fa-icon [icon]="faXmark"></fa-icon>
+      </button>
+    </div>
+    <div class="popup-content">
+      <rolap-label-select
+        data-cy="rolap-label-select"
+        [labelsToSelect]="selectedLabels"
+        [isSearchVisible]="isSearchVisible"
+        (editLabel)="onLabelEdit($event)"
+        (selectedLabels)="onLabelSelected($event)">
+      </rolap-label-select>
+      <div class="add-new">
+        <button (click)="onAddNewBtnClick()" data-cy="add-new-label">
+          <fa-icon [icon]="faPlus"></fa-icon> {{ 'labels.edit_popup.add_new' | translate }}
+        </button>
+      </div>
+    </div>
+    <div class="popup-footer footer-add">
+      <dx-button
+        type="default"
+        text="{{ 'labels.save_btn' | translate }}"
+        (onClick)="onSaveSelectedLabels()"
+        data-cy="save-selected-label">
+      </dx-button>
+    </div>
+  </ng-container>
+
+  <!-- POPUP TO EDIT LABEL -->
+  <ng-container *ngIf="labelPopupType === 'edit'">
+    <div class="popup-header">
+      <div class="header-btn hidden"></div>
+      <div class="popup-title header-padding">{{ 'labels.edit_popup.title' | translate }}</div>
+      <button class="popup-close-btn header-padding header-btn" (click)="closePopup()">
+        <fa-icon [icon]="faXmark"></fa-icon>
+      </button>
+    </div>
+    <div class="popup-content">
+      <rolap-label-edit [label]="labelToEdit"></rolap-label-edit>
+    </div>
+    <div class="popup-footer footer-edit">
+      <dx-button
+        type="normal"
+        text="{{ 'labels.delete_btn' | translate }}"
+        (onClick)="onRemoveLabel()"
+        data-cy="remove-edited-label">
+      </dx-button>
+      <dx-button
+        type="default"
+        text="{{ 'labels.save_btn' | translate }}"
+        (onClick)="onSaveEditedLabel()"
+        data-cy="save-edited-label">
+      </dx-button>
+    </div>
+  </ng-container>
+
+  <!-- POPUP TO ADD NEW LABEL -->
+  <ng-container *ngSwitchCase="'new'">
+    <div class="popup-header">
+      <button class="popup-back-btn header-padding header-btn" (click)="onBackBtnClick('select')">
+        <fa-icon [icon]="faChevronLeft"></fa-icon>
+      </button>
+      <div class="popup-title header-padding">{{ 'labels.add_popup.title' | translate }}</div>
+      <button class="popup-close-btn header-padding header-btn" (click)="closePopup()">
+        <fa-icon [icon]="faXmark"></fa-icon>
+      </button>
+    </div>
+    <div class="popup-content">
+      <rolap-label-edit [label]="labelToEdit"></rolap-label-edit>
+    </div>
+    <div class="popup-footer footer-add">
+      <dx-button
+        type="default"
+        text="{{ 'labels.save_btn' | translate }}"
+        (onClick)="onAddNewLabel()"
+        data-cy="save-new-label">
+      </dx-button>
+    </div>
+  </ng-container>
+</div>

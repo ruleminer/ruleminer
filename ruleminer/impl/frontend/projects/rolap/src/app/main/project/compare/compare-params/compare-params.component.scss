@@ -1,0 +1,29 @@
+@import 'variables';
+
+.param {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: $chips;
+  transition: background-color 0.25s ease-in-out;
+  padding: 0.125rem 0.25rem;
+  margin-right: 0.125rem;
+  margin-bottom: 0.125rem;
+
+  &:hover {
+    background-color: lighten($chips, 4%);
+  }
+}
+
+.key,
+.value {
+  font-weight: 500;
+}
+
+.key {
+  color: $process-param-key-color;
+}
+
+.value {
+  margin-left: 0.125rem;
+  color: $process-param-value-color;
+}

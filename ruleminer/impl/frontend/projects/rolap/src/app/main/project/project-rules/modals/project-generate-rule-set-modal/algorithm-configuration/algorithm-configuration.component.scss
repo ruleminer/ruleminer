@@ -1,0 +1,64 @@
+@import 'variables';
+@import 'responsive';
+@import 'mixins/tooltip';
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .manually-wrapper {
+    height: 30vh;
+  }
+}
+
+.algorithms-params {
+  display: flex;
+
+  > :first-child {
+    width: 70%;
+
+    @media (max-width: 1600px) {
+      width: 70%;
+    }
+
+    @media (max-width: 1350px) {
+      width: 80%;
+    }
+
+    @media (max-width: 1200px) {
+      width: 80%;
+    }
+  }
+
+  > :nth-child(2) {
+    width: 30%;
+
+    @media (max-width: 1200px) {
+      width: 10%;
+    }
+  }
+}
+
+div h2 {
+  @include custom-heading;
+}
+
+label {
+  display: block;
+  align-self: center;
+  margin-right: 1em;
+  flex-basis: 50%;
+
+  @media (max-width: --bs-breakpoint-xl) {
+    flex-basis: 40%;
+  }
+}
+
+.k-label {
+  margin-right: -0.75rem;
+}

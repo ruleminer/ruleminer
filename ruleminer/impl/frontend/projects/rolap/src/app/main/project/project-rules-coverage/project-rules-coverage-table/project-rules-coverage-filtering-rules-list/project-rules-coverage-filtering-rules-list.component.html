@@ -1,0 +1,12 @@
+<div class="dx-field p0">
+  <div class="dx-field-label card-control-label flex">{{ 'project.rules_coverage.filtering_rules' | translate }}</div>
+  <ul class="mb2 mt1">
+    <li class="inline mr1" *ngFor="let rule of filteringRules">
+      <rolap-rule-chips
+        [rule]="rule"
+        [showRemoveButton]="true"
+        (onRemoveClick)="onRuleRemoveClick(rule)"
+        data-cy="filtering-rules-chips" />
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,12 @@
+<dx-data-grid [dataSource]="dataSource" (onRowClick)="onRowClick($event)">
+  <dxo-paging [pageSize]="20"></dxo-paging>
+  <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="allowedPageSizes"> </dxo-pager>
+
+  <dxo-selection mode="single"></dxo-selection>
+
+  <dxo-master-detail [enabled]="false" template="compareDetail" />
+
+  <div *dxTemplate="let compare of 'compareDetail'">
+    <rolap-compare-detail-view [compare]="compare" />
+  </div>
+</dx-data-grid>

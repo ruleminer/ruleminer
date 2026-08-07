@@ -1,0 +1,262 @@
+<ng-container *ngIf="dataIsReady">
+  <!-- CARD DISPLAY -->
+  <div class="big-table-container" >
+    <rolap-card id="rules-table-component" *ngIf="data && data.settings.displayInCard">
+      <rolap-title class="flex">
+        <div class="flex flex-auto">
+          <h2 class="center-vertical">
+            <ng-container *ngIf="data.settings.isCompareTable; else titleTemplate">{{
+              'project.rules.compare_title' | translate
+            }}</ng-container>
+            <ng-template #titleTemplate>{{ 'project.rules.rules' | translate }}</ng-template>
+          </h2>
+          <rolap-tooltip
+            *ngIf="data.settings.shouldDisplayTooltip"
+            [tooltip]="'tooltips.rules_table.' + data.displayType | translate" />
+        </div>
+        <ng-container [ngTemplateOutlet]="tableButtons"></ng-container>
+      </rolap-title>
+
+      <ng-container [ngTemplateOutlet]="table"></ng-container>
+
+      <rolap-card-footer *ngIf="data.settings.addRulesButton">
+        <rolap-rules-table-add-row-button [ids]="data.ids" />
+       <rolap-not-covering-rules [dataGrid]="dataGrid"/>
+      </rolap-card-footer>
+    </rolap-card>
+  </div>
+  <!-- DISPLAY WITHOUT WRAPPING IN CARD -->
+  <div class="big-table-container" *ngIf="data.ids.projectId && !data.settings.displayInCard">
+    <ng-container [ngTemplateOutlet]="tableButtons"></ng-container>
+    <ng-container [ngTemplateOutlet]="table"></ng-container>
+
+  </div>
+
+  <!-- BUTTONS -->
+  <ng-template #tableButtons>
+    <ng-container *ngIf="isAfterViewInit">
+      <div class="flex justify-end" [class.mb1]="!data.settings.displayInCard">
+        <!-- UNDO REDO BUTTONS -->
+        <rolap-rules-table-undo-redo-buttons *ngIf="data.settings.showUndoRedoButtons" />
+        <!-- EXPORT BUTTONS -->
+        <ng-container *ngIf="data.settings.showExportButton">
+          <rolap-rules-table-export-button
+            [dataGrid]="dataGrid"
+            [ruleSetId]="data.ids.ruleSetId"
+            [displayType]="data.displayType"
+            [problemType]="data.typeOfProblem"
+            class="mr2" />
+        </ng-container>
+        <!-- COLUMN CHOOSER BUTTON -->
+        <rolap-rules-table-column-chooser-button
+          [allColumns]="allColumns"
+          [displayType]="data.displayType"
+          [problemType]="data.typeOfProblem"
+          [dataGrid]="dataGrid" />
+      </div>
+    </ng-container>
+  </ng-template>
+
+  <ng-template #table>
+    <!-- TABLE SUMMARY -->
+    <rolap-project-rules-table-summary *ngIf="data.settings.showDisplayFilterRows" />
+
+    <!-- DATA GRID -->
+    <dx-data-grid
+      [height]="data.settings.height"
+      [dataSource]="rulesTableData"
+      [showBorders]="true"
+      [sorting]="{ mode: 'multiple' }"
+      [width]="'100%'"
+      [columnMinWidth]="ColumnWidth.SuperSmall"
+      [columnAutoWidth]="true"
+      [wordWrapEnabled]="true"
+      [customizeColumns]="customizeColumns"
+      [remoteOperations]="{ filtering: false }"
+      [(selectedRowKeys)]="selectedRows"
+      (onContextMenuPreparing)="prepareContextMenu($event)"
+      (onContentReady)="onContentReady($event)"
+      (onRowPrepared)="onRowPrepared($event)"
+      (onSelectionChanged)="onSelectionChanged($event)"
+      (onEditorPreparing)="onEditorPreparing($event)"
+      data-cy="rules-big-table">
+      <dxo-load-panel [enabled]="true" />
+      <dxo-selection
+        *ngIf="data.settings.instanceSync"
+        [selectAllMode]="'allPages'"
+        [showCheckBoxesMode]="'none'"
+        mode="multiple"></dxo-selection>
+      <dxo-selection
+        *ngIf="data.settings.selectRuleModal"
+        [selectAllMode]="'allPages'"
+        [showCheckBoxesMode]="'always'"
+        mode="multiple"></dxo-selection>
+
+      <ng-container *dxTemplate="let data of 'editButtonTemplate'">
+        <button>
+          <fa-icon [icon]="faPen" class="icon-secondary" title="{{ 'project.button.edit' | translate }}"></fa-icon>
+        </button>
+      </ng-container>
+      <ng-container *dxTemplate="let data of 'deleteButtonTemplate'">
+        <rolap-rule-delete-button [row]="data.data" class="ml1"/>
+      </ng-container>
+      <ng-container *dxTemplate="let data of 'moreButtonTemplate'">
+         <button class="ml1">
+            <fa-icon [icon]="faEllipse" class="icon-secondary" title="{{ 'project.button.more' | translate }}"></fa-icon>
+          </button>
+      </ng-container>
+
+      <div *dxTemplate="let d of 'activityTemplateHeader'">
+        <rolap-rules-table-active-header [problemType]="data.typeOfProblem" [displayType]="data.displayType" />
+      </div>
+
+      <div *dxTemplate="let d of 'visibilityFilterCellHeader'">
+        <rolap-rules-table-coverage-filter-header
+          data-cy="rules-coverage-filter-header"
+          [problemType]="data.typeOfProblem"
+          [displayType]="data.displayType"
+          [dataField]="d.column.dataField" />
+      </div>
+
+      <div *dxTemplate="let d of 'visibilityCellHeader'">
+        <rolap-rules-table-coverage-visibility-header
+          data-cy="rules-coverage-visibility-header"
+          [problemType]="data.typeOfProblem"
+          [displayType]="data.displayType"
+          [dataField]="d.column.dataField" />
+      </div>
+
+      <div *dxTemplate="let d of 'labelTemplateHeader'">
+        <div class="flex">
+          <rolap-rules-table-header-text
+            class="mx1 center-vertical"
+            [problemType]="data.typeOfProblem"
+            [displayType]="data.displayType"
+            [dataField]="d.column.dataField" />
+          <rolap-label-compact-toggle
+            [title]="'project.rules.table.headers.labelsSwitch' | translate"
+            (click)="onLabelToggleClick($event)" />
+        </div>
+      </div>
+
+      <div *dxTemplate="let d of 'translateTemplateHeader'">
+        <div class="flex">
+          <rolap-rules-table-header-text
+            class="ml1 center-vertical"
+            [problemType]="data.typeOfProblem"
+            [displayType]="data.displayType"
+            [dataField]="d.column.dataField" />
+        </div>
+      </div>
+
+      <ng-container *dxTemplate="let data of 'comparisonTemplateHeader'">
+        <div class="activity-wrapper" *ngIf="data.selectMultiple">
+          <dx-check-box
+            *ngIf="!data.settings.isCompareTable"
+            [value]="isChecked"
+            (onValueChanged)="markAllRuleSetsToCompare($event)" />
+          <rolap-rules-table-header-text
+            class="pl1"
+            [problemType]="data.typeOfProblem"
+            [displayType]="data.displayType"
+            [dataField]="data.column.dataField" />
+        </div>
+        <div class="activity-wrapper" *ngIf="!data.selectMultiple">
+          <rolap-rules-table-header-text
+            class="pl1"
+            [problemType]="data.typeOfProblem"
+            [displayType]="data.displayType"
+            [dataField]="data.column.dataField" />
+        </div>
+      </ng-container>
+
+      <div *dxTemplate="let d of 'visibilityFilterCell'">
+        <rolap-rules-table-coverage-filter-toggle
+          [attr.data-cy]="'rule-filter-toggle--' + d.data.autoIncrement"
+          [row]="d.data" />
+      </div>
+
+      <div *dxTemplate="let d of 'visibilityCell'">
+        <rolap-rules-table-coverage-visibility-toggle
+          [row]="d.data"
+          [attr.data-cy]="'rule-visibility-toggle--' + d.data.autoIncrement" />
+      </div>
+
+      <span class="center cell-header" *dxTemplate="let data of 'autoIncrement'">
+        {{ 'project.rules_coverage.rule_name_prefix' | translate }}{{ data.data.autoIncrement }}
+      </span>
+
+      <rolap-colored-cell-based-on-id
+        *dxTemplate="let data of 'ruleNameCell'"
+        data-cy="rule-name-cell"
+        [key]="data.data.autoIncrement"
+        [colorParentElementSelector]="'td'"
+        [text]="('project.rules_coverage.rule_name_prefix' | translate) + data.data.autoIncrement"
+        [height]="30.5" />
+
+      <!-- CUSTOM INDICATOR COLUMNS TEMPLATES NAME ARE DEFINED IN RulesTableService.CUSTOM_COLUMNS -->
+      <div *dxTemplate="let cell of 'regressionRuleConclusionBoxplot'">
+        <rolap-regression-rule-conclusion-boxplot
+          [conclusion]="cell.data.conclusion"
+          [labelMinMaxValues]="labelMinMaxValue!" />
+      </div>
+
+      <div *dxTemplate="let cell of 'survivalRuleConclusionCurve'">
+        <rolap-survival-rule-estimator-curve
+          *ngIf="cell.data.kaplanMeierEstimator"
+          [kaplanMeier]="cell.data.kaplanMeierEstimator" />
+      </div>
+
+
+      <div *dxTemplate="let cell of 'regressionDisplayConclusionTemplate'">
+        <span>{{cell.data.displayConclusion | number: '1.2-2' }}</span>
+      </div>
+
+      <div *dxTemplate="let d of 'activityTemplate'">
+        <rolap-rules-table-activity-toggle [uuid]="d.data.uuid" />
+      </div>
+
+      <div *dxTemplate="let d of 'labelTemplate'">
+        <rolap-table-label
+          [uuid]="d.data.uuid"
+          [labels]="d.data.labels"
+          [ids]="data.ids"
+          [readonly]="data.settings.readonlyLabels">
+        </rolap-table-label>
+      </div>
+
+      <div *dxTemplate="let d of 'comparisonTemplate'">
+        <rolap-rules-table-comparison-cell [uuid]="d.data.uuid" [displayType]="data.displayType" />
+      </div>
+
+      <dxo-editing
+        *ngIf="data.settings.editable"
+        mode="popup"
+        [allowUpdating]="true"
+        [allowDeleting]="true"
+        [useIcons]="true"
+        [refreshMode]="'reshape'">
+        <dxo-texts
+          confirmDeleteMessage="{{ 'project.rules.table.confirm_delete_message' | translate }}"
+          deleteRow="{{ 'project.rules.table.delete_row' | translate }}"></dxo-texts>
+        <dxo-texts></dxo-texts>
+      </dxo-editing>
+
+      <dxo-scrolling [useNative]="true" />
+      <dxo-pager
+        [visible]="true"
+        [showPageSizeSelector]="true"
+        [showNavigationButtons]="true"
+        [allowedPageSizes]="ALLOWED_PAGE_SIZES" />
+      <dxo-state-storing
+        [enabled]="true"
+        type="custom"
+        [customLoad]="loadState"
+        [customSave]="saveState"
+        [savingTimeout]="100">
+      </dxo-state-storing>
+      <dxo-filter-row *ngIf="data.settings.showDisplayFilterRows" [visible]="true" [applyFilter]="'Immediately'" />
+    </dx-data-grid>
+  </ng-template>
+</ng-container>
+

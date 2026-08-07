@@ -1,0 +1,18 @@
+<dx-data-grid
+  *ngIf="displayTable$ | async"
+  class="mb1"
+  [dataSource]="table$ | async"
+  [showBorders]="true"
+  [customizeColumns]="customizeColumns"
+  [width]="tableWidth">
+  <div *dxTemplate="let d of 'translateTemplateHeader'">
+    {{ 'project.rules_coverage.table.rule' | translate }}
+  </div>
+  <div *dxTemplate="let d of 'colorRuleTemplateHeader'">
+    <rolap-rule-chips [rule]="{ uuid: '', ruleName: d.column.caption }" [showRemoveButton]="false" />
+  </div>
+
+  <div *dxTemplate="let d of 'translateCellTemplate'">
+    <p>{{ 'project.rules_coverage.table.' + d.value | translate }}</p>
+  </div>
+</dx-data-grid>

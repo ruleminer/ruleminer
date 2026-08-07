@@ -1,0 +1,6 @@
+from .characteristics import CharacteristicsSummaryTestCase
+from .characteristics import CharacteristicsTestCase
+from .cross_validation import CVResultViewTestCase
+from .importance import ImportanceViewTestCase
+from .prediction_indicators import PredictionIndicatorsSummaryTestCase
+from .prediction_indicators import PredictionIndicatorsTestCase

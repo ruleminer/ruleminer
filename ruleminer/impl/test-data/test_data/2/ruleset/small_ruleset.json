@@ -1,0 +1,1558 @@
+{
+  "meta": {
+    "attributes": [
+      "race",
+      "gender",
+      "age",
+      "weight",
+      "admission_type_id",
+      "discharge_disposition_id",
+      "admission_source_id",
+      "time_in_hospital",
+      "payer_code",
+      "medical_specialty",
+      "num_lab_procedures",
+      "num_procedures",
+      "num_medications",
+      "number_outpatient",
+      "number_emergency",
+      "number_inpatient",
+      "diag_1",
+      "diag_2",
+      "diag_3",
+      "number_diagnoses",
+      "max_glu_serum",
+      "A1Cresult",
+      "metformin",
+      "repaglinide",
+      "nateglinide",
+      "chlorpropamide",
+      "glimepiride",
+      "acetohexamide",
+      "glipizide",
+      "glyburide",
+      "tolbutamide",
+      "pioglitazone",
+      "rosiglitazone",
+      "acarbose",
+      "miglitol",
+      "troglitazone",
+      "tolazamide",
+      "examide",
+      "citoglipton",
+      "insulin",
+      "glyburide-metformin",
+      "glipizide-metformin",
+      "glimepiride-pioglitazone",
+      "metformin-rosiglitazone",
+      "metformin-pioglitazone",
+      "change",
+      "diabetesMed"
+    ],
+    "decision_attribute": "class",
+    "decision_attribute_distribution": {
+      "<30": 11357,
+      ">30": 35545,
+      "NO": 54864
+    }
+  },
+  "rules": [
+    {
+      "uuid": "146ca031-fa17-4dff-b98d-9a8e3bb9c60e",
+      "string": "IF miglitol = {No} AND time_in_hospital < 13.50 AND num_lab_procedures < 82.50 AND number_emergency < 0.50 AND number_outpatient < 0.50 AND number_inpatient < 0.50 AND number_diagnoses < 5.50 THEN class = NO ",
+      "premise": {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              34
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              7
+            ],
+            "negated": false,
+            "left": null,
+            "right": 13.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              10
+            ],
+            "negated": false,
+            "left": null,
+            "right": 82.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              14
+            ],
+            "negated": false,
+            "left": null,
+            "right": 0.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              13
+            ],
+            "negated": false,
+            "left": null,
+            "right": 0.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              15
+            ],
+            "negated": false,
+            "left": null,
+            "right": 0.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              19
+            ],
+            "negated": false,
+            "left": null,
+            "right": 5.5,
+            "left_closed": false,
+            "right_closed": false
+          }
+        ]
+      },
+      "conclusion": {
+        "value": "NO"
+      },
+      "coverage": {
+        "p": 10177,
+        "n": 3991,
+        "P": 54864,
+        "N": 46902
+      }
+    },
+    {
+      "uuid": "1cad1a6f-3fea-43c6-84d2-c6aaffa0f189",
+      "string": "IF troglitazone = {No} AND glipizide-metformin = {No} AND number_emergency < 3.50 AND time_in_hospital < 6.50 AND number_outpatient < 0.50 AND number_diagnoses < 8.50 AND number_inpatient < 0.50 THEN class = NO ",
+      "premise": {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              35
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              41
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              14
+            ],
+            "negated": false,
+            "left": null,
+            "right": 3.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              7
+            ],
+            "negated": false,
+            "left": null,
+            "right": 6.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              13
+            ],
+            "negated": false,
+            "left": null,
+            "right": 0.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              19
+            ],
+            "negated": false,
+            "left": null,
+            "right": 8.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              15
+            ],
+            "negated": false,
+            "left": null,
+            "right": 0.5,
+            "left_closed": false,
+            "right_closed": false
+          }
+        ]
+      },
+      "conclusion": {
+        "value": "NO"
+      },
+      "coverage": {
+        "p": 19432,
+        "n": 9542,
+        "P": 54864,
+        "N": 46902
+      }
+    },
+    {
+      "uuid": "3b9a6f68-8e2b-44d8-84fa-b18862c532ea",
+      "string": "IF num_medications < 67.00 AND glipizide-metformin = {No} AND tolazamide = {No} AND acarbose = {No} AND chlorpropamide = {No} AND glyburide-metformin = {No} AND repaglinide = {No} AND number_outpatient < 3.50 AND number_emergency < 0.50 AND change = {No} AND number_inpatient < 0.50 THEN class = NO ",
+      "premise": {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              12
+            ],
+            "negated": false,
+            "left": null,
+            "right": 67.0,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              41
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              36
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              33
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              25
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              40
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              23
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              13
+            ],
+            "negated": false,
+            "left": null,
+            "right": 3.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              14
+            ],
+            "negated": false,
+            "left": null,
+            "right": 0.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              45
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              15
+            ],
+            "negated": false,
+            "left": null,
+            "right": 0.5,
+            "left_closed": false,
+            "right_closed": false
+          }
+        ]
+      },
+      "conclusion": {
+        "value": "NO"
+      },
+      "coverage": {
+        "p": 22089,
+        "n": 11919,
+        "P": 54864,
+        "N": 46902
+      }
+    },
+    {
+      "uuid": "a0073567-a627-434b-9805-63b3392dce23",
+      "string": "IF number_diagnoses < 14.50 AND acetohexamide = {No} AND num_lab_procedures < 126.50 AND troglitazone = {No} AND glipizide-metformin = {No} AND miglitol = {No} AND chlorpropamide = {No} AND num_medications < 66.50 AND acarbose = {No} AND number_outpatient < 5.50 AND number_emergency < 1.50 AND weight = {?} AND number_inpatient < 0.50 THEN class = NO ",
+      "premise": {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              19
+            ],
+            "negated": false,
+            "left": null,
+            "right": 14.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              27
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              10
+            ],
+            "negated": false,
+            "left": null,
+            "right": 126.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              35
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              41
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              34
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              25
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              12
+            ],
+            "negated": false,
+            "left": null,
+            "right": 66.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              33
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              13
+            ],
+            "negated": false,
+            "left": null,
+            "right": 5.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              14
+            ],
+            "negated": false,
+            "left": null,
+            "right": 1.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              3
+            ],
+            "negated": false,
+            "value": "?"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              15
+            ],
+            "negated": false,
+            "left": null,
+            "right": 0.5,
+            "left_closed": false,
+            "right_closed": false
+          }
+        ]
+      },
+      "conclusion": {
+        "value": "NO"
+      },
+      "coverage": {
+        "p": 39837,
+        "n": 23980,
+        "P": 54864,
+        "N": 46902
+      }
+    },
+    {
+      "uuid": "2c44e449-5a76-4b47-b3ab-93e5a09d03ad",
+      "string": "IF glimepiride-pioglitazone = {No} AND acetohexamide = {No} AND num_lab_procedures < 126.50 AND troglitazone = {No} AND glipizide-metformin = {No} AND num_medications < 66.50 AND number_emergency < 4.50 AND weight = {?} AND number_inpatient < 3.50 AND number_outpatient < 0.50 THEN class = NO ",
+      "premise": {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              42
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              27
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              10
+            ],
+            "negated": false,
+            "left": null,
+            "right": 126.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              35
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              41
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              12
+            ],
+            "negated": false,
+            "left": null,
+            "right": 66.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              14
+            ],
+            "negated": false,
+            "left": null,
+            "right": 4.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              3
+            ],
+            "negated": false,
+            "value": "?"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              15
+            ],
+            "negated": false,
+            "left": null,
+            "right": 3.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              13
+            ],
+            "negated": false,
+            "left": null,
+            "right": 0.5,
+            "left_closed": false,
+            "right_closed": false
+          }
+        ]
+      },
+      "conclusion": {
+        "value": "NO"
+      },
+      "coverage": {
+        "p": 46473,
+        "n": 34159,
+        "P": 54864,
+        "N": 46902
+      }
+    },
+    {
+      "uuid": "4c8eabd9-0bfb-44ed-be9e-b1def75b5d61",
+      "string": "IF tolazamide = {No} AND num_lab_procedures < 108.00 AND tolbutamide = {No} AND num_medications >= 1.50 AND num_medications < 48.50 AND number_diagnoses >= 4.50 AND number_outpatient >= 0.50 THEN class = >30 ",
+      "premise": {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              36
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              10
+            ],
+            "negated": false,
+            "left": null,
+            "right": 108.0,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              30
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              12
+            ],
+            "negated": false,
+            "left": 1.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              12
+            ],
+            "negated": false,
+            "left": null,
+            "right": 48.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              19
+            ],
+            "negated": false,
+            "left": 4.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              13
+            ],
+            "negated": false,
+            "left": 0.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          }
+        ]
+      },
+      "conclusion": {
+        "value": ">30"
+      },
+      "coverage": {
+        "p": 7114,
+        "n": 8573,
+        "P": 35545,
+        "N": 66221
+      }
+    },
+    {
+      "uuid": "a9504b04-3155-4f84-b58f-e414405d10c2",
+      "string": "IF metformin-rosiglitazone = {No} AND number_inpatient < 20.00 AND number_emergency < 63.50 AND number_outpatient < 39.50 AND num_medications < 70.50 AND num_lab_procedures < 89.50 AND num_medications >= 5.50 AND admission_source_id = {7} AND number_inpatient >= 0.50 THEN class = >30 ",
+      "premise": {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              43
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              15
+            ],
+            "negated": false,
+            "left": null,
+            "right": 20.0,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              14
+            ],
+            "negated": false,
+            "left": null,
+            "right": 63.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              13
+            ],
+            "negated": false,
+            "left": null,
+            "right": 39.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              12
+            ],
+            "negated": false,
+            "left": null,
+            "right": 70.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              10
+            ],
+            "negated": false,
+            "left": null,
+            "right": 89.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              12
+            ],
+            "negated": false,
+            "left": 5.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              6
+            ],
+            "negated": false,
+            "value": "7"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              15
+            ],
+            "negated": false,
+            "left": 0.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          }
+        ]
+      },
+      "conclusion": {
+        "value": ">30"
+      },
+      "coverage": {
+        "p": 9480,
+        "n": 10528,
+        "P": 35545,
+        "N": 66221
+      }
+    },
+    {
+      "uuid": "799268bc-4f54-4fa1-8362-da779bad134a",
+      "string": "IF metformin-rosiglitazone = {No} AND tolazamide = {No} AND number_inpatient < 10.50 AND number_diagnoses < 12.50 AND num_lab_procedures < 86.50 AND num_medications < 28.50 AND diabetesMed = {Yes} AND number_diagnoses >= 8.50 THEN class = >30 ",
+      "premise": {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              43
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              36
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              15
+            ],
+            "negated": false,
+            "left": null,
+            "right": 10.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              19
+            ],
+            "negated": false,
+            "left": null,
+            "right": 12.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              10
+            ],
+            "negated": false,
+            "left": null,
+            "right": 86.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              12
+            ],
+            "negated": false,
+            "left": null,
+            "right": 28.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              46
+            ],
+            "negated": false,
+            "value": "Yes"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              19
+            ],
+            "negated": false,
+            "left": 8.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          }
+        ]
+      },
+      "conclusion": {
+        "value": ">30"
+      },
+      "coverage": {
+        "p": 13549,
+        "n": 20566,
+        "P": 35545,
+        "N": 66221
+      }
+    },
+    {
+      "uuid": "2e7c45f2-0722-4f15-94b9-0febea530698",
+      "string": "IF metformin-rosiglitazone = {No} AND num_medications < 71.00 AND number_inpatient < 10.50 AND num_lab_procedures < 104.50 AND num_medications >= 6.50 AND number_diagnoses >= 6.50 THEN class = >30 ",
+      "premise": {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              43
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              12
+            ],
+            "negated": false,
+            "left": null,
+            "right": 71.0,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              15
+            ],
+            "negated": false,
+            "left": null,
+            "right": 10.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              10
+            ],
+            "negated": false,
+            "left": null,
+            "right": 104.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              12
+            ],
+            "negated": false,
+            "left": 6.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              19
+            ],
+            "negated": false,
+            "left": 6.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          }
+        ]
+      },
+      "conclusion": {
+        "value": ">30"
+      },
+      "coverage": {
+        "p": 25438,
+        "n": 41843,
+        "P": 35545,
+        "N": 66221
+      }
+    },
+    {
+      "uuid": "eacfa929-e7fa-4fbc-a448-b7c1c4beb0b9",
+      "string": "IF glimepiride-pioglitazone = {No} AND tolazamide = {No} AND tolbutamide = {No} AND num_lab_procedures < 115.50 AND glipizide-metformin = {No} AND chlorpropamide = {No} AND number_emergency < 28.50 AND number_diagnoses < 14.50 AND number_outpatient < 18.00 AND time_in_hospital < 9.50 AND time_in_hospital >= 1.50 AND metformin = {No} AND number_inpatient >= 1.50 THEN class = <30 ",
+      "premise": {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              42
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              36
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              30
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              10
+            ],
+            "negated": false,
+            "left": null,
+            "right": 115.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              41
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              25
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              14
+            ],
+            "negated": false,
+            "left": null,
+            "right": 28.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              19
+            ],
+            "negated": false,
+            "left": null,
+            "right": 14.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              13
+            ],
+            "negated": false,
+            "left": null,
+            "right": 18.0,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              7
+            ],
+            "negated": false,
+            "left": null,
+            "right": 9.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              7
+            ],
+            "negated": false,
+            "left": 1.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              22
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              15
+            ],
+            "negated": false,
+            "left": 1.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          }
+        ]
+      },
+      "conclusion": {
+        "value": "<30"
+      },
+      "coverage": {
+        "p": 2272,
+        "n": 7764,
+        "P": 11357,
+        "N": 90409
+      }
+    },
+    {
+      "uuid": "b66e06eb-915b-4eaa-8745-157a92bedddc",
+      "string": "IF number_diagnoses >= 2.50 AND num_medications >= 1.50 AND chlorpropamide = {No} AND glipizide-metformin = {No} AND number_emergency < 28.50 AND tolbutamide = {No} AND num_lab_procedures < 103.50 AND number_diagnoses < 15.50 AND number_outpatient < 14.50 AND num_medications < 50.50 AND acarbose = {No} AND num_procedures < 4.50 AND time_in_hospital >= 2.50 AND number_inpatient >= 0.50 THEN class = <30 ",
+      "premise": {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              19
+            ],
+            "negated": false,
+            "left": 2.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              12
+            ],
+            "negated": false,
+            "left": 1.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              25
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              41
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              14
+            ],
+            "negated": false,
+            "left": null,
+            "right": 28.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              30
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              10
+            ],
+            "negated": false,
+            "left": null,
+            "right": 103.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              19
+            ],
+            "negated": false,
+            "left": null,
+            "right": 15.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              13
+            ],
+            "negated": false,
+            "left": null,
+            "right": 14.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              12
+            ],
+            "negated": false,
+            "left": null,
+            "right": 50.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              33
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              11
+            ],
+            "negated": false,
+            "left": null,
+            "right": 4.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              7
+            ],
+            "negated": false,
+            "left": 2.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              15
+            ],
+            "negated": false,
+            "left": 0.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          }
+        ]
+      },
+      "conclusion": {
+        "value": "<30"
+      },
+      "coverage": {
+        "p": 4063,
+        "n": 19272,
+        "P": 11357,
+        "N": 90409
+      }
+    },
+    {
+      "uuid": "10a2bdf7-611e-4823-ad33-929007c586a0",
+      "string": "IF metformin-rosiglitazone = {No} AND troglitazone = {No} AND acetohexamide = {No} AND number_emergency < 19.50 AND num_lab_procedures < 110.00 AND glipizide-metformin = {No} AND num_medications >= 1.50 AND acarbose = {No} AND number_diagnoses >= 5.50 AND time_in_hospital >= 4.50 THEN class = <30 ",
+      "premise": {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              43
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              35
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              27
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              14
+            ],
+            "negated": false,
+            "left": null,
+            "right": 19.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              10
+            ],
+            "negated": false,
+            "left": null,
+            "right": 110.0,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              41
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              12
+            ],
+            "negated": false,
+            "left": 1.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              33
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              19
+            ],
+            "negated": false,
+            "left": 5.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              7
+            ],
+            "negated": false,
+            "left": 4.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          }
+        ]
+      },
+      "conclusion": {
+        "value": "<30"
+      },
+      "coverage": {
+        "p": 4404,
+        "n": 29039,
+        "P": 11357,
+        "N": 90409
+      }
+    },
+    {
+      "uuid": "dbb1138a-c846-4968-bb38-2f84852640ab",
+      "string": "IF metformin-rosiglitazone = {No} AND number_inpatient < 17.50 AND number_emergency < 70.00 AND troglitazone = {No} AND glipizide-metformin = {No} AND tolbutamide = {No} AND number_outpatient < 19.50 AND time_in_hospital < 10.50 AND num_medications < 37.50 AND num_lab_procedures < 76.50 AND num_medications >= 4.50 AND number_diagnoses >= 7.50 THEN class = <30 ",
+      "premise": {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              43
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              15
+            ],
+            "negated": false,
+            "left": null,
+            "right": 17.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              14
+            ],
+            "negated": false,
+            "left": null,
+            "right": 70.0,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              35
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              41
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_nominal",
+            "attributes": [
+              30
+            ],
+            "negated": false,
+            "value": "No"
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              13
+            ],
+            "negated": false,
+            "left": null,
+            "right": 19.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              7
+            ],
+            "negated": false,
+            "left": null,
+            "right": 10.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              12
+            ],
+            "negated": false,
+            "left": null,
+            "right": 37.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              10
+            ],
+            "negated": false,
+            "left": null,
+            "right": 76.5,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              12
+            ],
+            "negated": false,
+            "left": 4.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              19
+            ],
+            "negated": false,
+            "left": 7.5,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          }
+        ]
+      },
+      "conclusion": {
+        "value": "<30"
+      },
+      "coverage": {
+        "p": 6488,
+        "n": 45714,
+        "P": 11357,
+        "N": 90409
+      }
+    }
+  ]
+}

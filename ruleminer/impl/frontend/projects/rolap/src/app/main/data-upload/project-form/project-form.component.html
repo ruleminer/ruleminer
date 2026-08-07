@@ -1,0 +1,64 @@
+<div class="project-form">
+  <form [formGroup]="projectForm">
+    <rolap-card>
+      <rolap-title class="flex justify-between">
+        <h2>{{ 'data_upload.project_info' | translate }}</h2>
+      </rolap-title>
+      <div class="dx-field">
+        <div class="dx-field-label">{{ 'project.name' | translate }}</div>
+        <dx-text-box
+          id="projectName"
+          name="projectName"
+          [inputAttr]="{ 'aria-label': 'project.name' | translate }"
+          formControlName="projectName"
+          stylingMode="outlined"
+          valueChangeEvent="input"
+          data-cy="project-name" />
+        <div class="mt1 ml1">
+          <div class="mt1 ml1">
+            <rolap-validation-message
+              data-cy="project-name-validation-message"
+              [fieldName]="FieldName.PROJECT_NAME"
+              [control]="projectForm.controls['projectName']" />
+          </div>
+        </div>
+      </div>
+      <div class="dx-field">
+        <div class="dx-field-label">
+          <div class="flex">
+            <p class="center-vertical">{{ 'project.purpose' | translate }}</p>
+            <rolap-tooltip [tooltip]="'data_upload.tooltips.purpose'" />
+          </div>
+        </div>
+        <dx-radio-group
+          class="dx-radio-value-container"
+          [items]="radioButtonOptions"
+          [value]="radioButtonOptions[0]"
+          formControlName="purpose"
+          layout="horizontal">
+          <div *dxTemplate="let item of 'item'">
+            <div class="flex">
+              <div [attr.data-cy]="'project-type-' + item" class="center-vertical lowercase">
+                {{ 'project.type.' + item | translate }}
+              </div>
+              <rolap-tooltip [tooltip]="'data_upload.tooltips.' + item | translate" />
+            </div>
+          </div>
+        </dx-radio-group>
+      </div>
+      <div class="dx-field mb2">
+        <rolap-text-area
+          label="project.description"
+          formControlName="projectDescription"
+          data-cy="project-description" />
+        <div class="mt1 ml1">
+          <div class="mt1 ml1">
+            <rolap-validation-message
+              [fieldName]="FieldName.PROJECT_DESCRIPTION"
+              [control]="projectForm.controls['projectDescription']" />
+          </div>
+        </div>
+      </div>
+    </rolap-card>
+  </form>
+</div>

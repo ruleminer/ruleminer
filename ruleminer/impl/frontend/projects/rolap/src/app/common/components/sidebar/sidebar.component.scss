@@ -1,0 +1,38 @@
+@import 'variables';
+
+:host {
+  position: fixed;
+  background-color: $project-color;
+  height: calc(100% - #{$app-bar-height});
+}
+
+#sidebar-wrapper {
+  height: 100%;
+  border-right: 2px solid transparent;
+  transition: border $resize-transition ease-out;
+  transition-delay: $resise-transition-delay;
+}
+
+.button-position {
+  margin-left: 5px;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+}
+
+#sidebar-resize-handler {
+  position: absolute;
+  top: 0;
+  right: calc($resize-handler-width / -2);
+  width: $resize-handler-width;
+  height: 100%;
+  opacity: 50%;
+
+  &:hover {
+    cursor: w-resize;
+
+    ~#sidebar-wrapper {
+      border-right: 2px solid $sidebar-border-right-hover-color;
+    }
+  }
+}

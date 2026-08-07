@@ -1,0 +1,253 @@
+@import 'reboot.scss';
+@import 'variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: $bgColor;
+  font-size: $fontSmall;
+  font-family: 'Roboto', sans-serif;
+  color: $mainColor;
+}
+
+.login-page-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login-content {
+  box-shadow: $shadow;
+  padding: $contentPadding;
+  width: $contentWidth;
+  margin-top: 2rem;
+}
+
+#kc-page-title {
+  font-size: 1.5rem;
+  margin: 0;
+  text-align: center;
+}
+
+#kc-content {
+  margin-top: 2rem;
+}
+
+#kc-form-buttons {
+  // submit button
+  input[type='submit'] {
+    margin-top: 0.5rem;
+    background-color: $accentColor;
+    color: $btnTextColor;
+    border: none;
+    padding: 0.625rem;
+    font-size: 1rem;
+    transition: background-color $transitionTime ease-out;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      background-color: darken($accentColor, 4%);
+    }
+  }
+}
+
+// error message
+.input-error {
+  color: $dangerColor;
+  margin-top: 2px;
+}
+
+#kc-header {
+  width: $contentWidth;
+  height: $headerHeight;
+
+  #kc-header-wrapper,
+  .kc-logo {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.kc-logo {
+  background-image: url('../img/ruleminer.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+// registration button
+#kc-registration {
+  margin-top: 0.5rem;
+}
+
+// information under the button
+#kc-info {
+  margin-top: 1rem;
+}
+
+// remember me checkbox
+.login-pf-settings {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .checkbox > label {
+    display: flex;
+    align-items: center;
+  }
+
+  #rememberMe {
+    margin-right: 10px;
+  }
+}
+
+#kc-privacy-policy {
+  margin-top: 10px;
+}
+
+.form-group {
+  margin-top: 1rem;
+
+  label {
+    display: block;
+    margin-bottom: 0.313rem;
+  }
+
+  input {
+    &:not([type='checkbox']) {
+      width: 100%;
+      border: 1px solid $inputBorderColor;
+      height: 36px;
+    }
+  }
+}
+
+#kc-locale {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#kc-current-locale-link {
+  padding-bottom: $localeCurrentPaddingBottom;
+
+  &:after {
+    content: '\2c5';
+    margin-left: 0.25rem;
+  }
+}
+
+#kc-locale-dropdown {
+  position: relative;
+
+  a {
+    text-decoration: none;
+    color: $mainColor;
+    transition: color $transitionTime ease-out;
+  }
+
+  ul {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: $bgColor;
+    box-shadow: $shadow;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    transform: translateY($localeCurrentPaddingBottom);
+  }
+
+  li {
+    padding: 0.35rem 1rem;
+    transition: background-color $transitionTime ease-out;
+
+    &:first-of-type {
+      padding-top: 0.5rem;
+    }
+
+    &:last-of-type {
+      padding-bottom: 0.5rem;
+    }
+
+    &:hover {
+      background-color: darken($bgColor, 2%);
+      cursor: pointer;
+
+      a {
+        color: $accentColor;
+      }
+    }
+  }
+
+  &:hover {
+    ul {
+      display: block;
+    }
+  }
+}
+
+.password-group {
+  position: relative;
+}
+
+.password-visibility {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 40px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $inputBorderColor;
+  background-color: darken($bgColor, 2%);
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken($bgColor, 4%);
+  }
+
+  i {
+    &.eye {
+      background-image: url('../img/icons/eye.svg');
+    }
+
+    &.eye-slash {
+      background-image: url('../img/icons/eye-slash.svg');
+    }
+  }
+}
+
+.btn-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  height: 50%;
+  width: 50%;
+}
+
+.f-small {
+  font-size: $fontSmall;
+}
+
+.d-none {
+  display: none;
+}
+
+@media (max-width: calc($contentWidth + 50px)) {
+  .login-content,
+  #kc-header {
+    width: 100%;
+  }
+}

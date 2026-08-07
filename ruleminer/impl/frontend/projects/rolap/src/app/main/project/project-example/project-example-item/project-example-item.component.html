@@ -1,0 +1,38 @@
+<rolap-title class="flex align-center">
+  <h2>{{ 'project.example.title' | translate }} {{ index + 1 }}</h2>
+  <rolap-classify-card-close-btn [cardId]="cardId" />
+</rolap-title>
+<div class="item-container">
+  <dx-data-grid
+    [attr.data-cy]="dataCy"
+    class="mt1"
+    [dataSource]="dataSource"
+    [showBorders]="true"
+    [columnMinWidth]="80"
+    [columnAutoWidth]="true"
+    [sorting]="{ mode: 'none' }"
+    [remoteOperations]="true"
+    [repaintChangesOnly]="true">
+    <ng-container *ngFor="let col of columns()">
+      <dxi-column
+        [dataField]="col.name"
+        [allowEditing]="true"
+        [dataType]="col.dataType"
+        [cssClass]="col.cssClass"
+        [allowEditing]="col.allowEditing"
+        [visible]="col.visible"
+        alignment="left">
+        <dxo-lookup *ngIf="col.lookup" [dataSource]="col.lookup" valueExpr="name" displayExpr="name"> </dxo-lookup>
+      </dxi-column>
+    </ng-container>
+    <dxo-editing mode="cell" [allowUpdating]="true" [allowAdding]="false" [allowDeleting]="false" />
+    <dxo-scrolling [useNative]="true" />
+  </dx-data-grid>
+</div>
+<div class="btn-container">
+  <rolap-project-example-item-select-btn [cardKey]="cardId" />
+  <rolap-project-example-item-recalculate-btn [cardKey]="cardId" />
+</div>
+<div class="mt2">
+  <rolap-project-example-results [cardKey]="cardId" [exampleIndex]="selectedExampleIndex" />
+</div>

@@ -1,0 +1,16 @@
+@import '../../../styles/variables';
+
+:host {
+    display: inline-block;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+fa-icon {
+    color: $remove-icon;
+}

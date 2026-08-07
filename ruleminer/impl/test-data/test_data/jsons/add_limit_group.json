@@ -1,0 +1,12 @@
+{
+  "name": "rolap_user",
+  "max_rows": 200000,
+  "max_columns": 250,
+  "max_size": 52428800,
+  "max_sum_size": 524288000,
+  "max_projects": 1000,
+  "max_datasets": 1000,
+  "max_rulesets": 1000,
+  "max_reports": 1000
+}
+

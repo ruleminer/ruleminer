@@ -1,0 +1,52 @@
+<ng-container *ngIf="!!data">
+  <div #boxPlotElement [attr.id]="boxPlotElementId">
+    <dx-tooltip
+      [target]="'#' + boxPlotElementId"
+      showEvent="mouseenter"
+      hideEvent="mouseleave"
+      [hideOnOutsideClick]="true">
+      <div *dxTemplate="let _ = data; of: 'content'">
+        <ul class="tooltip-list">
+          <li>
+            <span class="label">{{ 'project.rules.table.headers.yCoveredMin' | translate }}: </span>
+            <span class="value">{{ data.min | number : NUMBER_FORMAT }}</span>
+          </li>
+          <li>
+            <span class="label">{{ 'project.rules.table.headers.labelMin' | translate }}: </span>
+            <span class="value">{{ labelMinMaxValues.min | number : NUMBER_FORMAT }}</span>
+          </li>
+          <li class="bold">
+            <span class="label">{{ 'project.rules.rule_editor.regression_conclusion.labels.low' | translate }}: </span>
+            <span class="value">{{ data.lower | number : NUMBER_FORMAT }}</span>
+          </li>
+          <li>
+            <span class="label">{{ 'project.rules.table.headers.yCoveredMean' | translate }}: </span>
+            <span class="value">{{ data.mean | number : NUMBER_FORMAT }}</span>
+          </li>
+          <li class="bold">
+            <span class="label"
+              >{{ 'project.rules.rule_editor.regression_conclusion.labels.value' | translate }}:
+            </span>
+            <span class="value">{{ data.value | number : NUMBER_FORMAT }}</span>
+          </li>
+          <li>
+            <span class="label">{{ 'project.rules.table.headers.yCoveredMax' | translate }}: </span>
+            <span class="value">{{ data.max | number : NUMBER_FORMAT }}</span>
+          </li>
+          <li>
+            <span class="label"> {{ 'project.rules.table.headers.labelMax' | translate }}: </span>
+            <span class="value">{{ labelMinMaxValues.max | number : NUMBER_FORMAT }}</span>
+          </li>
+          <li class="bold">
+            <span class="label">{{ 'project.rules.rule_editor.regression_conclusion.labels.high' | translate }}: </span>
+            <span class="value">{{ data.upper | number : NUMBER_FORMAT }}</span>
+          </li>
+          <li>
+            <span class="label">{{ 'project.rules.table.headers.trainCoveredYStd' | translate }}: </span>
+            <span class="value">{{ data.std | number : NUMBER_FORMAT }}</span>
+          </li>
+        </ul>
+      </div>
+    </dx-tooltip>
+  </div>
+</ng-container>

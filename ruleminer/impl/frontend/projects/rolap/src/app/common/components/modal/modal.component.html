@@ -1,0 +1,20 @@
+<ng-container *ngIf="componentPortal">
+  <div
+    [@modalAnimation]="state"
+    cdkTrapFocus
+    role="dialog"
+    class="modal"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    id="modal-content">
+    <div class="modal-title pb1 flex items-center" [class.justify-between]="title" [class.justify-end]="!title">
+      <rolap-title *ngIf="title">
+        <h2 translate [translateParams]="translateParams">{{ title }}</h2>
+      </rolap-title>
+      <dx-button (onClick)="close()" icon="close" data-cy="modal-close-btn" />
+    </div>
+    <div class="modal-content">
+      <ng-template [cdkPortalOutlet]="componentPortal" (attached)="onAttach($event)"></ng-template>
+    </div>
+  </div>
+</ng-container>

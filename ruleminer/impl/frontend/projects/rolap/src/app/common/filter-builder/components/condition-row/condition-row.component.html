@@ -1,0 +1,29 @@
+<div [formGroup]="typedConditionForm" class="condition-row"
+  [attr.data-cy]="'rolap-condition-row-container-' + rowIndex">
+  <rolap-field-selector [availableFields]="availableFields" [fieldControl]="fieldControl"
+    (fieldChange)="onFieldChange($event)" class="condition-part"
+    [attr.data-cy]="'condition-row-field-select-' + rowIndex">
+  </rolap-field-selector>
+
+  <rolap-operator-selector *ngIf="selectedField" [availableOperators]="availableOperators"
+    [operatorControl]="operatorControl" (operatorChange)="onOperatorChange($event)" class="condition-part"
+    [attr.data-cy]="'condition-row-operator-select-' + rowIndex">
+  </rolap-operator-selector>
+
+  <rolap-value-input [effectiveDataType]="effectiveDataType" [isBetweenOperator]="isBetweenOperator"
+    [isValueRequired]="isValueRequired" [selectedField]="selectedField" [valueControl]="valueControl"
+    [valueEndControl]="valueEndControl" class="condition-part" [rowIndex]="rowIndex"
+    [attr.data-cy]="'condition-row-value-input-container-' + rowIndex" [operatorValue]="operatorControl.value"
+    [getAvailableAttributesToCompare]="getAvailableAttributesToCompare"> 
+  </rolap-value-input>
+
+
+  <rolap-conditions-checkboxes [isExpertRules]="isExpertRules" [model]="model"
+    (conditionsCheckboxesChange)="conditionsCheckboxesChange.emit($event)">
+  </rolap-conditions-checkboxes>
+
+
+  <rolap-close-icon *ngIf="showRemoveButton" (close)="onRemove()" class="remove-button"
+    [attr.data-cy]="'condition-row-remove-button-' + rowIndex">
+  </rolap-close-icon>
+</div>

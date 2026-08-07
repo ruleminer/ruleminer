@@ -1,0 +1,8 @@
+<rolap-card #card class="mb2" id="rolap-graph-plot">
+  <rolap-ruleset-visualisation-legend
+    *ngIf="graphData && graphData.graphOptions && graphData.meta && graphData.project"
+    [meta]="graphData.meta"
+    [problemType]="graphData.project.type_of_problem"
+    [classDescription]="classDescription" />
+  <div id="graph-area"></div>
+</rolap-card>

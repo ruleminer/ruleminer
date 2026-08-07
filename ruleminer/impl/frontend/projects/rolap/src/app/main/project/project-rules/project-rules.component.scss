@@ -1,0 +1,16 @@
+@import 'variables';
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1em;
+  row-gap: 1em;
+}
+
+.card-container :first-child {
+  grid-column: 1 / -1;
+}
+
+.card-container :last-child {
+  grid-column: 1 / -1;
+}

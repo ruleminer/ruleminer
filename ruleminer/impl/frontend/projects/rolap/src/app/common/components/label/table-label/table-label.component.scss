@@ -1,0 +1,18 @@
+@import 'variables';
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+rolap-label {
+  display: inline-block;
+  margin-right: calc($label-margin / 2);
+  padding: $label-table-y-padding 0;
+}
+
+.labels {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

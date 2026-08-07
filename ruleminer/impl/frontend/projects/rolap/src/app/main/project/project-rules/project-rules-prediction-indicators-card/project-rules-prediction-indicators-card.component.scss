@@ -1,0 +1,9 @@
+@import 'styles/mixins/tooltip';
+
+div h2 {
+  @include custom-heading;
+
+  span {
+    display: contents;
+  }
+}

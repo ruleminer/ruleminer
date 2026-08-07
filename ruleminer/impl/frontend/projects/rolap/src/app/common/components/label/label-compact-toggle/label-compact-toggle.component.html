@@ -1,0 +1,3 @@
+<button (keydown)="onKeyboardKeydown($event)" [attr.aria-label]="'labels.toggle_display' | translate">
+  <div class="label-toggle" [class.label-compact]="isCompact" (click)="labelToggle()"></div>
+</button>

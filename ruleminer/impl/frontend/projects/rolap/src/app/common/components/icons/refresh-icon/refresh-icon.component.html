@@ -1,0 +1,21 @@
+<!-- Refresh icon -->
+<button
+  *ngIf="canRefresh && !isRefreshing"
+  (click)="onIconClick()"
+  title="{{ 'button_tooltip.refresh_card' | translate }}">
+  <fa-layers [fixedWidth]="true" class="icon-primary icon-card fa-fw">
+    <fa-icon [icon]="faArrowsRotate"></fa-icon>
+    <fa-icon [icon]="faCircle" class="fa-inverse" transform="shrink-3 down-4.2 right-4"></fa-icon>
+    <fa-icon [icon]="faCircleExclamation" transform="shrink-6 down-4.2 right-4"></fa-icon>
+  </fa-layers>
+</button>
+
+<!-- Rotating icon -->
+<fa-icon
+  *ngIf="isRefreshing"
+  [icon]="faArrowsRotate"
+  [fixedWidth]="true"
+  class="icon-secondary icon-card no-hover fa-fw"
+  animation="spin"
+  title="{{ 'button_tooltip.refreshing' | translate }}">
+</fa-icon>

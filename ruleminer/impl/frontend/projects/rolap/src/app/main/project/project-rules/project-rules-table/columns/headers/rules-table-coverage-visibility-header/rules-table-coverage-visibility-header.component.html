@@ -1,0 +1,9 @@
+<div class="flex items-center">
+  <rolap-rules-table-header-text [problemType]="problemType" [displayType]="displayType" [dataField]="dataField" />
+  <rolap-selection-clear-button
+    data-cy="clear-btn"
+    *ngIf="numberOfSelectedRules | async"
+    (onClick)="clearVisibleRules()" />
+  <rolap-tooltip
+    [tooltip]="'tooltips.rules_table.visible_coverage' | translate : { maxRules: coverageMaxRulesVisible }" />
+</div>

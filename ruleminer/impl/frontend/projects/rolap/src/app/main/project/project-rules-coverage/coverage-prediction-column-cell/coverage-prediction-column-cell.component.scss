@@ -1,0 +1,13 @@
+@import 'variables';
+
+.prediction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+dx-button {
+  height: 1.6rem;
+  color: $button-color;
+}

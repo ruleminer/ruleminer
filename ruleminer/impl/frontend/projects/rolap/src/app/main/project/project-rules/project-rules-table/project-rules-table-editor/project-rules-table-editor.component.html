@@ -1,0 +1,23 @@
+<ng-container *ngIf="configSignal() as config">
+  <div class="rule-editor-wrapper" style="flex: 1">
+    <dx-scroll-view class="col" [showScrollbar]="'always'" [useNative]="true">
+      <!-- RULE CONDITIONS (PREMISE) EDITOR -->
+      <div class="builder-col" [ngClass]="{ 'row-direction': config.isExpertRules }">
+        <rolap-filter-builder-container [ngClass]="{ mt2: config.isExpertRules }" class="filter-builder mr0"
+          #filterBuilder (conditionsCheckboxesChange)="onConditionsCheckboxesChange($event)" [fields]="fields"
+          [model]="conditionsCheckboxesModel" [maxGroupLevel]="MAX_GROUP_LEVEL"
+          (structuredFilterChange)="structuredFilterChange($event)" [isExpertRules]="config.isExpertRules"
+          data-cy="filter-builder" />
+      </div>
+    </dx-scroll-view>
+    <!-- SIDE COLUMN -->
+    <dx-scroll-view *ngIf="config.shouldShowSidePanel" class="col-5 p2 bg-darker side-column" [showScrollbar]="'always'"
+      [useNative]="true">
+      <rolap-rules-editor-side-column [decisionAttributeName]="MODAL_SETTINGS.decisionAttributeName"
+        (setShowConfirmModalTrue)="setShowConfirmModal(true)" />
+    </dx-scroll-view>
+  </div>
+  <footer>
+    <rolap-project-rules-table-footer (submit)="submit()" (cancel)="cancel()" />
+  </footer>
+</ng-container>

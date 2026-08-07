@@ -1,0 +1,18 @@
+<div class="dx-field" *ngIf="algorithms$ | async as algorithms">
+  <label>{{ 'import.algorithm' | translate }}</label>
+  <dx-radio-group
+    class="pl1"
+    [formControl]="$any(control)"
+    layout="horizontal"
+    displayExpr="name"
+    valueExpr="name"
+    [items]="algorithms"
+    itemTemplate="itemTemplate"
+    stylingMode="outlined">
+    <div *dxTemplate="let item of 'itemTemplate'">
+      <div [title]="item.description">
+        {{ item.name }}
+      </div>
+    </div>
+  </dx-radio-group>
+</div>

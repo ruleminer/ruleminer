@@ -1,0 +1,9 @@
+Django==5.1.6
+django-cors-headers==4.7.0
+django-filter==24.3
+djangorestframework==3.15.2
+ecs-logging==2.2.0
+gunicorn==23.0.0
+pillow==10.4.0
+psycopg==3.2.4
+psycopg-binary==3.2.4

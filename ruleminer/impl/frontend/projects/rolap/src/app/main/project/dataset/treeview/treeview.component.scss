@@ -1,0 +1,60 @@
+@import 'variables';
+
+.treeview-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .treeview {
+    margin: 1.375rem 0.9375rem 0 0.9375rem;
+    overflow: hidden;
+  }
+}
+
+dx-button {
+  max-width: 200px;
+  width: 100%;
+}
+
+:host {
+  ::ng-deep .dx-treeview {
+    .dx-treeview-node-container {
+      .dx-treeview-node {
+        .dx-treeview-toggle-item-visibility {
+          color: rgb(255 255 255 / 54%);
+        }
+      }
+    }
+  }
+
+  :host-context(.dx-theme-generic) ::ng-deep.dx-treeview {
+    .dx-treeview-node-container .dx-treeview-node.dx-state-selected.dx-state-focused>.dx-treeview-item * {
+      color: $white;
+    }
+  }
+
+  ::ng-deep .dx-treeview-item {
+    padding: 0;
+  }
+}
+
+.tree-element {
+  color: $white;
+  display: block;
+  width: auto;
+
+  &>div {
+    width: 100%;
+    padding: 13px 8px;
+  }
+}
+
+.dx-button-content {
+  align-items: normal;
+}
+
+.retry-container {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}

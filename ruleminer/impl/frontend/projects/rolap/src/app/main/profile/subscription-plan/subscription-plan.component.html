@@ -1,0 +1,43 @@
+<div class="mt4">
+  <h6>{{ 'auth.profile.subscription_plan' | translate }}</h6>
+  <hr />
+  <div class="mt1">
+    <span class="flex">
+      <p>{{ 'auth.profile.current_plan' | translate }}</p>
+      <p class="plan-type">{{ plan }}</p>
+    </span>
+
+    <div class="mt2">
+      <p>{{ 'auth.profile.limits.current' | translate }}</p>
+      <div class="mt2 ml4">
+        <div *ngFor="let item of limits | keyvalue" class="flex mt1">
+          <p>
+            <i>{{ 'auth.profile.limits.' + item.key | translate }}</i>
+            :
+            <span class="limit-value">{{ item.value | bytesToMb : item.key }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt4 mb2">
+    <p class="change-plan">{{ 'auth.profile.change_sub' | translate }}</p>
+
+    <div class="mt1">
+      <p>{{ 'auth.profile.change_plan' | translate }}</p>
+      <div class="flex mt2">
+        <dx-select-box [items]="planNames" stylingMode="outlined" [value]="setCurrentPlan" />
+        <span class="change-btn center-vertical">
+          <a [href]="planUrl">{{ 'auth.profile.change_btn' | translate }} ></a></span
+        >
+      </div>
+    </div>
+    <div class="m1 flex center-vertical">
+      <p>{{ 'auth.profile.change_plan_link' | translate }}</p>
+      <p class="page-link">
+        <a [href]="planUrl">{{ 'auth.profile.change_plan_page' | translate }}</a>
+      </p>
+    </div>
+  </div>
+</div>

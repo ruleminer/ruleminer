@@ -1,0 +1,168 @@
+<div class="breakpoint-container mt2">
+  <!-- plot -->
+  <div class="row">
+    <div class="col mb2">
+      <div class="custom-card">
+        <div class="card-content">
+          <div class="row">
+            <div class="indicators col-lg-9 col-md-8 col-sm-12 my1 pl2">
+              <h6 id="plot-title" class="mb1">{{ 'visualisation.chart_for_rule_indicators' | translate }}</h6>
+              {{ 'visualisation.selected_indicators' | translate }}:
+              <div id="chosenIndicators">
+                <strong>{{ selectedIndicatorsText }}</strong>
+              </div>
+            </div>
+            <div class="right-align col-md-4 col-lg-3 col-sm-12 pr2 align-center">
+              <dx-button
+                stylingMode="contained"
+                type="default"
+                (onClick)="openMetricSelectionModal()"
+                text="{{ 'visualisation.select_indicators' | translate }}">
+              </dx-button>
+            </div>
+          </div>
+          <div id="plot-container">
+            <div id="plot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- grid for hand gesture and speech recognition action -->
+  <div class="row">
+    <div class="col-lg-6 mb2">
+      <rolap-card class="full-size">
+        <dx-box direction="row" class="p2">
+          <dxi-item [ratio]="3" class="align-center">
+            <p class="title">{{ 'visualisation.chart_control_gestures' | translate }}</p>
+          </dxi-item>
+          <dxi-item [ratio]="1" class="align-content-right align-center">
+            <dx-button
+              id="webcamButton"
+              stylingMode="contained"
+              type="default"
+              (onClick)="toggleGestureRecognition()"
+              *ngIf="actionStatus['camera'].enabled"
+              text="{{ 'visualisation.turn_camera_on' | translate }}"></dx-button>
+            <dx-button
+              id="webcamButton"
+              stylingMode="contained"
+              type="default"
+              (onClick)="toggleGestureRecognition()"
+              text="{{ 'visualisation.turn_camera_off' | translate }}"
+              *ngIf="!actionStatus['camera'].enabled"></dx-button>
+          </dxi-item>
+        </dx-box>
+
+        <div class="card-content center">
+          <div id="videoView center">
+            <div id="webcam-div">
+              <video id="webcam" autoplay playsinline></video>
+              <canvas class="output-canvas" id="output-canvas"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <dx-box class="p2">
+          <dxi-item [ratio]="1" style="text-align: center">
+            <p>{{ 'visualisation.recognized_gesture' | translate }}: {{ gestureOutput.label }}</p>
+            <p>{{ 'visualisation.certainty' | translate }}: {{ gestureOutput.score }}</p>
+            <p>{{ gestureOutput.message }}</p>
+          </dxi-item>
+        </dx-box>
+      </rolap-card>
+    </div>
+    <div class="col-lg-6 mb2">
+      <rolap-card class="full-size">
+        <dx-box direction="row" class="p2">
+          <dxi-item [ratio]="3" class="align-center">
+            <div class="title">
+              <p>{{ 'visualisation.chart_control_voice' | translate }}</p>
+            </div>
+          </dxi-item>
+          <dxi-item [ratio]="1" class="align-content-right align-center">
+            <dx-button
+              id="speechButton"
+              stylingMode="contained"
+              type="default"
+              (onClick)="toggleSpeechRecognition()"
+              *ngIf="actionStatus['micro'].enabled"
+              text="{{ 'visualisation.turn_microphon_on' | translate }}"></dx-button>
+            <dx-button
+              id="speechButton"
+              stylingMode="contained"
+              type="default"
+              (onClick)="toggleSpeechRecognition()"
+              *ngIf="!actionStatus['micro'].enabled"
+              text="{{ 'visualisation.turn_microphon_off' | translate }}"></dx-button>
+          </dxi-item>
+        </dx-box>
+
+        <div class="card-content center">
+          <div id="speechRecognitionView">
+            <div class="title p2">
+              <p class="list-name">{{ 'visualisation.command_list' | translate }}</p>
+            </div>
+            <div class="plot-manipulation-buttons">
+              <dx-button
+                id="button-zoom-in"
+                stylingMode="contained"
+                type="default"
+                (onClick)="interactionHandler.handleInteraction('zoom-in')"
+                [disabled]="!actionStatus['zoom-in'].enabled"
+                text="{{ 'visualisation.zoom_in' | translate }}"></dx-button>
+              <dx-button
+                id="button-zoom-out"
+                class="mt1"
+                stylingMode="contained"
+                type="default"
+                (onClick)="interactionHandler.handleInteraction('zoom-out')"
+                [disabled]="!actionStatus['zoom-out'].enabled"
+                text="{{ 'visualisation.zoom_out' | translate }}"></dx-button>
+              <dx-button
+                id="button-around-x"
+                class="mt1"
+                stylingMode="contained"
+                type="default"
+                (onClick)="interactionHandler.handleInteraction('x')"
+                [disabled]="!actionStatus['x'].enabled"
+                text="X"></dx-button>
+              <dx-button
+                id="button-around-y"
+                class="mt1"
+                stylingMode="contained"
+                type="default"
+                (onClick)="interactionHandler.handleInteraction('y')"
+                [disabled]="!actionStatus['y'].enabled"
+                text="Y"></dx-button>
+              <dx-button
+                id="button-around-z"
+                class="mt1"
+                stylingMode="contained"
+                type="default"
+                (onClick)="interactionHandler.handleInteraction('z')"
+                [disabled]="!actionStatus['z'].enabled"
+                text="Z"></dx-button>
+              <dx-button
+                id="button-stop"
+                class="mt1"
+                stylingMode="contained"
+                type="default"
+                (onClick)="interactionHandler.handleInteraction('stop')"
+                text="Stop"
+                [disabled]="!actionStatus['stop'].enabled"></dx-button>
+            </div>
+          </div>
+        </div>
+        <dx-box class="p2">
+          <dxi-item [ratio]="1" style="text-align: center">
+            <p>{{ 'visualisation.recognized_command' | translate }}: {{ speechOutput.label }}</p>
+            <p>{{ 'visualisation.certainty' | translate }}: {{ speechOutput.score }}</p>
+            <p>{{ speechOutput.message }}</p>
+          </dxi-item>
+        </dx-box>
+      </rolap-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+@import 'variables';
+
+.expert-section {
+  .section-block {
+    margin-bottom: 1.5rem;
+
+    h3 {
+      color: $color-text-dark;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .value-row {
+      margin: 0.25rem 0;
+      padding: 0.25rem 0;
+      margin-left: 1rem;
+
+      strong {
+        color: $color-text-medium;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-section {
+  width: 60%;
+}
+
+.right-section {
+  width: 40%;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.documentation-link {
+  margin: 1rem 0 1rem 1rem;
+  font-size: 0.775rem;
+  color: $color-text-muted;
+  font-style: italic;
+
+  a {
+    color: $color-link;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

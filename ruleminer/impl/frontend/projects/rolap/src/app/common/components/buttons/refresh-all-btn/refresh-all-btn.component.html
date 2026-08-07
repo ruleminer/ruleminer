@@ -1,0 +1,11 @@
+<ng-container *ngIf="btnState$ | async as btnState">
+  <button
+    *ngIf="btnState.show"
+    [ngClass]="btnState.color"
+    (click)="onClick()"
+    data-cy="refresh-all-button"
+    [disabled]="btnState.disabled">
+    <fa-icon [icon]="btnState.icon" [spin]="btnState.spin" data-cy="refresh-all-button-icon"></fa-icon>
+    {{ btnState.translationKey | translate }}
+  </button>
+</ng-container>

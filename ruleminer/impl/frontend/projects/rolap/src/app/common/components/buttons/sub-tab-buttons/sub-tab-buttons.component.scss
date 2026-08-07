@@ -1,0 +1,32 @@
+@import 'variables';
+
+:host {
+  display: contents;
+}
+
+a {
+  cursor: pointer;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: $white;
+  padding: 0.3125rem 0.625rem;
+  border-radius: 0.625rem;
+  border: 1px solid $project-border-color;
+}
+
+.button-link {
+  color: $logo-font-color;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0.5rem;
+  text-align: center;
+
+  &.active {
+    background-color: $button-color;
+    color: $white;
+  }
+}

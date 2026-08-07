@@ -1,0 +1,7 @@
+[
+    {
+        "name": "Example project regression",
+        "description": "This is a sample project to demonstrate the functionality of the system for regression problem",
+        "type_of_problem": "regression"
+    }
+]

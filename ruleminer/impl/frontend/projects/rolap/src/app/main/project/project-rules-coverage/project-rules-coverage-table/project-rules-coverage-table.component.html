@@ -1,0 +1,251 @@
+<!-- CARD DISPLAY -->
+<rolap-card *ngIf="showInCard; else embededDisplayTemplate" class="block mt2">
+  <rolap-title class="flex justify-between">
+    <div class="flex">
+      <h2 class="center-vertical">{{ cardTitle }}</h2>
+      <rolap-tooltip [tooltip]="cardTooltip" />
+      <!-- TABLE SUMMARY -->
+      <ng-container *ngIf="numberOfRows !== undefined">
+        <div class="table-summary mr2">
+          <!-- NUMBER OF ROWS -->
+          <rolap-summary-item-span keyTranslate="dataset.statistic_tab.summary_number_of_rows" [value]="numberOfRows" />
+        </div>
+      </ng-container>
+    </div>
+    <!-- TABLE ACTIONS -->
+    <ng-container *ngIf="dataGrid$ | async as dataGrid">
+      <rolap-project-rules-coverage-table-actions
+        *ngIf="dataGrid != null"
+        [dataGrid]="dataGrid"
+        [ruleset]="ruleset"
+        [dataSetId]="dataSetId"
+        [projectId]="projectId"
+        [ruleSetId]="ruleSetId"
+        [problemType]="problemType" />
+    </ng-container>
+  </rolap-title>
+  <ng-container *ngTemplateOutlet="tableTemplate"></ng-container>
+</rolap-card>
+
+<!-- EMBEBED DISPLAY -->
+<ng-template #embededDisplayTemplate>
+  <ng-container *ngTemplateOutlet="tableTemplate"></ng-container>
+</ng-template>
+
+<!-- COVERAGE TABLE TEMPLATE -->
+<ng-template #tableTemplate>
+  <!-- INFORMATION ABOUT PREDICTION USING EMPTY RULESET -->
+  <rolap-info class="mb2" *ngIf="isRuleSetEmpty">
+    {{ 'project.prediction.empty_ruleset_info' | translate }}
+    {{ 'project.prediction.empty_ruleset_explanation.' + problemType | translate }}
+  </rolap-info>
+
+  <!-- UNIQUE COVERAGE -->
+  <ng-container *ngIf="showUniqueCoverage">
+    <rolap-rules-filter-unique-coverage-toggle />
+    <rolap-rules-filter-unique-coverage-table />
+  </ng-container>
+
+  <!-- RULES FILTER -->
+
+  <rolap-project-rules-coverage-filtering-rules-list [filteringRules]="rulesFilter" />
+
+  <!-- FILTERING OPERATOR SELECTOR -->
+  <rolap-coverage-table-rules-filter-operator-selector
+    *ngIf="shouldDisplayRulesFilterOperatorSelector"
+    (operatorChange)="onRulesFilterOperatorChange($event)" />
+
+  <dx-data-grid
+    data-cy="project-rules-coverage-table"
+    #dataGrid
+    class="block"
+    [ngClass]="{'outdated-grid': isOutdated}"
+    [dataSource]="dataSource"
+    [height]="settings.height"
+    [showBorders]="true"
+    [columnAutoWidth]="true"
+    [allowColumnReordering]="true"
+    [allowColumnResizing]="true"
+    [columnResizingMode]="'widget'"
+    [remoteOperations]="true"
+    (onInitialized)="onTableInitialized($event.component!)"
+    (onCellPrepared)="onCellPrepared($event)"
+    (onContentReady)="onTableContentReady()"
+    (onSelectionChanged)="selectionChanged($event)"
+    (onContextMenuPreparing)="prepareContextMenu($event)"
+    [remoteOperations]="true"
+    [renderAsync]="true"
+    [noDataText]="
+      !noData && isLoading
+        ? ('project.rules.table.data_loading' | translate)
+        : ('project.rules.table.no_data' | translate)
+    ">
+    <dxo-selection [selectAllMode]="'allPages'" [showCheckBoxesMode]="'none'" [mode]="settings.selectionMode">
+    </dxo-selection>
+
+    <!-- ID COLUMN -->
+    <dxi-column
+      [dataField]="idColumnName"
+      [cssClass]="'bold'"
+      [fixed]="true"
+      fixedPosition="left"
+      [allowHeaderFiltering]="filterMode === 'withTableFilters'"
+      [allowSorting]="false"
+      [allowFiltering]="false"
+      [allowReordering]="false"
+      [filterOperations]="null" />
+
+    <!-- RULES COVERAGE COLUMNS -->
+    <ng-container *ngFor="let rule of visibleRules">
+      <dxi-column
+        [caption]="('project.rules_coverage.rule_name_prefix' | translate) + rule.ruleName"
+        [name]="rule.columnName"
+        [dataField]="rule.uuid"
+        [fixed]="true"
+        [width]="'40px'"
+        fixedPosition="left"
+        alignment="center"
+        [headerCellTemplate]="'rulesCoverageColumnTemplateHeader'"
+        [cellTemplate]="'rulesCoverageColumnTemplate'"
+        [allowReordering]="false"
+        [allowHeaderFiltering]="false"
+        [allowSorting]="false"
+        [allowFiltering]="false">
+      </dxi-column>
+    </ng-container>
+
+    <div *dxTemplate="let d of 'rulesCoverageColumnTemplateHeader'">
+      <rolap-colored-cell-based-on-id
+        [colorParentElementSelector]="'td'"
+        [text]="('project.rules_coverage.rule_name_prefix' | translate) + rulesUuidsToRulesNames[d.column.dataField]"
+        [key]="rulesUuidsToRulesNames[d.column.dataField]" />
+    </div>
+
+    <div *dxTemplate="let d of 'rulesCoverageColumnTemplate'" class="overflow-cell">
+      <ng-container *ngIf="d.data[d.column.dataField] !== undefined; else skeletonTemplate">
+        <rolap-colored-cell-based-on-id
+          *ngIf="d.data[d.column.dataField] === true"
+          [colorParentElementSelector]="'td'"
+          [key]="rulesUuidsToRulesNames[d.column.dataField]" />
+      </ng-container>
+
+      <ng-template #skeletonTemplate>
+        <div class="skeleton-box"></div>
+      </ng-template>
+    </div>
+
+    <!-- NUMBER OF RULES COVERING EXAMPLE COLUMN -->
+    <dxi-column
+      *ngIf="showRulesCoverageColumns"
+      [allowReordering]="false"
+      [name]="rulesCoveringExampleColumnName"
+      [caption]="'project.rules_coverage.rules_count_column_name' | translate"
+      [dataField]="rulesCoveringExampleColumnName"
+      [cellTemplate]="'numberOfRulesCoveringExampleColumnTemplate'"
+      [fixed]="true"
+      fixedPosition="left"
+      [allowHeaderFiltering]="false"
+      [allowSorting]="false"
+      [allowFiltering]="false"
+      [filterOperations]="null">
+      <div *dxTemplate="let d of 'numberOfRulesCoveringExampleColumnTemplate'" class="overflow-cell">
+        <ng-container *ngIf="d.data[d.column.dataField] !== undefined; else skeletonTemplate">
+          <rolap-number-of-rules-covering-example [rules]="d.data[d.column.dataField]" />
+        </ng-container>
+
+        <ng-template #skeletonTemplate>
+          <div class="skeleton-box"></div>
+        </ng-template>
+      </div>
+    </dxi-column>
+
+    <!-- PREDICTION COLUMN -->
+    <dxi-column
+      *ngIf="showPredictionColumn"
+      [caption]="'project.rules_coverage.prediction' | translate"
+      [cellTemplate]="'predictionTemplate'"
+      [cssClass]="'special-column'"
+      [fixed]="true"
+      width="auto"
+      fixedPosition="left"
+      [allowReordering]="false"
+      [allowReordering]="false"
+      [dataField]="predictionColumnName"
+      [allowHeaderFiltering]="false"
+      [allowSorting]="false"
+      [allowFiltering]="false"
+      [filterOperations]="null">
+      <div *dxTemplate="let d of 'predictionTemplate'" class="overflow-cell">
+        <rolap-coverage-prediction-column-cell
+          *ngIf="d.data[d.column.dataField] !== undefined; else skeletonTemplate"
+          [prediction]="d.data[d.column.dataField]"
+          [problemType]="problemType"
+          [exampleIndex]="d.data[ID_FIELD_NAME]" />
+        <ng-template #skeletonTemplate>
+          <div class="skeleton-box"></div>
+        </ng-template>
+      </div>
+    </dxi-column>
+
+    <!-- DECISION COLUMN -->
+    <dxi-column
+      *ngIf="!!ruleset"
+      [cssClass]="'special-column'"
+      [allowReordering]="false"
+      [dataField]="ruleset.meta.decision_attribute"
+      [allowHeaderFiltering]="filterMode === 'withTableFilters'"
+      [allowFiltering]="filterMode === 'withTableFilters'"
+      [filterOperations]="decisionColumnFilterOperations"
+      [headerCellTemplate]="'decisionColumnTemplateHeader'">
+      <div *dxTemplate="let d of 'decisionColumnTemplateHeader'">
+        <p
+          [translate]="'project.rules_coverage.real'"
+          [translateParams]="{ column: d.column.dataField | titlecase }"></p>
+      </div>
+    </dxi-column>
+
+    <!-- SURVIVAL TIME COLUMN -->
+    <dxi-column
+      *ngIf="problemType === ProblemTypes.Survival"
+      [cssClass]="'special-column'"
+      [allowReordering]="false"
+      [dataField]="$any(ruleset.meta).survival_time_attribute"
+      [allowHeaderFiltering]="filterMode === 'withTableFilters'"
+      [allowFiltering]="filterMode === 'withTableFilters'"
+      [filterOperations]="settings.numericalFilterOperations" />
+
+    <!-- DATASET COLUMNS -->
+    <ng-container *ngFor="let item of columns">
+      <dxi-column
+        *ngIf="
+          item.name !== idColumnName &&
+          item.name !== predictionColumnName &&
+          item.name !== ruleset.meta.decision_attribute &&
+          item.name !== $any(ruleset.meta).survival_time_attribute
+        "
+        [dataField]="item.name"
+        alignment="left"
+        [allowHeaderFiltering]="filterMode === 'withTableFilters'"
+        [allowFiltering]="filterMode === 'withTableFilters'"
+        [filterOperations]="item.filterOperations">
+      </dxi-column>
+    </ng-container>
+    <dxo-load-panel [enabled]="true" />
+    <dxo-column-chooser
+      #columnChooser
+      [getHeightForColumnChooser]="100"
+      [columnCount]="columnCount"
+      #calcHeigh="getHeightForColumnChooser"
+      [height]="calcHeigh.pixelHeight"
+      [enabled]="false"
+      [mode]="'select'" />
+    <dxo-sorting mode="single" />
+    <dxo-filter-row [visible]="filterMode === 'withTableFilters'" [applyFilter]="'auto'" />
+    <dxo-pager
+      [visible]="true"
+      [showPageSizeSelector]="true"
+      [showNavigationButtons]="true"
+      [allowedPageSizes]="settings.allowedPageSizes" />
+    <dxo-scrolling [useNative]="true" />
+  </dx-data-grid>
+</ng-template>

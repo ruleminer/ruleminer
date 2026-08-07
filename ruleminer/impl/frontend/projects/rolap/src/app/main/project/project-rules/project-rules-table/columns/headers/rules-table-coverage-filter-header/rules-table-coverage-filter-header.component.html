@@ -1,0 +1,13 @@
+<div class="flex items-center">
+  <rolap-rules-table-header-text
+    class="ml1 center-vertical"
+    [problemType]="problemType"
+    [displayType]="displayType"
+    [dataField]="dataField" />
+  <rolap-selection-clear-button
+    data-cy="clear-btn"
+    *ngIf="numberOfSelectedRules | async"
+    (onClick)="clearFilteringRules()" />
+  <rolap-tooltip
+    [tooltip]="'tooltips.rules_table.filter_rules' | translate : { maxRules: coverageMaxRulesFiltering }" />
+</div>

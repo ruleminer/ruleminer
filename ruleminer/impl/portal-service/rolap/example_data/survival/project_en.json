@@ -1,0 +1,7 @@
+[
+    {
+        "name": "Example project survival",
+        "description": "This is a sample project to demonstrate the functionality of the system for survival problem",
+        "type_of_problem": "survival"
+    }
+]

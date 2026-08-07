@@ -1,0 +1,10 @@
+<dx-check-box
+  *ngIf="!isRelationOneToMany"
+  name="hasHeader"
+  stylingMode="outlined"
+  [value]="isChecked"
+  (onValueChanged)="manyToManyValueChange($event)" />
+<rolap-checkbox-button
+  *ngIf="isRelationOneToMany"
+  [data]="isChecked"
+  (onSetSelectedIndex)="oneToManyValueChange($event)" />

@@ -1,0 +1,39 @@
+<div class="dataset-info">
+  <div class="mb2">
+    <rolap-card>
+      <rolap-title>
+        <h2>{{ 'data_upload.dataset_info' | translate }}</h2>
+      </rolap-title>
+      <form [formGroup]="datasetForm">
+        <div class="dx-field">
+          <div class="dx-field-label">{{ 'data_upload.dataset_name' | translate }}</div>
+          <dx-text-box
+            id="datasetName"
+            name="datasetName"
+            formControlName="datasetName"
+            valueChangeEvent="input"
+            stylingMode="outlined"
+            [inputAttr]="{ 'aria-label': 'data_upload.dataset_name' | translate }"
+            data-cy="dataset-name" />
+          <div class="mt1 ml1">
+            <rolap-validation-message
+              [fieldName]="FieldName.DATASET_NAME"
+              [control]="datasetForm.controls['datasetName']" />
+          </div>
+        </div>
+        <div class="dx-field mb2">
+          <rolap-text-area
+            label="data_upload.dataset_description"
+            [attr.aria]="'data_upload.dataset_description' | translate"
+            formControlName="datasetDescription"
+            data-cy="dataset-description" />
+          <div class="mt1 ml1">
+            <rolap-validation-message
+              [fieldName]="FieldName.DATASET_DESCRIPTION"
+              [control]="datasetForm.controls['datasetDescription']" />
+          </div>
+        </div>
+      </form>
+    </rolap-card>
+  </div>
+</div>

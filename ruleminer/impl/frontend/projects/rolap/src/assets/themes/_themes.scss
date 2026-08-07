@@ -1,0 +1,50 @@
+@use 'sass:map';
+@use 'sass:color';
+@import './dark/dark-theme';
+
+$themes: (
+  'teal-dark': $dark-theme,
+);
+
+$_opacities: (
+  '100': 0.9,
+  '200': 0.8,
+  '300': 0.7,
+  '400': 0.6,
+  '500': 0.5,
+  '600': 0.4,
+  '700': 0.3,
+  '800': 0.2,
+  '900': 0.1,
+);
+
+:root {
+  @each $theme-name, $theme in $themes {
+    $pallete: map.get($theme, 'pallete');
+    body.dx-color-scheme-#{$theme-name} {
+      // add css variable for all variables
+      @each $color-name, $color in $pallete {
+        --#{$color-name}: #{$color};
+
+        @if $color-name != 'background' and $color-name != border and $color-name != 'text-color' {
+          .bg-#{$color-name} {
+            background-color: $color;
+          }
+
+          .color-#{$color-name} {
+            color: $color;
+          }
+        } @else {
+          .surface {
+            background-color: map.get($pallete, 'background');
+          }
+        }
+
+        // additional colors
+        @each $opacity-name, $opacity-value in $_opacities {
+          --#{$color-name}-#{$opacity-name}: #{color.scale($color, $lightness: $opacity-value * 100%)};
+        }
+      }
+    }
+  }
+}

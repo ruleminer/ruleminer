@@ -1,0 +1,38 @@
+@import 'variables';
+
+.dx-field {
+  flex-direction: column;
+
+  .dx-field-label {
+    margin-bottom: 0.25rem;
+    width: unset;
+    align-self: unset;
+  }
+}
+
+.dx-overlay-shader {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.border {
+  border-color: $project-border-color;
+}
+
+.dx-freespace-row {
+  display: none;
+}
+
+// for a list with a checkbox there must be a larger left padding
+.dx-list-select-checkbox-container+.dx-list-item-content {
+  padding-left: 42px;
+}
+
+.dx-editor-cell .dx-texteditor .dx-texteditor-input {
+  padding: 0 5px;
+}
+
+// Custom toast notification colors for better contrast
+.dx-toast-warning {
+  background-color: $warning-color !important;
+  color: white !important;
+}

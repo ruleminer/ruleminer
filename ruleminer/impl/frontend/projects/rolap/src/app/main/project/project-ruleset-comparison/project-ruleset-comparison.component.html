@@ -1,0 +1,35 @@
+<div *rolapLoading="(tablesData$ | async)?.isLoading || false" class="breakpoint-container">
+  <ng-container *ngIf="tablesData$ | async as tablesData">
+    <!-- COMPARISON FORM -->
+    <section class="mt1">
+      <rolap-comparison-form />
+    </section>
+    <!-- RULES TABLE -->
+    <section class="mt2">
+      <rolap-project-rules-table   id="comparsion-rules-table" *ngIf="tablesData.projectRulesTableData" [data]="tablesData.projectRulesTableData" />
+    </section>
+    <!-- RULESET SELECTOR BUTTON AND SECOND TABLE -->
+    <section class="mt2">
+      <rolap-select-a-ruleset-button
+        *ngIf="tablesData.projectRulesTableData"
+        [projectRulesTableData]="tablesData.projectRulesTableData" />
+      <ng-container *ngIf="rulesetDataToCompare$ | async as rulesetDataToCompare">
+        <rolap-project-rules-table
+          *ngIf="rulesetDataToCompare && tablesData.secondProjectRulesTableData"
+          [data]="$any(tablesData.secondProjectRulesTableData)"
+          [ruleSetData]="rulesetDataToCompare" />
+      </ng-container>
+    </section>
+    <!-- CALCULATE SIMILARITY BUTTON AND RESULTS TABLE -->
+    <rolap-ruleset-comparison-table />
+
+    <!-- HEATMAP CHART -->
+    <ng-container *ngIf="chartData$ | async as chartData">
+      <section class="mt1" *ngIf="chartData.shouldShow">
+        <rolap-card>
+          <rolap-comparison-heatmap-chart [chartData]="chartData.data" />
+        </rolap-card>
+      </section>
+    </ng-container>
+  </ng-container>
+</div>

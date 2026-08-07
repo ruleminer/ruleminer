@@ -1,0 +1,55 @@
+@import 'variables';
+
+:host {
+  display: flex;
+  justify-content: center;
+  background-color: $footer-background-color;
+}
+
+.main-wrapper {
+  width: 100%;
+}
+
+.footer-content {
+  width: 100%;
+}
+
+.lukasiewicz-logo {
+  height: 116px;
+  width: auto;
+}
+
+.menu {
+  li {
+    margin-bottom: 0.25rem;
+  }
+}
+
+.menu-container {
+  flex-wrap: wrap;
+}
+
+.menu-link {
+  color: $white;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+  white-space: nowrap;
+
+  &:hover {
+    color: darken($white, 20%);
+  }
+}
+
+.bottom-row {
+  font-size: 10pt;
+  width: 100%;
+  color: $white;
+  background-color: $footer-bottom-background-color;
+  text-align: center;
+}
+
+.menu-container {
+  nav:not(:last-child) {
+    margin-right: 4rem;
+  }
+}

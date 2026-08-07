@@ -1,0 +1,24 @@
+@import 'variables';
+
+:host {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.color-square-wrapper {
+  position: relative;
+}
+
+.color-square {
+  height: $label-color-picker-square-size;
+  width: $label-color-picker-square-size;
+  border-radius: calc($label-popup-border-radius / 2);
+}
+
+rolap-selection-marker {
+  position: absolute;
+  right: -9px;
+  top: -9px;
+}

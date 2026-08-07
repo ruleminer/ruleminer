@@ -1,0 +1,25 @@
+<form [formGroup]="form">
+  <div class="flex flex-wrap content-center align-baseline">
+    <label class="mr1">
+      {{ 'dataset.dataset_modal.set_name' | translate }}
+    </label>
+    <dx-text-box
+      valueChangeEvent="keyup"
+      type="text"
+      formControlName="dataSetName"
+      [inputAttr]="{ 'aria-label': 'dataset.dataset_modal.set_name' | translate }" />
+    <rolap-validation-message [fieldName]="FieldName.DATASET_NAME" [control]="form.controls['dataSetName']" />
+  </div>
+  <div class="flex flex-wrap content-end justify-end align-baseline mt3">
+    <dx-button
+      type="normal"
+      class="mr1"
+      (onClick)="cancel()"
+      text="{{ 'project.rules.save_modal.cancel' | translate }}" />
+    <dx-button
+      [disabled]="isFormInvalid()"
+      type="default"
+      text="{{ 'project.rules.save_modal.save' | translate }}"
+      (onClick)="submitForm()" />
+  </div>
+</form>

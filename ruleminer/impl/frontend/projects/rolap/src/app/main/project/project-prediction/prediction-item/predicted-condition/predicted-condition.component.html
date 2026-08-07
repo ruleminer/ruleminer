@@ -1,0 +1,11 @@
+<ng-container *ngIf="!enableConfusionMatrix; then rolapInfo; else rolapGrid"></ng-container>
+
+<ng-template #rolapInfo>
+  <rolap-info class="mt2">
+    {{ 'visualisation.correlation_matrix.confusion_matrix' | translate }}
+  </rolap-info>
+</ng-template>
+
+<ng-template #rolapGrid>
+  <div class="mt2"><rolap-confusion-matrix [data]="confusionMatrix" [show]="show" /></div>
+</ng-template>

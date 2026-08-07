@@ -1,0 +1,9 @@
+<dx-scroll-view #scrollView [showScrollbar]="'always'" direction="horizontal">
+  <div *ngIf="v2Tabs" class="flex" id="tab-bar-list">
+    <rolap-tab-bar-item
+      *ngFor="let v2Tab of v2Tabs; let last = last"
+      [v2Tab]="v2Tab"
+      [v2CurrentTabId]="v2CurrentTabId"
+      [last]="last" />
+  </div>
+</dx-scroll-view>

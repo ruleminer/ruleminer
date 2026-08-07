@@ -1,0 +1,17 @@
+@import 'variables';
+@import 'mixins/tooltip';
+
+.sub-heading {
+  font-weight: 700;
+  font-size: 16px;
+  color: $project-color;
+}
+
+div h2 {
+  @include custom-heading;
+}
+
+.download-buttons {
+  display: flex;
+  justify-content: flex-end;
+}

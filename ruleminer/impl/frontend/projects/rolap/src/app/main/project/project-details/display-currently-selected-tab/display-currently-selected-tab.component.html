@@ -1,0 +1,29 @@
+<ng-container *ngIf="v2CurrentTab$ | async as v2Tab">
+  <ng-container [ngSwitch]="v2Tab.type">
+    <ng-container *ngSwitchCase="'ruleSet'" [ngTemplateOutlet]="ruleSetTemplate" />
+    <ng-container *ngSwitchCase="'dataSet'" [ngTemplateOutlet]="dataSetTemplate" />
+    <ng-container *ngSwitchCase="'report'" [ngTemplateOutlet]="reportTemplate" />
+    <ng-container *ngSwitchCase="'process'" [ngTemplateOutlet]="processTemplate" />
+    <ng-container *ngSwitchCase="'compare'" [ngTemplateOutlet]="compareTemplate" />
+  </ng-container>
+</ng-container>
+
+<ng-template #ruleSetTemplate>
+  <rolap-current-ruleset />
+</ng-template>
+
+<ng-template #dataSetTemplate>
+  <rolap-current-dataset />
+</ng-template>
+
+<ng-template #reportTemplate>
+  <rolap-current-report />
+</ng-template>
+
+<ng-template #processTemplate>
+  <rolap-current-process />
+</ng-template>
+
+<ng-template #compareTemplate>
+  <rolap-current-compare />
+</ng-template>

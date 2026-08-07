@@ -1,0 +1,35 @@
+@import 'variables';
+
+:host ::ng-deep {
+  .dx-dropdownbutton {
+    .dx-button {
+      border-color: $button-color !important;
+      color: $button-color !important;
+    }
+
+    .dx-button-text {
+      color: $button-color !important;
+    }
+
+    .dx-icon {
+      color: $button-color !important;
+    }
+
+    &:hover {
+      border-color: darken($button-color, 10%) !important;
+    }
+
+    &:focus {
+      outline: none !important;
+    }
+  }
+
+  .dx-dropdownbutton-content .dx-list-item {
+    color: $button-color !important;
+  }
+
+  .dx-list-item-content {
+    display: flex;
+    align-items: center;
+  }
+}

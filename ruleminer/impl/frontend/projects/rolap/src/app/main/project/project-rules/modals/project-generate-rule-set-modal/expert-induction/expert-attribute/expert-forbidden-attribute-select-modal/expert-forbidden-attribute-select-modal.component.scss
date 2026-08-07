@@ -1,0 +1,21 @@
+@import 'variables';
+
+:host {
+  max-height: 83vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-right: 3rem;
+}
+
+.decision-class {
+  font-weight: bold;
+  color: $button-color;
+}
+
+.accordion {
+  overflow: auto;
+}

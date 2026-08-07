@@ -1,0 +1,7 @@
+<rolap-loader *ngIf="!summaryCard$ && !numericalCard$ && !nominalCard$"></rolap-loader>
+
+<div class="statistics-wrapper">
+  <rolap-dataset-summary-table class="item1 mt2" [dataSource]="summaryCard$" />
+  <rolap-dataset-numerical-table class="item2" [dataSource]="numericalCard$" />
+  <rolap-dataset-nominal-table class="item3" [attributes]="attributes" [dataSource]="nominalCard$" />
+</div>

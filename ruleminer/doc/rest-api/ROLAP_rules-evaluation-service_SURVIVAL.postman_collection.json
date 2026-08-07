@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "c9166ce0-0af8-4eee-81a1-24c2dfca1f4d",
+		"name": "keycloak",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Update client",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"bced60e5-ab19-4e8d-b259-9fd07d81025c\",\r\n  \"clientId\": \"rolap-web\",\r\n  \"name\": \"ROLAP Web App\",\r\n  \"description\": \"\",\r\n  \"rootUrl\": \"http://localhost:4200\",\r\n  \"adminUrl\": \"http://localhost:4200\",\r\n  \"baseUrl\": \"http://localhost:4200/home\",\r\n  \"surrogateAuthRequired\": false,\r\n  \"enabled\": true,\r\n  \"alwaysDisplayInConsole\": true,\r\n  \"clientAuthenticatorType\": \"client-secret\",\r\n  \"redirectUris\": [\r\n    \"http://localhost:4200/*\",\r\n    \"c\"\r\n  ],\r\n  \"webOrigins\": [\r\n    \"*\"\r\n  ],\r\n  \"notBefore\": 0,\r\n  \"bearerOnly\": false,\r\n  \"consentRequired\": false,\r\n  \"standardFlowEnabled\": true,\r\n  \"implicitFlowEnabled\": false,\r\n  \"directAccessGrantsEnabled\": true,\r\n  \"serviceAccountsEnabled\": false,\r\n  \"publicClient\": true,\r\n  \"frontchannelLogout\": true,\r\n  \"protocol\": \"openid-connect\",\r\n  \"attributes\": {\r\n    \"oidc.ciba.grant.enabled\": \"false\",\r\n    \"backchannel.logout.session.required\": \"true\",\r\n    \"post.logout.redirect.uris\": \"http://localhost:4200/*\",\r\n    \"display.on.consent.screen\": \"false\",\r\n    \"oauth2.device.authorization.grant.enabled\": \"false\",\r\n    \"backchannel.logout.revoke.offline.tokens\": \"false\",\r\n    \"login_theme\": \"\",\r\n    \"frontchannel.logout.url\": \"\",\r\n    \"backchannel.logout.url\": \"\"\r\n  },\r\n  \"authenticationFlowBindingOverrides\": {},\r\n  \"fullScopeAllowed\": true,\r\n  \"nodeReRegistrationTimeout\": -1,\r\n  \"protocolMappers\": [\r\n    {\r\n      \"id\": \"db458c33-df6e-4ce5-a56a-a77663954aea\",\r\n      \"name\": \"realm roles\",\r\n      \"protocol\": \"openid-connect\",\r\n      \"protocolMapper\": \"oidc-usermodel-realm-role-mapper\",\r\n      \"consentRequired\": false,\r\n      \"config\": {\r\n        \"user.attribute\": \"foo\",\r\n        \"access.token.claim\": \"true\",\r\n        \"claim.name\": \"realm_access.roles\",\r\n        \"jsonType.label\": \"String\",\r\n        \"multivalued\": \"true\"\r\n      }\r\n    },\r\n    {\r\n      \"id\": \"e00506d9-e565-41aa-929f-fb50f8768723\",\r\n      \"name\": \"groups\",\r\n      \"protocol\": \"openid-connect\",\r\n      \"protocolMapper\": \"oidc-usermodel-realm-role-mapper\",\r\n      \"consentRequired\": false,\r\n      \"config\": {\r\n        \"multivalued\": \"true\",\r\n        \"userinfo.token.claim\": \"true\",\r\n        \"user.attribute\": \"foo\",\r\n        \"id.token.claim\": \"true\",\r\n        \"access.token.claim\": \"true\",\r\n        \"claim.name\": \"groups\",\r\n        \"jsonType.label\": \"String\"\r\n      }\r\n    }\r\n  ],\r\n  \"defaultClientScopes\": [\r\n    \"web-origins\",\r\n    \"acr\",\r\n    \"profile\",\r\n    \"roles\",\r\n    \"email\"\r\n  ],\r\n  \"optionalClientScopes\": [\r\n    \"address\",\r\n    \"phone\",\r\n    \"offline_access\",\r\n    \"microprofile-jwt\"\r\n  ],\r\n  \"access\": {\r\n    \"view\": true,\r\n    \"configure\": true,\r\n    \"manage\": true\r\n  },\r\n  \"authorizationServicesEnabled\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/auth/admin/realms/ROLAP/clients/bced60e5-ab19-4e8d-b259-9fd07d81025c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"ROLAP",
+						"clients",
+						"bced60e5-ab19-4e8d-b259-9fd07d81025c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get client",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get token",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

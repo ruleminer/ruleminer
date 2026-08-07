@@ -1,0 +1,47 @@
+<div class="project-section">
+  <rolap-project-create
+    [isProjectLimitReached]="isProjectLimitReached"
+  />
+
+  <div class="project-navigation">
+    <div class="project-navigation-header">
+      <rolap-search-filter id="search-projects" />
+      <dx-button
+        class="summary-button"
+        id="project-summary"
+        [text]="'project_summary.title' | translate"
+        type="default"
+        (onClick)="openProjectSummary()">
+      </dx-button>
+    </div>
+    <div class="project-search-and-sort">
+      <rolap-sort-header id="sort-projects" />
+    </div>
+  </div>
+
+  <div class="project-list-container" id="project-list">
+    <ng-container *ngIf="filteredProjects$ | async as filteredProjects; else loading">
+      <ng-container *ngIf="filteredProjects.length > 0; else noProjects">
+        <rolap-project-list
+          [projects]="filteredProjects"
+          (projectDeleted)="onProjectDeleted()"
+          (projectUpdated)="onProjectUpdated()">
+        </rolap-project-list>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div data-cy="recent-project-loader" class="projects-container mb1">
+    <div class="loading-projects flex justify-center">
+      <dx-load-indicator id="large-indicator" height="60" width="60"></dx-load-indicator>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #noProjects>
+  <rolap-info [mode]="'warning'">
+    {{ 'project.no_projects_found' | translate }}
+  </rolap-info>
+</ng-template>

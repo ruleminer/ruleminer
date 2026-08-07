@@ -1,0 +1,11 @@
+.full-width {
+  width: 100% !important;
+}
+
+.scroll {
+  overflow-x: auto;
+}
+
+:host ::ng-deep .card {
+  justify-content: center !important;
+}

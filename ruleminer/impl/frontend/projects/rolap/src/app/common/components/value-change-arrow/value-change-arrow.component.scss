@@ -1,0 +1,30 @@
+@import 'variables';
+
+.badge {
+  padding: 0.3rem;
+  border-radius: 10px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.arrow-icon {
+  transition: transform 0.2s ease-in-out;
+}
+
+.arrow-up {
+  transform: rotate(180deg);
+}
+
+.negative {
+  background-color: $value-change-badge-negative-bg;
+  color: $value-change-badge-negative-color;
+}
+
+.positive {
+  background-color: $value-change-badge-positive-bg;
+  color: $value-change-badge-positive-color;
+}
+
+.no-change {
+  background-color: $value-change-badge-no-change-bg;
+  color: $value-change-badge-no-change-color;
+}

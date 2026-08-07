@@ -1,0 +1,242 @@
+[
+    {
+        "name": "hair",
+        "type": "cat",
+        "role": "attr",
+        "min": 0.0,
+        "max": 0.0,
+        "average": 0.0,
+        "missing_values_count": 0,
+        "mode": "False",
+        "unique_values": [
+            "True",
+            "False"
+        ]
+    },
+    {
+        "name": "feathers",
+        "type": "cat",
+        "role": "attr",
+        "min": 0.0,
+        "max": 0.0,
+        "average": 0.0,
+        "missing_values_count": 0,
+        "mode": "False",
+        "unique_values": [
+            "False",
+            "True"
+        ]
+    },
+    {
+        "name": "eggs",
+        "type": "cat",
+        "role": "attr",
+        "min": 0.0,
+        "max": 0.0,
+        "average": 0.0,
+        "missing_values_count": 0,
+        "mode": "True",
+        "unique_values": [
+            "False",
+            "True"
+        ]
+    },
+    {
+        "name": "milk",
+        "type": "cat",
+        "role": "attr",
+        "min": 0.0,
+        "max": 0.0,
+        "average": 0.0,
+        "missing_values_count": 0,
+        "mode": "False",
+        "unique_values": [
+            "True",
+            "False"
+        ]
+    },
+    {
+        "name": "airborne",
+        "type": "cat",
+        "role": "attr",
+        "min": 0.0,
+        "max": 0.0,
+        "average": 0.0,
+        "missing_values_count": 0,
+        "mode": "False",
+        "unique_values": [
+            "False",
+            "True"
+        ]
+    },
+    {
+        "name": "aquatic",
+        "type": "cat",
+        "role": "attr",
+        "min": 0.0,
+        "max": 0.0,
+        "average": 0.0,
+        "missing_values_count": 0,
+        "mode": "False",
+        "unique_values": [
+            "False",
+            "True"
+        ]
+    },
+    {
+        "name": "predator",
+        "type": "cat",
+        "role": "attr",
+        "min": 0.0,
+        "max": 0.0,
+        "average": 0.0,
+        "missing_values_count": 0,
+        "mode": "True",
+        "unique_values": [
+            "True",
+            "False"
+        ]
+    },
+    {
+        "name": "toothed",
+        "type": "cat",
+        "role": "attr",
+        "min": 0.0,
+        "max": 0.0,
+        "average": 0.0,
+        "missing_values_count": 0,
+        "mode": "True",
+        "unique_values": [
+            "True",
+            "False"
+        ]
+    },
+    {
+        "name": "backbone",
+        "type": "cat",
+        "role": "attr",
+        "min": 0.0,
+        "max": 0.0,
+        "average": 0.0,
+        "missing_values_count": 0,
+        "mode": "True",
+        "unique_values": [
+            "True",
+            "False"
+        ]
+    },
+    {
+        "name": "breathes",
+        "type": "cat",
+        "role": "attr",
+        "min": 0.0,
+        "max": 0.0,
+        "average": 0.0,
+        "missing_values_count": 0,
+        "mode": "True",
+        "unique_values": [
+            "True",
+            "False"
+        ]
+    },
+    {
+        "name": "venomous",
+        "type": "cat",
+        "role": "attr",
+        "min": 0.0,
+        "max": 0.0,
+        "average": 0.0,
+        "missing_values_count": 0,
+        "mode": "False",
+        "unique_values": [
+            "False",
+            "True"
+        ]
+    },
+    {
+        "name": "fins",
+        "type": "cat",
+        "role": "attr",
+        "min": 0.0,
+        "max": 0.0,
+        "average": 0.0,
+        "missing_values_count": 0,
+        "mode": "False",
+        "unique_values": [
+            "False",
+            "True"
+        ]
+    },
+    {
+        "name": "legs",
+        "type": "num",
+        "role": "attr",
+        "min": 0.0,
+        "max": 8.0,
+        "average": 2.84,
+        "missing_values_count": 0,
+        "mode": null,
+        "unique_values": null
+    },
+    {
+        "name": "tail",
+        "type": "cat",
+        "role": "attr",
+        "min": 0.0,
+        "max": 0.0,
+        "average": 0.0,
+        "missing_values_count": 0,
+        "mode": "True",
+        "unique_values": [
+            "False",
+            "True"
+        ]
+    },
+    {
+        "name": "domestic",
+        "type": "cat",
+        "role": "attr",
+        "min": 0.0,
+        "max": 0.0,
+        "average": 0.0,
+        "missing_values_count": 0,
+        "mode": "False",
+        "unique_values": [
+            "False",
+            "True"
+        ]
+    },
+    {
+        "name": "catsize",
+        "type": "cat",
+        "role": "attr",
+        "min": 0.0,
+        "max": 0.0,
+        "average": 0.0,
+        "missing_values_count": 0,
+        "mode": "False",
+        "unique_values": [
+            "True",
+            "False"
+        ]
+    },
+    {
+        "name": "class",
+        "type": "cat",
+        "role": "class",
+        "min": 0.0,
+        "max": 0.0,
+        "average": 0.0,
+        "missing_values_count": 0,
+        "mode": "mammal",
+        "unique_values": [
+            "mammal",
+            "fish",
+            "bird",
+            "invertebrate",
+            "insect",
+            "amphibian",
+            "reptile"
+        ]
+    }
+]

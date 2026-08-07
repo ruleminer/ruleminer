@@ -1,0 +1,52 @@
+@import 'variables';
+
+:host {
+  h6 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: $profile-header-color;
+  }
+}
+
+.plan-type {
+  margin-left: 10px;
+  color: $plan-color;
+  font-weight: bold;
+}
+
+.limit-value {
+  margin-left: 10px;
+  color: $button-color;
+}
+
+.change-btn {
+  margin-left: 10px;
+  font-weight: bold;
+  color: $button-color;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.change-plan {
+  font-weight: bold;
+}
+
+.page-link {
+  margin-left: 5px;
+  color: $profile-header-color;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+
+  a {
+    color: $button-color;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

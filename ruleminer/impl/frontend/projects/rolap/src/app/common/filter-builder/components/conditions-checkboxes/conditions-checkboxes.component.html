@@ -1,0 +1,36 @@
+<div class="conditions-checkboxes-container">
+  <ng-container *ngIf="isExpertRules">
+    <div class="checkboxes-header flex justify-between">
+        <rolap-tooltip [tooltip]="'project.rules.refine_description'" />
+      <div class="checkbox-label">
+        {{ 'project.rules.refine' | translate }}
+      </div>
+        <rolap-tooltip [tooltip]="'project.rules.determine_description'" />
+
+      <div class="checkbox-label">
+        {{ 'project.rules.determine' | translate }}
+      </div>
+    </div>
+    
+    <div class="checkboxes-container flex justify-between">
+      <div class="checkbox-column">
+        <input
+          type="checkbox"
+          id="refine-checkbox"
+          [checked]="model && model[conditionTypes.refine] && model[conditionTypes.refine][0] || false"
+          (change)="updateCheckbox(conditionTypes.refine, 0, $event)"
+          [attr.data-type]="conditionTypes.refine"/>
+        <label for="refine-checkbox"></label>
+      </div>
+      <div class="checkbox-column">
+        <input
+          type="checkbox"
+          id="determine-checkbox"
+          [checked]="model && model[conditionTypes.determine] && model[conditionTypes.determine][0] || false"
+          (change)="updateCheckbox(conditionTypes.determine, 0, $event)"
+          [attr.data-type]="conditionTypes.determine"/>
+        <label for="determine-checkbox"></label>
+      </div>
+    </div>
+  </ng-container>
+</div>

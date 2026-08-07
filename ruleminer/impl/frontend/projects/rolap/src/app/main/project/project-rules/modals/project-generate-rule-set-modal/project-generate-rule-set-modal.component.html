@@ -1,0 +1,56 @@
+<div class="grid-container" style="flex: 1" *ngIf="algorithms && datasetInfo; else loading">
+  <div class="grid-item p2 border rounded">
+    <rolap-project-algorithm-chooser-modal [algorithms]="algorithms" (selectedChange)="onAlgorithmChange($event)" />
+  </div>
+  <dx-scroll-view [useNative]="false" style="flex: 1" [showScrollbar]="'always'">
+    <div class="grid-item mt0 pr1">
+      <rolap-ruleset-generation-name [dataSetName]="dataSetName" (nameChange)="onRulesetNameChange($event)" />
+      <ng-container
+        *ngIf="selectedAlgorithm.name === MANUAL_ALGORITHM_NAME; else algorithmTemplate"
+        [ngTemplateOutlet]="manuallyTemplate" />
+      <ng-container *ngIf="selectedAlgorithm" [ngSwitch]="selectedAlgorithm.translateKey"> </ng-container>
+    </div>
+  </dx-scroll-view>
+</div>
+
+<footer class="flex justify-end">
+  <dx-button
+  id="generate-button"
+    data-cy="generate-button"
+    [disabled]="!isValid"
+    class="ml4"
+    type="default"
+    (click)="onSubmitClick()"
+    text="{{ 'project.rules.add_new_modal.create' | translate }}" />
+</footer>
+
+<ng-template #algorithmTemplate>
+  <rolap-algorithm-configuration
+    [ids]="ids"
+    [datasetInfo]="datasetInfo"
+    [algorithm]="selectedAlgorithm"
+    [currentLanguage]="currentLanguage"
+    [problemType]="activeProject.type_of_problem"
+    (onConfigurationChanged)="onAlgorithmConfigurationChanged($event)"
+    (setShowConfirmModal)="setShowConfirmModal($event)" />
+</ng-template>
+
+<ng-template #manuallyTemplate>
+  <rolap-manual-ruleset-generator
+    [ids]="ids"
+    (dataChanged)="onManualRuleGenerationDataChanged($event)"
+    (setShowConfirmModal)="setShowConfirmModal($event)" />
+</ng-template>
+
+<ng-template #loading>
+  <div class="loading">
+    <dx-load-indicator height="60" width="60"></dx-load-indicator>
+  </div>
+</ng-template>
+
+<ng-template #noRuleSetTemplate>
+  <span class="no-ruleset">
+    <fa-icon [icon]="faTriangleExclamation"></fa-icon>
+    {{ 'project.rules.add_new_modal.select_rule_set' | translate }}
+  </span>
+</ng-template>

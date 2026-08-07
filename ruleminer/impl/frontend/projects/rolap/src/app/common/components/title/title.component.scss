@@ -1,0 +1,23 @@
+@import 'variables';
+
+:host {
+  display: flex;
+}
+
+:host(:not(:empty)) ::ng-deep>*:first-child,
+:host ::ng-deep>h1:first-child,
+:host ::ng-deep>h2:first-child,
+:host ::ng-deep>h3:first-child,
+:host ::ng-deep>h4:first-child,
+:host ::ng-deep>h5:first-child,
+:host ::ng-deep>h6:first-child,
+:host ::ng-deep>p:first-child,
+:host ::ng-deep>span:first-child {
+  margin: 0;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  color: $card-title-color;
+}

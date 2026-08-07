@@ -1,0 +1,26 @@
+@import 'variables';
+
+:host {
+  height: 100%;
+  min-height: 500px;
+}
+
+.info-group {
+  padding: 0.5rem 1rem;
+}
+
+.align-center {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.wrap {
+  text-wrap: wrap;
+}
+
+.process-detail-view-container {
+  height: 100%;
+  overflow: hidden;
+  transform-origin: top;
+}

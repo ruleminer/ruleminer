@@ -1,0 +1,8 @@
+<h3 class="mb1">{{ 'prediction_config.title' | translate }}</h3>
+<rolap-translated-key-value-data-grid
+  [data]="(predictionConfig$ | async) || {}"
+  [translationKey]="'project.rules.table.headers'"
+  [height]="'auto'"
+  [maxHeight]="195"
+  [maxRowsBeforeFixedHeight]="4">
+</rolap-translated-key-value-data-grid>

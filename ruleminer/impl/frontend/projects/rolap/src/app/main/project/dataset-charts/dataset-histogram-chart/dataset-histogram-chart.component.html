@@ -1,0 +1,34 @@
+<div *ngIf="showHistogram" class="breakpoint-container">
+  <div class="row">
+    <div class="col-lg-3 mb2">
+      <rolap-card style="flex: 1" id="histogram-chart">
+        <h6>{{ 'visualisation.number_of_bins' | translate }}</h6>
+        <div class="dx-field" class="mt2 pb2">
+          <div class="dx-field-value full-width">
+            <dx-number-box
+              [min]="MIN_BINS"
+              [max]="MAX_BINS"
+              placeholder="{{ 'visualisation.number_of_bins' | translate }}"
+              [(ngModel)]="numberOfBins"
+              (onChange)="getHistogramData()"
+              [inputAttr]="{ 'aria-label': 'number' }"></dx-number-box>
+          </div>
+        </div>
+        <h6 class="mt4 mb2">{{ 'visualisation.numerical_attribute' | translate }}</h6>
+        <dx-radio-group
+          class="mt1 scroll mb2 pl2"
+          [height]="'40vh'"
+          [items]="histogramElements"
+          [(ngModel)]="selectedElement"
+          displayExpr="attribute_name"
+          (onValueChanged)="selectAndPlot(selectedElement!, $event)">
+        </dx-radio-group>
+      </rolap-card>
+    </div>
+    <div class="col-lg-9 mb2">
+      <rolap-card>
+        <div id="dataset-histogram"></div>
+      </rolap-card>
+    </div>
+  </div>
+</div>

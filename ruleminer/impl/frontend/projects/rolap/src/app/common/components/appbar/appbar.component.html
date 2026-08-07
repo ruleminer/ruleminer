@@ -1,0 +1,24 @@
+<div class="app-bar">
+  <div
+    class="logo"
+    [routerLink]="'/home'"
+    *ngIf="sidebarState$ | async as sidebarState"
+    [style.background-color]="sidebarState.colors.bg"
+    [style.border-bottom-color]="sidebarState.colors.border"
+    [ngStyle]="{ 'width.px': sidebarState.logoContainerWidth }"
+    data-cy="logo">
+    <rolap-logo></rolap-logo>
+    <h1
+      *ngIf="sidebarState.logoContainerWidth >= logoBreakPoint"
+      class="logo-title"
+      [style.color]="sidebarState.colors.logo">
+      RULEMINER
+    </h1>
+  </div>
+  <div
+    class="menu"
+    *ngIf="sidebarState$ | async as sidebarState"
+    [ngStyle]="{ width: 'calc(100% - ' + sidebarState.logoContainerWidth + 'px)' }">
+    <app-user-info></app-user-info>
+  </div>
+</div>

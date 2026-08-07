@@ -1,0 +1,3 @@
+from tests.test_reports import ClassificationTestCase
+from tests.test_reports import RegressionTestCase
+from tests.test_reports import SurvivalTestCase

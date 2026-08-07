@@ -1,0 +1,17 @@
+@import 'variables';
+
+::ng-deep {
+  .dx-tooltip-wrapper {
+    width: 100%;
+  }
+}
+
+fa-icon {
+  color: $table-icon-color;
+}
+
+.tooltip {
+  white-space: normal;
+  max-width: 300px;
+  word-wrap: break-word;
+}

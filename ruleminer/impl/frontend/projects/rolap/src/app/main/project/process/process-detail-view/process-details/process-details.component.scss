@@ -1,0 +1,25 @@
+@import 'variables';
+
+.info-group {
+  padding: 0.5rem 1rem;
+}
+
+rolap-process-params {
+  display: inline-block;
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+
+  &:not(:last-of-type) {
+    margin-right: 0.5rem;
+  }
+}
+
+.stop-btn {
+  background-color: $process-status-stopping-bg-color;
+  color: $white;
+  width: 100%;
+}
+
+.stop-tooltip {
+  width: 70px;
+}

@@ -1,0 +1,15 @@
+<dx-select-box
+  [formControl]="operatorControl"
+  [items]="availableOperators"
+  displayExpr="text"
+  valueExpr="value"
+  placeholder="{{ 'filter_builder.select_operator' | translate }}"
+  class="condition-part"
+  [attr.data-cy]="'condition-row-operator-select'"
+  stylingMode="outlined"
+  width="150px"
+  itemTemplate="itemTemplate">
+  <div *dxTemplate="let data of 'itemTemplate'">
+    <span>{{ data.text | translate }}</span>
+  </div>
+</dx-select-box>

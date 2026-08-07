@@ -1,0 +1,11 @@
+<div class="icons-action-bar" *ngIf="actions$ | async as actions">
+  <ng-container *ngFor="let item of actions; let index = index" >
+    <dx-button class="action-icon"
+      [id]="'action-bar-'+index"
+      [hint]="item.title | translate"
+      [disabled]="item.disabled"
+      (click)="executeAction(item.action)"
+    ><fa-icon [icon]="item.icon"></fa-icon></dx-button>
+  </ng-container>
+
+</div>

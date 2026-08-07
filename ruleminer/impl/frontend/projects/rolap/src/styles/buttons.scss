@@ -1,0 +1,47 @@
+.btn {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  margin: 0.625rem 1.3125rem;
+  padding: 0;
+  cursor: pointer;
+}
+
+.btn--text {
+  cursor: pointer;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  transition: 0.1s;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  ::after {
+    cursor: pointer;
+    content: attr(data-text);
+    content: attr(data-text) / '';
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    user-select: none;
+    pointer-events: none;
+    font-weight: var(--bold);
+
+    @media speech {
+      display: none;
+    }
+  }
+}
+
+.btn-tiny {
+  height: 1rem !important;
+  min-width: unset !important;
+}

@@ -1,0 +1,97 @@
+@import 'variables';
+@import 'responsive';
+@import 'mixins/tooltip';
+
+$grid-gap: 10px;
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.manually-wrapper,
+.tree-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tree-wrapper {
+  height: 350px;
+}
+
+.manually-wrapper {
+  height: 50vh;
+}
+
+.manully-button {
+  width: 50%;
+  border-radius: 0.3125rem;
+  border: 1px solid $button-color;
+  background: $white;
+  color: $button-color;
+  flex-shrink: 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 20% 80% 100%;
+  grid-column-gap: $grid-gap;
+  position: relative;
+  height: 100%;
+
+  .grid-item {
+    height: 100%;
+
+    &:last-child {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      margin-top: 1em;
+      height: auto;
+    }
+  }
+
+  .generate-section {
+    display: grid;
+    place-items: flex-end;
+    align-content: center;
+  }
+}
+
+.loading {
+  display: grid;
+  place-items: center;
+  flex: 1;
+  width: 100%;
+}
+
+:host {
+  height: 100%;
+
+  ::ng-deep .dx-treeview {
+    .dx-treeview-node-container {
+      .dx-treeview-node {
+        &.dx-state-selected:not(.dx-state-focused) > .dx-treeview-item {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+.manually-label-container {
+  height: 10%;
+}
+
+.no-ruleset {
+  color: $button-color;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+
+  fa-icon {
+    font-size: larger;
+    margin-right: 0.5rem;
+  }
+}

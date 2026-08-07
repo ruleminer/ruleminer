@@ -1,0 +1,10 @@
+<rolap-loader *ngIf="loading"></rolap-loader>
+
+<div class="mt2 big-table-container " id="rolap-dataset-view-table">
+  <rolap-card>
+    <rolap-dataset-view-table
+      [tableType]="datasetViewTableType"
+      [dataSetId]="ids.dataSetId!"
+      (loadingState)="handleLoading($event)" />
+  </rolap-card>
+</div>

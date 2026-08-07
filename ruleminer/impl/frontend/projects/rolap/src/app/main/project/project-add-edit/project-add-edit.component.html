@@ -1,0 +1,60 @@
+<form [formGroup]="projectForm">
+  <div class="dx-field">
+    <div class="dx-field-label">{{ 'project.name' | translate }}</div>
+    <dx-text-box
+      id="projectName"
+      name="projectName"
+      formControlName="projectName"
+      stylingMode="outlined"
+      valueChangeEvent="keyup" />
+    <div class="mt1 ml1">
+      <rolap-validation-message [fieldName]="FieldName.PROJECT_NAME" [control]="projectForm.controls['projectName']" />
+    </div>
+  </div>
+  <div class="dx-field">
+    <rolap-text-area label="project.description" formControlName="projectDescription" />
+    <div class="mt1 ml1">
+      <rolap-validation-message
+        [fieldName]="FieldName.PROJECT_DESCRIPTION"
+        [control]="projectForm.controls['projectDescription']" />
+    </div>
+  </div>
+  <div class="dx-field" *ngIf="isInformation">
+    <div class="dx-field-label">{{ 'project.last_opening' | translate }}</div>
+    <p>{{ last_opened_at | date : 'dd.MM.yyyy HH:mm:ss' }}</p>
+  </div>
+  <div class="dx-field" *ngIf="isInformation">
+    <p class="dx-field-label">{{ 'project.last_modification' | translate }}</p>
+    <p>{{ updated_at | date : 'dd.MM.yyyy HH:mm:ss' }}</p>
+  </div>
+  <div class="dx-field" *ngIf="isInformation">
+    <p class="dx-field-label">{{ 'project.created_at' | translate }}</p>
+    <p>{{ created_at | date : 'dd.MM.yyyy HH:mm:ss' }}</p>
+  </div>
+
+  <div class="buttons-wrapper" *ngIf="editMode">
+    <dx-button
+      *ngIf="isInformation"
+      class="submit-btn mt2"
+      stylingMode="contained"
+      type="default"
+      hint="{{ 'project.button.delete' | translate }}"
+      (click)="onDeleteClick()"
+      [template]="'buttonTemplate'">
+      <div *dxTemplate="let data of 'buttonTemplate'">
+        <ng-container *ngIf="isDeleting">
+          <fa-icon [icon]="faSpinner" animation="spin" class="loading"></fa-icon>
+        </ng-container>
+        <fa-icon *ngIf="!isDeleting" [icon]="faTrashIcon"></fa-icon>
+      </div>
+    </dx-button>
+    <dx-button class="mr2" text="{{ 'project.button.cancel' | translate }}" (onClick)="cancelEditPopup()" />
+    <dx-button
+      [disabled]="!projectForm.valid"
+      text="{{ 'project.button.save' | translate }}"
+      stylingMode="contained"
+      type="default"
+      [useSubmitBehavior]="true"
+      (onClick)="saveEditPopup()" />
+  </div>
+</form>

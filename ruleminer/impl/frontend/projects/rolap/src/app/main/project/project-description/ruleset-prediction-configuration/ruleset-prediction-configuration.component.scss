@@ -1,0 +1,13 @@
+.select-container {
+  display: flex;
+  align-items: center;
+  margin-right: 1em;
+
+  label {
+    margin-right: 10px;
+  }
+}
+
+form {
+  row-gap: 1em;
+}

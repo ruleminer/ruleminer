@@ -1,0 +1,37 @@
+<div class="custom-column-chooser" [@fadeInOut]="isShown ? 'open' : 'close'" data-cy="column-chooser-container">
+  <div class="back-drop" (click)="closeColumnChooser()" data-cy="column-chooser-backdrop"></div>
+
+  <div class="chooser flex flex-column h-full">
+    <div class="flex justify-between p2">
+      <span class="chooser-title">{{ 'project.rules.table.column_chooser' | translate }}</span>
+      <button
+        (click)="closeColumnChooser()"
+        class="btn-close-tab"
+        data-cy="column-chooser-close-button"
+        [attr.aria-label]="'project.rules.table.close_column_chooser' | translate">
+        <fa-icon [icon]="faTimes" class="icon-close-tab"></fa-icon>
+      </button>
+    </div>
+    <dx-list
+      *ngIf="dataSource && isShown"
+      #list
+      [searchEnabled]="false"
+      height="auto"
+      [dataSource]="dataSource"
+      [selectionMode]="'multiple'"
+      [showSelectionControls]="true"
+      [useNativeScrolling]="true"
+      [showScrollbar]="'always'"
+      [keyExpr]="'dataField'"
+      [pageLoadMode]="'scrollBottom'"
+      (onSelectionChanged)="onColumnSelect($event)"
+      [(selectedItemKeys)]="selectedItemKeys">
+      <div *dxTemplate="let data of 'item'" [class.dx-state-disabled]="data.disabled">
+        <rolap-rules-table-header-text
+          [problemType]="problemType"
+          [displayType]="displayType"
+          [dataField]="data.dataField" />
+      </div>
+    </dx-list>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<form [formGroup]="form">
+  <div class="dx-field">
+    <div class="dx-field-label">{{ 'dataset.statistic_tab.dataset_label' | translate }}</div>
+
+    <dx-text-box name="title" formControlName="title" stylingMode="outlined" valueChangeEvent="keyup"> </dx-text-box>
+    <div class="mt1 ml1">
+      <rolap-validation-message [fieldName]="FieldName.DATASET_NAME" [control]="form.controls['title']" />
+    </div>
+  </div>
+  <div class="dx-field">
+    <rolap-text-area label="dataset.statistic_tab.dataset_description" formControlName="description" />
+
+    <div class="mt1 ml1">
+      <rolap-validation-message [fieldName]="FieldName.DATASET_DESCRIPTION" [control]="form.controls['description']" />
+    </div>
+  </div>
+  <div>
+    <dx-button
+      text="{{ 'project.button.save' | translate }}"
+      [disabled]="!form.valid"
+      stylingMode="contained"
+      type="default"
+      [useSubmitBehavior]="true"
+      (onClick)="submit()" />
+  </div>
+</form>

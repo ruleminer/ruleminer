@@ -1,0 +1,5 @@
+<div class="color-square-wrapper" *ngFor="let color of colors">
+  <button class="color-square" [style.background-color]="color" (click)="onColorClick(color)"></button>
+
+  <rolap-selection-marker *ngIf="color === selectedColor"></rolap-selection-marker>
+</div>

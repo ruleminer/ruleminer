@@ -1,0 +1,37 @@
+<!-- FOR CLASSIFICATION DISPLAY VALUES GROUPED BY DECISION CLASS -->
+<ng-container *ngIf="problemType === ProblemTypes.Classification; else nonClassificationTemplate">
+  <ul class="ml1">
+    <li *ngFor="let item of $any(displayData) | keyvalue">
+      <div class="flex">
+        <rolap-visibility-toggle-icon [(toggled)]="sectionVisibleFlags[$any(item.key)]" />
+        <rolap-title class="ml2 bold">{{ item.key }}</rolap-title>
+        <span class="ml1 group-count">({{ $any(item.value).length }})</span>
+      </div>
+
+      <div [rolapCollapse]="sectionVisibleFlags[$any(item.key)]">
+        <ng-container
+          [ngTemplateOutlet]="elementsListTemplate"
+          [ngTemplateOutletContext]="{ items: item.value, class: item.key }">
+        </ng-container>
+      </div>
+    </li>
+  </ul>
+</ng-container>
+
+<!-- FOR PROBLEMS OTHER THAN CLASSIFICATION DISPLAY SIMPLE LIST -->
+<ng-template #nonClassificationTemplate>
+  <ng-container [ngTemplateOutlet]="elementsListTemplate" [ngTemplateOutletContext]="{ items: $any(displayData) }">
+  </ng-container>
+</ng-template>
+
+<!-- TEMPLATE FOR SINGLE LIST ITEM -->
+<ng-template #elementsListTemplate let-items="items" let-class="class">
+  <ul class="pl4">
+    <li *ngFor="let item of items">
+      <span>{{ item.displayString }}</span>
+      <button class="remove-button" (click)="onRemoveButtonClick(item, class)">
+        <fa-icon [icon]="faXMark" class="ml2"></fa-icon>
+      </button>
+    </li>
+  </ul>
+</ng-template>

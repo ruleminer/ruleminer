@@ -1,0 +1,61 @@
+<rolap-card id="rules-prediction-indicators">
+  <rolap-title class="flex justify-between">
+    <div class="flex">
+      <h2 class="center-vertical">
+        {{ 'project.rules.prediction_rate' | translate }}
+        <span data-cy="rules-prediction-indicators-card-data-set-name"> {{ dataSetName$ | async }}</span>
+      </h2>
+      <rolap-tooltip [tooltip]="'tooltips.rules_table.prediction' | translate" />
+    </div>
+    <div class="flex">
+      <rolap-refresh-icon [canRefresh]="refresh" class="mr2" [isRefreshing]="isRefreshing" (refresh)="refreshClick()" />
+      <!-- Use the export dropdown component -->
+      <rolap-export-dropdown [exportItems]="exportItems"></rolap-export-dropdown>
+    </div>
+  </rolap-title>
+  <dx-data-grid
+    [dataSource]="predictionIndicators"
+    [showBorders]="true"
+    [sorting]="{ mode: 'multiple' }"
+    [customizeColumns]="customizeColumns"
+    (onInitialized)="onInitialized()"
+    (onOptionChanged)="onOptionChanged($event)"
+    [noDataText]="
+      isLoading ? ('project.rules.table.data_loading' | translate) : ('project.rules.table.no_data' | translate)
+    ">
+    <dxi-column
+      cellTemplate="indicatorNameCellTemplate"
+      headerCellTemplate="indicatorNameHeaderTemplate"
+      dataField="name"
+      [visible]="true"
+      [alignment]="'left'">
+      <div *dxTemplate="let d of 'indicatorNameCellTemplate'" class="metric-name">
+        <rolap-tooltip
+          class="inline-block"
+          [customClasses]="'btn-tiny'"
+          [data]="indicatorsDescriptions()![d.data.key]" />
+        {{ d.data.name }}
+      </div>
+      <div
+        *dxTemplate="let d of 'indicatorNameHeaderTemplate'"
+        [attr.title]="'project.rules.rule_editor.metrics.table_headers.name' | translate"
+        class="metric-name">
+        {{ 'project.rules.rule_editor.metrics.table_headers.name' | translate }}
+      </div>
+    </dxi-column>
+    <dxi-column
+      dataField="value"
+      [visible]="true"
+      [alignment]="'left'"
+      cellTemplate="indicatorValueCellTemplate"
+      headerCellTemplate="indicatorValueHeaderTemplate">
+      <div *dxTemplate="let d of 'indicatorValueCellTemplate'">
+        {{ d.data.value !== null ? d.data.value : '—' }}
+      </div>
+      <div *dxTemplate="let d of 'indicatorValueHeaderTemplate'">
+        {{ 'project.rules.rule_editor.metrics.table_headers.value' | translate }}
+      </div>
+    </dxi-column>
+  </dx-data-grid>
+  <rolap-card-footer> </rolap-card-footer>
+</rolap-card>

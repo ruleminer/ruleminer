@@ -1,0 +1,25 @@
+<div *ngIf="title" class="flex my2">
+  <rolap-title class="mr2 title">{{ title }}</rolap-title>
+  <rolap-visibility-toggle-icon [(toggled)]="show"></rolap-visibility-toggle-icon>
+</div>
+
+<div *ngIf="show">
+  <rolap-translated-key-value-data-grid
+    [data]="predictedRateData"
+    translationKey="project.rules.table.headers"
+    height="'auto"
+    [maxRowsBeforeFixedHeight]="0" />
+  <div *ngIf="isClassification" class="flex mt1">
+    <p class="bold center-vertical">
+      {{ 'project.prediction.confusion_matrix' | translate }}
+    </p>
+    <rolap-tooltip [tooltip]="'tooltips.rules_table.actual_condition' | translate" />
+  </div>
+  <rolap-predicted-condition
+    data-cy="predicted-condition"
+    class="mt2 block"
+    *ngIf="shouldDisplayConfusionMatrix"
+    [confusionMatrix]="confusionMatrix"
+    [dataSource]="confusionMatrixDataSource" />
+  <div class="mt2"><rolap-confusion-matrix [isTest]="true" [data]="indicator.Confusion_matrix" /></div>
+</div>

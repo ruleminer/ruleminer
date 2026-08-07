@@ -1,0 +1,63 @@
+<ng-container *ngIf="isTourActive()">
+  <div class="tour-backdrop"></div>
+
+  <!-- Cancel button when tour is not ready and notification is shown -->
+  <div *ngIf="showCancelButton()" class="tour-cancel-container">
+    <div class="tour-cancel-tooltip">
+      <div class="tour-content">
+        <div class="flex justify-between">
+          <h2>{{ 'tour.config.title' | translate }}</h2>
+          <dx-button (onClick)="exitTour()" icon="close" class="close-btn mb-1" />
+        </div>
+        <p>{{ 'tour.element_not_found' | translate }}</p>
+        <div class="tour-buttons">
+          <dx-button
+            type="default"
+            class="tour-btn"
+            (click)="exitTour()"
+            [text]="'tour.config.exit' | translate" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="currentStepDataSignal() as step" class="tour-container">
+    <div
+      *ngIf="currentStepPositionSignal() as currentPosition"
+      class="tour-tooltip"
+      [class.position-above]="currentPosition.isAbove"
+      [ngStyle]="currentPosition"
+      [hidden]="hidden()">
+      <div class="tour-content">
+        <div class="flex justify-between">
+          <h2>{{ step.title | translate }}</h2>
+          <dx-button (onClick)="exitTour()" icon="close" class="close-btn mb-1" />
+        </div>
+        <p>{{ step.content | translate }}</p>
+        <rolap-tour-progress />
+
+        <div class="tour-buttons">
+          <dx-button
+            class="tour-btn"
+            (click)="prevStep()"
+            [disabled]="isFirstStepSignal()"
+            [text]="'tour.config.back' | translate" />
+          <div class="step-counter">{{ stepCounterSignal() }}</div>
+          <dx-button
+            [text]="'tour.config.next' | translate"
+            type="default"
+            class="tour-btn"
+            *ngIf="!isLastStepSignal()"
+            (click)="nextStep()"
+            [disabled]="isLastStepSignal()" />
+          <dx-button
+            type="default"
+            class="tour-btn"
+            *ngIf="isLastStepSignal()"
+            (click)="exitTour()"
+            [text]="'tour.config.exit' | translate" />
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

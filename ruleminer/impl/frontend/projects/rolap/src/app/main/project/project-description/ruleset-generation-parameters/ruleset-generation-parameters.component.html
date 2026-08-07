@@ -1,0 +1,13 @@
+<ng-container *ngIf="algoName$ | async as algoName">
+  <p class="mb1">{{ 'project.description_tab.attributes_way_to_generate' | translate }} {{ algoName }}</p>
+</ng-container>
+
+<ng-container *ngIf="algorithmParams$ | async as algorithmParams">
+  <ng-container *ngIf="algorithmParams">
+    <h3 class="mb1">{{ 'project.description_tab.algo_params' | translate }}</h3>
+    <rolap-translated-key-value-data-grid
+      [height]="'auto'"
+      [data]="algorithmParams"
+      translationKey="project.rules.table.headers" />
+  </ng-container>
+</ng-container>

@@ -1,0 +1,81 @@
+<div *ngIf="initialized" class="flex items-start pb2">
+  <ng-container [ngSwitch]="parameter.parameter_type">
+    <div *ngSwitchCase="'expert_rules'" class="param-col">
+      <ng-container [ngTemplateOutlet]="parameterName" [ngTemplateOutletContext]="{ param: parameter }"> </ng-container>
+      <ng-container
+        [ngTemplateOutlet]="addButton"
+        [ngTemplateOutletContext]="{ clickCallback: onExpertRuleOrConditionAddClick }">
+      </ng-container>
+      <rolap-expert-parameter-display
+        class="expert-parameter-display"
+        [control]="control"
+        [parameterType]="parameter.parameter_type"
+        [problemType]="problemType" />
+    </div>
+    <div *ngSwitchCase="'expert_conditions'" class="param-col">
+      <ng-container [ngTemplateOutlet]="parameterName" [ngTemplateOutletContext]="{ param: parameter }"> </ng-container>
+      <ng-container
+        [ngTemplateOutlet]="addButton"
+        [ngTemplateOutletContext]="{ clickCallback: onExpertRuleOrConditionAddClick }">
+      </ng-container>
+      <rolap-expert-parameter-display
+        class="expert-parameter-display"
+        [control]="control"
+        [parameterType]="parameter.parameter_type"
+        [problemType]="problemType" />
+    </div>
+    <div *ngSwitchCase="'expert_attributes'" class="param-col">
+      <ng-container [ngTemplateOutlet]="parameterName" [ngTemplateOutletContext]="{ param: parameter }"> </ng-container>
+      <ng-container
+        [ngTemplateOutlet]="addButton"
+        [ngTemplateOutletContext]="{ clickCallback: onExpertAttributeAddClick }">
+      </ng-container>
+      <rolap-expert-parameter-display
+        class="expert-parameter-display"
+        [control]="control"
+        [parameterType]="parameter.parameter_type"
+        [problemType]="problemType" />
+    </div>
+    <div *ngSwitchCase="'bool'" class="param-col">
+      <ng-container [ngTemplateOutlet]="parameterName" [ngTemplateOutletContext]="{ param: parameter }"> </ng-container>
+      <dx-switch [formControl]="$any(control)" [value]="$any(parameter.default_value)" />
+    </div>
+    <div *ngSwitchCase="'int'" class="param-col">
+      <ng-container [ngTemplateOutlet]="parameterName" [ngTemplateOutletContext]="{ param: parameter }"> </ng-container>
+      <dx-number-box
+        [inputAttr]="{ 'aria-label': 'project.rules.' + 'parameter.description_' + currentLanguage }"
+        [min]="parameter.min_value"
+        [max]="parameter.max_value"
+        format="#"
+        [value]="$any(parameter.default_value)"
+        [formControl]="$any(control)"
+        stylingMode="outlined" />
+    </div>
+    <div *ngSwitchCase="'float'" class="param-col">
+      <ng-container [ngTemplateOutlet]="parameterName" [ngTemplateOutletContext]="{ param: parameter }"> </ng-container>
+      <dx-number-box
+        [inputAttr]="{ 'aria-label': 'project.rules.' + 'parameter.description_' + currentLanguage }"
+        [min]="parameter.min_value"
+        [max]="parameter.max_value"
+        [value]="$any(parameter.default_value)"
+        [formControl]="$any(control)"
+        stylingMode="outlined" />
+    </div>
+  </ng-container>
+  <div class="hint-col pl1">
+    <rolap-tooltip [data]="parameter"></rolap-tooltip>
+  </div>
+</div>
+
+<ng-template #parameterName let-param="param">
+  <span class="flex items-center mr2 param-name"> {{ $any(param)['parameter_name_' + currentLanguage] }}</span>
+</ng-template>
+
+<ng-template #addButton let-clickCallback="clickCallback">
+  <dx-button stylingMode="outlined" type="default" class="mr1 add-btn" (onClick)="clickCallback()">
+    <div class="flex items-center ml1 mr1">
+      {{ 'add' | translate }}
+      <fa-icon class="btn-icon ml1" [icon]="faPlus"></fa-icon>
+    </div>
+  </dx-button>
+</ng-template>

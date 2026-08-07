@@ -1,0 +1,40 @@
+[
+    {
+        "condition_importance": {
+            "relapse = {no}": 0.33,
+            "relapse = {yes}": 0.85,
+            "donor_age < 42.14": 0.06,
+            "donor_age < 42.16": 0.06,
+            "donor_age < 45.16": 0.33,
+            "donor_age >= 27.02": 0.06,
+            "donor_age >= 33.34": 0.22,
+            "PLT_recovery >= 26.00": 0.2,
+            "recipient_age < 17.45": 0.33,
+            "recipient_age < 18.00": 0.5,
+            "recipient_age >= 3.30": 0.13,
+            "recipient_rh = {plus}": 0.14,
+            "gender_match = {other}": 0.06,
+            "recipient_age >= 17.75": 0.21,
+            "CD34_x1e6_per_kg < 8.14": 0.2,
+            "CD34_x1e6_per_kg < 20.22": 0.12,
+            "CD34_x1e6_per_kg >= 5.19": 0.17,
+            "HLA_mismatch = {matched}": 0.2,
+            "recipient_body_mass < 66.50": 0.17,
+            "recipient_body_mass < 69.00": 0.5,
+            "recipient_body_mass >= 44.40": 0.16,
+            "time_to_acute_GvHD_III_IV >= 18.50": 0.15
+        },
+        "attribute_importance": {
+            "relapse": 1.18,
+            "donor_age": 0.72,
+            "HLA_mismatch": 0.2,
+            "PLT_recovery": 0.2,
+            "gender_match": 0.06,
+            "recipient_rh": 0.14,
+            "recipient_age": 1.18,
+            "CD34_x1e6_per_kg": 0.49,
+            "recipient_body_mass": 0.83,
+            "time_to_acute_GvHD_III_IV": 0.15
+        }
+    }
+]

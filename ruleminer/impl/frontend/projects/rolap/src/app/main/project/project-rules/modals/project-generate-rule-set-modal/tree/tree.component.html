@@ -1,0 +1,26 @@
+<dx-scroll-view height="70vh">
+  <dx-tree-view
+    class="treeview"
+    [dataSource]="treeView"
+    expandedExpr="expanded"
+    selectionMode="single"
+    [selectByClick]="true"
+    (onItemSelectionChanged)="onTreeItemClick($event)"
+    itemTemplate="treeTemplate">
+    <div *dxTemplate="let data of 'treeTemplate'" class="tree-element">
+      <ng-container [ngSwitch]="data.type">
+        <div *ngSwitchCase="'dataSet'">
+          <fa-icon class="mr1" [icon]="faGridRound"></fa-icon>
+          <span data-cy="modal-tree-item-dataset">{{ data.text }}</span>
+        </div>
+        <div *ngSwitchCase="'ruleSet'">
+          <fa-icon class="mr1" [icon]="faLineColumns"></fa-icon>
+          <span data-cy="modal-tree-item-ruleset">{{ data.text }}</span>
+        </div>
+        <div *ngSwitchDefault>
+          <span data-cy="modal-tree-item-project">{{ data.text }}</span>
+        </div>
+      </ng-container>
+    </div>
+  </dx-tree-view>
+</dx-scroll-view>

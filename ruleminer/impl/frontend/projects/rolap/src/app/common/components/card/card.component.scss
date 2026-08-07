@@ -1,0 +1,16 @@
+@import 'variables';
+@import 'mixins/card';
+
+.card {
+  @include card; // moving to mixin because the same code is used in the project-ruleset-comparison component
+}
+
+:host ::ng-deep {
+  h3 {
+    color: $sub-title-color;
+    font-size: 0.875em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}

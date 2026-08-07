@@ -1,0 +1,30 @@
+<div class="card-container my1 pb2">
+  <div class="breakpoint-container">
+    <div class="row">
+      <!-- NAME AND DESCRIPTION -->
+      <div class="col-lg-6 mb2">
+        <rolap-card class="flex flex-column" id="description-left">
+          <rolap-title class="flex justify-between">
+            <h2>{{ 'project.description_tab.title' | translate }}</h2>
+          </rolap-title>
+          <rolap-project-description-form />
+          <rolap-card-footer> </rolap-card-footer>
+        </rolap-card>
+      </div>
+      <div class="col-lg-6 mb2">
+        <!-- GENERATION PARAMETERS -->
+        <rolap-card class="flex flex-column" id="description-right">
+          <rolap-title class="flex justify-between">
+            <h2>{{ 'project.description_tab.attributes_title' | translate }}</h2>
+          </rolap-title>
+          <rolap-ruleset-generation-parameters />
+          <div class="mt2">
+            <rolap-ruleset-generation-predition-config-table />
+          </div>
+          <rolap-card-footer> </rolap-card-footer>
+        </rolap-card>
+      </div>
+    </div>
+    <rolap-ruleset-generation-expert-induction />
+  </div>
+</div>

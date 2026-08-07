@@ -1,0 +1,53 @@
+#graph-area {
+  width: 100%;
+  overflow: hidden;
+}
+
+.color-inherit {
+  color: inherit;
+}
+
+.w3 {
+  width: 800px;
+}
+
+.h3 {
+  height: 400px;
+}
+
+.pl1 {
+  padding-left: 8px;
+}
+
+.pt1 {
+  padding-top: 8px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.visualisation-section {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.card-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content-item {
+  padding-left: 2rem;
+}
+
+.dx-datagrid-headers {
+  white-space: normal;
+}
+
+.justify-right {
+  display: flex;
+  justify-content: flex-end;
+}

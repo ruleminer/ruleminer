@@ -1,0 +1,13 @@
+@import 'variables';
+
+:host {
+  margin-top: 0.5rem;
+}
+
+.group-count {
+  color: $induction-params;
+}
+
+.remove-button {
+  color: $remove-icon;
+}

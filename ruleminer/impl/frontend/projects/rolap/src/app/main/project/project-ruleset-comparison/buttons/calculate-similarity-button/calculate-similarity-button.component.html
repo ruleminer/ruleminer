@@ -1,0 +1,8 @@
+<div class="right-align" *ngIf="shouldShow()">
+  <dx-button
+    class="mb1"
+    type="default"
+    (onClick)="calculateSimilarity()"
+    text="{{ 'comparison_view.calculate_similarity' | translate }}">
+  </dx-button>
+</div>

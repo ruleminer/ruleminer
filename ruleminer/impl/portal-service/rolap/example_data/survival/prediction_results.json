@@ -1,0 +1,12 @@
+[
+    {
+        "results": {
+            "general": {
+                "ibs": 0.21,
+                "Covered_by_prediction": 187,
+                "Not_covered_by_prediction": 0
+            },
+            "type_of_problem": "survival"
+        }
+    }
+]

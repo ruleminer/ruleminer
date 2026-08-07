@@ -1,0 +1,90 @@
+<rolap-title class="flex justify-between">
+  <div class="flex">
+    <h2 class="center-vertical">{{ 'project.rules.answer_questions' | translate }}</h2>
+    <rolap-tooltip [tooltip]="'tooltips.generate_rule.steeper_generator' | translate" />
+  </div>
+</rolap-title>
+<div class="stepper-radio-group">
+  <ng-container *ngIf="questions">
+    <rolap-stepper #stepper [allowGoingFurther]="true">
+      <ng-container *ngFor="let question of questions; let i = index; let last = last">
+        <rolap-stepper-step [index]="i">
+          <span step-header>{{
+            currentLanguage === 'en' ? question.question_text_en : question.question_text_pl
+          }}</span>
+          <div *step-content>
+            <dx-radio-group
+              [items]="question.question_answers"
+              [value]="question.question_answers[0]"
+              (onValueChanged)="selectAnswer($event, question.question_number)">
+              <div *dxTemplate="let data of 'item'; let answerIndex = index">
+                <ng-container
+                  *ngFor="
+                    let answer of currentLanguage === 'en'
+                      ? data.answer_text_en[answerIndex]
+                      : data.answer_text_pl[answerIndex];
+                    let groupIndex = index
+                  ">
+                  <ng-container *ngIf="answer.type === 'text'; else inputTemplate">
+                    <span>{{ answer.string }}</span>
+                  </ng-container>
+                  <ng-template #inputTemplate>
+                    <input
+                      class="mr1 ml1"
+                      type="number"
+                      [attr.min]="0"
+                      [attr.max]="100"
+                      (change)="onInputChange(answer.string)"
+                      [(ngModel)]="extraValues[answer.string]"
+                      inputmode="numeric" />
+                  </ng-template>
+                </ng-container>
+              </div>
+            </dx-radio-group>
+            <div class="buttons-wrapper pb2">
+              <ng-container *ngIf="i > 0">
+                <ng-container *ngTemplateOutlet="backButton"></ng-container>
+              </ng-container>
+              <ng-container *ngIf="!last">
+                <ng-container *ngTemplateOutlet="nextButton"></ng-container>
+              </ng-container>
+            </div>
+          </div>
+        </rolap-stepper-step>
+      </ng-container>
+    </rolap-stepper>
+  </ng-container>
+</div>
+
+<div class="params-wrapper">
+  <div>
+    <span class="current-parameters" *ngIf="currentParameters" id="currentParameters">
+      {{ 'project.rules.current_parameters' | translate }}
+    </span>
+    <dx-popover target="#currentParameters" showEvent="mouseenter" hideEvent="mouseleave" [width]="300">
+      <div class="params" *dxTemplate="let data = data; of: 'content'">
+        <span *ngFor="let item of currentParameters | keyvalue" class="params-item">
+          {{ item.key }} : {{ item.value }}
+        </span>
+      </div>
+    </dx-popover>
+  </div>
+</div>
+
+<ng-template #backButton>
+  <dx-button
+    class="submit-btn mt2 mr2"
+    stylingMode="outlined"
+    text="{{ 'data_upload.back' | translate }}"
+    type="default"
+    (click)="stepBack()" />
+</ng-template>
+
+<ng-template #nextButton>
+  <dx-button
+    class="submit-btn mt2"
+    stylingMode="contained"
+    text="{{ 'data_upload.next' | translate }}"
+    type="default"
+    (click)="stepNext()" />
+</ng-template>

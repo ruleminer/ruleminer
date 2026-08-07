@@ -1,0 +1,26 @@
+<rolap-loader *ngIf="loadingInfo.barChart && loadingInfo.correlation && loadingInfo.histogram"></rolap-loader>
+
+<div class="mt2" *ngIf="dataSetId">
+  <rolap-kaplan-meier-chart [dataSetId]="dataSetId" *ngIf="isSurvival$ | async" class="mt1 mb2 block" />
+
+  <rolap-dataset-correlation
+    *ngIf="isCorrelationMatrix"
+    class="mt1 mb2 block"
+    [dataSetId]="dataSetId"
+    (correlationLoadingChange)="handleCorrelationLoadingChange($event)" />
+
+  <rolap-dataset-histogram-chart
+    id="dataset-histogram-chart"
+    class="breakpoint-container"
+    (correlationMatrixVisibilityChange)="isCorrelationMatrix = $event"
+    [dataSetId]="dataSetId"
+    [plotParameters]="plotParameters"
+    (histogramLoadingChange)="handleLoadingHistogramChange($event)" />
+
+  <rolap-dataset-bar-chart
+    id="rolap-dataset-bar-chart"
+    class="breakpoint-container"
+    [dataSetId]="dataSetId"
+    [plotParameters]="plotParameters"
+    (barChartLoadingChange)="handleBarChartLoadingChange($event)" />
+</div>

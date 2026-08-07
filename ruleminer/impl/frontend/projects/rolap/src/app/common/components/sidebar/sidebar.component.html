@@ -1,0 +1,17 @@
+<ng-container *ngIf="allowResize">
+  <div id="sidebar-resize-handler" (mousedown)="onMouseDown($event)"></div>
+  <div>
+    <dx-button
+      [ngStyle]="{ 'margin-left': 'calc(' + (sidebar.width - 25) + 'px)' }"
+      stylingMode="contained"
+      type="default"
+      [icon]="isSidebarVisible ? 'spinleft' : 'spinright'"
+      (click)="toggleSidebar()"
+      class="color-inherit fs2 button-position">
+    </dx-button>
+  </div>
+</ng-container>
+
+<div id="sidebar-wrapper" *ngIf="isSidebarVisible">
+  <rolap-treeview />
+</div>

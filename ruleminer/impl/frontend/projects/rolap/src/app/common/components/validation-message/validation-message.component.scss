@@ -1,0 +1,9 @@
+@import 'variables';
+
+.invalid-feedback {
+  display: block !important;
+}
+
+p {
+  color: $validation-color;
+}

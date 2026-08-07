@@ -1,0 +1,19 @@
+{
+  "name": "bone marrow ruleset",
+  "description": "ruleset for bone marrow dataset",
+  "algorithm_params": {
+    "max_growing": 0,
+    "minsupp_new": 10,
+    "max_rule_count": 0,
+    "select_best_candidate": true,
+    "max_uncovered_fraction": 0.02,
+    "complementary_conditions": false
+  },
+  "prediction_config": {
+    "prediction_strategy": "vote",
+    "use_default_rule": true
+  },
+  "attributes_to_skip": [],
+  "cross_validation": true,
+  "num_folds": 5
+}

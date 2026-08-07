@@ -1,0 +1,35 @@
+@import 'variables';
+
+:host {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.project-create {
+  width: 80%;
+  height: 100%;
+}
+
+.new-project-button {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: $recent-project-bgc-color;
+  border: 1px solid $space-usage-progressbar-container-bg-color;
+  text-align: left;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: row;
+
+  fa-icon {
+    margin-right: 10px;
+  }
+
+  p {
+    text-align: left;
+  }
+}

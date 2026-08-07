@@ -1,0 +1,13 @@
+<ng-container *ngIf="problemTypeSignal()">
+  <span [ngSwitch]="problemTypeSignal()">
+    <div *ngSwitchCase="ProblemTypes.Classification">
+      <rolap-classification-rule-conclusion-editor />
+    </div>
+    <div *ngSwitchCase="ProblemTypes.Regression">
+      <rolap-regression-rule-conclusion-editor />
+    </div>
+    <div *ngSwitchCase="ProblemTypes.Survival">
+      <rolap-survival-rule-conclusion-editor />
+    </div>
+  </span>
+</ng-container>

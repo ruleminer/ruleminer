@@ -1,0 +1,26 @@
+<button
+  *ngIf="text.length"
+  id="label-{{ id }}"
+  class="label"
+  [class.compact]="compact"
+  [style.background-color]="color"
+  [style.color]="textColor"
+  [attr.title]="compact ? text : null"
+  (click)="onLabelClick(id)"
+  data-cy="label">
+  <ng-container *ngIf="!compact; else compactTextTemplate">{{ text }}</ng-container>
+</button>
+
+<rolap-selection-marker *ngIf="selected"></rolap-selection-marker>
+
+<dx-context-menu
+  *ngIf="contextMenu"
+  target="#label-{{ id }}"
+  [dataSource]="contextMenuItems"
+  [width]="200"
+  (onItemClick)="onContextMenuClick($event)">
+</dx-context-menu>
+
+<ng-template #compactTextTemplate>
+  {{ text | firstLetter }}
+</ng-template>

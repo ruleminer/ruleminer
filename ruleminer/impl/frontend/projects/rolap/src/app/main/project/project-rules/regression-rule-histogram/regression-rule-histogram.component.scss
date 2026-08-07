@@ -1,0 +1,7 @@
+/* regression-rule-histogram.component.scss */
+
+:host ::ng-deep .legend .scrollbox .groups .traces .legendtext {
+  white-space: normal !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}

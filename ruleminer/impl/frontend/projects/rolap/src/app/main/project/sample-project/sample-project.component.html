@@ -1,0 +1,21 @@
+<div [id]="projectId" class="card">
+  <dx-button
+    (click)="createSampleProject()"
+    class="button"
+    [disabled]="isProjectLimitReached"
+    [id]="'project_sample_button_' + problemType"
+    [attr.data-cy]="'sample_project_' + problemType">
+    <fa-icon class="icon" [icon]="projectIcon"></fa-icon>
+    <p>{{ 'project.title.import_example_project_' + problemType | translate }}</p>
+  </dx-button>
+  <dx-tooltip
+    *ngIf="isProjectLimitReached"
+    [target]="'#project_' + problemType"
+    showEvent="mouseenter"
+    hideEvent="mouseleave"
+    [hideOnOutsideClick]="false">
+    <div *dxTemplate="let data = data; of: 'content'">
+      {{ 'project.limit_reached' | translate }}
+    </div>
+  </dx-tooltip>
+</div>

@@ -1,0 +1,34 @@
+@import 'variables';
+
+.cdk-overlay-container {
+  z-index: 10;
+}
+
+.cdk-overlay-pane {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 20em;
+  height: auto;
+  display: auto;
+
+  common-modal {
+    width: 100%;
+    height: inherit;
+    margin: auto;
+  }
+
+  #modal-content {
+    background-color: $white;
+    padding: var(--space-2) var(--space-2);
+    border-radius: 9px;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .modal-content:first-child {
+    height: auto;
+  }
+}

@@ -1,0 +1,12 @@
+<p>{{ content }}</p>
+
+<div class="flex justify-end mt3">
+  <dx-button
+    class="mr2"
+    type="normal"
+    (click)="closeModal(false)"
+    text="{{ 'project_summary.modal.cancel' | translate }}">
+  </dx-button>
+  <dx-button type="default" (click)="closeModal(true)" text="{{ 'project_summary.modal.remove' | translate }}">
+  </dx-button>
+</div>

@@ -1,0 +1,132 @@
+<rolap-card>
+  <rolap-title class="flex justify-between">
+    <h2>
+      {{ type === 'active' ? ('process.active.title' | translate) : ('process.ended.title' | translate) }}
+    </h2>
+    <rolap-process-refresh-btn [isRefreshing]="isRefreshing"></rolap-process-refresh-btn>
+  </rolap-title>
+
+  <dx-data-grid
+    [dataSource]="dataSource"
+    (onRowClick)="onRowClick($event)"
+    data-cy="process-table-active"
+    [columnAutoWidth]="true"
+    [noDataText]="'process.table.no_data' | translate">
+    <dxo-remote-operations [paging]="true" [sorting]="true" [filtering]="true"></dxo-remote-operations>
+    <dxo-scrolling [useNative]="true"></dxo-scrolling>
+    <dxo-paging [pageSize]="20"></dxo-paging>
+    <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="allowedPageSizes"></dxo-pager>
+
+    <dxo-header-filter [visible]="true"></dxo-header-filter>
+
+    <dxo-selection mode="single"></dxo-selection>
+
+    <dxo-master-detail [enabled]="false" template="processDetail"></dxo-master-detail>
+
+    <!-- PROCESS ID -->
+    <dxi-column
+      dataField="inner_id"
+      caption="{{ 'process.table.process_id' | translate }}"
+      alignment="center"
+      [width]="100"
+      [allowSorting]="false"
+      [allowFiltering]="false"
+      [allowHeaderFiltering]="false">
+    </dxi-column>
+
+    <!-- TYPE -->
+    <dxi-column
+      dataField="type"
+      caption="{{ 'process.table.type.title' | translate }}"
+      cellTemplate="processTypeCellTemplate"
+      [allowFiltering]="false"
+      [allowHeaderFiltering]="true"
+      width="250px">
+      <dxo-header-filter [dataSource]="typeFilterDataSource"></dxo-header-filter>
+    </dxi-column>
+
+    <!-- STATUS -->
+    <dxi-column
+      dataField="status"
+      caption="{{ 'process.table.status.title' | translate }}"
+      cellTemplate="processStatusCellTemplate"
+      [allowFiltering]="false"
+      [allowHeaderFiltering]="true"
+      width="250px">
+      <dxo-header-filter [dataSource]="statusFilterDataSource"></dxo-header-filter>
+    </dxi-column>
+
+    <!-- START TIME -->
+    <dxi-column
+      dataField="create_timestamp"
+      caption="{{ 'process.table.start_time' | translate }}"
+      cellTemplate="timeCellTemplate"
+      dataType="date"
+      [allowHeaderFiltering]="false"
+      width="140px">
+    </dxi-column>
+
+    <!-- END TIME -->
+    <dxi-column
+      dataField="finish_timestamp"
+      caption="{{ 'process.table.end_time' | translate }}"
+      cellTemplate="timeCellTemplate"
+      dataType="date"
+      [allowHeaderFiltering]="false"
+      width="140px">
+    </dxi-column>
+
+    <!-- OPERATIONS -->
+    <dxi-column
+      *ngIf="type === 'active'"
+      dataField="task_id"
+      alignment="left"
+      caption="{{ 'process.table.operations' | translate }}"
+      cellTemplate="operationsCellTemplate"
+      [allowSorting]="false"
+      [allowHeaderFiltering]="false">
+    </dxi-column>
+
+    <!-- EFFECT -->
+    <dxi-column
+      *ngIf="type === 'ended'"
+      dataField="task_id"
+      alignment="left"
+      caption="{{ 'process.table.effect' | translate }}"
+      cellTemplate="effectCellTemplate"
+      [allowSorting]="false"
+      [allowFiltering]="false"
+      [allowHeaderFiltering]="false">
+    </dxi-column>
+
+    <!-- TIME COLUMN TEMPLATE -->
+    <span *dxTemplate="let data of 'timeCellTemplate'">
+      {{ data.value | date : 'dd.MM.yyyy HH:mm:ss' }}
+    </span>
+
+    <!-- PROCESS STATUS CELL TEMPLATE -->
+    <span *dxTemplate="let data of 'processStatusCellTemplate'">
+      <rolap-process-status [status]="data.value"></rolap-process-status>
+    </span>
+
+    <!-- PROCESS TYPE CELL TEMPLATE -->
+    <span *dxTemplate="let data of 'processTypeCellTemplate'">
+      <rolap-process-type [type]="data.value"></rolap-process-type>
+    </span>
+
+    <!-- PROCESS EFFECT CELL TEMPLATE -->
+    <span *dxTemplate="let data of 'effectCellTemplate'">
+      <rolap-project-effect  [processDetails]="data.data" > </rolap-project-effect>
+    </span>
+
+    <!-- OPERATIONS CELL TEMPLATE -->
+    <span *dxTemplate="let data of 'operationsCellTemplate'">
+      <rolap-process-abort-button [processId]="data.value" [status]="data.data.status" />
+    </span>
+
+    <!-- MASTER DETAIL TEMPLATE -->
+    <div *dxTemplate="let process of 'processDetail'">
+      <rolap-process-detail-view [processId]="process.key" />
+    </div>
+  </dx-data-grid>
+</rolap-card>

@@ -1,0 +1,21 @@
+@import 'styles/_responsive';
+
+.projects-container {
+  padding: 1em 0;
+  height: 8em;
+  min-height: 55vh;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5em 5em;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: $breakpoint-xl) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}

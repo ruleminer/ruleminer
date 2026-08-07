@@ -1,0 +1,74 @@
+<rolap-card *ngIf="dataSourceSignal() as data">
+  <rolap-title>{{ 'project.rules.table.headers.displayConclusion' | translate }}</rolap-title>
+  <div class="form-group">
+    <dx-select-box
+      stylingMode="outlined"
+      id="labelInput"
+      [items]="conclusionDropDownItemsSignal()"
+      (onValueChanged)="onConclusionValueSelected($event)"
+      [value]="selectedValue()">
+    </dx-select-box>
+    <dx-data-grid
+      class="my1"
+      [dataSource]="data"
+      height="auto"
+      [showBorders]="true"
+      [columnMinWidth]="30"
+      [columnAutoWidth]="true"
+      [wordWrapEnabled]="true"
+      [remoteOperations]="true"
+      [renderAsync]="true"
+      [noDataText]="'project.rules.table.data_loading' | translate">
+      <dxi-column dataField="class_name" headerCellTemplate="classNameHeader" [allowSorting]="false">
+        <div *dxTemplate="let d of 'classNameHeader'">
+          <div id="classNameHeader" class="center">
+            {{ 'visualisation.coverage_table_columns.name_header' | translate }}
+          </div>
+          <dx-tooltip
+            #tooltip
+            [target]="'#classNameHeader'"
+            showEvent="mouseenter"
+            hideEvent="mouseleave"
+            [hideOnOutsideClick]="false">
+            <div *dxTemplate="let data = data; of: 'content'">
+              <span>{{ 'visualisation.coverage_table_columns.class_name' | translate }}</span>
+            </div>
+          </dx-tooltip>
+        </div>
+      </dxi-column>
+      <dxi-column dataField="coverage_count" headerCellTemplate="coverageCountHeader" [allowSorting]="false">
+        <div *dxTemplate="let d of 'coverageCountHeader'">
+          <div id="coverageCountHeader" class="center">
+            {{ 'visualisation.coverage_table_columns.coverage_count_header' | translate }}
+          </div>
+          <dx-tooltip
+            [target]="'#coverageCountHeader'"
+            showEvent="mouseenter"
+            hideEvent="mouseleave"
+            [hideOnOutsideClick]="false">
+            <div *dxTemplate="let data = data; of: 'content'">
+              <span>{{ 'visualisation.coverage_table_columns.coverage_count' | translate }}</span>
+            </div>
+          </dx-tooltip>
+        </div>
+      </dxi-column>
+
+      <dxi-column dataField="all_count" headerCellTemplate="allCountHeader" [allowSorting]="false">
+        <div *dxTemplate="let d of 'allCountHeader'">
+          <div id="allCountHeader" class="center">
+            {{ 'visualisation.coverage_table_columns.all_counts_header' | translate }}
+          </div>
+          <dx-tooltip
+            [target]="'#allCountHeader'"
+            showEvent="mouseenter"
+            hideEvent="mouseleave"
+            [hideOnOutsideClick]="false">
+            <div *dxTemplate="let data = data; of: 'content'">
+              <span>{{ 'visualisation.coverage_table_columns.all_count' | translate }}</span>
+            </div>
+          </dx-tooltip>
+        </div>
+      </dxi-column>
+    </dx-data-grid>
+  </div>
+</rolap-card>

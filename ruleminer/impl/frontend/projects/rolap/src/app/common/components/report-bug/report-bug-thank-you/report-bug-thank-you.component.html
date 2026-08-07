@@ -1,0 +1,12 @@
+<p>
+  {{ 'report_bug.thank_you.content' | translate }}
+</p>
+
+<div class="mt1 buttons-wrapper flex justify-end">
+  <dx-button
+    text="{{ 'report_bug.thank_you.close_btn' | translate }}"
+    stylingMode="contained"
+    type="default"
+    [useSubmitBehavior]="true"
+    (onClick)="closeModal()" />
+</div>

@@ -1,0 +1,10 @@
+.selectbox-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.flex-item {
+  flex: 1;
+  margin-right: 10px;
+}

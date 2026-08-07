@@ -1,0 +1,21 @@
+<div class="mt1">
+  <h6>{{ 'auth.profile.account' | translate }}</h6>
+  <hr />
+  <div class="email-container mt1">
+    <span>{{ 'auth.profile.email' | translate }}: {{ email }}</span>
+    <span class="change-password">
+      <a [href]="resetPasswordHref">{{ 'auth.profile.change_password' | translate }} ></a></span
+    >
+  </div>
+</div>
+
+  <div class="tour-container mt4">
+      <h6>{{ 'auth.profile.tutorial' | translate }}</h6>
+      <hr>
+    <dx-button stylingMode="default" class="p1 mt1" (click)="repeatTutorial()" [disabled]="isDisabled()">{{
+      'auth.profile.repeat_tutorial' | translate
+    }}</dx-button>
+    <rolap-info class="mt2" *ngIf="isDisabled()" [mode]="'warning'">
+            {{ 'tour.config.repeat.disabled_button' | translate }}
+    </rolap-info>
+  </div>

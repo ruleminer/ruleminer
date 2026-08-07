@@ -1,0 +1,42 @@
+<rolap-card id="rules-quantitative-characteristics">
+  <rolap-title class="flex justify-between">
+    <div class="flex">
+      <h2 class="center-vertical">{{ 'project.rules.quantitative_characteristics' | translate }}</h2>
+      <rolap-tooltip [tooltip]="'tooltips.rules_table.quantitative_characteristics' | translate" />
+    </div>
+    <div class="flex">
+      <rolap-refresh-icon [canRefresh]="refresh" class="mr2" [isRefreshing]="isRefreshing" (refresh)="refreshClick()" />
+      <rolap-export-dropdown [exportItems]="exportItems"></rolap-export-dropdown>
+    </div>
+  </rolap-title>
+  <dx-data-grid
+    data-cy="quantitative-characteristics-table"
+    [dataSource]="quantitativeCharacteristics"
+    [showBorders]="true"
+    [sorting]="{ mode: 'multiple' }"
+    [customizeColumns]="customizeColumns"
+    (onInitialized)="onInitialized()"
+    (onOptionChanged)="onOptionChanged($event)"
+    [height]="'auto'"
+    [noDataText]="
+      isLoading ? ('project.rules.table.data_loading' | translate) : ('project.rules.table.no_data' | translate)
+    ">
+    <dxi-column
+      caption="{{ 'project.rules.table.headers.name' | translate }}"
+      dataField="name"
+      [visible]="true"
+      [cellTemplate]="'nameCellTemplate'"
+      [alignment]="'left'"></dxi-column>
+    <dxi-column
+      caption="{{ 'project.rules.table.headers.value' | translate }}"
+      dataField="value"
+      [visible]="true"
+      [alignment]="'left'"></dxi-column>
+
+    <div *dxTemplate="let d of 'nameCellTemplate'" [attr.data-cy]="d.data.name.dataCy">
+      <rolap-tooltip class="inline-block" [customClasses]="'btn-tiny'" [data]="indicatorsDescriptions()![d.data.key]" />
+      {{ d.data.name.title }}
+    </div>
+  </dx-data-grid>
+  <rolap-card-footer> </rolap-card-footer>
+</rolap-card>

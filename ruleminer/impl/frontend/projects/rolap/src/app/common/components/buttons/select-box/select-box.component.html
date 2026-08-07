@@ -1,0 +1,16 @@
+<div class="dx-field px2" *ngIf="control">
+  <rolap-form-group-title *ngIf="titleConfig" [title]="titleConfig" />
+  <dx-select-box
+    stylingMode="outlined"
+    [formControl]="control"
+    [items]="items"
+    width="280px"
+    itemTemplate="item"
+    displayExpr="label"
+    valueExpr="value"
+    [acceptCustomValue]="true">
+    <div *dxTemplate="let data of 'item'">
+      <span>{{ data.value | translate }}</span>
+    </div>
+  </dx-select-box>
+</div>

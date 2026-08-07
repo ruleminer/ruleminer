@@ -1,0 +1,20 @@
+<div class="mt4">
+  <h6>{{ 'auth.profile.settings' | translate }}</h6>
+  <hr />
+  <div class="mt2">
+    <dx-select-box
+      data-cy="lang-select"
+      [label]="'auth.profile.lang.title' | translate"
+      itemTemplate="item"
+      [width]="'40%'"
+      stylingMode="outlined"
+      [items]="languages"
+      displayExpr="value"
+      (onValueChanged)="switchLang($event)"
+      [value]="langValue">
+      <div *dxTemplate="let lang of 'item'" [attr.data-cy]="lang.key">
+        {{ 'auth.profile.lang.' + lang.key | translate }}
+      </div>
+    </dx-select-box>
+  </div>
+</div>

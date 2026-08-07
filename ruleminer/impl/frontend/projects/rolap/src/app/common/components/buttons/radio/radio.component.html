@@ -1,0 +1,8 @@
+<div class="dx-field px2">
+  <rolap-form-group-title *ngIf="titleConfig" [title]="titleConfig" />
+  <dx-radio-group [items]="items" layout="horizontal" [formControl]="control" displayExpr="label" valueExpr="value">
+    <div *dxTemplate="let element of 'item'">
+      <div>{{ element.label | translate }}</div>
+    </div>
+  </dx-radio-group>
+</div>

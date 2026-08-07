@@ -1,0 +1,34 @@
+<span
+  data-cy="metric-value-arrow"
+  *ngIf="valueChange && (!isNoChange || displayWhenNoChange)"
+  [attr.title]="
+    (useFirstValueAsReference ? ('tooltips.initial_value' | translate) : ('tooltips.previous_value' | translate)) +
+    (previousValue | number : numberFormat)
+  "
+  class="badge {{ valueChange.type }}">
+  <ng-container [ngSwitch]="displayType">
+    <!-- ABSOLUTE VALUE CHANGE DISPLAY -->
+    <ng-container *ngSwitchCase="DisplayTypes.ABSOLUTE">
+      <ng-container *ngIf="isNoChange; else noChangeTemplate">
+        <ng-container *ngIf="isPositiveChange">+</ng-container>
+        {{ valueChange.absolute | number : numberFormat }}
+      </ng-container>
+    </ng-container>
+    <!-- PERCENT VALUE CHANGE DISPLAY -->
+    <ng-container *ngSwitchCase="DisplayTypes.PERCENT">
+      <ng-container *ngIf="isNoChange; else noChangeTemplate">
+        <ng-container *ngIf="isPositiveChange">+</ng-container>
+        {{ valueChange.absolute | number : numberFormat }} ({{ valueChange.percentage | number : '1.0-2' }}%)
+      </ng-container>
+    </ng-container>
+  </ng-container>
+
+  <!-- TEMPLATE FOR VALUE CHANGES SMALLER THAN MINIMUM PRECISION -->
+  <ng-template #noChangeTemplate> {{ valueChange.percentage | number : '1.' + precision * 100 * 10 }}% </ng-template>
+
+  <fa-icon
+    *ngIf="!isNoChange"
+    class="arrow-icon inline-block ml1"
+    [icon]="faArrowAltDown"
+    [ngClass]="{ 'arrow-up': isPositiveChange }"></fa-icon>
+</span>

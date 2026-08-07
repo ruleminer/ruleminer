@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "attributes": [
+      "sepallength",
+      "sepalwidth",
+      "petallength",
+      "petalwidth"
+    ]
+  },
+  "conditions": [
+    [
+      {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              3
+            ],
+            "negated": false,
+            "left": 1.65,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              2
+            ],
+            "negated": false,
+            "left": null,
+            "right": 2.35,
+            "left_closed": false,
+            "right_closed": false
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              2
+            ],
+            "negated": false,
+            "left": null,
+            "right": 4.95,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              0
+            ],
+            "negated": false,
+            "left": 4.95,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              3
+            ],
+            "negated": false,
+            "left": null,
+            "right": 1.75,
+            "left_closed": false,
+            "right_closed": false
+          },
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              2
+            ],
+            "negated": false,
+            "left": 2.35,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          }
+        ]
+      }
+    ]
+  ]
+}

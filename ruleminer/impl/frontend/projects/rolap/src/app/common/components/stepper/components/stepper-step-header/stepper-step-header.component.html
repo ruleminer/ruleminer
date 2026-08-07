@@ -1,0 +1,6 @@
+<div *ngIf="stepNumber" class="step-number bold" [class.active]="active">
+  {{ stepNumber }}
+</div>
+<div class="step-header m1" [class.active]="active">
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,117 @@
+<form [formGroup]="data.reportFormGroup" class="mr1">
+  <ng-template
+    #reportFormUnitTemplate
+    let-level="level"
+    let-localFormMeta="localFormMeta"
+    let-localFormGroup="localFormGroup"
+    let-localTooltip="localTooltip">
+    <div [ngClass]="{ ml1: level <= 1, ml2: level > 1, mb1: level === 0 }">
+      <div class="flex items-center header-row" *ngIf="!localFormMeta.isSettings">
+        <h6 *ngIf="level === 0" class="center-vertical my1">
+          {{ 'project.treeview.context_menu.modal.generate_reports.' + localFormMeta.name | translate }}
+        </h6>
+        <p *ngIf="level > 0" class="center-vertical">
+          {{ 'project.treeview.context_menu.modal.generate_reports.' + localFormMeta.name | translate }}
+        </p>
+        <rolap-tooltip *ngIf="localTooltip" [tooltip]="localTooltip" />
+      </div>
+      <div [ngSwitch]="localFormMeta.type" [formGroup]="localFormGroup">
+        <dx-number-box
+          *ngSwitchCase="ReportFormUnitType.INT"
+          [formControlName]="localFormMeta.name"
+          [min]="localFormMeta.ge"
+          [max]="localFormMeta.le"
+          [value]="localFormMeta.default"
+          [showSpinButtons]="true"
+          [showClearButton]="localFormMeta.nullable"
+          [step]="1"
+          stylingMode="outlined"
+          class="input mb1"
+          width="25%"
+          [inputAttr]="{
+            'aria-label': 'project.treeview.context_menu.modal.generate_reports.' + localFormMeta.name | translate
+          }" />
+
+        <dx-number-box
+          *ngSwitchCase="ReportFormUnitType.FLOAT"
+          [formControlName]="localFormMeta.name"
+          [min]="localFormMeta.ge"
+          [max]="localFormMeta.le"
+          [value]="localFormMeta.default"
+          [showSpinButtons]="true"
+          [showClearButton]="localFormMeta.nullable"
+          [step]="0.1"
+          stylingMode="outlined"
+          class="input mb1"
+          width="25%"
+          [inputAttr]="{
+            'aria-label': 'project.treeview.context_menu.modal.generate_reports.' + localFormMeta.name | translate
+          }" />
+
+        <div *ngSwitchCase="ReportFormUnitType.BOOL" class="flex items-center header-row">
+          <dx-switch
+            [formControlName]="localFormMeta.name"
+            class="input"
+            [value]="localFormMeta.default"
+            (onValueChanged)="onSectionSwitchValueChange(localFormGroup, localFormMeta.name)" />
+          <rolap-tooltip
+            *ngIf="localFormMeta.fixed"
+            [tooltip]="'project.treeview.context_menu.modal.generate_reports.tooltips.fixed_value'" />
+        </div>
+
+        <dx-select-box
+          *ngSwitchCase="ReportFormUnitType.ENUM"
+          [formControlName]="localFormMeta.name"
+          [items]="choicesMap[localFormMeta.name]"
+          stylingMode="outlined"
+          class="input mb1"
+          width="40%"
+          itemTemplate="item"
+          valueExpr="value"
+          displayExpr="name">
+          <div *dxTemplate="let data of 'item'">
+            <span>{{ 'project.treeview.context_menu.modal.generate_reports.' + data.value | translate }}</span>
+          </div>
+        </dx-select-box>
+
+        <dx-text-box
+          [formControlName]="localFormMeta.name"
+          *ngSwitchCase="ReportFormUnitType.STR"
+          [required]="localFormMeta.required"
+          class="text-box input my1"
+          width="50%"
+          valueChangeEvent="keyup"
+          stylingMode="outlined"
+          [inputAttr]="{
+            'aria-label': 'project.treeview.context_menu.modal.generate_reports.' + localFormMeta.name | translate
+          }" />
+        <div class="mt1" *ngIf="localFormMeta.name === 'title'">
+          <rolap-validation-message [fieldName]="FieldName.REPORT_NAME" [control]="localFormGroup.controls['title']" />
+        </div>
+
+        <div *ngSwitchCase="ReportFormUnitType.SECTION">
+          <ng-template
+            *ngFor="let loopFormMeta of localFormMeta.properties!"
+            [formGroupName]="localFormMeta.name"
+            [ngTemplateOutlet]="reportFormUnitTemplate"
+            [ngTemplateOutletContext]="{
+              level: level + 1,
+              localFormMeta: loopFormMeta,
+              localFormGroup: formGroupsMap[localFormMeta.name],
+              localTooltip: tooltipsMap[loopFormMeta.name],
+            }" />
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template
+    *ngFor="let loopFormMeta of data.formMeta"
+    [ngTemplateOutlet]="reportFormUnitTemplate"
+    [ngTemplateOutletContext]="{
+      level: 0,
+      localFormMeta: loopFormMeta,
+      localFormGroup: data.reportFormGroup,
+      localTooltip: tooltipsMap[loopFormMeta.name],
+    }" />
+</form>

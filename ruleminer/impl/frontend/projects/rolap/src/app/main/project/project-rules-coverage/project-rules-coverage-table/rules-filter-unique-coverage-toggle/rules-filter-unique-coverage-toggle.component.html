@@ -1,0 +1,10 @@
+<div class="mb2">
+  <h3>{{ 'project.rules_coverage.settings' | translate }}</h3>
+  <div class="flex flex-wrap content-center align-baseline mt1">
+    <dx-check-box
+      stylingMode="outlined"
+      text="{{ 'project.rules_coverage.consider_unique_examples' | translate }}"
+      [value]="value$ | async"
+      (onValueChanged)="onValueChanged($event)" />
+  </div>
+</div>

@@ -1,0 +1,27 @@
+@import 'variables';
+
+.preview {
+  background-color: $label-popup-example-backround;
+  width: 100%;
+  min-height: 50px;
+  padding: 14px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.content {
+  padding: 14px;
+}
+
+.content-title {
+  margin-bottom: 5px;
+}
+
+.character-limit {
+  margin-top: 2px;
+  float: right;
+  font-size: smaller;
+  color: darken($secondary-color, 5%);
+}

@@ -1,0 +1,4 @@
+<div class="mt2" *ngIf="projectId$ | async as projectId">
+  <rolap-process-table type="active" [projectId]="projectId" />
+  <rolap-process-table type="ended" [projectId]="projectId" class="block mt2" />
+</div>

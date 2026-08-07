@@ -1,0 +1,19 @@
+<dx-box direction="row" style="height: 100%" class="pt2">
+  <dxi-item [ratio]="9" style="height: 100%" class="px2">
+    <div id="plot-container" clas>
+      <div id="graph-area-modal"></div>
+    </div>
+  </dxi-item>
+  <dxi-item [ratio]="3">
+    <div class="px2">
+      <p class="">
+        <b>{{ 'visualisation.legend' | translate }}:</b> {{ classDescription }}
+      </p>
+      <p class="bold mt2">{{ 'visualisation.selected_condition_phrase' | translate }}:</p>
+      <p>{{ formattedSelectedConditions }}</p>
+      <br />
+      <p class="bold">{{ 'visualisation.class_coverage' | translate }}:</p>
+      <p *ngFor="let result of classCoverageResult">{{ result }}</p>
+    </div>
+  </dxi-item>
+</dx-box>

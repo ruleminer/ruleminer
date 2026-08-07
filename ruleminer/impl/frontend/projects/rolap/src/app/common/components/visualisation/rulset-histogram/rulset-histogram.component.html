@@ -1,0 +1,129 @@
+<div *rolapLoading="loading$ | async" class="breakpoint-container mt2">
+  <div class="row">
+    <div class="col-12 col-lg-12 mb2">
+      <div class="custom-card">
+        <div class="dx-field px2">
+          <div class="dx-field-label">{{ 'visualisation.select_importance_type' | translate }}</div>
+          <dx-drop-down-button
+            [items]="dropDownOptions"
+            text="{{ 'visualisation.' + selectedOption.name | translate }}"
+            keyExpr="attribute_plot_type"
+            displayExpr="dropDownOptions.name"
+            itemTemplate="itemTemplate"
+            [width]="300"
+            (onItemClick)="onSelect($event)">
+            <div *dxTemplate="let data of 'itemTemplate'" [class.selected]="data.checked">
+              <dx-box direction="row">
+                <dxi-item [ratio]="10">
+                  {{ 'visualisation.' + data.name | translate }}
+                </dxi-item>
+              </dx-box>
+            </div>
+          </dx-drop-down-button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 mb2">
+      <rolap-card>
+        <div *ngIf="!attribute_plot_type">
+          <h6>{{ 'visualisation.condition_importance' | translate }}</h6>
+          <div class="dx-field mt2">
+            <div class="dx-field-label full-width">{{ 'visualisation.condition_display_count' | translate }}</div>
+            <div class="dx-field-value full-width">
+              <dx-number-box
+                [min]="0"
+                [max]="100"
+                (onChange)="plotData()"
+                [(ngModel)]="maxConditionElements"
+                [inputAttr]="{ 'aria-label': 'number' }"></dx-number-box>
+            </div>
+          </div>
+          <dx-list
+            *ngIf="project.type_of_problem === ProblemTypes.Classification"
+            #conditionList
+            [dataSource]="condition_importance"
+            class="list-layout mt2"
+            [searchEnabled]="false">
+            <div *dxTemplate="let data of 'item'">
+              <dx-box direction="row" crossAlign="center" class="mb1">
+                <dxi-item [ratio]="1">
+                  <dx-check-box
+                    [(ngModel)]="data.checked"
+                    (onValueChanged)="selectAndPlot(data)"
+                    aria-label="Checkbox for rule"
+                    class="custom-checkbox">
+                  </dx-check-box>
+                </dxi-item>
+                <dxi-item [ratio]="7">
+                  <p class="wrap-text">{{ data.class }}</p>
+                </dxi-item>
+              </dx-box>
+            </div>
+          </dx-list>
+        </div>
+        <div *ngIf="attribute_plot_type">
+          <h6>{{ 'visualisation.attribute_importance' | translate }}</h6>
+          <div class="dx-field mt2">
+            <div class="dx-field-label full-width">{{ 'visualisation.attributes_display_count' | translate }}</div>
+            <div class="dx-field-value full-width">
+              <dx-number-box
+                [min]="0"
+                [max]="100"
+                (onChange)="plotData()"
+                [(ngModel)]="maxAttributeElements"
+                [inputAttr]="{ 'aria-label': 'number' }"></dx-number-box>
+            </div>
+          </div>
+          <dx-list
+            *ngIf="project.type_of_problem === ProblemTypes.Classification"
+            #attributeList
+            [dataSource]="attribute_importance"
+            class="list-layout mt2"
+            [searchEnabled]="false"
+            [height]="'100%'">
+            <div *dxTemplate="let data of 'item'">
+              <dx-box direction="row" crossAlign="center" class="mb1">
+                <dxi-item [ratio]="1">
+                  <dx-check-box
+                    [(ngModel)]="data.checked"
+                    (onValueChanged)="selectAndPlot(data)"
+                    aria-label="Checkbox for rule"
+                    class="custom-checkbox">
+                  </dx-check-box>
+                </dxi-item>
+                <dxi-item [ratio]="7">
+                  <p class="wrap-text">{{ data.class }}</p>
+                </dxi-item>
+              </dx-box>
+            </div>
+          </dx-list>
+        </div>
+      </rolap-card>
+    </div>
+    <div class="col-lg-9">
+      <div
+        class="row attributes"
+        [hidden]="selectedOption.name != BarPlotTypes.attribute_importance"
+        *ngFor="let attribute of attributes_to_plot">
+        <div class="mb2 col">
+          <rolap-card style="flex: 1">
+            <h6 class="mb2 p2">{{ attribute.class }}</h6>
+            <div id="histogram-area-{{ attribute.class }}" class="histogram-area"></div>
+          </rolap-card>
+        </div>
+      </div>
+
+      <div
+        class="row conditions"
+        [hidden]="selectedOption.name != BarPlotTypes.condition_importance"
+        *ngFor="let condition of conditions_to_plot">
+        <div class="mb2 col">
+          <rolap-card style="flex: 1">
+            <h6 class="mb2 p2">{{ condition.class }}</h6>
+            <div id="histogram-area-{{ condition.class }}" class="histogram-area"></div>
+          </rolap-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

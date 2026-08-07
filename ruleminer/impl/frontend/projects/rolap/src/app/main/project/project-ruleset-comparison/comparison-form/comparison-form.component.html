@@ -1,0 +1,12 @@
+<div class="custom-card" id="comparison-form">
+  <form [formGroup]="form">
+    <rolap-radio [titleConfig]="similarityTypeTitle" [items]="similarityTypeItems" formControlName="similarityType" />
+    <rolap-radio [titleConfig]="relationTypeTitle" [items]="relationTypeItems" formControlName="relationType" />
+    <rolap-select-box
+      *ngIf="showDropDown"
+      [titleConfig]="comparisonMeasuresDropDownTitle"
+      [items]="dropdownItems"
+      formControlName="comparisonMeasures" />
+  </form>
+  <rolap-tooltip [tooltip]="'tooltips.rules_table.rules_comparison' | translate" />
+</div>

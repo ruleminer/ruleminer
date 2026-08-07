@@ -1,0 +1,317 @@
+[
+    {
+        "results": {
+            "general": {
+                "Accuracy": 0.99,
+                "F1_macro": 0.99,
+                "Cohen_kappa": 0.99,
+                "F1_micro": 0.99,
+                "F1_weighted": 0.99,
+                "Specificity": 1.0,
+                "G_mean_macro": 0.99,
+                "G_mean_micro": 0.99,
+                "Recall_macro": 0.98,
+                "Recall_micro": 0.99,
+                "G_mean_weighted": 0.99,
+                "Recall_weighted": 0.99,
+                "Confusion_matrix": {
+                    "bird": [
+                        0,
+                        20,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "fish": [
+                        0,
+                        0,
+                        13,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "insect": [
+                        0,
+                        0,
+                        0,
+                        7,
+                        0,
+                        1,
+                        0
+                    ],
+                    "mammal": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        41,
+                        0
+                    ],
+                    "classes": [
+                        "amphibian",
+                        "bird",
+                        "fish",
+                        "insect",
+                        "invertebrate",
+                        "mammal",
+                        "reptile"
+                    ],
+                    "reptile": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        5
+                    ],
+                    "amphibian": [
+                        4,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "invertebrate": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        10,
+                        0,
+                        0
+                    ]
+                },
+                "Balanced_accuracy": 0.98,
+                "Covered_by_prediction": 101,
+                "Not_covered_by_prediction": 0
+            },
+            "for_classes": {
+                "bird": {
+                    "FN": 0,
+                    "FP": 0,
+                    "TN": 81,
+                    "TP": 20,
+                    "MCC": 1.0,
+                    "NPV": 1.0,
+                    "PPV": 1.0,
+                    "G_mean": 1.0,
+                    "Recall": 1.0,
+                    "LR_plus": 0,
+                    "F1_score": 1.0,
+                    "LR_minus": 0.0,
+                    "Odd_ratio": 0,
+                    "Specificity": 1.0,
+                    "Relative_risk": 0,
+                    "Confusion_matrix": {
+                        "bird": [
+                            20,
+                            0
+                        ],
+                        "other": [
+                            0,
+                            81
+                        ],
+                        "classes": [
+                            "bird",
+                            "other"
+                        ]
+                    }
+                },
+                "fish": {
+                    "FN": 0,
+                    "FP": 0,
+                    "TN": 88,
+                    "TP": 13,
+                    "MCC": 1.0,
+                    "NPV": 1.0,
+                    "PPV": 1.0,
+                    "G_mean": 1.0,
+                    "Recall": 1.0,
+                    "LR_plus": 0,
+                    "F1_score": 1.0,
+                    "LR_minus": 0.0,
+                    "Odd_ratio": 0,
+                    "Specificity": 1.0,
+                    "Relative_risk": 0,
+                    "Confusion_matrix": {
+                        "fish": [
+                            13,
+                            0
+                        ],
+                        "other": [
+                            0,
+                            88
+                        ],
+                        "classes": [
+                            "fish",
+                            "other"
+                        ]
+                    }
+                },
+                "insect": {
+                    "FN": 1,
+                    "FP": 0,
+                    "TN": 93,
+                    "TP": 7,
+                    "MCC": 0.93,
+                    "NPV": 0.99,
+                    "PPV": 1.0,
+                    "G_mean": 0.94,
+                    "Recall": 0.88,
+                    "LR_plus": 0,
+                    "F1_score": 0.93,
+                    "LR_minus": 0.12,
+                    "Odd_ratio": 0,
+                    "Specificity": 1.0,
+                    "Relative_risk": 94.0,
+                    "Confusion_matrix": {
+                        "other": [
+                            0,
+                            93
+                        ],
+                        "insect": [
+                            7,
+                            1
+                        ],
+                        "classes": [
+                            "insect",
+                            "other"
+                        ]
+                    }
+                },
+                "mammal": {
+                    "FN": 0,
+                    "FP": 1,
+                    "TN": 59,
+                    "TP": 41,
+                    "MCC": 0.98,
+                    "NPV": 1.0,
+                    "PPV": 0.98,
+                    "G_mean": 0.99,
+                    "Recall": 1.0,
+                    "LR_plus": 60.0,
+                    "F1_score": 0.99,
+                    "LR_minus": 0.0,
+                    "Odd_ratio": 0,
+                    "Specificity": 0.98,
+                    "Relative_risk": 0,
+                    "Confusion_matrix": {
+                        "other": [
+                            1,
+                            59
+                        ],
+                        "mammal": [
+                            41,
+                            0
+                        ],
+                        "classes": [
+                            "mammal",
+                            "other"
+                        ]
+                    }
+                },
+                "reptile": {
+                    "FN": 0,
+                    "FP": 0,
+                    "TN": 96,
+                    "TP": 5,
+                    "MCC": 1.0,
+                    "NPV": 1.0,
+                    "PPV": 1.0,
+                    "G_mean": 1.0,
+                    "Recall": 1.0,
+                    "LR_plus": 0,
+                    "F1_score": 1.0,
+                    "LR_minus": 0.0,
+                    "Odd_ratio": 0,
+                    "Specificity": 1.0,
+                    "Relative_risk": 0,
+                    "Confusion_matrix": {
+                        "other": [
+                            0,
+                            96
+                        ],
+                        "classes": [
+                            "reptile",
+                            "other"
+                        ],
+                        "reptile": [
+                            5,
+                            0
+                        ]
+                    }
+                },
+                "amphibian": {
+                    "FN": 0,
+                    "FP": 0,
+                    "TN": 97,
+                    "TP": 4,
+                    "MCC": 1.0,
+                    "NPV": 1.0,
+                    "PPV": 1.0,
+                    "G_mean": 1.0,
+                    "Recall": 1.0,
+                    "LR_plus": 0,
+                    "F1_score": 1.0,
+                    "LR_minus": 0.0,
+                    "Odd_ratio": 0,
+                    "Specificity": 1.0,
+                    "Relative_risk": 0,
+                    "Confusion_matrix": {
+                        "other": [
+                            0,
+                            97
+                        ],
+                        "classes": [
+                            "amphibian",
+                            "other"
+                        ],
+                        "amphibian": [
+                            4,
+                            0
+                        ]
+                    }
+                },
+                "invertebrate": {
+                    "FN": 0,
+                    "FP": 0,
+                    "TN": 91,
+                    "TP": 10,
+                    "MCC": 1.0,
+                    "NPV": 1.0,
+                    "PPV": 1.0,
+                    "G_mean": 1.0,
+                    "Recall": 1.0,
+                    "LR_plus": 0,
+                    "F1_score": 1.0,
+                    "LR_minus": 0.0,
+                    "Odd_ratio": 0,
+                    "Specificity": 1.0,
+                    "Relative_risk": 0,
+                    "Confusion_matrix": {
+                        "other": [
+                            0,
+                            91
+                        ],
+                        "classes": [
+                            "invertebrate",
+                            "other"
+                        ],
+                        "invertebrate": [
+                            10,
+                            0
+                        ]
+                    }
+                }
+            },
+            "type_of_problem": "classification"
+        }
+    }
+]

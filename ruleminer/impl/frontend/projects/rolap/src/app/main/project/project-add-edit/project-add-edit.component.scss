@@ -1,0 +1,71 @@
+$primary-color: #4caf50;
+$primary-color-dark: #3e8e41;
+$secondary-color: #ccc;
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.dx-field {
+  display: flex;
+  margin: 10px 0;
+}
+
+.dx-field-label {
+  flex: 1;
+  padding-right: 10px;
+}
+
+.dx-field-value {
+  flex: 3;
+}
+
+.dx-radio-value-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.dx-radio-value-container .dx-item {
+  margin: 5px 0;
+}
+
+.dx-text-box,
+.dx-text-area {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid $secondary-color;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button[type='submit'] {
+  background-color: $primary-color;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type='submit']:hover {
+  background-color: $primary-color-dark;
+}
+
+.buttons-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.buttons-wrapper > :first-child {
+  margin-right: auto;
+}

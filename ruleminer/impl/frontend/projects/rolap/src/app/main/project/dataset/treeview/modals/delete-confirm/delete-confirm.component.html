@@ -1,0 +1,14 @@
+<p>{{ 'project.treeview.context_menu.modal.delete_confirm.' + translateType + '.body' | translate }}</p>
+<div class="flex justify-end mt3">
+  <dx-button
+    class="mr2"
+    type="normal"
+    (click)="closeModal(false)"
+    text="{{ 'project.treeview.context_menu.modal.delete_confirm.' + translateType + '.cancel_btn' | translate }}">
+  </dx-button>
+  <dx-button
+    type="default"
+    (click)="deleteElement()"
+    text="{{ 'project.treeview.context_menu.modal.delete_confirm.' + translateType + '.confirm_btn' | translate }}">
+  </dx-button>
+</div>

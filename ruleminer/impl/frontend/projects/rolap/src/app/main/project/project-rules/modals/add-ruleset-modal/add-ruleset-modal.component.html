@@ -1,0 +1,61 @@
+<form [formGroup]="form" *ngIf="componentReady; else loadingTemplate">
+  <div class="flex w-full">
+    <dx-text-box
+      #textBox
+      data-cy="existing-ruleset-name-input"
+      class="my1 w-full"
+      [label]="'project.ruleset_name' | translate"
+      formControlName="name"
+      stylingMode="outlined"
+      (onInitialized)="onInitialized()"
+      valueChangeEvent="keyup"></dx-text-box>
+  </div>
+  <rolap-validation-message [fieldName]="FieldName.RULE_NAME" [control]="form.controls['name']" />
+  <div>
+    <div class="tree-wrapper px2 border rounded">
+      <dx-tree-view
+        class="treeview"
+        [height]="'60vh'"
+        [dataSource]="treeView"
+        expandedExpr="expanded"
+        selectionMode="single"
+        [selectByClick]="true"
+        (onItemSelectionChanged)="onTreeItemClick($event)"
+        itemTemplate="treeTemplate">
+        <div *dxTemplate="let data of 'treeTemplate'" class="tree-element">
+          <div [ngClass]="{ 'selected-item': data.id === selectedItem?.id }">
+            <ng-container [ngSwitch]="data.type">
+              <div *ngSwitchCase="'dataSet'">
+                <fa-icon [icon]="faGridRound"></fa-icon>
+                <span class="ml1" data-cy="add-ruleset-modal-dataSet">{{ data.text }}</span>
+              </div>
+              <div *ngSwitchCase="'ruleSet'">
+                <fa-icon [icon]="faLineColumns"></fa-icon>
+                <span class="ml1" data-cy="add-ruleset-modal-ruleSet">{{ data.text }}</span>
+              </div>
+              <div *ngSwitchDefault>
+                <span>{{ data.text }}</span>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </dx-tree-view>
+    </div>
+  </div>
+  <div class="flex justify-end mt2 pl2">
+    <dx-button stylingMode="text" type="normal" (onClick)="onCancelClick()" text="{{ 'cancel' | translate }}" />
+    <dx-button
+      data-cy="add-ruleset-modal-submit-button"
+      class="ml2"
+      type="default"
+      [disabled]="!selectedItem || !form.valid"
+      (onClick)="onSubmitClick()"
+      text="{{ 'add' | translate }}" />
+  </div>
+</form>
+
+<ng-template #loadingTemplate>
+  <div class="p4 flex items-center justify-center">
+    <dx-load-indicator id="medium-indicator" height="40" width="40"></dx-load-indicator>
+  </div>
+</ng-template>

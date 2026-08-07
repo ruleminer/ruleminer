@@ -1,0 +1,12 @@
+@import 'styles/mixins/tooltip';
+
+.loading {
+  display: grid;
+  place-items: center;
+  height: 90%;
+  width: 100%;
+}
+
+div h2 {
+  @include custom-heading;
+}

@@ -1,0 +1,20 @@
+[
+    {
+        "name": "zoo-dataset",
+        "description": "This dataset consists of 101 animals from a zoo. There are 16 variables with various traits to describe the animals. The 7 Class Types are: Mammal, Bird, Reptile, Fish, Amphibian, Bug and Invertebrate. The purpose for this dataset is to be able to predict the classification of the animals, based upon the variables.",
+        "delimiter": ",",
+        "correlation_matrix": "{\"legs\":{\"legs\":1.0}}",
+        "number_of_columns": 17,
+        "number_of_rows": 101,
+        "class_distribution": {
+            "bird": 20,
+            "fish": 13,
+            "insect": 8,
+            "mammal": 41,
+            "reptile": 5,
+            "amphibian": 4,
+            "invertebrate": 10
+        },
+        "size": 9777
+    }
+]

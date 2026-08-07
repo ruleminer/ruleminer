@@ -1,0 +1,29 @@
+<dx-box direction="col" style="height: 100%">
+  <dxi-item [ratio]="7">
+    <p>{{ 'visualisation.select_indicators' | translate }} ({{ selectionCount }}/{{ maxSelectionCount }})</p>
+    <dx-list #list [searchEnabled]="false" class="list-layout mt2" [dataSource]="metrics" height="100%">
+      <div *dxTemplate="let data of 'item'" class="mb2" (click)="toggleMetric(data, $event)">
+        <dx-box direction="row" crossAlign="center">
+          <dxi-item [ratio]="1">
+            <dx-check-box
+              name="hasHeader"
+              stylingMode="outlined"
+              [(value)]="data.enabled"
+              class="custom-checkbox"
+              (click)="toggleMetric(data, $event)" />
+          </dxi-item>
+          <dxi-item [ratio]="7" class="ml2">
+            <h4 class="h4 align-left normal-font-weight">
+              <strong>{{ data.name }}</strong>
+            </h4>
+          </dxi-item>
+        </dx-box>
+      </div>
+    </dx-list>
+  </dxi-item>
+  <dxi-item [ratio]="1">
+    <dx-button stylingMode="contained" style="width: 100%" type="default" class="mt2" (onClick)="selectMetrics()">
+      {{ 'visualisation.select' | translate }}
+    </dx-button>
+  </dxi-item>
+</dx-box>

@@ -1,0 +1,7 @@
+<div class="flex">
+  <h4 class="h4 left-align normal-font-weight center-vertical mr1">
+    {{ 'visualisation.coverage_table_columns.rule' | translate }} {{ autoIncrement }}
+  </h4>
+  <rolap-table-label *ngIf="hasLabels" [uuid]="uuid" [labels]="labels" [ids]="ids" [readonly]="true" />
+</div>
+<p class="wrap-text">{{ ruleString }}</p>

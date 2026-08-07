@@ -1,0 +1,62 @@
+@import 'variables';
+
+:host {
+  height: 100%;
+  position: relative;
+}
+
+dx-scroll-view {
+  position: absolute;
+  width: 100%;
+}
+
+.file-upload-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+rolap-data-upload {
+  display: block;
+  width: 60.25rem;
+}
+
+.file-importer-file-upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .buttons-wrapper-first {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.file-importer-wrapper {
+  background: $white;
+  height: 100%;
+  width: 100%;
+
+  .buttons-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 1.2rem;
+  }
+
+  .buttons-wrapper-column-choice {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0;
+  }
+}
+
+.buttons-wrapper {
+  margin-bottom: 1rem;
+}
+
+.loading {
+  color: $label-color;
+}
+
+.submit-btn.dx-state-disabled {
+  color: $label-color !important;
+}

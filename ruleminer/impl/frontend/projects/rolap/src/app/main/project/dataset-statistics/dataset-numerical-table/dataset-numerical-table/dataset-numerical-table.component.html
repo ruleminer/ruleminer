@@ -1,0 +1,23 @@
+<rolap-card>
+  <rolap-title class="flex justify-between flex-end">
+    <h2>{{ 'dataset.statistic_tab.numerical_attributes' | translate }}</h2>
+  </rolap-title>
+  <ng-container *ngIf="dataSource | async as data">
+    <dx-data-grid
+      id="numerical_attributes"
+      *ngIf="data && data.length > 0; else noData"
+      [dataSource]="data"
+      [showBorders]="true"
+      class="m2"
+      [columns]="gridColumns">
+      <dxo-load-panel [enabled]="true"> </dxo-load-panel>
+      <dxo-scrolling [useNative]="true" />
+    </dx-data-grid>
+  </ng-container>
+</rolap-card>
+
+<ng-template #noData>
+  <div class="no-data-template">
+    <p class="bold">{{ 'project.rules.table.no_data' | translate }}</p>
+  </div>
+</ng-template>

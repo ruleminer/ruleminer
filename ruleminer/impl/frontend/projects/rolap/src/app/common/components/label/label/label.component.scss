@@ -1,0 +1,24 @@
+@import 'variables';
+
+:host {
+  position: relative;
+}
+
+.label {
+  display: inline-block;
+  padding: 2px 6px;
+  text-transform: lowercase;
+  border-radius: calc($label-popup-border-radius / 2);
+}
+
+.compact {
+  text-transform: uppercase;
+  aspect-ratio: 1 / 1;
+  height: 22px;
+}
+
+rolap-selection-marker {
+  position: absolute;
+  right: -9px;
+  top: -9px;
+}

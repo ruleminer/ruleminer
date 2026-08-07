@@ -1,0 +1,36 @@
+@import 'variables';
+
+.status-success {
+  background-color: $process-status-success-bg-color;
+  color: #fff;
+}
+
+.status-aborted {
+  background-color: $process-status-aborted-bg-color;
+  color: #fff;
+}
+
+.status-stopped {
+  background-color: $process-status-stopped-bg-color;
+  color: #fff;
+}
+
+.status-stopping {
+  background-color: $process-status-stopping-bg-color;
+  color: #fff;
+}
+
+.status-failure {
+  background-color: $process-status-failure-bg-color;
+  color: #fff;
+}
+
+.status-pending {
+  background-color: $process-status-pending-bg-color;
+  color: #fff;
+}
+
+.status-started {
+  background-color: $process-status-started-bg-color;
+  color: $project-color;
+}

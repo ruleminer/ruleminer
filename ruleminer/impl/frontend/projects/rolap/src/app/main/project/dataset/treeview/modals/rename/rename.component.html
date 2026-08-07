@@ -1,0 +1,31 @@
+<form [formGroup]="renameForm">
+  <div class="dx-field">
+    <label class="dx-field-label">{{ 'project.treeview.context_menu.modal.rename.body' | translate }}</label>
+    <dx-text-box
+      id="name"
+      name="name"
+      formControlName="name"
+      stylingMode="outlined"
+      valueChangeEvent="keyup"
+      data-cy="rename-modal-input"
+      [inputAttr]="{ 'aria-label': 'project.treeview.context_menu.modal.rename.body' | translate }" />
+    <div class="mt1 ml1">
+      <rolap-validation-message [control]="renameForm.controls['name']"></rolap-validation-message>
+    </div>
+  </div>
+</form>
+
+<div class="flex justify-end mt3">
+  <dx-button
+    class="mr2"
+    type="normal"
+    (click)="closeModal(false)"
+    text="{{ 'project.treeview.context_menu.modal.rename.cancel_btn' | translate }}"
+    data-cy="rename-modal-cancel-button"></dx-button>
+  <dx-button
+    type="default"
+    [disabled]="!(renameForm.dirty && renameForm.valid)"
+    (click)="rename()"
+    text="{{ 'project.treeview.context_menu.modal.rename.confirm_btn' | translate }}"
+    data-cy="rename-modal-confirm-button"></dx-button>
+</div>

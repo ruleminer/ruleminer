@@ -1,0 +1,12 @@
+<div class="flex" *ngIf="summarySignal() as summary">
+  <div class="mr2" *ngFor="let item of summary | keyvalue" data-cy="summary-item">
+    <rolap-summary-item-span [keyTranslate]="'dataset.statistic_tab.summary_' + item.key" [value]="item.value | json" />
+  </div>
+  <div *ngIf="showFilteredCount()" class="mr2" data-cy="filtered-count-container">
+    <rolap-summary-item-span
+      keyTranslate="dataset.statistic_tab.summary_number_of_filtered_count"
+      [value]="filteredCountSignal()"
+      keyDataCy="filtered-count-label"
+      valueDataCy="filtered-count-value" />
+  </div>
+</div>

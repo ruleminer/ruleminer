@@ -1,0 +1,25 @@
+<dx-box direction="col" style="height: 90%">
+  <dxi-item [ratio]="7">
+    <p>{{ 'comparison_view.select_rulsets_to_compare' | translate }}</p>
+    <dx-list #list [searchEnabled]="false" class="list-layout" [dataSource]="rulesetList" height="100%">
+      <div *dxTemplate="let data of 'item'" class="mb2" (click)="toggleRuleset(data)">
+        <dx-box direction="row" crossAlign="center">
+          <dxi-item [ratio]="1">
+            <rolap-checkbox-button [data]="data.data.active" (onSetSelectedIndex)="toggleRuleset(data)" />
+          </dxi-item>
+          <dxi-item [ratio]="7" class="ml2">
+            <h4 class="h4 align-left normal-font-weight">
+              {{ data.name }}
+            </h4>
+            <p style="text-wrap: wrap">{{ data.string }}</p>
+          </dxi-item>
+        </dx-box>
+      </div>
+    </dx-list>
+  </dxi-item>
+  <dxi-item [ratio]="1">
+    <dx-button stylingMode="contained" style="width: 100%" type="default" (onClick)="compareRulesets()">
+      {{ 'comparison_view.compare_sets' | translate }}
+    </dx-button>
+  </dxi-item>
+</dx-box>

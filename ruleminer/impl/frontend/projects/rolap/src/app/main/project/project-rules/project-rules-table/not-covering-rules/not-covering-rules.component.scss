@@ -1,0 +1,118 @@
+@import 'variables';
+
+
+.collapsible-container {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.collapsible-header {
+  border: 1px solid $not-covered-rules-border-color;
+  background-color: $not-covered-rules-bgc-color;
+  border-radius: 4px;
+  padding: 12px 20px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.collapsible-content {
+  margin-top: 1px;
+  overflow: hidden;
+}
+
+.not-covering-rules-container {
+  border: 1px solid $not-covered-rules-border-color;
+  border-top: none;
+  background-color: $not-covered-rules-bgc-color;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding: 16px 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+
+  h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+.collapsible-header {
+  h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+  }
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggle-icon {
+  font-size: 16px;
+  user-select: none;
+  display: inline-block;
+  width: 16px;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+
+.rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rule-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  padding: 8px;
+  border-radius: 4px;
+
+
+  .rule-text {
+    flex: 1;
+    line-height: 20px;
+  }
+
+  .rule-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    min-width: 70px;
+  }
+
+  .icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+  }
+}
+
+.title-button {
+  margin-left: auto;
+  padding: 8px;
+  background-color: $white;
+  border-color: $button-color;
+  color: $button-color;
+}

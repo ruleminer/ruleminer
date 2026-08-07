@@ -1,0 +1,7 @@
+<div class="center-vertica mt2 mb1 flex">
+  <p>{{ 'project.prediction.prediction_percaentage' | translate }}</p>
+  <p class="prediction_percentage bold" *ngIf="predictionPercentage">{{ formattedPercentage }}%</p>
+  <p class="prediction_percentage bold" *ngIf="!predictionPercentage">
+    {{ 'project.prediction.not_find_prediction' | translate }}
+  </p>
+</div>

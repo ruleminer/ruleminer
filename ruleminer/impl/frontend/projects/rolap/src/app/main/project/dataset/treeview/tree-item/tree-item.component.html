@@ -1,0 +1,94 @@
+<ng-container *ngIf="item$ | async as item">
+  <ng-container *ngIf="item.id && (showFullNameTooltip$ | async)">
+    <dx-tooltip [target]="'#text-' + item.id" showEvent="mouseenter" hideEvent="mouseleave" position="top"
+      [hideOnOutsideClick]="true">
+      <div *dxTemplate="let _ = data; of: 'content'" class="tooltip">
+        {{ item.text }}
+      </div>
+    </dx-tooltip>
+  </ng-container>
+
+  <div [id]="'item-' + item.id" class="item" [class.inactive]="item.isDisabled" [class.current]="isCurrent$ | async"
+    [attr.title]="item.isDisabled ? ('project.treeview.limit_exceeded' | translate) : null">
+    <ng-container [ngSwitch]="item.type">
+      <ng-container *ngSwitchCase="'dataSet'">
+        <div class="flex  w-full" id="tree-item-dataset">
+        <rolap-tab-type-icon [tabType]="item.type" [disabled]="item.isDisabled" />
+        <span data-cy="tree-item-dataset" [id]="'text-' + item.id">{{ item.text }}</span>
+        <div (click)="showContextMenu()" class="icon-wrapper">
+          <fa-icon [icon]="faEllipsis" />
+        </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'ruleSet'">
+        <div id="tree-item-ruleset" class="flex  w-full">
+          <rolap-tab-type-icon [tabType]="item.type" />
+          <span [id]="'text-' + item.id" data-cy="tree-item-ruleSet">{{ item.text }}</span>
+          <div (click)="showContextMenu()" class="icon-wrapper">
+            <fa-icon [icon]="faEllipsis" />
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'EDA'">
+        <rolap-tab-type-icon [tabType]="item.type" />
+        <span [id]="'text-' + item.id">{{ item.text }}</span>
+        <div (click)="showContextMenu()" class="icon-wrapper">
+          <fa-icon [icon]="faEllipsis" />
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="'WHITEBOX'">
+        <rolap-tab-type-icon [tabType]="item.type" />
+        <span [id]="'text-' + item.id">{{ item.text }}</span>
+        <div (click)="showContextMenu()" class="icon-wrapper">
+          <fa-icon [icon]="faEllipsis" />
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="'PREDICTION'">
+        <rolap-tab-type-icon [tabType]="item.type" />
+        <span [id]="'text-' + item.id">{{ item.text }}</span>
+        <div (click)="showContextMenu()" class="icon-wrapper">
+          <fa-icon [icon]="faEllipsis" />
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="'report'">
+        <rolap-tab-type-icon [tabType]="item.type" />
+        <span [id]="'text-' + item.id">{{ item.text }}</span>
+        <div (click)="showContextMenu()" class="icon-wrapper">
+          <fa-icon [icon]="faEllipsis" />
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'rulesets_group'">
+        <span [id]="'text-' + item.id" data-cy="tree-item-rulesets_group">{{
+          'project.treeview.rulesets_group' | translate
+          }}</span>
+        <div (click)="showContextMenu()" class="icon-wrapper">
+          <fa-icon [icon]="faEllipsis" />
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'reports_group'">
+        <span [id]="'text-' + item.id">{{ 'project.treeview.reports_group' | translate }} </span>
+        <div (click)="showContextMenu()" class="icon-wrapper">
+          <fa-icon [icon]="faEllipsis" />
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchDefault>
+        <span [id]="'text-' + item.id" class="center-vertical" [class.first]="isItemFirst$ | async"
+          data-cy="project_id">
+          {{ item.text }}
+          <rolap-tooltip class="inline-block" *ngIf="isItemFirst$ | async" [class.hidden]="showFullNameTooltip$ | async"
+            [tooltip]="'tooltips.treeview' | translate" />
+        </span>
+      </ng-container>
+    </ng-container>
+
+    <dx-context-menu #contextMenu *ngIf="contextMenuItems$ | async as contextMenuItems" data-cy="context-menu"
+      [dataSource]="contextMenuItems" [width]="200" [target]="'#item-' + item.id"
+      (onItemClick)="contextMenuClick($event)">
+    </dx-context-menu>
+  </div>
+</ng-container>

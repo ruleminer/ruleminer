@@ -1,0 +1,214 @@
+$primary-color: #4caf50;
+$primary-color-dark: #626962;
+$secondary-color: #ccc;
+
+$project-color: #131720;
+$project-border-color: #dbe2eb;
+$project-background-color: #f0f2f4;
+$logo-font-color: #435272;
+$sub-title-color: #435272;
+$button-color: #c1572a;
+$title: #b9bec4;
+$label-color: #000000;
+$white: #fff;
+$card-background-color: #ffffff;
+$card-title-color: $project-color;
+$base-border-color: #e0e0e0;
+$dx-row-lines-even: #694d7e;
+$dx-row-lines-odd: #bc485a;
+$step-line-color: #d15e2d;
+$dropzone-color: #e1e7ee;
+$induction-params: #505050;
+$remove-icon: #c1cddc;
+$disabled-color: #e6e6e6;
+$tab-bar-link-color: rgba(67, 82, 114, 0.82);
+
+// sidebar
+$sidebar-border-right-hover-color: lighten($project-color, 60%);
+$treeview-current-selected-color: #cecece;
+$treeview-inactive-color: #dc3545;
+
+// resize handlers
+$resize-handler-width: 20px;
+$resize-transition: 500ms;
+$resise-transition-delay: 250ms;
+
+// stepper
+$step-number-height: 2rem;
+
+// icon colors
+$new-project-icon-color: $logo-font-color;
+$table-icon-color: #c1cddc;
+$primary-icon-color: $button-color;
+$times-icon-hover-color: #dc3545;
+
+$color-transition-time: 0.25s;
+$footer-background-color: $project-color;
+$footer-bottom-background-color: $logo-font-color;
+$app-bar-height: 4rem;
+
+$selected-item-color: #e0e0e0;
+
+$validation-color: #ff0000;
+$data-grid-error-color: rgb(95, 33, 32);
+$data-grid-border-color: #ef5350;
+$data-grid-background-color: rgb(253, 237, 237);
+
+$chips: #e0e0e0;
+$chips-hover: #ccc;
+$popover-hover: #0077cc;
+
+// labels
+$label-popup-background-color: $white;
+$label-popup-example-backround: #e1e7ee;
+$label-popup-border-radius: 0.625rem;
+$label-popup-padding: 14px;
+$label-popup-header-btn-width: 45px;
+$label-popup-header-btn-hover-background: rgba($label-popup-example-backround, 15%);
+$label-popup-header-icon-color: $table-icon-color;
+$label-margin: 10px;
+$label-table-y-padding: 2px;
+$label-selection-marker-color: #43a047;
+$label-color-picker-square-size: 30px;
+$label-search-input-height: 25px;
+$label-search-y-wrapper: calc(14px - ($label-margin / 2));
+$label-search-x-wrapper: 12px;
+
+// info
+$info-bg-color: #cce5ff;
+$info-color: #004085;
+$info-border-color: #b8daff;
+$info-border-radius: $label-popup-border-radius;
+
+// warning
+$warning-bg-color: #fff3cd;
+$warning-color: #856404;
+$warning-border-color: #ffeeba;
+
+// error
+$error-bg-color: #f8d7da;
+$error-color: #c70909;
+$error-border-color: #f5c6cb;
+
+//fonts
+$font-family-headings: 'Roboto';
+
+// process
+$process-status-success-bg-color: #52ac1b;
+$process-status-aborted-bg-color: #c70909;
+$process-status-stopped-bg-color: #666666;
+$process-status-stopping-bg-color: #666666;
+$process-status-failure-bg-color: #ff0000;
+$process-status-pending-bg-color: #0277bd;
+$process-status-started-bg-color: #fdd835;
+
+// value changes badge
+$value-change-badge-positive-bg: #d1e7dd;
+$value-change-badge-positive-color: #0f5132;
+$value-change-badge-negative-bg: #f8d7da;
+$value-change-badge-negative-color: #842029;
+$value-change-badge-no-change-bg: #e2e3e5;
+$value-change-badge-no-change-color: #41464b;
+
+$process-type-learning-bg-color: #acabf5;
+$process-type-report-bg-color: #435272;
+$process-type-cross-validation-bg-color: #8887c0;
+$process-type-save-ruleset-bg-color: #7170db;
+$process-type-filter-ruleset-bg-color: #4644ce;
+
+$process-param-key-color: #435272;
+$process-param-value-color: #c1572a;
+
+// space usage
+$space-usage-progressbar-container-bg-color: #c1cddc;
+$space-usage-progressbar-range-bg-color: #435272;
+$space-usage-progressbar-height: 12px;
+
+// project type label
+$classification-bg-color: #efbb3f;
+$classification-text-color: #211e1e;
+
+$regression-bg-color: #435272;
+$regression-text-color: #e1e7ee;
+
+$survival-bg-color: #d15e2d;
+$survival-text-color: $white;
+
+// column chooser
+$column-chooser-bg-color: $white;
+$column-chooser-border-color: #e0e0e0;
+$column-chooser-title-font-color: rgba(0, 0, 0, 0.54);
+$column-chooser-back-drop-color: rgba(0, 0, 0, 0);
+
+//profile page
+$profile-header-color: #405482;
+$plan-color: #0091ce;
+
+$tree-footer-disabled-bg-color: #f4f4f4;
+$tree-footer-disabled-color: #999;
+
+$dx-menu-item-color: #f0f0f0;
+$dx-menu-context-color: rgba(0, 0, 0, 0.15);
+
+$project-tile-bg-color: rgba(217, 217, 217, 0.15);
+$project-tile-border-color: #c1cddcab;
+$project-tile-filter-color: rgba(0, 0, 0, 0.15);
+$sample-project-text-color: rgba(255, 255, 255, 1);
+$sample-project-btn-border-color: rgba(193, 205, 220, 0.67);
+$recent-project-bgc-color: #d9d9d926;
+$recent-project-text-color: #282727;
+$project-sort-headers: #6c6a6a;
+$dataset-survival-column-color: #694d7e;
+
+$color-text-dark: #333;
+$color-text-medium: #666;
+$color-text-muted: #6c757d;
+$color-link: #007bff;
+
+//reponsive
+$containerName: mainSection;
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+$text-area-hover-color: rgba(0, 0, 0, 0.87);
+
+$overlay-blocker-bg: rgba(0, 0, 0, 0.5);
+$overlay-shadow-primary: rgba(33, 33, 33, 0.8);
+$overlay-shadow-secondary: rgba(33, 33, 33, 0.5);
+$overlay-z-index-base: 9998;
+$overlay-border-radius: 4px;
+
+// tour progress
+$tour-dot-size: 8px;
+$tour-dot-gap: 6px;
+$tour-dot-inactive: #ddd;
+$tour-dot-active: $button-color;
+$tour-progress-margin: 15px 0 5px;
+$tour-animation-duration: 0.3s;
+
+//add-card-button
+$box-shadow-button: 0 2px 10px rgba(0, 0, 0, 0.1);
+$dropdown-item-hover-bg-color: #f5f5f5;
+$dropdown-item-hover-color: #ffffff;
+$dropdown-icon-color: #757575;
+$not-covered-rules-border-color: #e6d292;
+$not-covered-rules-bgc-color: #fffaeb;
+$not-covered-rules-border-color: #e6d292;
+$not-covered-rules-bgc-color: #fffaeb;
+$condition-group-and-border: #2ECC71;
+$condition-group-or-border: #F39C12;
+$add-button-bg: #28a745;
+$add-button-border: #28a745;
+$add-button-hover-bg: #218838;
+$add-button-hover-border: #1e7e34;
+$remove-group-button-bg: #ffc107;
+$remove-group-button-border: #ffc107;
+$remove-group-button-hover-bg: #e0a800;
+$remove-group-button-hover-border: #d39e00;
+$empty-group-message-color: #888;
+$empty-group-message-border: #eee;
+$filter-action-icon-color: gray;

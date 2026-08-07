@@ -1,0 +1,41 @@
+<div class="widget-container flex-box">
+  <div id="dropzone-external" class="flex-box" [ngClass]="dropZoneClasses">
+    <div id="dropzone-success" *ngIf="fileIsUploaded && !messageError">
+      <p>{{ 'data_upload.data_uploaded' | translate }}<fa-icon class="ml1" [icon]="faCheck" /></p>
+      <p class="mt2 small-text" translate="data_upload.chosen_file" [translateParams]="{ fileName: fileName }"></p>
+    </div>
+    <div id="dropzone-error" *ngIf="messageError">
+      <fa-icon class="mr1" [icon]="faXmark" />{{ messageError | translate }}
+      <ng-container *ngIf="availableExtensionsMessage">{{
+        'toast_messages.errors.supported_formats' | translate : { value: availableExtensionsMessage }
+      }}</ng-container>
+    </div>
+    <div id="dropzone-text" class="flex-box" *ngIf="textVisible">
+      <span>{{ 'data_upload.drag_drop_file' | translate }}</span>
+    </div>
+
+    <dx-progress-bar
+      #uploadProgress
+      [min]="0"
+      [max]="100"
+      width="30%"
+      [showStatus]="showStatus"
+      [visible]="progressVisible"
+      [value]="progressValue"
+      *ngIf="messageError"></dx-progress-bar>
+  </div>
+  <dx-file-uploader
+    class="file-uploader"
+    #fileUploader
+    dialogTrigger="#dropzone-external"
+    dropZone="#dropzone-external"
+    [multiple]="false"
+    [visible]="false"
+    uploadMode="useButtons"
+    (onValueChanged)="onValueChanged($event)"
+    (onDropZoneEnter)="onDropZoneEnter($event)"
+    (onDropZoneLeave)="onDropZoneLeave($event)"
+    (onProgress)="onProgress($event)"
+    (onUploadStarted)="onUploadStarted()"
+    invalidFileExtensionMessage="{{ 'data_upload.file_type_error' | translate }}"></dx-file-uploader>
+</div>

@@ -1,0 +1,47 @@
+@import 'variables';
+
+:host {
+  max-height: 90vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dx-tag-content {
+  font-size: 1.14em;
+}
+
+.dx-tag {
+  align-self: unset;
+  cursor: unset;
+}
+
+.dx-tag-remove-button {
+  cursor: pointer;
+}
+
+.dx-field-label {
+  overflow: unset;
+  white-space: wrap;
+}
+
+.occurence-field {
+  width: 10rem;
+}
+
+dx-number-box {
+  width: 3.5rem;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.decision-class {
+  font-weight: bold;
+  color: $button-color;
+}
+
+.accordion {
+  overflow: auto;
+}

@@ -1,0 +1,37 @@
+<rolap-card class="mt1 mb2 block">
+  <rolap-title class="flex items-center justify-between flex-wrap">
+    <h2>
+      {{ 'visualisation.correlation_matrix.title' | translate }}
+    </h2>
+    <rolap-info *ngIf="displayBigMatrixInfo" class="mt2">
+      {{ 'visualisation.correlation_matrix.big_matrix_info' | translate }}
+    </rolap-info>
+    <dx-button-group
+      *ngIf="displayTypes && displayTypes.length > 1"
+      class="mt1"
+      [items]="displayTypes"
+      keyExpr="displayType"
+      stylingMode="outlined"
+      [selectedItemKeys]="[selectedDisplayType]"
+      (onItemClick)="selectDisplayType($event)">
+    </dx-button-group>
+  </rolap-title>
+
+  <div [ngSwitch]="selectedDisplayType" class="block mb2">
+    <!-- CORRELATION MATRIX (HEATMAP) -->
+    <rolap-dataset-correlation-matrix
+
+      *ngSwitchCase="DisplayTypes.Matrix"
+      [correlationMatrix]="correlationMatrix" />
+    <!-- CORRELATION TABLE -->
+    <rolap-dataset-correlation-table
+      id="dataset-correlation-table"
+      *ngSwitchCase="DisplayTypes.Table"
+      [correlationMatrix]="correlationMatrix" />
+    <!-- CORRELATION RANKING -->
+    <rolap-dataset-correlation-ranking
+      id="dataset-correlation-ranking"
+      *ngSwitchCase="DisplayTypes.Ranking"
+      [correlationMatrix]="correlationMatrix" />
+  </div>
+</rolap-card>

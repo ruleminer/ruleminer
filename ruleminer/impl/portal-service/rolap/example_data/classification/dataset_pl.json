@@ -1,0 +1,20 @@
+[
+    {
+        "name": "zoo-dataset",
+        "description": "Zbiór danych zawierający 101 zwierząt z ogrodu zoologicznego. Zawiera 16 zmiennych opisujących różne cechy zwierząt. 7 typów klas to: ssak, ptak, gad, ryba, płaz, owad i bezkręgowiec. Celem tego zbioru danych jest możliwość przewidzenia klasyfikacji zwierząt na podstawie zmiennych.",
+        "delimiter": ",",
+        "correlation_matrix": "{\"legs\":{\"legs\":1.0}}",
+        "number_of_columns": 17,
+        "number_of_rows": 101,
+        "class_distribution": {
+            "bird": 20,
+            "fish": 13,
+            "insect": 8,
+            "mammal": 41,
+            "reptile": 5,
+            "amphibian": 4,
+            "invertebrate": 10
+        },
+        "size": 9777
+    }
+]

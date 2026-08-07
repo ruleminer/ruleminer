@@ -1,0 +1,35 @@
+@import 'variables';
+
+:host {
+  height: 100%;
+}
+
+.main-container {
+  height: 100%;
+}
+
+.buttons {
+  text-align: right;
+  margin-top: auto;
+}
+
+.manually-button {
+  border-radius: 0.3125rem;
+  border: 1px solid $button-color;
+  background: $white;
+  color: $button-color;
+  flex-shrink: 0;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

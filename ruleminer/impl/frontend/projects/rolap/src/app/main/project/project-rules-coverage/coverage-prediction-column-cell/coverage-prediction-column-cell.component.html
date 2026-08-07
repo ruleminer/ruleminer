@@ -1,0 +1,34 @@
+<div [ngSwitch]="problemType" [class.accent-color]="colored">
+  <span class="prediction" *ngSwitchCase="ProblemTypes.Classification">
+    {{ prediction }}
+  </span>
+  <span class="prediction" *ngSwitchCase="ProblemTypes.Regression">
+    <ng-container [ngTemplateOutlet]="numericalPrediction" [ngTemplateOutletContext]="{ value: prediction }">
+    </ng-container>
+  </span>
+  <span class="prediction" *ngSwitchCase="ProblemTypes.Survival">
+    <ng-container
+      [ngTemplateOutlet]="numericalPrediction"
+      [ngTemplateOutletContext]="{ value: $any(prediction).median_survival_time }">
+    </ng-container>
+
+    <dx-button
+      [hint]="'project.prediction.details' | translate"
+      stylingMode="text"
+      type="normal"
+      (onClick)="onSeeSurvivalPredictionDetailsClick()">
+      <fa-icon [icon]="faChartLine"></fa-icon>
+    </dx-button>
+  </span>
+  <span class="prediction" *ngSwitchDefault>{{ prediction | json }}</span>
+</div>
+
+<!-- TEMPLATE FOR NUMERICAL CONCLUSION HANDLING INFINITY VALUES -->
+<ng-template #numericalPrediction let-value="value">
+  <ng-container *ngIf="value === 'inf' || value === '-inf'; else numberValue">
+    {{ value }}
+  </ng-container>
+  <ng-template #numberValue>
+    {{ $any(value) | number : '1.1-3' }}
+  </ng-template>
+</ng-template>

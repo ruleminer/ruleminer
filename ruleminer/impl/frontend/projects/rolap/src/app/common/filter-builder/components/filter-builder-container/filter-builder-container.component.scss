@@ -1,0 +1,84 @@
+@import '../../../../../styles/variables.scss';
+
+:host {
+    display: block;
+}
+
+.filter-builder-container {
+    background-color: $card-background-color;
+    font-family: sans-serif;
+}
+
+.filter-builder-container h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    color: $color-text-dark;
+    border-bottom: 1px solid $base-border-color;
+    padding-bottom: 10px;
+}
+
+.output-section {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px dashed $base-border-color;
+    background-color: $project-background-color;
+    border-radius: 4px;
+}
+
+.output-section h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: $color-text-dark;
+}
+
+.output-section pre {
+    background-color: $label-popup-example-backround;
+    padding: 10px;
+    border: 1px solid $project-border-color;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-family: monospace;
+    font-size: 0.9em;
+    max-height: 150px;
+    overflow: auto;
+}
+
+.debug-section {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed $base-border-color;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.debug-section button,
+.debug-section label {
+    padding: 5px 10px;
+    font-size: 0.9em;
+    border: 1px solid $base-border-color;
+    background-color: $dx-menu-item-color;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.debug-section button:hover {
+    background-color: $selected-item-color;
+}
+
+.debug-section label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.debug-section input[type="checkbox"] {
+    cursor: pointer;
+}

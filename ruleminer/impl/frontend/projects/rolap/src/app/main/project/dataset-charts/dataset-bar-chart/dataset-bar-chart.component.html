@@ -1,0 +1,22 @@
+<div *ngIf="showBarPlot" class="breakpoint-container">
+  <div class="row">
+    <div class="col-lg-3 mb2">
+      <rolap-card>
+        <h6 class="mb2">{{ 'visualisation.nominal_attribute' | translate }}</h6>
+        <dx-radio-group
+          class="mt1 scroll mb2 pl2"
+          [height]="'40vh'"
+          [items]="barPlotElements"
+          [(ngModel)]="selectedBarPlotElement"
+          displayExpr="attribute_name"
+          (onValueChanged)="selectAndPlot(selectedBarPlotElement!, $event)">
+        </dx-radio-group>
+      </rolap-card>
+    </div>
+    <div class="col-lg-9 mb2">
+      <rolap-card>
+        <div #histogramNominal></div>
+      </rolap-card>
+    </div>
+  </div>
+</div>

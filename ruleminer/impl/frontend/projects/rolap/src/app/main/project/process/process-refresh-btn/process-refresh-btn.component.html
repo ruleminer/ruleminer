@@ -1,0 +1,22 @@
+<span class="timer" [title]="'process.table.timer_tooltip' | translate">
+  {{ timeLeft$ | async | date : 'mm:ss' }}
+</span>
+
+<button data-cy="refresh-btn">
+  <fa-icon
+    *ngIf="!isRefreshing; else refreshingTemplate"
+    [icon]="faArrowsRotate"
+    class="icon-card icon-secondary fa-fw"
+    [title]="'process.table.refresh' | translate"
+    (click)="refresh()">
+  </fa-icon>
+</button>
+
+<ng-template #refreshingTemplate>
+  <fa-icon
+    [icon]="faArrowsRotate"
+    animation="spin"
+    class="icon-card icon-secondary no-hover fa-fw"
+    [title]="'process.table.refreshing' | translate">
+  </fa-icon>
+</ng-template>

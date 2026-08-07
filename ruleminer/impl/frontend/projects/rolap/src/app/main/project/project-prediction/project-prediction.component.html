@@ -1,0 +1,70 @@
+<ng-container *rolapLoading="isLoading$ | async">
+  <rolap-predition-settings-card />
+
+  <div class="card-container my1 pb2">
+    <div class="breakpoint-container">
+      <div class="row">
+        <div class="col-lg-6 pb1" id="prediction-test-left">
+          <rolap-card>
+            <rolap-title class="flex justify-between flex-end">
+              <div class="flex">
+                <h2 class="center-vertical">
+                  {{ 'project.prediction.training_data_set' | translate }}
+                </h2>
+                <rolap-tooltip [tooltip]="'tooltips.rules_table.training_data_set' | translate" />
+              </div>
+              <rolap-refresh-icon
+                *ngIf="tab"
+                [canRefresh]="tab.data.predictionTab.trainingDataRefresh"
+                [isRefreshing]="isRefreshing"
+                (refresh)="refreshClick()" />
+            </rolap-title>
+            <ng-container *ngIf="isRefreshing; then loader; else showData" />
+            <rolap-card-footer></rolap-card-footer>
+          </rolap-card>
+        </div>
+        <div class="col-lg-6 pb2" id="prediction-test-right">
+          <rolap-prediction-test-card />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <rolap-cross-validation-card
+            *ngIf="crossValidation"
+            [hidden]="!crossValidation.numOfFolds"
+            [crossValidation]="crossValidation" />
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loader>
+  <div class="loading">
+    <dx-load-indicator height="60" width="60"></dx-load-indicator>
+  </div>
+</ng-template>
+
+<ng-template #showData>
+  <rolap-info class="mb2" mode="warning" *ngIf="tab.data.predictionTab.trainingDataRefresh">
+    {{ 'project.prediction.warning' | translate }}
+  </rolap-info>
+
+  <dx-select-box
+    class="mb2 read-only"
+    [dataSource]="[]"
+    [disabled]="true"
+    stylingMode="outlined"
+    placeholder="{{ dataSetName$ | async }}" />
+
+  <rolap-dataset-tables
+    *ngIf="generalIndicators && tab"
+    [predictionIndicators]="tab.data.predictionTab.predictionIndicators"
+    [generalIndicators]="generalIndicators" />
+  <ng-container *ngIf="problemType === 'regression'">
+    <rolap-prediction-histogram *ngIf="currentHistogramData; else showInfo" [histogramData]="currentHistogramData" />
+  </ng-container>
+</ng-template>
+
+<ng-template #showInfo
+  ><rolap-info>{{ 'project.prediction.histogram.no_data' | translate }}</rolap-info>
+</ng-template>

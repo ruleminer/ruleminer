@@ -1,0 +1,39 @@
+@import 'variables';
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid $base-border-color;
+  padding: 6px;
+  font-size: 14px;
+  text-align: left;
+}
+
+th {
+  padding: 11px 6px;
+  border-bottom: 2px solid $base-border-color;
+  line-height: 16px;
+  font-weight: 500;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.54);
+  height: 36px;
+}
+
+td {
+  padding: 0;
+  height: 32px;
+}
+
+.column-header {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+td.p0 {
+  padding: 0;
+}

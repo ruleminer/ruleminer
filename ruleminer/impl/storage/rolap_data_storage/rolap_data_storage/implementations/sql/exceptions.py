@@ -1,0 +1,2 @@
+class DBStorageException(Exception):
+    pass

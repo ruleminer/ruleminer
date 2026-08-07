@@ -1,0 +1,31 @@
+@import 'variables';
+
+.sort-headers {
+  display: flex;
+  justify-content: space-around;
+
+  p {
+    cursor: pointer;
+    margin-left: 1rem;
+    font-weight: 400;
+    text-align: left;
+    color: $project-sort-headers;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  p:first-child {
+    margin-left: 0;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.margin-left {
+  margin-left: 0.5rem;
+}

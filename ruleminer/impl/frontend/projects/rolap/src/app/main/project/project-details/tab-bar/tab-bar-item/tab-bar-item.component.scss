@@ -1,0 +1,47 @@
+@import 'variables';
+
+:host {
+  display: contents;
+}
+
+a {
+  color: $tab-bar-link-color;
+  font-size: 18px;
+  font-family: $font-family-headings;
+  font-style: normal;
+  line-height: normal;
+  text-decoration: none;
+  text-wrap: nowrap;
+  cursor: pointer;
+  user-select: none;
+
+  &.active {
+    color: $project-color;
+    font-weight: 500;
+
+    rolap-tab-type-icon {
+      color: $button-color;
+    }
+  }
+}
+
+.spacer {
+  margin-right: 0.5em;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    height: 1.25em;
+    vertical-align: -0.3em;
+    width: 1px;
+    background-color: $remove-icon;
+    margin-left: 0.5em;
+  }
+}
+
+
+.long-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

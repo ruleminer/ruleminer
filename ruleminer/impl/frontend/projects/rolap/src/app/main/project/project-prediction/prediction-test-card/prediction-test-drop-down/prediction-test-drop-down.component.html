@@ -1,0 +1,34 @@
+<div class="container">
+  <dx-select-box
+    class="select-box"
+    [dataSource]="dataSource$ | async"
+    [value]="selected$ | async"
+    valueExpr="id"
+    displayExpr="name"
+    stylingMode="outlined"
+    placeholder=""
+    [(value)]="selectedValue"
+    (onValueChanged)="onSelectionChanged($event)"
+    [inputAttr]="{ 'aria-label': 'project.prediction.test_data_set' | translate }" />
+
+  <dx-button
+    class="test-button"
+    stylingMode="contained"
+    type="default"
+    [disabled]="isCalculating"
+    (onClick)="onCalculateClick()">
+    {{ 'project.prediction.test_btn' | translate }}
+  </dx-button>
+</div>
+
+<dx-load-panel
+  [visible]="isCalculating"
+  [showPane]="true"
+  [shading]="true"
+  [showIndicator]="true"
+  [position]="{ of: '.test-card-content' }"
+  [shadingColor]="'rgba(255, 255, 255, 0.5)'"></dx-load-panel>
+
+<rolap-info class="mt1" mode="warning" *ngIf="refresh$ | async">
+  {{ 'project.prediction.dataset_changed' | translate }}
+</rolap-info>

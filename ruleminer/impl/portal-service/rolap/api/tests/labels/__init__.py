@@ -1,0 +1,2 @@
+from .labels_view_test import LabelViewTestCase
+from .labels_view_test import RulesLabelsViewTestCase

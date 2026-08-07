@@ -1,0 +1,8 @@
+<rolap-manual-rule-generator
+  (currentSelectItemEmitter)="onCurrentSelectItemChange($event)"
+  (dataSourceChanged)="onSelectedRulesChanged($event)"
+  (ruleList)="onManualRulesListChange($event)"
+  [dataSetId]="ids.dataSetId!"
+  [ruleSetId]="ids.ruleSetId!" />
+<!-- PREDICTION CONFIGURATION -->
+<rolap-ruleset-prediction-configuration class="block mt1" [data]="predictionConfigurationFormData" />

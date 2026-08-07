@@ -1,0 +1,46 @@
+<div class="inline" aria-live="assertive">
+  <ng-container *ngIf="control?.invalid && control?.touched">
+    <p class="invalid-feedback" *ngIf="control.errors?.['required']">
+      {{ 'form_validation_module.required' | translate }}
+    </p>
+    <p class="invalid-feedback" *ngIf="control.errors?.['minlength']">
+      {{
+        'form_validation_module.minlength'
+          | translate
+            : {
+                requiredLength: control.errors?.['minlength'].requiredLength,
+                actualLength: control.errors?.['minlength'].actualLength
+              }
+      }}
+    </p>
+    <p class="invalid-feedback" *ngIf="control.errors?.['maxlength']">
+      {{
+        'form_validation_module.maxlength'
+          | translate
+            : {
+                requiredLength: control.errors?.['maxlength'].requiredLength,
+                actualLength: control.errors?.['maxlength'].actualLength
+              }
+      }}
+    </p>
+    <p class="invalid-feedback" *ngIf="control.errors?.['email']">
+      {{ 'form_validation_module.email' | translate }}
+    </p>
+
+    <p class="invalid-feedback" *ngIf="control.errors?.['pattern']">
+      {{ 'form_validation_module.pattern' | translate : { name: name } }}
+    </p>
+    <p class="invalid-feedback" *ngIf="control.errors?.['min']">
+      {{ 'form_validation_module.min' | translate : { min: control.errors?.['min'].min } }}
+    </p>
+    <p class="invalid-feedback" *ngIf="control.errors?.['max']">
+      {{ 'form_validation_module.max' | translate : { max: control.errors?.['max'].max } }}
+    </p>
+
+    <ng-container *ngFor="let customError of customErrors">
+      <p class="invalid-feedback" *ngIf="control.errors && control.errors[customError]">
+        {{ 'validators.' + customError | translate : control.errors[customError] }}
+      </p>
+    </ng-container>
+  </ng-container>
+</div>
