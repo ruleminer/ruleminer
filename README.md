@@ -30,6 +30,24 @@ RULEMINER can be run as a complete local stack with Docker Compose.
 - at least 8 GB of free RAM for Docker
 - Python 3.10+ only if the optional data initialization script is used
 
+On Linux, the `docker` group must exist and the current user must belong to it.
+Configure the group with:
+
+```sh
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
+Restart the system for the group membership change to take effect. You can
+verify it with:
+
+```sh
+groups $USER
+```
+
+The output should include the `docker` group.
+
 ### Configure the local environment
 
 All commands below should be run from the `impl` directory.
@@ -75,7 +93,20 @@ docker compose --profile local --env-file .env.local exec rest-api python manage
 
 Populate the application with the basic algorithms and plans:
 
+Linux/macOS:
+
 ```sh
+python -m venv .venv
+. .venv/bin/activate
+python -m pip install -r test-data/requirements.txt
+python test-data/populate_basic.py .env.local
+```
+
+Windows PowerShell:
+
+```powershell
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
 python -m pip install -r test-data/requirements.txt
 python test-data/populate_basic.py .env.local
 ```
