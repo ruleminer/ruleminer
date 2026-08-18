@@ -3,14 +3,14 @@
 
 ## Introduction
 
-RuleMiner is a system for rule-based data mining and building predictive models based on rules. Rules, as the most intuitive form of knowledge representation for humans, allow us to understand the relationships that occur in data. RuleMiner is dedicated to solving problems of data description — classification, regression and survival analysis problems. It can be also used for predictions.
+RuleMiner is a system for rule-based data mining and building predictive models based on rules. Rules, as the most intuitive form of knowledge representation for humans, allow us to understand the relationships that occur in data. RuleMiner is dedicated to solving problems of data description — classification, regression and survival analysis problems. It can also be used for predictions.
 
 RuleMiner is based on the **RuleKit** — a versatile rule learning tool based on a sequential coverage induction algorithm.
 
 
 ## Getting started
 
-Do you want to use RuleMiner application? Great!
+Do you want to use the RuleMiner application? Great!
 
 All you need to know about using and accessing the platform is at [https://ruleminer.ai/](https://ruleminer.ai/).
 
@@ -30,7 +30,7 @@ RULEMINER can be run as a complete local stack with Docker Compose.
 - at least 8 GB of free RAM for Docker
 - Python 3.10+ only if the optional data initialization script is used
 
-On Linux, the `docker` group must exist and the current user must belong to it.
+On Linux, the `docker` group must exist, and the current user must belong to it.
 Configure the group with:
 
 ```sh
@@ -68,7 +68,7 @@ All commands below should be run from the `impl` directory.
 
 2. Open `.env.local` and replace every value beginning with `CHANGE_ME`.
    Use different, strong passwords for the databases, Keycloak, RabbitMQ,
-   SFTP and the application accounts.
+   SFTP, and the application accounts.
 
 3. Keep `.env.local` private.
 
@@ -159,15 +159,15 @@ Cypress. The test configuration supports the local environment only.
 
 ## Key RuleKit-related projects
 
-As it was mentioned, RuleMiner is based on RuleKit tool. The main RuleKit repository and other connected projects are:
+As it was mentioned, RuleMiner is based on the RuleKit tool. The main RuleKit repository and other connected projects are:
 
 * [RuleKit](https://github.com/adaa-polsl/RuleKit) - main RuleKit repository,
-* [RuleKit-python](https://github.com/adaa-polsl/RuleKit-python) - python wrapper for RuleKit library,
+* [RuleKit-python](https://github.com/adaa-polsl/RuleKit-python) - Python wrapper for RuleKit library,
 * [RuleKit-GUI](https://github.com/ruleminer/rulekit-gui) - Streamlit app for RuleKit,
-* [RuleXAI](https://github.com/adaa-polsl/RuleXAI) - library for rule-based aproach to explain the output of any machine learning model,
+* [RuleXAI](https://github.com/adaa-polsl/RuleXAI) - library for rule-based approach to explain the output of any machine learning model,
 * [survival-action-rules](https://github.com/adaa-polsl/survival-action-rules) - action rules for survival analysis,
 * [m-of-n-rules](https://github.com/adaa-polsl/m-of-n-rules) - proposed algorithm of rule induction with complex elementary conditions,
-* [SCARI](https://github.com/adaa-polsl/SCARI) - sequential covering action rule induction algoithm,
+* [SCARI](https://github.com/adaa-polsl/SCARI) - sequential covering action rule induction algorithm,
 * [LR-Rules](https://github.com/adaa-polsl/LR-Rules) - survival rules induction,
 * [GuideR](https://github.com/adaa-polsl/GuideR) - user-guided induction.
 * [MAINE](http://maine.ibemag.pl/) - web application that allows carrying out survival and classification analyses based on experimental, multi-omic patient data. In the reports, RuleKit is used to model data.
@@ -176,7 +176,7 @@ As it was mentioned, RuleMiner is based on RuleKit tool. The main RuleKit reposi
 
 Management and scientific mentoring
 
-* Marek Sikora, PhD, DSc, Associate Prof. at SUT and EMAG – team leader, senior researcher
+* Prof. Marek Sikora – team leader, senior researcher
 * Łukasz Wróbel, PhD – main advisor, senior researcher
 * Dawid Macha, PhD student – project manager, researcher
 
@@ -184,8 +184,8 @@ Research
 
 * Joanna Badura, PhD – researcher
 * Adam Gudyś, PhD – senior researcher 
-* Marek Hermansa, PhD student – devops
-* Cezary Maszczyk, PhD student – developer
+* Marek Hermansa, PhD – devops
+* Cezary Maszczyk, PhD – developer
 * Michał Kozielski, PhD – senior researcher
 * Łukasz Wawrowski, PhD – senior researcher, developer
 
@@ -205,6 +205,7 @@ IT Team
 
 The most important publications related to the RuleMiner platform and the RuleKit tool are as follows.
 
+1. Gudyś A, Maszczyk C, Badura J, Grzelak A, Sikora M, Wróbel Ł. RuleKit2: Faster and simpler rule learning. SoftwareX. 2025 Sep 1;31:102289. doi:10.1016/j.softx.2025.102289
 1. Sikora M, Macha D, Badura J, Kozłowski A, Wróbel Ł. RuleMiner: An Interactive Web Tool for Rule-Based Data Analysis. In Companion Proceedings of the 8th International Joint Conference on Rules and Reasoning (RuleML+ RR-Companion 2024) 2024, available [here](https://ceur-ws.org/Vol-3816/paper3.pdf).
 1. Maszczyk C., Sikora M., Wróbel Ł.: Classification, regression and survival rule induction with complex and M-of-N elementary conditions. Machine Learning and Knowledge Extraction 6.1, 554-579, 2024, https://doi.org/10.3390/make6010026.
 2. Gudyś A, Sikora M., Wróbel Ł.: Separate and conquer heuristic allows robust mining of contrast sets in classification, regression and survival data. Expert Systems with Applications, 123376, 2024, https://doi.org/10.1016/j.eswa.2024.123376.
