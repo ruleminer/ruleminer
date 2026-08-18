@@ -1,0 +1,6 @@
+.stories
+.angular
+node_modules
+stories
+
+documentation.json

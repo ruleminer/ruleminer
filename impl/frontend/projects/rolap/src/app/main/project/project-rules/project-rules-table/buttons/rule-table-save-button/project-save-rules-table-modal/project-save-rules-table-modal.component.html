@@ -1,0 +1,48 @@
+<form [formGroup]="form">
+  <!-- RULE SET NAME -->
+  <div class="flex flex-wrap content-center align-baseline">
+    <label class="mr1">
+      {{ 'project.rules.save_modal.rule_set_name' | translate }}
+    </label>
+    <dx-text-box
+      type="text"
+      formControlName="ruleSetName"
+      valueChangeEvent="keyup"
+      stylingMode="outlined"
+      [validationStatus]="ruleSetNameValidationStatus()"
+      [attr.data-cy]="'save-ruleset-modal-name-input'" />
+
+    <!-- Validation Message -->
+    <div class="mt1 ml1">
+      <rolap-validation-message [control]="form.controls['ruleSetName']" />
+    </div>
+  </div>
+
+  <!-- OVERWRITE CHECKBOX -->
+  <div class="flex flex-wrap content-center align-baseline mt1">
+    <label class="mr1">
+      {{ 'project.rules.save_modal.overwrite_the_ruleset' | translate }}
+    </label>
+    <dx-check-box 
+      name="overwrite" 
+      formControlName="overwrite" 
+      stylingMode="outlined"
+      [attr.data-cy]="'save-ruleset-modal-overwrite-checkbox'" />
+  </div>
+
+  <!-- ACTION BUTTONS -->
+  <div class="flex flex-wrap content-end justify-end align-baseline mt3">
+    <dx-button
+      type="normal"
+      class="mr1"
+      (onClick)="cancel()"
+      text="{{ 'project.rules.save_modal.cancel' | translate }}"
+      [attr.data-cy]="'save-ruleset-modal-cancel-button'" />
+    <dx-button
+      type="default"
+      [disabled]="form.invalid"
+      (onClick)="submitForm()"
+      text="{{ 'project.rules.save_modal.save' | translate }}"
+      [attr.data-cy]="'save-ruleset-modal-save-button'" />
+  </div>
+</form>

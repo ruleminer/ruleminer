@@ -1,0 +1,14 @@
+<ng-container *ngIf="items$ | async as items">
+  <div class="tabs" id="sub-tab-button-list">
+    <div class="active-indicator"></div>
+    <a
+      [id]="'sub-tab-' + i"
+      *ngFor="let item of items; let i = index"
+      (click)="onSubTabClick(i)"
+      class="button-link"
+      [class.active]="item.active"
+      [attr.data-cy]="item.dataCy">
+      {{ item.text | translate }}
+    </a>
+  </div>
+</ng-container>

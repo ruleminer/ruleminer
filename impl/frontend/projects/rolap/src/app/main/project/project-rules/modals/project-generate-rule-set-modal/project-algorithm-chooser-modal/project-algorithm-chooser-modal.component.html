@@ -1,0 +1,8 @@
+<dx-radio-group id="algorithm-chooser-modal" [items]="algorithms" [value]="isSelect" (valueChange)="selectItem($event)">
+  <div *dxTemplate="let item of 'item'" [attr.data-cy]="'rules-generate-algorithm--' + item.name">
+    <div class="flex">
+      <div class="center-vertical">{{ 'project.rules.names.' + item.name | translate }}</div>
+      <rolap-tooltip [tooltip]="'tooltips.generate_rule.' + item.name | translate" />
+    </div>
+  </div>
+</dx-radio-group>

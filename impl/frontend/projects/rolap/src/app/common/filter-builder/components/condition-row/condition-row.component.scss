@@ -1,0 +1,18 @@
+@import '../../../../../styles/variables';
+
+.condition-row {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
+    padding-right: 15px;
+}
+
+.condition-part {
+    margin-bottom: 5px;
+}
+
+.remove-button {
+    margin-left: auto;
+    align-self: center;
+}

@@ -1,0 +1,30 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run: Django",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}\\impl\\rolap\\manage.py",
+      "args": ["runserver", "--settings=rolap.settings.dev"],
+      "django": true,
+      "justMyCode": true
+    },
+    {
+      "name": "Test: Django",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}\\impl\\rolap\\manage.py",
+      "args": [
+        "test",
+        "${relativeFileDirname}",
+        "--settings=rolap.settings.test"
+      ],
+      "django": true,
+      "justMyCode": true
+    }
+  ]
+}

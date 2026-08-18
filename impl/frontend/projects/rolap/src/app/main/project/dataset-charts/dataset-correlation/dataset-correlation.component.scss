@@ -1,0 +1,8 @@
+:host ::ng-deep {
+  rolap-card {
+    .card {
+      // ugly but otherwise component display breaks before drawing the chart
+      justify-content: unset !important;
+    }
+  }
+}

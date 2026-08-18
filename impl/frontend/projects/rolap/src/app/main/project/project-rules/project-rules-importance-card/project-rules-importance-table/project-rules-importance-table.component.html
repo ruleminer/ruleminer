@@ -1,0 +1,66 @@
+<div class="tables-container" *ngIf="projectId">
+  <ng-container *ngFor="let table of tableData; first as isFirst">
+    <div class="table-container">
+      <div *ngIf="typeOfProblem === ProblemTypes.Classification" class="header">
+        <span>{{ 'project.rules.class_name' | translate }}: {{ table.title }}</span>
+      </div>
+      <dx-data-grid
+        [dataSource]="table.table"
+        width="100%"
+        [showBorders]="true"
+        [customizeColumns]="customizeColumns"
+        [noDataText]="'project.rules.table.data_loading' | translate"
+        [columnMinWidth]="30"
+        [columnAutoWidth]="true"
+        [remoteOperations]="true"
+        [noDataText]="
+          isLoading ? ('project.rules.table.data_loading' | translate) : ('project.rules.table.no_data' | translate)
+        ">
+        <dxi-column [width]="'auto'" caption="#" dataField="index" />
+        <dxi-column
+          dataField="condition name"
+          caption="{{ 'project.rules.' + importanceType + '_name' | translate }}" />
+        <dxi-column
+          dataField="importance"
+          caption="{{ 'project.rules.importance' | translate }}"
+          [sortOrder]="importanceSorting" />
+
+        <dxo-paging [pageSize]="pageSize" [pageIndex]="currentPage" />
+        <dxo-pager
+          [visible]="false"
+          [showPageSizeSelector]="false"
+          [showNavigationButtons]="false"
+          [showPageSizeSelector]="false"
+          [allowedPageSizes]="allowedPageSizes">
+        </dxo-pager>
+
+        <span *dxTemplate="let data of 'boldText'">
+          <b>{{ data.value }}</b>
+        </span>
+
+        <dxo-scrolling [useNative]="true" />
+      </dx-data-grid>
+    </div>
+  </ng-container>
+</div>
+
+<div class="tables-pager">
+  <ng-container *ngIf="tableData && tableData[largestTableIndex]?.table">
+    <dx-data-grid
+      [dataSource]="tableData[largestTableIndex].table"
+      [noDataText]="'project.rules.table.data_loading' | translate"
+      height="55"
+      width="'100%'"
+      [showBorders]="true"
+      (onOptionChanged)="onOptionChanged($event)">
+      <dxo-paging [(pageSize)]="pageSize" [(pageIndex)]="currentPage"></dxo-paging>
+      <dxo-pager
+        [visible]="true"
+        [showPageSizeSelector]="true"
+        [showNavigationButtons]="false"
+        [allowedPageSizes]="allowedPageSizes">
+      </dxo-pager>
+      <dxo-scrolling [useNative]="true" />
+    </dx-data-grid>
+  </ng-container>
+</div>

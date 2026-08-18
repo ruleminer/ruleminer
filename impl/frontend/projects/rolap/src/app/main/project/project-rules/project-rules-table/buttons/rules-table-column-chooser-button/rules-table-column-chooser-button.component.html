@@ -1,0 +1,11 @@
+<rolap-select-columns-btn (buttonClick)="toggleCustomColumnChooser()" />
+
+<rolap-rules-table-column-chooser
+  [columns]="allColumns"
+  [displayType]="displayType"
+  [problemType]="problemType"
+  [(isShown)]="showCustomColumnChooser"
+  (close)="toggleCustomColumnChooser()"
+  (columnChange)="columnChange($event)"
+  data-cy="column-chooser">
+</rolap-rules-table-column-chooser>

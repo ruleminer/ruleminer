@@ -1,0 +1,45 @@
+<div *rolapLoading="isLoading$ | async" class="card-container my1 pb2">
+  <ng-container *ngIf="projectRulesTableData$ | async as projectRulesTableData">
+    <rolap-project-rules-table [data]="projectRulesTableData" />
+    <ng-container *ngIf="tab$ | async as tab">
+      <ng-container
+        *ngIf="
+          projectRulesTableData &&
+          tab &&
+          projectRulesTableData.ids.dataSetId &&
+          projectRulesTableData.ids.ruleSetId &&
+          projectRulesTableData.ids.projectId
+        ">
+        <rolap-project-rules-prediction-indicators-card
+          *ngIf="projectRulesTableData.v2RulesTableData"
+          [v2RulesTableData]="projectRulesTableData.v2RulesTableData"
+          [tab]="tab"
+          [table]="tab.data.rulesTab.predictionIndicators.table"
+          [state]="tab.data.rulesTab.predictionIndicators.state"
+          [refresh]="tab.data.rulesTab.predictionIndicators.refresh"
+          [ruleSetId]="projectRulesTableData.ids.ruleSetId"
+          [dataSetId]="projectRulesTableData.ids.dataSetId"
+          [projectId]="projectRulesTableData.ids.projectId" />
+        <rolap-project-rules-quantitative-characteristics-card
+          *ngIf="projectRulesTableData.v2RulesTableData"
+          [v2RulesTableData]="projectRulesTableData.v2RulesTableData"
+          [table]="tab.data.rulesTab.quantitativeCharacteristics.table"
+          [state]="tab.data.rulesTab.quantitativeCharacteristics.state"
+          [refresh]="tab.data.rulesTab.quantitativeCharacteristics.refresh"
+          [ruleSetId]="projectRulesTableData.ids.ruleSetId"
+          [dataSetId]="projectRulesTableData.ids.dataSetId"
+          [projectId]="projectRulesTableData.ids.projectId" />
+        <rolap-project-rules-importance-card
+          *ngIf="projectRulesTableData.v2RulesTableData"
+          [v2RulesTableData]="projectRulesTableData.v2RulesTableData"
+          [tab]="tab"
+          [refresh]="tab.data.rulesTab.importance.refresh"
+          [importance]="tab.data.rulesTab.importance"
+          [ruleSetId]="projectRulesTableData.ids.ruleSetId"
+          [dataSetId]="projectRulesTableData.ids.dataSetId"
+          [projectId]="projectRulesTableData.ids.projectId"
+          [typeOfProblem]="projectRulesTableData.typeOfProblem" />
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</div>

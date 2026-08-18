@@ -1,0 +1,63 @@
+@import 'variables';
+
+a {
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  background-color: $project-background-color;
+  display: flex;
+
+  .project-details {
+    padding: 2.187rem;
+    height: inherit;
+    min-height: calc(100vh - #{$app-bar-height});
+  }
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  filter: grayscale(100%);
+
+  .logo {
+    opacity: 0.5;
+  }
+
+  h2 {
+    margin: 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    color: $project-color;
+  }
+
+  p {
+    width: inherit;
+    text-align: center;
+    align-self: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: $project-color;
+  }
+}
+
+.logo-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: $logo-font-color;
+  margin-left: 0.687rem;
+  letter-spacing: 1px;
+}

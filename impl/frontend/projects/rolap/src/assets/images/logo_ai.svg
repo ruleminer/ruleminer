@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: CorelDRAW X5 -->
+
+<svg
+   xml:space="preserve"
+   width="53px"
+   height="85px"
+   style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+   viewBox="0 0 6631 10601"
+   version="1.1"
+   id="svg11"
+   sodipodi:docname="LukasiewiczAI-skrot.svg"
+   inkscape:export-filename="LukasiewiczAI-skrot_150.png"
+   inkscape:export-xdpi="169.92999"
+   inkscape:export-ydpi="169.92999"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+   id="namedview11"
+   pagecolor="#ffffff"
+   bordercolor="#000000"
+   borderopacity="0.25"
+   inkscape:showpageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="true"
+   inkscape:deskcolor="#d1d1d1"
+   inkscape:zoom="9.8470588"
+   inkscape:cx="26.505376"
+   inkscape:cy="42.5"
+   inkscape:window-width="1920"
+   inkscape:window-height="1027"
+   inkscape:window-x="1912"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Łukasiewicz_AI_podst_skrot.eps" />
+ <defs
+   id="defs1">
+  <style
+   type="text/css"
+   id="style1">
+   <![CDATA[
+    .fil0 {fill:#0E1C26}
+    .fil1 {fill:#3CD61B}
+   ]]>
+  </style>
+ </defs>
+ <g
+   id="Warstwa_x0020_1"
+   inkscape:label="Warstwa 1">
+  <metadata
+   id="CorelCorpID_0Corel-Layer" />
+  <g
+   id="Łukasiewicz_AI_podst_skrot.eps">
+   <path
+   class="fil0"
+   d="M6311 7842l-5900 0c-129,0 -246,-78 -295,-197 -49,-119 -22,-257 69,-349l4677 -4677 -868 -868 -3356 3356c-91,91 -229,119 -349,69 -120,-49 -197,-166 -197,-295l0 -2258c0,-177 143,-320 320,-320l0 0c177,0 320,143 320,320l0 1486 3037 -3037c125,-125 327,-125 452,0l1320 1320c125,125 125,327 0,452l-4357 4357 4808 0 0 -1320 -1980 0c-177,0 -320,-143 -320,-320 0,-177 143,-320 320,-320l2300 0c177,0 320,143 320,320l0 1960c0,177 -143,320 -320,320z"
+   id="path1"
+   style="fill:#ffffff" />
+   <path
+   class="fil1"
+   d="M411 1921c-177,0 -320,-143 -320,-320l0 -1282c0,-177 143,-320 320,-320 177,0 320,143 320,320l0 1282c0,177 -143,320 -320,320z"
+   id="path2" />
+   <path
+   class="fil0"
+   d="M93 8307l151 0 0 301 157 -64 0 128c-8,4 -16,7 -26,11 -9,4 -20,8 -32,12 -12,5 -26,10 -42,17 -16,7 -35,15 -57,24l0 255 394 0 0 128 -545 0 0 -319 -93 35 0 -128 93 -35 0 -365z"
+   id="path3"
+   style="fill:#ffffff" />
+   <path
+   class="fil0"
+   d="M1136 8527l145 0 0 591 -99 0 -17 -70 -12 0c-9,15 -20,29 -34,41 -12,11 -27,20 -43,28 -16,8 -35,12 -57,12l-104 0c-25,0 -47,-4 -68,-12 -21,-8 -38,-19 -53,-34 -15,-14 -27,-31 -35,-50 -8,-19 -12,-39 -12,-61l0 -446 145 0 0 423c0,18 6,32 17,42 11,10 27,16 47,16l87 0c16,0 30,-3 42,-10 12,-7 21,-14 29,-23 8,-9 16,-20 22,-31l0 -417z"
+   id="path4"
+   style="fill:#ffffff" />
+   <polygon
+   class="fil0"
+   points="1708,8753 1818,8527 1963,8527 1963,8585 1830,8812 1974,9061 1974,9119 1830,9119 1708,8875 1598,8875 1598,9119 1453,9119 1453,8307 1598,8307 1598,8753 "
+   id="polygon4"
+   style="fill:#ffffff" />
+   <path
+   class="fil0"
+   d="M2360 9009c16,0 30,-3 42,-10 12,-7 21,-14 29,-23 8,-9 16,-20 22,-31l0 -70 -174 0c-18,0 -32,5 -42,16 -10,10 -16,25 -16,42l0 17c0,18 5,32 16,42 10,10 25,16 42,16l81 0zm238 110l-99 0 -17 -70 -12 0c-9,15 -20,29 -34,41 -12,11 -27,20 -43,28 -16,8 -35,12 -57,12l-93 0c-25,0 -47,-4 -68,-12 -20,-8 -38,-19 -53,-34 -15,-14 -27,-31 -35,-50 -8,-19 -12,-39 -12,-61l0 -64c0,-22 4,-42 12,-61 8,-19 20,-36 35,-50 15,-14 33,-26 53,-34 20,-8 43,-12 68,-12l209 0 0 -41c0,-43 -21,-64 -64,-64l-261 0 0 -122 301 0c25,0 47,4 68,12 20,8 38,19 53,34 15,14 27,31 35,50 8,19 12,39 12,61l0 435z"
+   id="path5"
+   style="fill:#ffffff" />
+   <path
+   class="fil0"
+   d="M3097 8945c0,-30 -15,-48 -46,-52l-162 -29c-17,-3 -34,-9 -50,-18 -16,-9 -30,-20 -43,-34 -12,-14 -22,-30 -30,-48 -7,-18 -11,-37 -11,-57l0 -23c0,-22 4,-42 12,-61 8,-19 20,-35 35,-50 15,-14 33,-26 53,-34 20,-8 43,-12 68,-12l296 0 0 87 -35 35 -226 0c-18,0 -32,5 -42,14 -10,10 -16,20 -16,32 0,17 3,30 10,39 7,9 19,16 37,19l168 29c35,6 65,23 90,49 25,27 38,61 38,101l0 29c0,22 -4,42 -12,61 -8,19 -20,36 -35,50 -15,14 -33,26 -53,34 -20,8 -43,12 -68,12l-325 0 0 -122 296 0c35,0 52,-17 52,-52z"
+   id="path6"
+   style="fill:#ffffff" />
+   <path
+   class="fil0"
+   d="M3529 8527l0 591 -145 0 0 -591 145 0zm0 -238l0 162 -145 0 0 -162 145 0z"
+   id="path7"
+   style="fill:#ffffff" />
+   <path
+   class="fil0"
+   d="M3831 8696l0 64 232 0 0 -64c0,-18 -6,-32 -17,-42 -11,-11 -27,-16 -47,-16l-104 0c-20,0 -36,5 -47,16 -11,10 -17,25 -17,42zm377 -23l0 209 -377 0 0 58c0,18 6,32 17,42 11,10 27,16 47,16l290 0 0 122 -330 0c-25,0 -47,-4 -68,-12 -21,-8 -38,-19 -53,-34 -15,-14 -27,-31 -35,-50 -8,-19 -12,-39 -12,-61l0 -290c0,-22 4,-42 12,-61 8,-19 20,-36 35,-50 15,-14 33,-26 53,-34 20,-8 43,-12 68,-12l185 0c25,0 47,4 68,12 20,8 38,19 53,34 15,14 27,31 35,50 8,19 12,39 12,61z"
+   id="path8"
+   style="fill:#ffffff" />
+   <polygon
+   class="fil0"
+   points="4723,8777 4712,8777 4607,9119 4457,9119 4312,8585 4312,8527 4468,8527 4544,8939 4555,8939 4648,8609 4787,8609 4880,8939 4891,8939 4967,8527 5123,8527 5123,8585 4978,9119 4828,9119 "
+   id="polygon8"
+   style="fill:#ffffff" />
+   <path
+   class="fil0"
+   d="M5407 8527l0 591 -145 0 0 -591 145 0zm0 -238l0 162 -145 0 0 -162 145 0z"
+   id="path9"
+   style="fill:#ffffff" />
+   <path
+   class="fil0"
+   d="M5702 8707l0 232c0,18 6,32 17,42 11,10 27,16 47,16l267 0 0 122 -307 0c-25,0 -47,-4 -68,-12 -21,-8 -38,-19 -53,-34 -15,-14 -27,-31 -35,-50 -8,-19 -12,-39 -12,-61l0 -278c0,-22 4,-42 12,-61 8,-19 20,-35 35,-50 15,-14 33,-26 53,-34 20,-8 43,-12 68,-12l307 0 0 87 -35 35 -232 0c-20,0 -36,5 -47,16 -11,10 -17,25 -17,42z"
+   id="path10"
+   style="fill:#ffffff" />
+   <polygon
+   class="fil0"
+   points="6629,8997 6629,9119 6142,9119 6142,8997 6438,8661 6438,8649 6189,8649 6154,8614 6154,8527 6629,8527 6629,8649 6334,8985 6334,8997 "
+   id="polygon10"
+   style="fill:#ffffff" />
+   <path
+   class="fil0"
+   d="M449 9888l-6 0 -146 427 298 0 -146 -427zm-251 713l-88 0 0 -35 286 -783 99 0 286 783 0 35 -88 0 -70 -210 -357 0 -70 210z"
+   id="path11"
+   style="fill:#ffffff" />
+   <polygon
+   class="fil0"
+   points="917,10601 917,9783 1005,9783 1005,10601 "
+   id="polygon11"
+   style="fill:#ffffff" />
+  </g>
+ </g>
+</svg>

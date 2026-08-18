@@ -1,0 +1,27 @@
+@import '../../../../../styles/variables';
+
+.tour-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  gap: 4px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ddd;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &.completed {
+    background: #666;
+  }
+
+  &.active {
+    background:  $tour-dot-active;
+    transform: scale(1.2);
+  }
+}

@@ -1,0 +1,49 @@
+<rolap-card>
+  <rolap-title class="flex justify-between">
+    <div class="flex">
+      <h2 class="center-vertical">{{ 'project.prediction.test_data_set' | translate }}</h2>
+      <rolap-tooltip [tooltip]="'tooltips.rules_table.test_data_set' | translate" />
+    </div>
+    <ng-container *ngIf="refresh$ | async as refresh">
+      <rolap-refresh-icon [canRefresh]="refresh" (refresh)="refreshClick()" />
+    </ng-container>
+  </rolap-title>
+  <rolap-info class="mb2" mode="warning" *ngIf="refresh$ | async as refresh">
+    {{ 'project.prediction.warning' | translate }}
+  </rolap-info>
+  <rolap-prediction-test-drop-down />
+  <div class="test-card-content">
+    <ng-container *ngIf="testCard$ | async as testCard">
+      <ng-container *ngIf="testCard.data && testCard.data.general">
+        <rolap-prediction-percentage [predictionPercentage]="predictionPercentage" />
+        <rolap-prediction-item class="block" [indicator]="$any(testCard.data.general)" [show]="true" />
+        <div class="flex mt1">
+          <p *ngIf="testCard.data.for_classes" class="bold center-vertical">
+            {{ 'project.prediction.specific_decision_class' | translate }}
+          </p>
+          <rolap-tooltip *ngIf="problemType === 'classification'" [tooltip]="specificDecisionClass | translate" />
+        </div>
+        <ng-container *ngFor="let indicator of testCard.data.for_classes | keyvalue; first as isFirst">
+          <rolap-prediction-item [indicator]="$any(indicator.value)" [title]="$any(indicator.key)" [show]="false" />
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="problemType === 'regression'">
+        <ng-container *ngIf="testCard.data && testCard.data.histogram; then showHistogram; else showInfo" />
+      </ng-container>
+    </ng-container>
+  </div>
+
+  <rolap-card-footer></rolap-card-footer>
+</rolap-card>
+
+<ng-template #showInfo>
+  <rolap-info>{{ 'project.prediction.histogram.no_data' | translate }}</rolap-info>
+</ng-template>
+
+<ng-template #showHistogram>
+  <rolap-prediction-histogram [histogramData]="(testCard$ | async)?.data.histogram" />
+</ng-template>
+
+<ng-template #loading>
+  <rolap-loader />
+</ng-template>

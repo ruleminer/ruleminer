@@ -1,0 +1,937 @@
+[
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 1,
+    "fields": {
+      "key": "avg_coverage",
+      "description_en": "Average coverage of examples by the rules in the set.",
+      "description_pl": "Średnie pokrycie przykładów przez reguły w zbiorze.",
+      "type_of_problem": null,
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 2,
+    "fields": {
+      "key": "n",
+      "description_en": "Liczba negatywnych przykładów pokrywanych przez regułę.",
+      "description_pl": "Number of negative examples covered by the rule.",
+      "type_of_problem": null,
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 3,
+    "fields": {
+      "key": "fraction_examples_covered",
+      "description_en": "Fraction of examples covered by rules.",
+      "description_pl": "Odsetek przykładów pokrytych przez reguły.",
+      "type_of_problem": null,
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 4,
+    "fields": {
+      "key": "rules_count",
+      "description_en": "Total number rules in the set.",
+      "description_pl": "Liczba wszystkich reguł w zbiorze.",
+      "type_of_problem": null,
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 5,
+    "fields": {
+      "key": "P",
+      "description_en": "Total number of positive examples in the training set.",
+      "description_pl": "Liczba wszystkich pozytywnych przykładów w zbiorze treningowym.",
+      "type_of_problem": null,
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 6,
+    "fields": {
+      "key": "avg_conditions_count",
+      "description_en": "Average number of conditions per rule.",
+      "description_pl": "Średnia liczba warunków na regułę.",
+      "type_of_problem": null,
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 7,
+    "fields": {
+      "key": "total_conditions_count",
+      "description_en": "Total number of conditions in all rules.",
+      "description_pl": "Łączna liczba warunków we wszystkich regułach.",
+      "type_of_problem": null,
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 8,
+    "fields": {
+      "key": "avg_precision",
+      "description_en": "Average precision of rules. It refers to the effectiveness of a rule in identifying examples that truly belong to the class the rule points to, relative to all the examples the rule assigns to the class. Precision can take values from 0 to 1, where the higher value means the better precision of the rule.",
+      "description_pl": "Średnia precyzja reguł. Odnosi się ona do skuteczności reguły w identyfikowaniu przykładów, które naprawdę należą do klasy, na którą wskazuje reguła, w stosunku do wszystkich przykładów, które reguła przypisuje do klasy. Precyzja może przyjmować wartości od 0 do 1, gdzie wyższa wartość oznacza lepszą precyzję reguły. ",
+      "type_of_problem": null,
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 9,
+    "fields": {
+      "key": "p",
+      "description_en": "Number of positive examples covered by the rule.",
+      "description_pl": "Liczba przykładów pozytywnych pokrywych przez regułę.",
+      "type_of_problem": null,
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 10,
+    "fields": {
+      "key": "N",
+      "description_en": "Total number of negative examples in the training set.",
+      "description_pl": "Liczba wszystkich negatywnych przykładów w zbiorze treningowym.",
+      "type_of_problem": null,
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 11,
+    "fields": {
+      "key": "fraction_FDR_significant",
+      "description_en": "The ratio of the number of rules statistically significant at the significance level α = 0.05 with FDR (False Discovery Rate) correction to the number of all rules. This parameter takes values from 0 to 1. The higher the value, the better, because it means a higher number of significant rules.",
+      "description_pl": "Stosunek liczby reguł statystycznie istotnych na poziomie istotności α = 0,05 z poprawką FDR (False Discovery Rate) do liczby wszystkich reguł. Parametr ten przyjmuje wartości od 0 do 1. Im wyższa wartość, tym lepiej, ponieważ oznacza to większą liczbę znaczących reguł.",
+      "type_of_problem": null,
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 12,
+    "fields": {
+      "key": "support",
+      "description_en": "Support of the rule. It refers to how many examples are covered by the rule, i.e. how many examples meet the conditions in the premise of the rule.",
+      "description_pl": "Wsparcie reguły. Odnosi się do tego, ile przykładów jest pokrytych przez regułe, tj. ile przykładów spełnia warunki określone w przesłance reguły.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 13,
+    "fields": {
+      "key": "Specificity",
+      "description_en": "This measure determines the ability of a classifier to correctly identify negative cases. In other words, specificity measures the ability of a classifier to avoid FP (false positive) errors by identifying truly negative cases as negative. The best value for this measure is 1, and the worst is 0.",
+      "description_pl": "Miara ta określa zdolność klasyfikatora do prawidłowej identyfikacji przypadków negatywnych. Innymi słowy, specyficzność mierzy zdolność klasyfikatora do unikania błędów FP (fałszywie pozytywnych) poprzez identyfikowanie prawdziwie negatywnych przypadków jako negatywnych. Najlepszą wartością dla tej miary jest 1, a najgorszą 0.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 14,
+    "fields": {
+      "key": "TN",
+      "description_en": "True negative cases. In binary classification, TN means the number of cases that were correctly classified as negative (true negatives), that is, cases that do not belong to the positive class and were correctly identified as negative by the classifier. In the example under consideration, TN means the number of non-insect examples that were not classified by the model into the insect class.",
+      "description_pl": "Przypadki prawdziwie negatywne. W klasyfikacji binarnej TN oznacza liczbę przypadków, które zostały poprawnie sklasyfikowane jako negatywne (prawdziwe negatywy), to znaczy przypadki, które nie należą do klasy pozytywnej i zostały poprawnie zidentyfikowane jako negatywne przez klasyfikator. W rozważanym przykładzie TN oznacza liczbę przykładów niebędących owadami, które nie zostały zaklasyfikowane przez model do klasy owadów.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 15,
+    "fields": {
+      "key": "F1_score",
+      "description_en": "It is the harmonic mean between precision and recall. This is particularly useful, when there is a need to balance between precision and recall, which can be important in different contexts, such as when the costs of false positive and false negative errors are different.",
+      "description_pl": "Jest to średnia harmoniczna między precyzją i wycofaniem. Jest to szczególnie przydatne, gdy istnieje potrzeba zrównoważenia precyzji i skuteczności, co może być ważne w różnych kontekstach, na przykład gdy koszty błędów fałszywie dodatnich i fałszywie ujemnych są różne.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 16,
+    "fields": {
+      "key": "lr+",
+      "description_en": "Likelihood Ratio Positive. A high value of LR+ suggests that the model distinguishes well between positive and negative cases, which translates into the model's effectiveness in correctly classifying positive cases. It takes values from 0 to infinity.",
+      "description_pl": "Współczynnik prawdopodobieństwa dodatni. Wysoka wartość LR+ sugeruje, że model dobrze rozróżnia przypadki pozytywne i negatywne, co przekłada się na skuteczność modelu w prawidłowej klasyfikacji przypadków pozytywnych. Przyjmuje wartości od 0 do nieskończoności.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 17,
+    "fields": {
+      "key": "G_mean",
+      "description_en": "Also known as geometric mean, is a measure used in evaluating the performance of models in classification tasks, especially for unbalanced data where there is a large difference between the number of positive and negative cases. The formula for G mean can be written as the square root of the product of recall and specificity.",
+      "description_pl": "Znana również jako średnia geometryczna, jest miarą stosowaną do oceny wydajności modeli w zadaniach klasyfikacji, szczególnie w przypadku niezrównoważonych danych, w których występuje duża różnica między liczbą przypadków pozytywnych i negatywnych. Wzór na średnią G można zapisać jako pierwiastek kwadratowy z iloczynu skuteczności i specyficzności.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 18,
+    "fields": {
+      "key": "Odd_ratio",
+      "description_en": "Sometimes noted as OR. In the context of binary classification, is the ratio of the chances for a positive test result to the chances for a negative test result. It is a form of comparison of the ratio between true positive and true negative cases and false positive and false negative cases. It takes values from 0 to infinity. OR tells us the ratio of the chances of an event occurring in two different groups or test results. OR greater than 1 means increased chances, while OR less than 1 means decreased chances.",
+      "description_pl": "Czasami oznaczany jako OR. W kontekście klasyfikacji binarnej jest to stosunek szans na pozytywny wynik testu do szans na negatywny wynik testu. Jest to forma porównania stosunku między przypadkami prawdziwie pozytywnymi i prawdziwie negatywnymi a przypadkami fałszywie pozytywnymi i fałszywie negatywnymi. Przyjmuje wartości od 0 do nieskończoności. OR określa stosunek szans na wystąpienie zdarzenia w dwóch różnych grupach lub wynikach testu. OR większy niż 1 oznacza zwiększone szanse, podczas gdy OR mniejszy niż 1 oznacza zmniejszone szanse.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 19,
+    "fields": {
+      "key": "lr-",
+      "description_en": "Likelihood Ratio Negative. LR- is used to evaluate the model's ability to correctly identify negative cases. A lower value of LR- means that the model distinguishes well between negative and positive cases. It takes values from 0 to infinity.",
+      "description_pl": "Współczynnik prawdopodobieństwa ujemny. LR- służy do oceny zdolności modelu do prawidłowej identyfikacji przypadków negatywnych. Niższa wartość LR- oznacza, że model dobrze odróżnia przypadki negatywne od pozytywnych. Przyjmuje wartości od 0 do nieskończoności.",
+      "type_of_problem": "classification",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 20,
+    "fields": {
+      "key": "precision",
+      "description_en": "Refers to the effectiveness of a rule in identifying examples truly belonging to the class the rule points to, relative to all examples the rule assigns to the class. Precision can take values from 0 to 1, where the higher the value, the better the precision of the rule.",
+      "description_pl": "Odnosi się do skuteczności reguły w identyfikowaniu przykładów rzeczywiście należących do klasy, na którą wskazuje reguła, w stosunku do wszystkich przykładów, które reguła przypisuje do klasy. Precyzja może przyjmować wartości od 0 do 1, gdzie im wyższa wartość, tym lepsza precyzja reguły.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 21,
+    "fields": {
+      "key": "specificity",
+      "description_en": "It is a measure that determines the ability of a classifier to correctly identify negative cases. In other words, specificity measures the ability of a classifier to avoid FP (false positive) errors by identifying truly negative cases as negative. The best value for this measure is 1, and the worst is 0.",
+      "description_pl": "Jest to miara określająca zdolność klasyfikatora do prawidłowej identyfikacji przypadków negatywnych. Innymi słowy, specyficzność mierzy zdolność klasyfikatora do unikania błędów FP (fałszywie pozytywnych) poprzez identyfikowanie prawdziwie negatywnych przypadków jako negatywnych. Najlepszą wartością dla tej miary jest 1, a najgorszą 0.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 22,
+    "fields": {
+      "key": "fraction_significant",
+      "description_en": "The ratio of the number of rules statistically significant at the significance level α = 0.05 to the number of all rules. This parameter takes values from 0 to 1. The higher the value, the better, because it means a higher number of significant rules.",
+      "description_pl": "Stosunek liczby reguł statystycznie istotnych na poziomie istotności α = 0,05 do liczby wszystkich reguł. Parametr ten przyjmuje wartości od 0 do 1. Im wyższa wartość, tym lepiej, ponieważ oznacza to większą liczbę znaczących reguł.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 23,
+    "fields": {
+      "key": "G_mean_weighted",
+      "description_en": "Also known as geometric mean, is a measure used in evaluating the performance of models in classification tasks, especially for unbalanced data where there is a large difference between the number of positive and negative cases. The formula for G mean can be written as the square root of the product of recall and specificity. It takes values from 0 to 1. The larger the value, the more balanced the model is, meaning that the model is equally effective in identifying both positive and negative cases.",
+      "description_pl": "Znana również jako średnia geometryczna, jest miarą stosowaną do oceny wydajności modeli w zadaniach klasyfikacji, szczególnie w przypadku niezrównoważonych danych, w których występuje duża różnica między liczbą przypadków pozytywnych i negatywnych. Wzór na średnią G można zapisać jako pierwiastek kwadratowy z iloczynu skuteczności i specyficzności. Przyjmuje wartości od 0 do 1. Im większa wartość, tym bardziej zrównoważony jest model, co oznacza, że model jest równie skuteczny w identyfikowaniu zarówno pozytywnych, jak i negatywnych przypadków.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 24,
+    "fields": {
+      "key": "MCC",
+      "description_en": "Matthews correlation coefficient is a measure used to evaluate the performance of models in binary classification tasks. It is particularly useful for unbalanced classes, where the number of instances of one class is much greater than the number of instances of the other class. It takes values from -1 to 1. MCC takes into account all elements of the confusion matrix and provides a single value that reflects the quality of the classification. Values close to 1 indicate a perfect match, values close to -1 indicate an inverse match, and values close to 0 indicate no relationship.",
+      "description_pl": "Współczynnik korelacji Matthewsa jest miarą stosowaną do oceny wydajności modeli w zadaniach klasyfikacji binarnej. Jest on szczególnie przydatny w przypadku niezrównoważonych klas, w których liczba wystąpień jednej klasy jest znacznie większa niż liczba wystąpień drugiej klasy. Przyjmuje wartości od -1 do 1. MCC uwzględnia wszystkie elementy macierzy pomyłek i zapewnia pojedynczą wartość, która odzwierciedla jakość klasyfikacji. Wartości bliskie 1 oznaczają idealne dopasowanie, wartości bliskie -1 oznaczają odwrotne dopasowanie, a wartości bliskie 0 oznaczają brak związku.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 25,
+    "fields": {
+      "key": "coverage",
+      "description_en": "Determines the ratio of the number of examples correctly classified by the rule to all examples belonging to the class indicated in the conclusion of the rule. Coverage takes values from 0 to 1. The higher the value, the better - it means that the rule correctly classifies a larger number of examples from the class.",
+      "description_pl": "Określa stosunek liczby przykładów poprawnie sklasyfikowanych przez regułę do wszystkich przykładów należących do klasy wskazanej w konkluzji reguły. Pokrycie przyjmuje wartości od 0 do 1. Im wyższa wartość, tym lepiej - oznacza to, że reguła poprawnie klasyfikuje większą liczbę przykładów z danej klasy.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 26,
+    "fields": {
+      "key": "Recall_micro",
+      "description_en": "It determines the ability of the classifier to identify all positive cases relative to all true positive cases. The higher the recall value, the better the classifier identifies all positive cases. The Micro Recall value is calculated globally by counting the total number of true positives (TP) and false negatives (FN) for all classes. The best value is 1, and the worst is 0.",
+      "description_pl": "Określa zdolność klasyfikatora do identyfikowania wszystkich pozytywnych przypadków w stosunku do wszystkich prawdziwych pozytywnych przypadków. Im wyższa wartość recall, tym lepiej klasyfikator identyfikuje wszystkie pozytywne przypadki. Wartość Micro Recall jest obliczana globalnie poprzez zliczenie całkowitej liczby wyników prawdziwie pozytywnych (TP) i fałszywie negatywnych (FN) dla wszystkich klas. Najlepszą wartością jest 1, a najgorszą 0.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 27,
+    "fields": {
+      "key": "odds_ratio",
+      "description_en": "Sometimes noted as OR. In the context of binary classification, is the ratio of the chances for a positive test result to the chances for a negative test result. It is a form of comparison of the ratio between true positive and true negative cases and false positive and false negative cases. It takes values from 0 to infinity. OR tells us the ratio of the chances of an event occurring in two different groups or test results. OR greater than 1 means increased chances, while OR less than 1 means decreased chances.",
+      "description_pl": "Czasami oznaczany jako OR. W kontekście klasyfikacji binarnej jest to stosunek szans na pozytywny wynik testu do szans na negatywny wynik testu. Jest to forma porównania stosunku między przypadkami prawdziwie pozytywnymi i prawdziwie negatywnymi a przypadkami fałszywie pozytywnymi i fałszywie negatywnymi. Przyjmuje wartości od 0 do nieskończoności. OR określa stosunek szans na wystąpienie zdarzenia w dwóch różnych grupach lub wynikach testu. OR większy niż 1 oznacza zwiększone szanse, podczas gdy OR mniejszy niż 1 oznacza zmniejszone szanse.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 28,
+    "fields": {
+      "key": "negative_predictive_value",
+      "description_en": "Also noted as NPV, is a measure used to evaluate the effectiveness of a model in identifying negative cases. NPV measures the ratio of True Negatives (TN) to the sum of True Negatives and False Negatives (FN). When NPV is high, it means that most of the cases that the model classifies as negative are actually negative. NPV is particularly important in situations where erroneous negative results can have serious consequences. As with positive predictive value (PPV), it is worth noting that NPV can be distorted by class imbalance. It takes values from 0 to 1. The higher the value, the better.",
+      "description_pl": "Zwany również NPV, jest miarą stosowaną do oceny skuteczności modelu w identyfikacji przypadków negatywnych. NPV mierzy stosunek prawdziwych negatywów (TN) do sumy prawdziwych negatywów i fałszywych negatywów (FN). Gdy NPV jest wysoki, oznacza to, że większość przypadków, które model klasyfikuje jako negatywne, jest w rzeczywistości negatywna. NPV jest szczególnie ważna w sytuacjach, w których błędne wyniki negatywne mogą mieć poważne konsekwencje. Podobnie jak w przypadku pozytywnej wartości predykcyjnej (PPV), warto zauważyć, że NPV może być zniekształcona przez brak równowagi klas. Przyjmuje wartości od 0 do 1. Im wyższa wartość, tym lepiej.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 29,
+    "fields": {
+      "key": "Accuracy",
+      "description_en": "Accuracy is a metric that measures how often a machine learning model correctly predicts the outcome. You can calculate accuracy by dividing the number of correct predictions by the total number of predictions.",
+      "description_pl": "Dokładność to wskaźnik, który mierzy, jak często model uczenia maszynowego poprawnie przewiduje wynik. Dokładność można obliczyć, dzieląc liczbę poprawnych przewidywań przez całkowitą liczbę przewidywań.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 30,
+    "fields": {
+      "key": "LR_minus",
+      "description_en": "Likelihood Ratio Negative. LR- is used to evaluate the model's ability to correctly identify negative cases. A lower value of LR- means that the model distinguishes well between negative and positive cases. It takes values from 0 to infinity.",
+      "description_pl": "Współczynnik prawdopodobieństwa ujemny. LR- służy do oceny zdolności modelu do prawidłowej identyfikacji przypadków negatywnych. Niższa wartość LR- oznacza, że model dobrze odróżnia przypadki negatywne od pozytywnych. Przyjmuje wartości od 0 do nieskończoności.",
+      "type_of_problem": "classification",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 31,
+    "fields": {
+      "key": "Recall_weighted",
+      "description_en": "In this case, the Recall measure is determined separately for each class, and then a weighted average of these results is calculated. The weight is determined by the number of real examples belonging to each class. The best value is 1, and the worst is 0..",
+      "description_pl": "W tym przypadku miara Recall jest określana oddzielnie dla każdej klasy, a następnie obliczana jest średnia ważona tych wyników. Waga jest określana na podstawie liczby rzeczywistych przykładów należących do każdej klasy. Najlepszą wartością jest 1, a najgorszą 0.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 32,
+    "fields": {
+      "key": "Covered_by_prediction",
+      "description_en": "The number of examples covered by the model's predictions. In some cases, some examples may not be covered by any of the rules. In this case, the prediction is made by the so-called default rule. It can be turned off in the prediction configuration section at the top of the page.",
+      "description_pl": "Liczba przykładów pokrytych przez predykcje modelu. W niektórych przypadkach niektóre przykłady mogą nie być objęte żadną z reguł. W takim przypadku przewidywanie jest dokonywane przez tak zwaną regułę domyślną. Można ją wyłączyć w sekcji konfiguracji predykcji na górze strony.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 33,
+    "fields": {
+      "key": "p_value",
+      "description_en": "p-value allows to assess the statistical significance of a rule. A low p-value suggests that the rule is statistically significant, which means that the rule could not have arisen by chance but that there is a true relationship between sets of characteristics.",
+      "description_pl": "p-wartość pozwala ocenić istotność statystyczną reguły. Niska wartość p sugeruje, że reguła jest statystycznie istotna, co oznacza, że reguła nie mogła powstać przypadkowo, ale że istnieje prawdziwy związek między zestawami cech.",
+      "type_of_problem": "classification",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 34,
+    "fields": {
+      "key": "lift",
+      "description_en": "Is a ratio that measures how well a rule predicts or classifies cases. For example, if 40% of people drink black coffe, but a certain model (or rule) has identified a group where only 20% of members drink black coffee. Then that rule would have a lift of 0.5 (20%/40%).",
+      "description_pl": "To współczynnik, który mierzy, jak dobrze reguła przewiduje lub klasyfikuje przypadki. Na przykład, jeśli 40% osób pije czarną kawę, ale pewien model (lub reguła) zidentyfikował grupę, w której tylko 20% członków pije czarną kawę. Wtedy ta reguła miałaby lift równy 0,5 (20%/40%).",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 35,
+    "fields": {
+      "key": "Recall_macro",
+      "description_en": "Is calculated as the arithmetic average of Recall measures calculated separately for each class. The best value is 1, and the worst value is 0.",
+      "description_pl": "Jest obliczana jako średnia arytmetyczna miar Recall obliczonych osobno dla każdej klasy. Najlepsza wartość to 1, a najgorsza to 0.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 36,
+    "fields": {
+      "key": "PPV",
+      "description_en": "Positive Predictive Value, is a measure used in identifying positive cases. PPV measures the ratio of the number of true positive cases (True Positives, TP) to the sum of true positive cases and false positive cases (False Positives, FP).",
+      "description_pl": "Pozytywna wartość predykcyjna” to miara używana do identyfikacji przypadków pozytywnych. PPV mierzy stosunek liczby przypadków prawdziwie pozytywnych (True Positives, TP) do sumy przypadków prawdziwie pozytywnych i fałszywie pozytywnych (False Positives, FP).",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 37,
+    "fields": {
+      "key": "G_mean_macro",
+      "description_en": "Is a type of Gmean measure (geometric mean). The Macro Gmean measure calculates the Gmean measure for each class separately, and the final result is the average of these results.",
+      "description_pl": "Jest rodzajem miary Gmean (średnia geometryczna). Miara Macro Gmean oblicza miarę Gmean dla każdej klasy osobno, a końcowym wynikiem jest średnia tych wyników.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 38,
+    "fields": {
+      "key": "Balanced_accuracy",
+      "description_en": "In binary and multi-class classification problems is used to deal with unbalanced datasets. Instead of simply averaging the accuracy for all classes, balanced accuracy takes into account the percentage of correctly classified cases for each class. Ultimately, it is the average of these percentages for all classes that allows for a more objective assessment of classifier performance in the presence of unbalanced data. The best value is 1, and the worst is 0.",
+      "description_pl": "W problemach klasyfikacji binarnej i wieloklasowej jest używana do radzenia sobie z niezrównoważonymi zbiorami danych. Zamiast po prostu uśredniać dokładność dla wszystkich klas, zrównoważona dokładność uwzględnia procent poprawnie sklasyfikowanych przypadków dla każdej klasy. Ostatecznie, to właśnie średnia tych wartości procentowych dla wszystkich klas pozwala na bardziej obiektywną ocenę wydajności klasyfikatora w obecności niezrównoważonych danych. Najlepszą wartością jest 1, a najgorszą 0.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 39,
+    "fields": {
+      "key": "relative_risk",
+      "description_en": "In the case of binary classification models, it specifies the ratio of the proportion of positive cases among all cases that the model has classified as positive to the proportion of false negative cases among all truly positive cases. It takes values from 0 to infinity. RR tells us the ratio of the risk of an event occurring in two groups. An RR greater than 1 indicates an increased risk, while an RR less than 1 indicates a decreased risk.",
+      "description_pl": "W przypadku modeli klasyfikacji binarnej określa stosunek odsetka pozytywnych przypadków wśród wszystkich przypadków, które model sklasyfikował jako pozytywne, do odsetka fałszywie negatywnych przypadków wśród wszystkich prawdziwie pozytywnych przypadków. Przyjmuje wartości od 0 do nieskończoności. RR określa stosunek ryzyka wystąpienia zdarzenia w dwóch grupach. RR większe niż 1 wskazuje na zwiększone ryzyko, podczas gdy RR mniejsze niż 1 wskazuje na zmniejszone ryzyko.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 40,
+    "fields": {
+      "key": "Confusion_matrix",
+      "description_en": "Is a table used in classification problems that shows the number of correct and incorrect classifications for each class. In the confusion matrix, the rows correspond to the actual classes, and the columns correspond to the predicted classes. Each cell (i, j) of the matrix contains the number of cases that belong to class i and have been classified as class j. If all the values in the confusion matrix greater than 0 are on the diagonal of the matrix it means that all examples have been classified into the correct class. The confusion matrix allows a quick assessment of classifier performance by identifying which classes are correctly classified and which classes are more likely to lead to errors. It is an important tool in assessing the quality of a classification model.",
+      "description_pl": "Jest to tabela używana w problemach z klasyfikacją, która pokazuje liczbę poprawnych i niepoprawnych klasyfikacji dla każdej klasy. W macierzy pomyłek wiersze odpowiadają rzeczywistym klasom, a kolumny odpowiadają przewidywanym klasom. Każda komórka (i, j) macierzy zawiera liczbę przypadków, które należą do klasy i i zostały sklasyfikowane jako klasa j. Jeśli wszystkie wartości w macierzy pomyłek większe niż 0 znajdują się na przekątnej macierzy, oznacza to, że wszystkie przykłady zostały zaklasyfikowane do poprawnej klasy. Macierz pomyłek pozwala na szybką ocenę wydajności klasyfikatora poprzez określenie, które klasy zostały poprawnie sklasyfikowane, a które z większym prawdopodobieństwem prowadzą do błędów. Jest to ważne narzędzie do oceny jakości modelu klasyfikacji.",
+      "type_of_problem": "classification",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 41,
+    "fields": {
+      "key": "correlation",
+      "description_en": "Matthews correlation coefficient (MCCC) between predicted and actual values of the decision attribute.",
+      "description_pl": "Współczynnik korelacji Matthewsa (MCCC) między przewidywanymi i rzeczywistymi wartościami atrybutu decyzyjnego.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 42,
+    "fields": {
+      "key": "RSS",
+      "description_en": "Risk Score Spread (RSS). It measures the difference between the model's ability to correctly classify positive instances and its ability to correctly classify negative instances. It is calculated as RSS = (p / P) - (n / N). Positive RSS means the model is better at correctly identifying positive instances than negative instances, while negative means model is better at correctly identifying negative instances than positive instances. Close to zero value indicates a relatively balanced performance in correctly classifying both positive and negative instances.",
+      "description_pl": "Risk Score Spread (RSS). Mierzy różnicę między zdolnością modelu do prawidłowej klasyfikacji pozytywnych przypadków a jego zdolnością do prawidłowej klasyfikacji negatywnych przypadków. Jest on obliczany jako RSS = (p / P) - (n / N). Dodatni RSS oznacza, że model jest lepszy w poprawnej identyfikacji pozytywnych przypadków niż negatywnych, podczas gdy ujemny oznacza, że model jest lepszy w poprawnej identyfikacji negatywnych przypadków niż pozytywnych. Wartość bliska zeru wskazuje na względnie zrównoważoną wydajność w poprawnym klasyfikowaniu zarówno pozytywnych, jak i negatywnych instancji.",
+      "type_of_problem": "classification",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 43,
+    "fields": {
+      "key": "F1_weighted",
+      "description_en": "In this case, the value of the F1 measure is calculated by a weighted arithmetic average of the F1 values for each class. In contrast to 'Macro F1', the weights are assigned on the basis of the support for each class, i.e. the number of real examples belonging to each class. This calculation of the F1 measure allows inequalities in class sizes to be taken into account when calculating the overall performance of the classifier. The best value of this measure is 1, and the worst is 0.",
+      "description_pl": "W tym przypadku wartość miary F1 jest obliczana na podstawie ważonej średniej arytmetycznej wartości F1 dla każdej klasy. W przeciwieństwie do 'Macro F1', wagi są przypisywane na podstawie wsparcia dla każdej klasy, tj. liczby rzeczywistych przykładów należących do każdej klasy. Takie obliczenie miary F1 pozwala na uwzględnienie nierówności w wielkości klas przy obliczaniu ogólnej wydajności klasyfikatora. Najlepszą wartością tej miary jest 1, a najgorszą 0.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 44,
+    "fields": {
+      "key": "Recall",
+      "description_en": "Measures how many true positive cases were correctly identified out of all existing positive cases. It is the proportion of true positive cases divided by the sum of true positive and false negative cases. In short, the recall measure shows the model's ability to detect all existing positive cases. It takes values from 0 to 1. The larger the value, the better.",
+      "description_pl": "Mierzy, ile prawdziwie pozytywnych przypadków zostało poprawnie zidentyfikowanych spośród wszystkich istniejących pozytywnych przypadków. Jest to odsetek przypadków prawdziwie pozytywnych podzielony przez sumę przypadków prawdziwie pozytywnych i fałszywie negatywnych. Krótko mówiąc, miara wycofania pokazuje zdolność modelu do wykrywania wszystkich istniejących pozytywnych przypadków. Przyjmuje wartości od 0 do 1. Im większa wartość, tym lepiej.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 45,
+    "fields": {
+      "key": "sensitivity",
+      "description_en": "The proportion of actual positive examples correctly identified. Sensitivity = TP / TP + FN (True Positive/True Positive + False Negative)",
+      "description_pl": "Odsetek prawidłowo zidentyfikowanych przykładów pozytywnych. Czułość = TP / TP + FN (True Positive/True Positive + False Negative)",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 46,
+    "fields": {
+      "key": "G_mean_micro",
+      "description_en": "This is a type of Gmean (geometric mean) measure, which is calculated as the root of the product of sensitivity for each class. This measure tries to maximize the accuracy for each class while maintaining a balance between these accuracies. For binary classification, the Gmean measure is calculated as the square root of the product of sensitivity and specificity (sensitivity and specificity). However, for multi-class problems, it is the higher degree root of the product of sensitivity for each class. The best value is 1, and the worst is 0. It is calculated globally by counting the total number of TP, TN, FP, FN.",
+      "description_pl": "Jest to rodzaj miary Gmean (średnia geometryczna), która jest obliczana jako pierwiastek z iloczynu czułości dla każdej klasy. Miara ta stara się zmaksymalizować dokładność dla każdej klasy, zachowując równowagę między tymi dokładnościami. W przypadku klasyfikacji binarnej miara Gmean jest obliczana jako pierwiastek kwadratowy z iloczynu czułości i swoistości (czułości i swoistości). Jednak w przypadku problemów wieloklasowych jest to pierwiastek wyższego stopnia z iloczynu czułości dla każdej klasy. Najlepszą wartością jest 1, a najgorszą 0. Jest ona obliczana globalnie poprzez zliczenie całkowitej liczby TP, TN, FP, FN.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 47,
+    "fields": {
+      "key": "F1_micro",
+      "description_en": "Is the harmonic mean between precision and recall. This is particularly useful, when there is a need to balance between precision and recall, which can be important in different contexts, such as when the costs of false positive and false negative errors are different. It takes values from 0 to 1. The higher the value, the better.",
+      "description_pl": "Jest średnią harmoniczną między precyzją i recall. Jest to  szczególnie przydatne, gdy istnieje potrzeba zrównoważenia precyzji i recall, co może być ważne w różnych kontekstach, na przykład gdy koszty błędów fałszywie dodatnich i fałszywie ujemnych są różne. Przyjmuje wartości od 0 do 1. Im wyższa wartość, tym lepiej.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 48,
+    "fields": {
+      "key": "Relative_risk",
+      "description_en": "Also noted as RR. In the case of binary classification models, it specifies the ratio of the proportion of positive cases among all cases that the model has classified as positive to the proportion of false negative cases among all truly positive cases. It takes values from 0 to infinity. RR tells us the ratio of the risk of an event occurring in two groups. An RR greater than 1 indicates an increased risk, while an RR less than 1 indicates a decreased risk.",
+      "description_pl": "Oznaczany również jako RR. W przypadku modeli klasyfikacji binarnej określa stosunek odsetka pozytywnych przypadków wśród wszystkich przypadków, które model sklasyfikował jako pozytywne, do odsetka fałszywie negatywnych przypadków wśród wszystkich prawdziwie pozytywnych przypadków. Przyjmuje wartości od 0 do nieskończoności. RR określa stosunek ryzyka wystąpienia zdarzenia w dwóch grupach. RR większe niż 1 wskazuje na zwiększone ryzyko, podczas gdy RR mniejsze niż 1 wskazuje na zmniejszone ryzyko.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 49,
+    "fields": {
+      "key": "NPV",
+      "description_en": "Also noted as NPV, is a measure used to evaluate the effectiveness of a model in identifying negative cases. NPV measures the ratio of True Negatives (TN) to the sum of True Negatives and False Negatives (FN). When NPV is high, it means that most of the cases that the model classifies as negative are actually negative. NPV is particularly important in situations where erroneous negative results can have serious consequences. As with positive predictive value (PPV), it is worth noting that NPV can be distorted by class imbalance. It takes values from 0 to 1. The higher the value, the better.",
+      "description_pl": "Zwany również NPV, jest miarą stosowaną do oceny skuteczności modelu w identyfikacji przypadków negatywnych. NPV mierzy stosunek prawdziwych negatywów (TN) do sumy prawdziwych negatywów i fałszywych negatywów (FN). Gdy NPV jest wysoki, oznacza to, że większość przypadków, które model klasyfikuje jako negatywne, jest w rzeczywistości negatywna. NPV jest szczególnie ważna w sytuacjach, w których błędne wyniki negatywne mogą mieć poważne konsekwencje. Podobnie jak w przypadku pozytywnej wartości predykcyjnej (PPV), warto zauważyć, że NPV może być zniekształcona przez brak równowagi klas. Przyjmuje wartości od 0 do 1. Im wyższa wartość, tym lepiej.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 50,
+    "fields": {
+      "key": "F1_macro",
+      "description_en": "This is also the value of the F1 measure, which in this case is calculated as the F1 value for each class (label) separately, and then their unweighted arithmetic average is calculated. The 'Macro F1' value takes into account the performance of the classifier for each class regardless of the size of that class. This means that each class has the same impact on the calculated F1 value, regardless of the number of instances in the class. The best value of this measure is 1, and the worst is 0.",
+      "description_pl": "Jest to również wartość miary F1, która w tym przypadku jest obliczana jako wartość F1 dla każdej klasy (etykiety) osobno, a następnie obliczana jest ich nieważona średnia arytmetyczna. Wartość „Macro F1” uwzględnia wydajność klasyfikatora dla każdej klasy niezależnie od jej wielkości. Oznacza to, że każda klasa ma taki sam wpływ na obliczoną wartość F1, niezależnie od liczby instancji w klasie. Najlepszą wartością tej miary jest 1, a najgorszą 0.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 51,
+    "fields": {
+      "key": "TP",
+      "description_en": "The number of truly positive examples (the example is positive and has been classified as positive).",
+      "description_pl": "Liczba przykładów prawdziwie pozytywnych (przykład jest pozytywny i został sklasyfikowany jako pozytywny).",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 52,
+    "fields": {
+      "key": "Cohen_kappa",
+      "description_en": "Is used in statistics to assess the consistency of measurements made by two judges. In this case, one is the model and the other the actual values of the decision variable. Cohen's kappa takes values from -1 to 1. The closer the value is to 1, the more compatible the assessments of the two judges are. On the other hand, the closer the value is to 0, the more divergent the assessments are.",
+      "description_pl": "Wykorzystywany jest w statystyce do oceny zgodności pomiarów dokonywanych przez dwóch sędziów. W tym wypadku, jednych z nich jest model a drugim rzeczywiste wartości zmiennej decyzyjnej. Kappa Cohena przyjmuje wartości od -1 do 1. Im bliżej wartości 1, tym oceny dwóch sędziów są bardziej zgodne. Z kolei im bliżej wartości 0, tym oceny są bardziej rozbieżne.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 53,
+    "fields": {
+      "key": "conditions_count",
+      "description_en": "Total number of conditions in all rules.",
+      "description_pl": "Liczba wszystkich warunków we wszystkich regułach.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 54,
+    "fields": {
+      "key": "LR_plus",
+      "description_en": "Likelihood Ratio Positive. A high value of LR+ suggests that the model distinguishes well between positive and negative cases, which translates into the model's effectiveness in correctly classifying positive cases. It takes values from 0 to infinity.",
+      "description_pl": "Współczynnik prawdopodobieństwa dodatni. Wysoka wartość LR+ sugeruje, że model dobrze rozróżnia przypadki pozytywne i negatywne, co przekłada się na skuteczność modelu w prawidłowej klasyfikacji przypadków pozytywnych. Przyjmuje wartości od 0 do nieskończoności.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 55,
+    "fields": {
+      "key": "C2",
+      "description_en": "This measure is designed to assess how well a rule discriminates between different decision-making classes. A good rule should cover a significant portion of one class while minimally covering other classes.  It is designed to take into account both the coverage of a rule and its accuracy, as well as the distribution of classes in the data.",
+      "description_pl": "Miara ta ma na celu ocenę, jak dobrze dana reguła dyskryminuje między różnymi klasami decyzyjnymi. Dobra reguła powinna pokrywać znaczną część jednej klasy i jednocześnie minimalnie pokrywać inne klasy.  Jest ona zaprojektowana tak, aby uwzględniać zarówno pokrycie (ang. coverage) reguły, jak i jej dokładność (ang. accuracy), a także rozkład klas w danych.",
+      "type_of_problem": "classification",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 56,
+    "fields": {
+      "key": "FN",
+      "description_en": "Number of examples of false negatives (the example is positive but was classified as negative).",
+      "description_pl": "Liczba przykładów fałszywie negatywnych (przykład jest pozytywny ale został sklasyfikowany jest jako negatywny).",
+      "type_of_problem": "classification",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 57,
+    "fields": {
+      "key": "FP",
+      "description_en": "Number of examples of false positives (the example is negative but was classified a positive).",
+      "description_pl": "Liczba przykładów fałszywie pozytywnych (przykład jest negatywny ale został sklasyfikowany jest jako pozytywny).",
+      "type_of_problem": "classification",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 58,
+    "fields": {
+      "key": "Not_covered_by_prediction",
+      "description_en": "The number of examples not covered by the model's predictions. In some cases, some examples may not be covered by any of the rules. In this case, the prediction is made by the so-called default rule. It can be turned off in the prediction configuration section at the top of the page.",
+      "description_pl": "Liczba przykładów niepokrytych przez predykcje modelu. W niektórych przypadkach niektóre przykłady mogą nie być objęte żadną z reguł. W takim przypadku przewidywanie jest dokonywane przez tak zwaną regułę domyślną. Można ją wyłączyć w sekcji konfiguracji predykcji na górze strony.",
+      "type_of_problem": "classification",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 59,
+    "fields": {
+      "key": "support",
+      "description_en": "Support of the rule. It refers to how many examples are covered by the rule, i.e. how many examples meet the conditions in the premise of the rule.",
+      "description_pl": "Wsparcie reguły. Odnosi się do tego, ile przykładów jest pokrytych przez regułe, tj. ile przykładów spełnia warunki określone w przesłance reguły.",
+      "type_of_problem": "regression",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 60,
+    "fields": {
+      "key": "rMAE",
+      "description_en": "Relative Mean Absolute Error.",
+      "description_pl": "Relatywny średni błąd bezwzględny.",
+      "type_of_problem": "regression",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 61,
+    "fields": {
+      "key": "mae",
+      "description_en": "Mean Absolute Error.",
+      "description_pl": "Średni błąd bezwzględny.",
+      "type_of_problem": "regression",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 62,
+    "fields": {
+      "key": "rmse",
+      "description_en": "Root Mean Squared Error.",
+      "description_pl": "Pierwiastek błędu średniokwadratowego.",
+      "type_of_problem": "regression",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 63,
+    "fields": {
+      "key": "fraction_significant",
+      "description_en": "Fraction of statistically significant rules.",
+      "description_pl": "Odsetek statystycznie istotnych reguł.",
+      "type_of_problem": "regression",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 64,
+    "fields": {
+      "key": "p-value",
+      "description_en": "p-value allows to assess the statistical significance of a rule. A low p-value suggests that the rule is statistically significant, which means that the rule could not have arisen by chance but that there is a true relationship between sets of characteristics.",
+      "description_pl": "p-wartość pozwala ocenić istotność statystyczną reguły. Niska wartość p sugeruje, że reguła jest statystycznie istotna, co oznacza, że reguła nie mogła powstać przypadkowo, ale że istnieje prawdziwy związek między zestawami cech.",
+      "type_of_problem": "regression",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 65,
+    "fields": {
+      "key": "maxError",
+      "description_en": "Maximum value of error.",
+      "description_pl": "Maksymalna wartość błędu.",
+      "type_of_problem": "regression",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 66,
+    "fields": {
+      "key": "y_covered_median",
+      "description_en": "Median value of the decision attribute for the examples covered by the rule.",
+      "description_pl": "Mediana wartości atrybutu decyzyjnego dla przykładów pokrytych przez regułe.",
+      "type_of_problem": "regression",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 67,
+    "fields": {
+      "key": "R^2",
+      "description_en": "Also known as the coefficient of determination, it is a number between 0 and 1 that measures how well a statistical model predicts an outcome. For example, a value of 0.6 means that the statistical model explains 60% of the variation in the explanatory variable.",
+      "description_pl": "Znany również jako współczynnik determinacji, jest liczbą z przedziału od 0 do 1, która mierzy, jak dobrze model statystyczny przewiduje wynik. Przykładowo wartość 0.6 oznacza, że model statystyczny tłumaczy 60% zmienności zmiennej objaśnianej.",
+      "type_of_problem": "regression",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 68,
+    "fields": {
+      "key": "p_unique",
+      "description_en": "Number of positive examples covered by this specific rule and no others.",
+      "description_pl": "Liczba pozytywnych przykładów objętych tą konkretną regułą i żadną inną.",
+      "type_of_problem": "regression",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 69,
+    "fields": {
+      "key": "y_covered_min",
+      "description_en": "Minimum value of the decision attribute for the examples covered by the rule.",
+      "description_pl": "Minimalna wartość atrybutu decyzji dla przykładów pokrytych przez regułę.",
+      "type_of_problem": "regression",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 70,
+    "fields": {
+      "key": "y_covered_max",
+      "description_en": "Maximum value of the decision attribute for the examples covered by the rule.",
+      "description_pl": "Maksymalna wartość atrybutu decyzji dla przykładów pokrytych przez regułę.",
+      "type_of_problem": "regression",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 71,
+    "fields": {
+      "key": "MAE",
+      "description_en": "Mean Absolute Error.",
+      "description_pl": "Średni błąd bezwzględny.",
+      "type_of_problem": "regression",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 72,
+    "fields": {
+      "key": "MAPE",
+      "description_en": "Mean Absolute Percentage Error.",
+      "description_pl": "Średni procentowy błąd bezwzględny.",
+      "type_of_problem": "regression",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 73,
+    "fields": {
+      "key": "n_unique",
+      "description_en": "Number of negative examples covered by this specific rule and no others.",
+      "description_pl": "Liczba negatywnych przykładów objętych tą konkretną regułą i żadną inną.",
+      "type_of_problem": "regression",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 74,
+    "fields": {
+      "key": "RMSE",
+      "description_en": "Root Mean Squared Error.",
+      "description_pl": "Pierwiastek błędu średniokwadratowego.",
+      "type_of_problem": "regression",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 75,
+    "fields": {
+      "key": "y_covered_avg",
+      "description_en": "Mean value of the decision attribute for the examples covered by the rule.",
+      "description_pl": "Średnia wartość atrybutu decyzji dla przykładów pokrytych przez regułę.",
+      "type_of_problem": "regression",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 76,
+    "fields": {
+      "key": "mape",
+      "description_en": "Mean Absolute Percentage Error.",
+      "description_pl": "Średni procentowy błąd bezwzględny.",
+      "type_of_problem": "regression",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 77,
+    "fields": {
+      "key": "rRMSE",
+      "description_en": "Relative Root Mean Squared Error.",
+      "description_pl": "Względny pierwiastek błędu średniokwadratowego.",
+      "type_of_problem": "regression",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 78,
+    "fields": {
+      "key": "conditions_count",
+      "description_en": "Total number of conditions in all rules.",
+      "description_pl": "Liczba wszystkich warunków we wszystkich regułach.",
+      "type_of_problem": "regression",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 79,
+    "fields": {
+      "key": "log_rank",
+      "description_en": "Is the log-rank test value determined between the Kaplan-Meier curves for examples covered by the rule and for examples not covered by the rule.",
+      "description_pl": "Wartość testu log-rank określona między krzywymi Kaplana-Meiera dla przykładów objętych regułą i dla przykładów nieobjętych regułą.",
+      "type_of_problem": "survival",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 80,
+    "fields": {
+      "key": "median_survival_time",
+      "description_en": "Median survival time.",
+      "description_pl": "Mediana czasu przeżycia.",
+      "type_of_problem": "survival",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 81,
+    "fields": {
+      "key": "events_count",
+      "description_en": "Number of events.",
+      "description_pl": "Liczba zdarzeń.",
+      "type_of_problem": "survival",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 82,
+    "fields": {
+      "key": "ibs",
+      "description_en": "It provides an overall calculation of the model performance at all available times. The lower the score, the better is the model.",
+      "description_pl": "Pozwala on ocenić wydajności modelu we wszystkich dostępnych punktach czasu. Im niższy wynik, tym lepszy jest model.",
+      "type_of_problem": "survival",
+      "higher_is_better": false
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 83,
+    "fields": {
+      "key": "median_survival_time_ci_lower",
+      "description_en": "Lower bound of the median survival time confidence interval.",
+      "description_pl": "Dolna granica przedziału ufności mediany czasu przeżycia.",
+      "type_of_problem": "survival",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 84,
+    "fields": {
+      "key": "censored_count",
+      "description_en": "Number of censored observations.",
+      "description_pl": "Liczba cenzurowanych obserwacji.",
+      "type_of_problem": "survival",
+      "higher_is_better": true
+    }
+  },
+  {
+    "model": "api.IndicatorMeta",
+    "pk": 85,
+    "fields": {
+      "key": "median_survival_time_ci_upper",
+      "description_en": "Upper bound of the median survival time confidence interval.",
+      "description_pl": "Górna granica przedziału ufności mediany czasu przeżycia.",
+      "type_of_problem": "survival",
+      "higher_is_better": true
+    }
+  }
+]

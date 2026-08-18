@@ -1,0 +1,49 @@
+<dx-scroll-view [useNative]="false" style="flex: 1" [showScrollbar]="'always'">
+  <p>
+    {{ 'import.documentation' | translate }}
+    <a [href]="link()" target="_blank">link</a>
+  </p>
+  <form [formGroup]="form">
+    <rolap-algorithm-radio-group class="pl1" [control]="form.controls['algorithm']" />
+    <div class="dx-field">
+      <dx-text-box
+        id="rulesetName"
+        name="rulesetName"
+        formControlName="rulesetName"
+        valueChangeEvent="keyup"
+        stylingMode="outlined"
+        label="{{ 'import.ruleset_name' | translate }}"
+        [validationStatus]="
+          form.controls['rulesetName'].touched && !!form.controls['rulesetName'].errors ? 'invalid' : 'valid'
+        " />
+      <div class="mt1 ml1">
+        <rolap-validation-message [fieldName]="FieldName.RULE_NAME" [control]="form.controls['rulesetName']" />
+      </div>
+    </div>
+    <div class="dx-field mb2">
+      <rolap-text-area formControlName="rulesetDescription" label="import.ruleset_description" />
+      <div class="mt1 ml1">
+        <rolap-validation-message
+          [fieldName]="FieldName.RULE_DESCRIPTION"
+          [control]="form.controls['rulesetDescription']" />
+      </div>
+    </div>
+    <rolap-ruleset-prediction-configuration
+      class="block mb2"
+      *ngIf="predictionConfigComponentData"
+      [data]="predictionConfigComponentData" />
+  </form>
+
+  <rolap-data-upload [extensions]="extensions" (fileInfoAndData)="onFileInfoValues($event)"></rolap-data-upload>
+</dx-scroll-view>
+
+<div class="submit-wrapper">
+  <dx-button
+    class="submit-btn mt2"
+    stylingMode="contained"
+    text="{{ 'import.next_btn' | translate }}"
+    (click)="import()"
+    [disabled]="!form.valid || !isFileValid"
+    type="default">
+  </dx-button>
+</div>

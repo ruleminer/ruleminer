@@ -1,0 +1,49 @@
+<rolap-card id="visualisation-coverage-info">
+  <div class="p2 pb4">
+    <ng-container *ngTemplateOutlet="selectedConditionsTemplate" />
+    <ng-container *ngIf="!isConditionNotCovered">
+      <ng-container *ngIf="tabInfo$ | async as tabInfo">
+        <ng-container *ngTemplateOutlet="dataGridTable; context: { tabInfo: tabInfo }" />
+      </ng-container>
+    </ng-container>
+  </div>
+</rolap-card>
+
+<ng-template #selectedConditionsTemplate>
+  <p class="bold">{{ 'visualisation.selected_condition_phrase' | translate }}:</p>
+  <p class="mb2">{{ formattedSelectedConditions$ | async }}</p>
+  <rolap-info *ngIf="isConditionNotCovered" [mode]="InfoComponentModes.ERROR">
+    <span>
+      {{ 'visualisation.coverage_table_columns.not_covered' | translate }}
+    </span>
+  </rolap-info>
+</ng-template>
+
+<ng-template #dataGridTable let-tabInfo="tabInfo">
+  <dx-data-grid
+    [dataSource]="tableData"
+    width="100%"
+    [showBorders]="true"
+    [columnMinWidth]="30"
+    [columnAutoWidth]="true"
+    [remoteOperations]="true"
+    [wordWrapEnabled]="true">
+    <dxi-column
+      *ngFor="let columnName of columnNames"
+      [dataField]="columnName"
+      caption="{{ 'visualisation.coverage_table_columns.' + columnName | translate }}">
+    </dxi-column>
+  </dx-data-grid>
+  <ng-container [ngSwitch]="tabInfo.projectType">
+    <ng-container *ngSwitchCase="ProblemTypes.Regression">
+      <rolap-regression-conditions-coverage-plot
+        [data]="$any(tableData[0])"
+        [dataSetId]="tabInfo.dataSetId"
+        [decisionAttributeName]="tabInfo.rulesTableMeta.decision_attribute" />
+    </ng-container>
+    <ng-container *ngSwitchCase="ProblemTypes.Survival">
+      <rolap-survival-conditions-coverage-plot [data]="$any(tableData[0])" />
+    </ng-container>
+    <div *ngSwitchDefault></div>
+  </ng-container>
+</ng-template>

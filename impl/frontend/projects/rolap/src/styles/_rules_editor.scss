@@ -1,0 +1,56 @@
+@import 'variables';
+
+.condition-checkbox-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+
+  label &+label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  &+label:before {
+    content: '';
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+
+    width: 18px;
+    height: 18px;
+    border: 2px solid $remove-icon;
+    border-radius: 2px;
+  }
+
+  &:checked+label:before {
+    background: $button-color;
+    border: 2px solid $button-color;
+  }
+
+  &:checked+label:after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 8px;
+    background: white;
+    width: 2px;
+    height: 2px;
+    box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+    transform: rotate(45deg);
+  }
+}
+
+.condition-checkbox-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6rem;
+}
+
+.condition-checkbox-column {
+  flex-direction: column-reverse;
+}

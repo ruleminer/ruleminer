@@ -1,0 +1,139 @@
+<dx-data-grid
+  class="mb2"
+  [dataSource]="dataSource"
+  [showBorders]="true"
+  (onCellClick)="onCellClick($event)"
+  (onRowClick)="onRowClick($event)"
+  [noDataText]="
+    isLoading ? ('project.rules.table.data_loading' | translate) : ('project.rules.table.no_data' | translate)
+  ">
+  <dxo-remote-operations [paging]="true" [sorting]="true" [filtering]="false"></dxo-remote-operations>
+
+  <dxo-paging [pageSize]="20"></dxo-paging>
+  <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="allowedPageSizes"></dxo-pager>
+
+  <dxo-master-detail [enabled]="false" template="projectDetail"></dxo-master-detail>
+
+  <!-- PROJECT NAME -->
+  <dxi-column
+    dataField="name"
+    caption="{{ 'project_summary.table.name' | translate }}"
+    cellTemplate="projectNameTemplate">
+  </dxi-column>
+
+  <!-- PROJECT TYPE -->
+  <dxi-column
+    dataField="type_of_problem"
+    caption="{{ 'project_summary.table.type' | translate }}"
+    cellTemplate="problemTypeCellTemplate">
+  </dxi-column>
+
+  <!-- CREATION DATE -->
+  <dxi-column
+    dataField="created_at"
+    caption="{{ 'project_summary.table.created_at' | translate }}"
+    cellTemplate="timeCellTemplate"
+    dataType="date">
+  </dxi-column>
+
+  <!-- LAST UPDATE DATE -->
+  <dxi-column
+    dataField="updated_at"
+    caption="{{ 'project_summary.table.updated_at' | translate }}"
+    cellTemplate="timeCellTemplate"
+    dataType="date">
+  </dxi-column>
+
+  <!-- LAST OPENED DATE -->
+  <dxi-column
+    dataField="last_opened_at"
+    caption="{{ 'project_summary.table.last_opened_at' | translate }}"
+    cellTemplate="timeCellTemplate"
+    dataType="date">
+  </dxi-column>
+
+  <!-- NUMBER OF DATA SETS -->
+  <dxi-column
+    dataField="dataset_count"
+    caption="{{ 'project_summary.table.number_of_data_sets' | translate }}"
+    alignment="left">
+  </dxi-column>
+
+  <!-- SIZE -->
+  <dxi-column
+    dataField="total_size"
+    caption="{{ 'project_summary.table.total_size' | translate }}"
+    cellTemplate="sizeCellTemplate"
+    alignment="left">
+  </dxi-column>
+
+  <!-- NUMBER OF RULE SETS -->
+  <dxi-column
+    dataField="ruleset_count"
+    caption="{{ 'project_summary.table.number_of_rule_sets' | translate }}"
+    alignment="left">
+  </dxi-column>
+
+  <!-- NUMBER OF REPORTS -->
+  <dxi-column
+    dataField="report_count"
+    caption="{{ 'project_summary.table.number_of_reports' | translate }}"
+    alignment="left">
+  </dxi-column>
+
+  <!-- REMOVE CHECKBOX -->
+  <dxi-column
+    dataField="id"
+    cellTemplate="removeCellTemplate"
+    headerCellTemplate="removeHeaderTemplate"
+    [allowSorting]="false"
+    alignment="center">
+  </dxi-column>
+
+  <!-- TIME COLUMN TEMPLATE -->
+  <span *dxTemplate="let data of 'timeCellTemplate'">
+    {{ data.value | date : 'dd.MM.yyyy HH:mm:ss' }}
+  </span>
+
+  <!-- TOTAL SIZE COLUMN TEMPLATE -->
+  <span *dxTemplate="let data of 'sizeCellTemplate'">
+    {{ data.value | fileSize }}
+  </span>
+
+  <span *dxTemplate="let data of 'problemTypeCellTemplate'">
+    {{ 'project_summary.table.' + data.data.type_of_problem | translate }}
+  </span>
+
+  <!-- PROJECT NAME TEMPLATE -->
+  <span *dxTemplate="let data of 'projectNameTemplate'">
+    <a class="link" (click)="navigateToProject(data.data.id)">{{ data.value }}</a>
+  </span>
+
+  <!-- REMOVE COLUMN TEMPLATE -->
+  <span *dxTemplate="let data of 'removeCellTemplate'">
+    <dx-check-box
+      name="hasHeader"
+      stylingMode="outlined"
+      (onValueChanged)="onCheckBoxValueChanged($event.value, data.value)" />
+  </span>
+
+  <!-- REMOVE COLUMN HEADER TEMPLATE -->
+  <div *dxTemplate="let d of 'removeHeaderTemplate'">
+    <div class="flex">
+      <span class="mr1 center-vertical">{{ 'project_summary.table.remove' | translate }}</span>
+      <button
+        class="remove-btn"
+        [title]="'project_summary.table.remove_project_title' | translate"
+        (click)="onRemoveProjectBtnClick()">
+        <fa-icon class="icon-card icon-secondary fa-fw" [icon]="faTrash"> </fa-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- MASTER DETAIL TEMPLATE -->
+  <div *dxTemplate="let project of 'projectDetail'">
+    <rolap-project-summary-detail-view
+      [projectId]="project.data.id"
+      [userLimits]="userLimits"></rolap-project-summary-detail-view>
+  </div>
+</dx-data-grid>

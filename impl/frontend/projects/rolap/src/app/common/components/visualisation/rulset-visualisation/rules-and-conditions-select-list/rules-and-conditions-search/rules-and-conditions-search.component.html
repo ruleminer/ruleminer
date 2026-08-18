@@ -1,0 +1,8 @@
+<dx-text-box
+  placeholder="{{ 'visualisation.search_rule' | translate }}"
+  stylingMode="outlined"
+  valueChangeEvent="keyup"
+  [value]="(searchTerm$ | async) || ''"
+  [showClearButton]="true"
+  (onValueChanged)="onSearchTermChange($event)"
+  class="search-box" />

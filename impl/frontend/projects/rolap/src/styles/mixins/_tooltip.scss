@@ -1,0 +1,9 @@
+@import 'variables';
+
+@mixin custom-heading($font-weight: 600, $font-size: 18px, $line-height: 21px) {
+  font-family: $font-family-headings;
+  font-style: normal;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+}

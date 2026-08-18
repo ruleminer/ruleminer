@@ -1,0 +1,7 @@
+[
+    {
+        "name": "Przykładowy projekt regresji",
+        "description": "Przykładowy projekt służący do przedstawienia funkcjonalności systemu dla problemu regresji",
+        "type_of_problem": "regression"
+    }
+]

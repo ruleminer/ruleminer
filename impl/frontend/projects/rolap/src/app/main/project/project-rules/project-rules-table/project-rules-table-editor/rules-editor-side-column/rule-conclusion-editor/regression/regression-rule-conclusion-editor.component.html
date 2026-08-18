@@ -1,0 +1,74 @@
+<rolap-card>
+  <rolap-title>{{ 'project.rules.table.headers.displayConclusion' | translate }}</rolap-title>
+  <div class="form-group">
+    <dx-select-box
+      class="block"
+      stylingMode="outlined"
+      [label]="'project.rules.rule_editor.regression_conclusion.select_type' | translate"
+      [displayExpr]="'label'"
+      [valueExpr]="'value'"
+      [disabled]="disabledSignal()"
+      [items]="conclusionDropDownItemsSignal()"
+      [value]="conclusionType()"
+      (onItemClick)="onConclusionTypeChanged($event)">
+    </dx-select-box>
+
+    <div class="mt2">
+      <dx-number-box
+        [label]="'project.rules.rule_editor.regression_conclusion.labels.low' | translate"
+        [readOnly]="readonlySignal()"
+        stylingMode="outlined"
+        [value]="editedConclusionLowSignal()"
+        [showSpinButtons]="false"
+        [disabled]="disabledSignal()"
+        [format]="EDITOR_NUMBER_FORMAT"
+        (onValueChanged)="onValueSelected($event, FIELD_TYPES.LOW)">
+      </dx-number-box>
+
+      <dx-number-box
+        class="mt2"
+        [label]="'project.rules.rule_editor.regression_conclusion.labels.value' | translate"
+        [readOnly]="readonlySignal()"
+        stylingMode="outlined"
+        [value]="editedConclusionValueSignal()"
+        [showSpinButtons]="false"
+        [disabled]="disabledSignal()"
+        [format]="EDITOR_NUMBER_FORMAT"
+        (onValueChanged)="onValueSelected($event, FIELD_TYPES.VALUE)">
+      </dx-number-box>
+
+      <dx-number-box
+        class="mt2"
+        [label]="'project.rules.rule_editor.regression_conclusion.labels.high' | translate"
+        [readOnly]="readonlySignal()"
+        stylingMode="outlined"
+        [value]="editedConclusionHighSignal()"
+        [showSpinButtons]="false"
+        [disabled]="disabledSignal()"
+        [format]="EDITOR_NUMBER_FORMAT"
+        (onValueChanged)="onValueSelected($event, FIELD_TYPES.HIGH)">
+      </dx-number-box>
+    </div>
+    <ul class="mt1">
+      <li>
+        <span class="label">{{ 'project.rules.table.headers.labelMin' | translate }}: </span>
+        <span class="value">{{ minLabelValueSignal() | number : DISPLAY_NUMBER_FORMAT }}</span>
+      </li>
+      <li>
+        <span class="label">{{ 'project.rules.table.headers.labelMax' | translate }}: </span>
+        <span class="value">{{ maxLabelValueSignal() | number : DISPLAY_NUMBER_FORMAT }}</span>
+      </li>
+    </ul>
+
+    <div *ngIf="editedConclusion() as boxPlotData">
+      <rolap-regression-rule-conclusion-boxplot
+        *ngIf="labelMinMaxValuesSignal() as labelMinMaxValues"
+        class="mt1"
+        [showAxis]="true"
+        [height]="50"
+        [width]="200"
+        [labelMinMaxValues]="labelMinMaxValues"
+        [conclusion]="boxPlotData" />
+    </div>
+  </div>
+</rolap-card>

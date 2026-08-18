@@ -1,0 +1,10 @@
+<div class="rule-chips" *ngIf="rule">
+  <rolap-colored-cell-based-on-id
+    class="ml1 mr1"
+    [colorParentElementSelector]="'.rule-chips'"
+    [key]="rule.ruleName"
+    [text]="('project.rules_coverage.rule_name_prefix' | translate) + rule.ruleName" />
+  <button *ngIf="showRemoveButton" (click)="onRuleRemoveClick()" class="close-btn ml1">
+    <fa-icon class="close-icon inline ml1 mr1" [icon]="faTimes"></fa-icon>
+  </button>
+</div>

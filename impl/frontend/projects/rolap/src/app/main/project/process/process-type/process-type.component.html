@@ -1,0 +1,32 @@
+<ng-container [ngSwitch]="type">
+  <div
+    *ngSwitchCase="processType.learning"
+    class="status-box type-learning"
+    [title]="'process.table.type.ruleset' | translate">
+    {{ 'process.table.type.ruleset' | translate }}
+  </div>
+  <div
+    *ngSwitchCase="processType.report"
+    class="status-box type-report"
+    [title]="'process.table.type.report' | translate">
+    {{ 'process.table.type.report' | translate }}
+  </div>
+  <div
+    *ngSwitchCase="processType.crossValidation"
+    class="status-box type-cross-validation"
+    [title]="'process.table.type.cross_validation' | translate">
+    {{ 'process.table.type.cross_validation' | translate }}
+  </div>
+  <div
+    *ngSwitchCase="processType.saveRuleset"
+    class="status-box type-save-ruleset"
+    [title]="'process.table.type.save_ruleset' | translate">
+    {{ 'process.table.type.save_ruleset' | translate }}
+  </div>
+  <div
+    *ngSwitchCase="processType.filterRuleset"
+    class="status-box filter-ruleset"
+    [title]="'process.table.type.filter_ruleset' | translate">
+    {{ 'process.table.type.filter_ruleset' | translate }}
+  </div>
+</ng-container>

@@ -1,0 +1,5 @@
+<dx-check-box
+  stylingMode="outlined"
+  [value]="isChecked"
+  [disabled]="disabled && !isChecked"
+  (onValueChanged)="valueChanged($event)" />

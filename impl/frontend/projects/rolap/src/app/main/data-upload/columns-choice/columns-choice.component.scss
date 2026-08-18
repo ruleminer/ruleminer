@@ -1,0 +1,74 @@
+@import 'variables';
+
+.nominal-numeric-selects {
+  width: 100% !important;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.columns-choice {
+  width: 100%;
+  background-color: $white;
+  border: 1px solid $project-border-color;
+  border-radius: 10px;
+}
+
+p {
+  margin: 13px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  color: $project-color;
+}
+
+:host ::ng-deep {
+  .dx-fieldset {
+    margin: 30px 20px !important;
+  }
+
+  .dx-field-label {
+    padding-right: 0;
+  }
+
+  .dx-datagrid .dx-row-lines:first-child>td {
+    border-bottom: 2px solid $base-border-color;
+    line-height: 16px;
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.54);
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  dx-select-box {
+    width: 100%;
+  }
+}
+
+dx-data-grid {
+  overflow-x: visible;
+  display: inline-block;
+}
+
+.wrapper {
+  overflow-x: auto;
+}
+
+.decision-column-form {
+  width: 100%;
+  max-width: 500px;
+  min-width: 200px;
+}
+
+@media (max-width: $breakpoint-xl) {
+  .decision-column {
+    flex-direction: column;
+  }
+
+  .decision-column-form {
+    width: 100%;
+    min-width: auto;
+  }
+}

@@ -1,0 +1,14 @@
+@import 'styles/_tables';
+
+tr {
+  width: 100%;
+
+  :first-child {
+    width: 75%;
+    text-wrap: wrap;
+  }
+}
+
+td {
+  padding: 0.2rem;
+}

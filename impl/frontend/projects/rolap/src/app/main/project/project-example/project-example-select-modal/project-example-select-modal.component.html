@@ -1,0 +1,14 @@
+<div class="flex justify-between mb1">
+  <rolap-title>
+    <h2>{{ 'project.example.modal_title' | translate }}</h2>
+  </rolap-title>
+  <rolap-select-columns-btn (buttonClick)="openColumnChooser()" />
+</div>
+<rolap-dataset-view-table
+  [tableType]="datasetViewTableType"
+  [dataSetId]="dataSetId"
+  selectionMode="single"
+  (onSelectionChanged)="selectionChanged($event)" />
+<div class="flex justify-end">
+  <dx-button text="{{ 'project.example.change_example' | translate }}" type="default" (onClick)="submit()" />
+</div>

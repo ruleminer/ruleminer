@@ -1,0 +1,11 @@
+<p>{{ 'project.tab_not_saved_modal.body' | translate }}</p>
+<div class="flex justify-end mt3">
+  <dx-button
+    class="mr2"
+    type="normal"
+    (click)="cancel()"
+    text="{{ 'project.tab_not_saved_modal.cancel_btn' | translate }}">
+  </dx-button>
+  <dx-button type="default" (click)="confirm()" text="{{ 'project.tab_not_saved_modal.confirm_btn' | translate }}">
+  </dx-button>
+</div>

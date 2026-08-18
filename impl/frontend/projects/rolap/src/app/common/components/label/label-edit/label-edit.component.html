@@ -1,0 +1,25 @@
+<div class="preview">
+  <rolap-label [id]="label.id" [text]="label.name" [color]="label.color"></rolap-label>
+</div>
+
+<div class="content">
+  <div class="content-title">{{ 'labels.add_popup.label_name' | translate }}</div>
+  <div class="mb3">
+    <dx-text-box
+      stylingMode="outlined"
+      valueChangeEvent="keyup"
+      [(ngModel)]="label.name"
+      [maxLength]="characterLimit"
+      data-cy="label-name-input">
+    </dx-text-box>
+    <div class="character-limit" [title]="'labels.add_popup.character_limit' | translate">
+      {{ label.name.length }}/{{ characterLimit }}
+    </div>
+  </div>
+
+  <div class="content-title">{{ 'labels.add_popup.label_color' | translate }}</div>
+  <rolap-color-picker
+    class="mt1"
+    [selectedColor]="label.color"
+    (colorSelect)="onColorSelect($event)"></rolap-color-picker>
+</div>

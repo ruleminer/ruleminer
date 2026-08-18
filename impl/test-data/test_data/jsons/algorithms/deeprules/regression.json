@@ -1,0 +1,1026 @@
+{
+  "problem_type": "regression",
+  "name": "DeepRules",
+  "version": "0.3.0",
+  "description_en": "A slower rule induction algorithm capable of learning more complex rule sets containing nested logical conjunctions and disjunctions.",
+  "description_pl": "Wolniejszy algorytm indukcji reguł zdolny do uczenia się bardziej złożonych zestawów reguł zawierających zagnieżdżone spójniki logiczne i dysjunkcje.",
+  "parameters": [
+    {
+      "name": "min_cov",
+      "parameter_name_pl": "Minimalna liczba pokrywanych przykładów (na regułę)",
+      "parameter_name_en": "The minimal number of covered examples (per rule)",
+      "parameter_type": "int",
+      "description_pl": "Minimalna liczba dotychczas niepokrytych przykładów, które muszą zostać objęte regułą (dotyczy pozytywnych przykładów w problemach klasyfikacyjnych).",
+      "description_en": "A minimum number of previously uncovered examples to be covered by a new rule (positive examples for classification problems)",
+      "default_value": "5",
+      "min_value": 1,
+      "max_value": 250
+    },
+    {
+      "name": "max_uncovered_fraction",
+      "parameter_name_pl": "Maksymalny procent (wyrażany jako liczba [0,1]) przykładów jaki może zostać nie pokryty",
+      "parameter_name_en": "The maximum fraction of examples tha may not be covered during rule induction",
+      "parameter_type": "float",
+      "description_pl": "Maksymalny procent (wyrażany jako liczba [0,1]) przykładów jaki może zostać nie pokryty podczas indukcji reguł",
+      "description_en": "The maximum fraction of examples tha may not be covered during rule induction",
+      "default_value": "0.0",
+      "min_value": 0,
+      "max_value": 1
+    },
+    {
+      "name": "max_layers_count",
+      "parameter_name_pl": "Maksymalna liczba skłądników w regule",
+      "parameter_name_en": "The maximum number of components in a rule",
+      "parameter_type": "int",
+      "description_pl": "Składnikiem jest tutaj grupa (koniunkcja lub alternatywa) kilku warunków. Parametr kontroluje ile takich grup może maksymalnie wystąpić w regułe.",
+      "description_en": "The component here is a group (conjunction or alternative) of several conditions. The parameter controls how many such groups can maximally occur in a rule.",
+      "default_value": "10",
+      "min_value": 1,
+      "max_value": 20
+    },
+    {
+      "name": "max_component_length",
+      "parameter_name_pl": "Maksymalna liczba warunków w pojedynczym składniku reguły",
+      "parameter_name_en": "Maximum number of conditions in a single rule component",
+      "parameter_type": "int",
+      "description_pl": "Składnikiem jest tutaj grupa (koniunkcja lub alternatywa) kilku warunków. Parametr kontroluje ile warunków może zawierać taki składnik.",
+      "description_en": "A component here is a group (conjunction or alternative) of several conditions. The parameter controls how many conditions such a component can contain.",
+      "default_value": "3",
+      "min_value": 1,
+      "max_value": 10
+    },
+    {
+      "name": "enable_pruning",
+      "parameter_name_pl": "Kontroluje, czy wykonać fazę przycinania reguł.",
+      "parameter_name_en": "Controls whether to perform the rules pruning phase.",
+      "parameter_type": "bool",
+      "description_pl": "Faza przycinania reguł pozwala uzyskać potencjalnie lepsze i krótsze reguły.",
+      "description_en": "The rule pruning phase allows you to get potentially better and shorter rules.",
+      "default_value": "True",
+      "min_value": null,
+      "max_value": null
+    },
+    {
+      "name": "enable_negations",
+      "parameter_name_pl": "Warunki zanegowane",
+      "parameter_name_en": "Nagated conditions",
+      "parameter_type": "bool",
+      "description_pl": "Dopuszczaj do indukcji reguł zawierających zanegowane warunki elementarne.",
+      "description_en": "Allow induction of rules with negated elementary conditions.",
+      "default_value": "True",
+      "min_value": null,
+      "max_value": null
+    },
+    {
+      "name": "dnf_quality_measure",
+      "parameter_name_pl": "Faza wzrostu dla reguł DNF",
+      "parameter_name_en": "Growing phase for DNF rules",
+      "parameter_type": "choice",
+      "description_pl": "Nazwa miary stosowanej w fazie wzrostu dla reguł DNF.",
+      "description_en": "The name of the measure used in the growth phase for DNF rules.",
+      "default_value": "Correlation",
+      "min_value": null,
+      "max_value": null,
+      "parameter_values": [
+        {
+          "value": "C2",
+          "description_pl": "Miara C2...",
+          "description_en": "The C2 measure..."
+        },
+        {
+          "value": "Correlation",
+          "description_pl": "Miara Correlation...",
+          "description_en": "The Correlation measure..."
+        },
+        {
+          "value": "Precision",
+          "description_pl": "Miara Precision...",
+          "description_en": "The Precision measure..."
+        },
+        {
+          "value": "Accuracy",
+          "description_pl": "Miara Accuracy...",
+          "description_en": "The Accuracy measure..."
+        },
+        {
+          "value": "C1",
+          "description_pl": "Miara C1...",
+          "description_en": "The C1 measure..."
+        },
+        {
+          "value": "CFoil",
+          "description_pl": "Miara CFoil...",
+          "description_en": "The CFoil measure..."
+        },
+        {
+          "value": "Laplace",
+          "description_pl": "Miara Laplace...",
+          "description_en": "The Laplace measure..."
+        },
+        {
+          "value": "WeightedLaplace",
+          "description_pl": "Miara WeightedLaplace...",
+          "description_en": "The WeightedLaplace measure..."
+        },
+        {
+          "value": "Lift",
+          "description_pl": "Miara Lift...",
+          "description_en": "The Lift measure..."
+        },
+        {
+          "value": "RSS",
+          "description_pl": "Miara RSS...",
+          "description_en": "the RSS measure..."
+        },
+        {
+          "value": "FBayesianConfirmation",
+          "description_pl": "Miara FBayesianConfirmation...",
+          "description_en": "The FBayesianConfirmation measure..."
+        },
+        {
+          "value": "FMeasure",
+          "description_pl": "Miara FMeasure...",
+          "description_en": "The FMeasure..."
+        },
+        {
+          "value": "GMeasure",
+          "description_pl": "Miara GMeasure...",
+          "description_en": "The GMeasure measure..."
+        },
+        {
+          "value": "InformationGain",
+          "description_pl": "Miara InformationGain...",
+          "description_en": "The InformationGain measure..."
+        },
+        {
+          "value": "JMeasure",
+          "description_pl": "Miara JMeasure...",
+          "description_en": "The JMeasure..."
+        },
+        {
+          "value": "Klosgen",
+          "description_pl": "Miara Klosgen...",
+          "description_en": "The Klosgen measure..."
+        },
+        {
+          "value": "LogicalSufficiency",
+          "description_pl": "Miara LogicalSufficiency...",
+          "description_en": "The LogicalSufficiency measure..."
+        },
+        {
+          "value": "MEstimate",
+          "description_pl": "Miara MEstimate...",
+          "description_en": "The MEstimate measure..."
+        },
+        {
+          "value": "MutualSupport",
+          "description_pl": "Miara MutualSupport...",
+          "description_en": "The MutualSupport measure..."
+        },
+        {
+          "value": "Novelty",
+          "description_pl": "Miara Novelty...",
+          "description_en": "The Novelty measure..."
+        },
+        {
+          "value": "OneWaySupport",
+          "description_pl": "Miara OneWaySupport...",
+          "description_en": "The OneWaySupport measure..."
+        },
+        {
+          "value": "PawlakDependencyFactor",
+          "description_pl": "Miara PawlakDependencyFactor...",
+          "description_en": "The PawlakDependencyFactor measure..."
+        },
+        {
+          "value": "RelativeRisk",
+          "description_pl": "Miara RelativeRisk...",
+          "description_en": "The RelativeRisk measure..."
+        },
+        {
+          "value": "Ripper",
+          "description_pl": "Miara Ripper...",
+          "description_en": "The Ripper measure..."
+        },
+        {
+          "value": "RuleInterest",
+          "description_pl": "Miara RuleInterest...",
+          "description_en": "The RuleInterest measure..."
+        },
+        {
+          "value": "SBayesian",
+          "description_pl": "Miara SBayesianConfirmation...",
+          "description_en": "The SBayesianConfirmation measure..."
+        },
+        {
+          "value": "TwoWaySupport",
+          "description_pl": "Miara TwoWaySupport...",
+          "description_en": "The TwoWaySupport measure..."
+        },
+        {
+          "value": "WeightedRelativeAccuracy",
+          "description_pl": "Miara WRA...",
+          "description_en": "The WRA measure..."
+        },
+        {
+          "value": "Yails",
+          "description_pl": "Miara Yails...",
+          "description_en": "The Yails measure..."
+        }
+      ]
+    },
+    {
+      "name": "dnf_pruning_measure",
+      "parameter_name_pl": "Faza przycinania dla reguł DNF",
+      "parameter_name_en": "Pruning phase for DNF rules",
+      "parameter_type": "choice",
+      "description_pl": "Nazwa miary stosowanej w fazie przycinania dla reguł DNF.",
+      "description_en": "The name of the measure used in the pruning phase for DNF rules.",
+      "default_value": "C2",
+      "min_value": null,
+      "max_value": null,
+      "parameter_values": [
+        {
+          "value": "C2",
+          "description_pl": "Miara C2...",
+          "description_en": "The C2 measure..."
+        },
+        {
+          "value": "Correlation",
+          "description_pl": "Miara Correlation...",
+          "description_en": "The Correlation measure..."
+        },
+        {
+          "value": "Precision",
+          "description_pl": "Miara Precision...",
+          "description_en": "The Precision measure..."
+        },
+        {
+          "value": "Accuracy",
+          "description_pl": "Miara Accuracy...",
+          "description_en": "The Accuracy measure..."
+        },
+        {
+          "value": "C1",
+          "description_pl": "Miara C1...",
+          "description_en": "The C1 measure..."
+        },
+        {
+          "value": "CFoil",
+          "description_pl": "Miara CFoil...",
+          "description_en": "The CFoil measure..."
+        },
+        {
+          "value": "Laplace",
+          "description_pl": "Miara Laplace...",
+          "description_en": "The Laplace measure..."
+        },
+        {
+          "value": "WeightedLaplace",
+          "description_pl": "Miara WeightedLaplace...",
+          "description_en": "The WeightedLaplace measure..."
+        },
+        {
+          "value": "Lift",
+          "description_pl": "Miara Lift...",
+          "description_en": "The Lift measure..."
+        },
+        {
+          "value": "RSS",
+          "description_pl": "Miara RSS...",
+          "description_en": "the RSS measure..."
+        },
+        {
+          "value": "FBayesianConfirmation",
+          "description_pl": "Miara FBayesianConfirmation...",
+          "description_en": "The FBayesianConfirmation measure..."
+        },
+        {
+          "value": "FMeasure",
+          "description_pl": "Miara FMeasure...",
+          "description_en": "The FMeasure..."
+        },
+        {
+          "value": "GMeasure",
+          "description_pl": "Miara GMeasure...",
+          "description_en": "The GMeasure measure..."
+        },
+        {
+          "value": "InformationGain",
+          "description_pl": "Miara InformationGain...",
+          "description_en": "The InformationGain measure..."
+        },
+        {
+          "value": "JMeasure",
+          "description_pl": "Miara JMeasure...",
+          "description_en": "The JMeasure..."
+        },
+        {
+          "value": "Klosgen",
+          "description_pl": "Miara Klosgen...",
+          "description_en": "The Klosgen measure..."
+        },
+        {
+          "value": "LogicalSufficiency",
+          "description_pl": "Miara LogicalSufficiency...",
+          "description_en": "The LogicalSufficiency measure..."
+        },
+        {
+          "value": "MEstimate",
+          "description_pl": "Miara MEstimate...",
+          "description_en": "The MEstimate measure..."
+        },
+        {
+          "value": "MutualSupport",
+          "description_pl": "Miara MutualSupport...",
+          "description_en": "The MutualSupport measure..."
+        },
+        {
+          "value": "Novelty",
+          "description_pl": "Miara Novelty...",
+          "description_en": "The Novelty measure..."
+        },
+        {
+          "value": "OneWaySupport",
+          "description_pl": "Miara OneWaySupport...",
+          "description_en": "The OneWaySupport measure..."
+        },
+        {
+          "value": "PawlakDependencyFactor",
+          "description_pl": "Miara PawlakDependencyFactor...",
+          "description_en": "The PawlakDependencyFactor measure..."
+        },
+        {
+          "value": "RelativeRisk",
+          "description_pl": "Miara RelativeRisk...",
+          "description_en": "The RelativeRisk measure..."
+        },
+        {
+          "value": "Ripper",
+          "description_pl": "Miara Ripper...",
+          "description_en": "The Ripper measure..."
+        },
+        {
+          "value": "RuleInterest",
+          "description_pl": "Miara RuleInterest...",
+          "description_en": "The RuleInterest measure..."
+        },
+        {
+          "value": "SBayesian",
+          "description_pl": "Miara SBayesianConfirmation...",
+          "description_en": "The SBayesianConfirmation measure..."
+        },
+        {
+          "value": "TwoWaySupport",
+          "description_pl": "Miara TwoWaySupport...",
+          "description_en": "The TwoWaySupport measure..."
+        },
+        {
+          "value": "WeightedRelativeAccuracy",
+          "description_pl": "Miara WRA...",
+          "description_en": "The WRA measure..."
+        },
+        {
+          "value": "Yails",
+          "description_pl": "Miara Yails...",
+          "description_en": "The Yails measure..."
+        }
+      ]
+    },
+    {
+      "name": "dnf_select_best_candidate_measure",
+      "parameter_name_pl": "Wybór najlepszego warunku dla reguł DNF",
+      "parameter_name_en": "Select best condition for DNF rules",
+      "parameter_type": "choice",
+      "description_pl": "Nazwa miary stosowanej przy wyborze najleszego warunku podczas wzrostu reguł DNF.",
+      "description_en": "The name of the measure used when selecting the best condition in the growing phase for DNF rules.",
+      "default_value": "C2",
+      "min_value": null,
+      "max_value": null,
+      "parameter_values": [
+        {
+          "value": "C2",
+          "description_pl": "Miara C2...",
+          "description_en": "The C2 measure..."
+        },
+        {
+          "value": "Correlation",
+          "description_pl": "Miara Correlation...",
+          "description_en": "The Correlation measure..."
+        },
+        {
+          "value": "Precision",
+          "description_pl": "Miara Precision...",
+          "description_en": "The Precision measure..."
+        },
+        {
+          "value": "Accuracy",
+          "description_pl": "Miara Accuracy...",
+          "description_en": "The Accuracy measure..."
+        },
+        {
+          "value": "C1",
+          "description_pl": "Miara C1...",
+          "description_en": "The C1 measure..."
+        },
+        {
+          "value": "CFoil",
+          "description_pl": "Miara CFoil...",
+          "description_en": "The CFoil measure..."
+        },
+        {
+          "value": "Laplace",
+          "description_pl": "Miara Laplace...",
+          "description_en": "The Laplace measure..."
+        },
+        {
+          "value": "WeightedLaplace",
+          "description_pl": "Miara WeightedLaplace...",
+          "description_en": "The WeightedLaplace measure..."
+        },
+        {
+          "value": "Lift",
+          "description_pl": "Miara Lift...",
+          "description_en": "The Lift measure..."
+        },
+        {
+          "value": "RSS",
+          "description_pl": "Miara RSS...",
+          "description_en": "the RSS measure..."
+        },
+        {
+          "value": "FBayesianConfirmation",
+          "description_pl": "Miara FBayesianConfirmation...",
+          "description_en": "The FBayesianConfirmation measure..."
+        },
+        {
+          "value": "FMeasure",
+          "description_pl": "Miara FMeasure...",
+          "description_en": "The FMeasure..."
+        },
+        {
+          "value": "GMeasure",
+          "description_pl": "Miara GMeasure...",
+          "description_en": "The GMeasure measure..."
+        },
+        {
+          "value": "InformationGain",
+          "description_pl": "Miara InformationGain...",
+          "description_en": "The InformationGain measure..."
+        },
+        {
+          "value": "JMeasure",
+          "description_pl": "Miara JMeasure...",
+          "description_en": "The JMeasure..."
+        },
+        {
+          "value": "Klosgen",
+          "description_pl": "Miara Klosgen...",
+          "description_en": "The Klosgen measure..."
+        },
+        {
+          "value": "LogicalSufficiency",
+          "description_pl": "Miara LogicalSufficiency...",
+          "description_en": "The LogicalSufficiency measure..."
+        },
+        {
+          "value": "MEstimate",
+          "description_pl": "Miara MEstimate...",
+          "description_en": "The MEstimate measure..."
+        },
+        {
+          "value": "MutualSupport",
+          "description_pl": "Miara MutualSupport...",
+          "description_en": "The MutualSupport measure..."
+        },
+        {
+          "value": "Novelty",
+          "description_pl": "Miara Novelty...",
+          "description_en": "The Novelty measure..."
+        },
+        {
+          "value": "OneWaySupport",
+          "description_pl": "Miara OneWaySupport...",
+          "description_en": "The OneWaySupport measure..."
+        },
+        {
+          "value": "PawlakDependencyFactor",
+          "description_pl": "Miara PawlakDependencyFactor...",
+          "description_en": "The PawlakDependencyFactor measure..."
+        },
+        {
+          "value": "RelativeRisk",
+          "description_pl": "Miara RelativeRisk...",
+          "description_en": "The RelativeRisk measure..."
+        },
+        {
+          "value": "Ripper",
+          "description_pl": "Miara Ripper...",
+          "description_en": "The Ripper measure..."
+        },
+        {
+          "value": "RuleInterest",
+          "description_pl": "Miara RuleInterest...",
+          "description_en": "The RuleInterest measure..."
+        },
+        {
+          "value": "SBayesian",
+          "description_pl": "Miara SBayesianConfirmation...",
+          "description_en": "The SBayesianConfirmation measure..."
+        },
+        {
+          "value": "TwoWaySupport",
+          "description_pl": "Miara TwoWaySupport...",
+          "description_en": "The TwoWaySupport measure..."
+        },
+        {
+          "value": "WeightedRelativeAccuracy",
+          "description_pl": "Miara WRA...",
+          "description_en": "The WRA measure..."
+        },
+        {
+          "value": "Yails",
+          "description_pl": "Miara Yails...",
+          "description_en": "The Yails measure..."
+        }
+      ]
+    },
+    {
+      "name": "cnf_quality_measure",
+      "parameter_name_pl": "Faza wzrostu dla reguł CNF",
+      "parameter_name_en": "Growing phase for CNF rules",
+      "parameter_type": "choice",
+      "description_pl": "Nazwa miary stosowanej w fazie wzrostu dla reguł CNF.",
+      "description_en": "The name of the measure used in the growth phase for CNF rules.",
+      "default_value": "C2",
+      "min_value": null,
+      "max_value": null,
+      "parameter_values": [
+        {
+          "value": "C2",
+          "description_pl": "Miara C2...",
+          "description_en": "The C2 measure..."
+        },
+        {
+          "value": "Correlation",
+          "description_pl": "Miara Correlation...",
+          "description_en": "The Correlation measure..."
+        },
+        {
+          "value": "Precision",
+          "description_pl": "Miara Precision...",
+          "description_en": "The Precision measure..."
+        },
+        {
+          "value": "Accuracy",
+          "description_pl": "Miara Accuracy...",
+          "description_en": "The Accuracy measure..."
+        },
+        {
+          "value": "C1",
+          "description_pl": "Miara C1...",
+          "description_en": "The C1 measure..."
+        },
+        {
+          "value": "CFoil",
+          "description_pl": "Miara CFoil...",
+          "description_en": "The CFoil measure..."
+        },
+        {
+          "value": "Laplace",
+          "description_pl": "Miara Laplace...",
+          "description_en": "The Laplace measure..."
+        },
+        {
+          "value": "WeightedLaplace",
+          "description_pl": "Miara WeightedLaplace...",
+          "description_en": "The WeightedLaplace measure..."
+        },
+        {
+          "value": "Lift",
+          "description_pl": "Miara Lift...",
+          "description_en": "The Lift measure..."
+        },
+        {
+          "value": "RSS",
+          "description_pl": "Miara RSS...",
+          "description_en": "the RSS measure..."
+        },
+        {
+          "value": "FBayesianConfirmation",
+          "description_pl": "Miara FBayesianConfirmation...",
+          "description_en": "The FBayesianConfirmation measure..."
+        },
+        {
+          "value": "FMeasure",
+          "description_pl": "Miara FMeasure...",
+          "description_en": "The FMeasure..."
+        },
+        {
+          "value": "GMeasure",
+          "description_pl": "Miara GMeasure...",
+          "description_en": "The GMeasure measure..."
+        },
+        {
+          "value": "InformationGain",
+          "description_pl": "Miara InformationGain...",
+          "description_en": "The InformationGain measure..."
+        },
+        {
+          "value": "JMeasure",
+          "description_pl": "Miara JMeasure...",
+          "description_en": "The JMeasure..."
+        },
+        {
+          "value": "Klosgen",
+          "description_pl": "Miara Klosgen...",
+          "description_en": "The Klosgen measure..."
+        },
+        {
+          "value": "LogicalSufficiency",
+          "description_pl": "Miara LogicalSufficiency...",
+          "description_en": "The LogicalSufficiency measure..."
+        },
+        {
+          "value": "MEstimate",
+          "description_pl": "Miara MEstimate...",
+          "description_en": "The MEstimate measure..."
+        },
+        {
+          "value": "MutualSupport",
+          "description_pl": "Miara MutualSupport...",
+          "description_en": "The MutualSupport measure..."
+        },
+        {
+          "value": "Novelty",
+          "description_pl": "Miara Novelty...",
+          "description_en": "The Novelty measure..."
+        },
+        {
+          "value": "OneWaySupport",
+          "description_pl": "Miara OneWaySupport...",
+          "description_en": "The OneWaySupport measure..."
+        },
+        {
+          "value": "PawlakDependencyFactor",
+          "description_pl": "Miara PawlakDependencyFactor...",
+          "description_en": "The PawlakDependencyFactor measure..."
+        },
+        {
+          "value": "RelativeRisk",
+          "description_pl": "Miara RelativeRisk...",
+          "description_en": "The RelativeRisk measure..."
+        },
+        {
+          "value": "Ripper",
+          "description_pl": "Miara Ripper...",
+          "description_en": "The Ripper measure..."
+        },
+        {
+          "value": "RuleInterest",
+          "description_pl": "Miara RuleInterest...",
+          "description_en": "The RuleInterest measure..."
+        },
+        {
+          "value": "SBayesian",
+          "description_pl": "Miara SBayesianConfirmation...",
+          "description_en": "The SBayesianConfirmation measure..."
+        },
+        {
+          "value": "TwoWaySupport",
+          "description_pl": "Miara TwoWaySupport...",
+          "description_en": "The TwoWaySupport measure..."
+        },
+        {
+          "value": "WeightedRelativeAccuracy",
+          "description_pl": "Miara WRA...",
+          "description_en": "The WRA measure..."
+        },
+        {
+          "value": "Yails",
+          "description_pl": "Miara Yails...",
+          "description_en": "The Yails measure..."
+        }
+      ]
+    },
+    {
+      "name": "cnf_pruning_measure",
+      "parameter_name_pl": "Faza przycinania dla reguł CNF",
+      "parameter_name_en": "Pruning phase for CNF rules",
+      "parameter_type": "choice",
+      "description_pl": "Nazwa miary stosowanej w fazie przycinania dla reguł CNF.",
+      "description_en": "The name of the measure used in the pruning phase for CNF rules.",
+      "default_value": "C2",
+      "min_value": null,
+      "max_value": null,
+      "parameter_values": [
+        {
+          "value": "C2",
+          "description_pl": "Miara C2...",
+          "description_en": "The C2 measure..."
+        },
+        {
+          "value": "Correlation",
+          "description_pl": "Miara Correlation...",
+          "description_en": "The Correlation measure..."
+        },
+        {
+          "value": "Precision",
+          "description_pl": "Miara Precision...",
+          "description_en": "The Precision measure..."
+        },
+        {
+          "value": "Accuracy",
+          "description_pl": "Miara Accuracy...",
+          "description_en": "The Accuracy measure..."
+        },
+        {
+          "value": "C1",
+          "description_pl": "Miara C1...",
+          "description_en": "The C1 measure..."
+        },
+        {
+          "value": "CFoil",
+          "description_pl": "Miara CFoil...",
+          "description_en": "The CFoil measure..."
+        },
+        {
+          "value": "Laplace",
+          "description_pl": "Miara Laplace...",
+          "description_en": "The Laplace measure..."
+        },
+        {
+          "value": "WeightedLaplace",
+          "description_pl": "Miara WeightedLaplace...",
+          "description_en": "The WeightedLaplace measure..."
+        },
+        {
+          "value": "Lift",
+          "description_pl": "Miara Lift...",
+          "description_en": "The Lift measure..."
+        },
+        {
+          "value": "RSS",
+          "description_pl": "Miara RSS...",
+          "description_en": "the RSS measure..."
+        },
+        {
+          "value": "FBayesianConfirmation",
+          "description_pl": "Miara FBayesianConfirmation...",
+          "description_en": "The FBayesianConfirmation measure..."
+        },
+        {
+          "value": "FMeasure",
+          "description_pl": "Miara FMeasure...",
+          "description_en": "The FMeasure..."
+        },
+        {
+          "value": "GMeasure",
+          "description_pl": "Miara GMeasure...",
+          "description_en": "The GMeasure measure..."
+        },
+        {
+          "value": "InformationGain",
+          "description_pl": "Miara InformationGain...",
+          "description_en": "The InformationGain measure..."
+        },
+        {
+          "value": "JMeasure",
+          "description_pl": "Miara JMeasure...",
+          "description_en": "The JMeasure..."
+        },
+        {
+          "value": "Klosgen",
+          "description_pl": "Miara Klosgen...",
+          "description_en": "The Klosgen measure..."
+        },
+        {
+          "value": "LogicalSufficiency",
+          "description_pl": "Miara LogicalSufficiency...",
+          "description_en": "The LogicalSufficiency measure..."
+        },
+        {
+          "value": "MEstimate",
+          "description_pl": "Miara MEstimate...",
+          "description_en": "The MEstimate measure..."
+        },
+        {
+          "value": "MutualSupport",
+          "description_pl": "Miara MutualSupport...",
+          "description_en": "The MutualSupport measure..."
+        },
+        {
+          "value": "Novelty",
+          "description_pl": "Miara Novelty...",
+          "description_en": "The Novelty measure..."
+        },
+        {
+          "value": "OneWaySupport",
+          "description_pl": "Miara OneWaySupport...",
+          "description_en": "The OneWaySupport measure..."
+        },
+        {
+          "value": "PawlakDependencyFactor",
+          "description_pl": "Miara PawlakDependencyFactor...",
+          "description_en": "The PawlakDependencyFactor measure..."
+        },
+        {
+          "value": "RelativeRisk",
+          "description_pl": "Miara RelativeRisk...",
+          "description_en": "The RelativeRisk measure..."
+        },
+        {
+          "value": "Ripper",
+          "description_pl": "Miara Ripper...",
+          "description_en": "The Ripper measure..."
+        },
+        {
+          "value": "RuleInterest",
+          "description_pl": "Miara RuleInterest...",
+          "description_en": "The RuleInterest measure..."
+        },
+        {
+          "value": "SBayesian",
+          "description_pl": "Miara SBayesianConfirmation...",
+          "description_en": "The SBayesianConfirmation measure..."
+        },
+        {
+          "value": "TwoWaySupport",
+          "description_pl": "Miara TwoWaySupport...",
+          "description_en": "The TwoWaySupport measure..."
+        },
+        {
+          "value": "WeightedRelativeAccuracy",
+          "description_pl": "Miara WRA...",
+          "description_en": "The WRA measure..."
+        },
+        {
+          "value": "Yails",
+          "description_pl": "Miara Yails...",
+          "description_en": "The Yails measure..."
+        }
+      ]
+    },
+    {
+      "name": "cnf_select_best_candidate_measure",
+      "parameter_name_pl": "Wybór najlepszego warunku dla reguł CNF",
+      "parameter_name_en": "Select best condition for CNF rules",
+      "parameter_type": "choice",
+      "description_pl": "Nazwa miary stosowanej przy wyborze najleszego warunku podczas wzrostu reguł CNF.",
+      "description_en": "The name of the measure used when selecting the best condition in the growing phase for CNF rules.",
+      "default_value": "Correlation",
+      "min_value": null,
+      "max_value": null,
+      "parameter_values": [
+        {
+          "value": "C2",
+          "description_pl": "Miara C2...",
+          "description_en": "The C2 measure..."
+        },
+        {
+          "value": "Correlation",
+          "description_pl": "Miara Correlation...",
+          "description_en": "The Correlation measure..."
+        },
+        {
+          "value": "Precision",
+          "description_pl": "Miara Precision...",
+          "description_en": "The Precision measure..."
+        },
+        {
+          "value": "Accuracy",
+          "description_pl": "Miara Accuracy...",
+          "description_en": "The Accuracy measure..."
+        },
+        {
+          "value": "C1",
+          "description_pl": "Miara C1...",
+          "description_en": "The C1 measure..."
+        },
+        {
+          "value": "CFoil",
+          "description_pl": "Miara CFoil...",
+          "description_en": "The CFoil measure..."
+        },
+        {
+          "value": "Laplace",
+          "description_pl": "Miara Laplace...",
+          "description_en": "The Laplace measure..."
+        },
+        {
+          "value": "WeightedLaplace",
+          "description_pl": "Miara WeightedLaplace...",
+          "description_en": "The WeightedLaplace measure..."
+        },
+        {
+          "value": "Lift",
+          "description_pl": "Miara Lift...",
+          "description_en": "The Lift measure..."
+        },
+        {
+          "value": "RSS",
+          "description_pl": "Miara RSS...",
+          "description_en": "the RSS measure..."
+        },
+        {
+          "value": "FBayesianConfirmation",
+          "description_pl": "Miara FBayesianConfirmation...",
+          "description_en": "The FBayesianConfirmation measure..."
+        },
+        {
+          "value": "FMeasure",
+          "description_pl": "Miara FMeasure...",
+          "description_en": "The FMeasure..."
+        },
+        {
+          "value": "GMeasure",
+          "description_pl": "Miara GMeasure...",
+          "description_en": "The GMeasure measure..."
+        },
+        {
+          "value": "InformationGain",
+          "description_pl": "Miara InformationGain...",
+          "description_en": "The InformationGain measure..."
+        },
+        {
+          "value": "JMeasure",
+          "description_pl": "Miara JMeasure...",
+          "description_en": "The JMeasure..."
+        },
+        {
+          "value": "Klosgen",
+          "description_pl": "Miara Klosgen...",
+          "description_en": "The Klosgen measure..."
+        },
+        {
+          "value": "LogicalSufficiency",
+          "description_pl": "Miara LogicalSufficiency...",
+          "description_en": "The LogicalSufficiency measure..."
+        },
+        {
+          "value": "MEstimate",
+          "description_pl": "Miara MEstimate...",
+          "description_en": "The MEstimate measure..."
+        },
+        {
+          "value": "MutualSupport",
+          "description_pl": "Miara MutualSupport...",
+          "description_en": "The MutualSupport measure..."
+        },
+        {
+          "value": "Novelty",
+          "description_pl": "Miara Novelty...",
+          "description_en": "The Novelty measure..."
+        },
+        {
+          "value": "OneWaySupport",
+          "description_pl": "Miara OneWaySupport...",
+          "description_en": "The OneWaySupport measure..."
+        },
+        {
+          "value": "PawlakDependencyFactor",
+          "description_pl": "Miara PawlakDependencyFactor...",
+          "description_en": "The PawlakDependencyFactor measure..."
+        },
+        {
+          "value": "RelativeRisk",
+          "description_pl": "Miara RelativeRisk...",
+          "description_en": "The RelativeRisk measure..."
+        },
+        {
+          "value": "Ripper",
+          "description_pl": "Miara Ripper...",
+          "description_en": "The Ripper measure..."
+        },
+        {
+          "value": "RuleInterest",
+          "description_pl": "Miara RuleInterest...",
+          "description_en": "The RuleInterest measure..."
+        },
+        {
+          "value": "SBayesian",
+          "description_pl": "Miara SBayesianConfirmation...",
+          "description_en": "The SBayesianConfirmation measure..."
+        },
+        {
+          "value": "TwoWaySupport",
+          "description_pl": "Miara TwoWaySupport...",
+          "description_en": "The TwoWaySupport measure..."
+        },
+        {
+          "value": "WeightedRelativeAccuracy",
+          "description_pl": "Miara WRA...",
+          "description_en": "The WRA measure..."
+        },
+        {
+          "value": "Yails",
+          "description_pl": "Miara Yails...",
+          "description_en": "The Yails measure..."
+        }
+      ]
+    }
+  ],
+  "expert_parameters": [],
+  "questions": [],
+  "na_algorithm_parameters": []
+}

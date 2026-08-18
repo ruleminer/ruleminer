@@ -1,0 +1,58 @@
+<ng-container *ngIf="data$ | async as data">
+  <rolap-card>
+    <rolap-title>
+      <h2>{{ 'project.description_tab.expert_induction.title' | translate }}</h2>
+    </rolap-title>
+    <div class="flex-container">
+      <div class="p2 expert-section left-section">
+        <div class="section-block" *ngIf="data.expertRules.length > 0">
+          <h3 class="section-title">
+            {{ 'project.description_tab.expert_induction.user_defined_rules' | translate }}
+          </h3>
+          <p *ngFor="let rule of data.expertRules" class="value-row">
+            <strong>{{ rule[0] }}</strong
+            >: {{ rule[1] }}
+          </p>
+        </div>
+
+        <div class="section-block" *ngIf="data.expertPreferredConditions.length > 0">
+          <h3 class="section-title">
+            {{ 'project.description_tab.expert_induction.preferred_conditions' | translate }}
+          </h3>
+          <p *ngFor="let condition of data.expertPreferredConditions" class="value-row">
+            <strong>{{ condition[0] }}</strong
+            >: {{ condition[1] }}
+          </p>
+        </div>
+
+        <div class="section-block" *ngIf="data.expertForbiddenConditions.length > 0">
+          <h3 class="section-title">
+            {{ 'project.description_tab.expert_induction.forbidden_conditions' | translate }}
+          </h3>
+          <p *ngFor="let condition of data.expertForbiddenConditions" class="value-row">
+            <strong>{{ condition[0] }}</strong
+            >: {{ condition[1] }}
+          </p>
+        </div>
+      </div>
+
+      <div class="p2 right-section">
+        <h3 class="section-title">{{ 'project.description_tab.algo_params' | translate }}</h3>
+        <rolap-translated-key-value-data-grid
+          [data]="data.expertInductionParams"
+          [translationKey]="'project.rules.table.headers'"
+          [height]="'auto'"
+          [maxHeight]="195"
+          [maxRowsBeforeFixedHeight]="4">
+        </rolap-translated-key-value-data-grid>
+      </div>
+    </div>
+    <div class="documentation-link">
+      {{ 'project.description_tab.expert_induction.documentation_info' | translate }}
+      <a href="https://github.com/adaa-polsl/RuleKit/wiki/6-User-guided-induction" target="_blank">
+        {{ 'project.description_tab.expert_induction.documentation_link_text' | translate }}
+      </a>
+    </div>
+    <rolap-card-footer></rolap-card-footer>
+  </rolap-card>
+</ng-container>

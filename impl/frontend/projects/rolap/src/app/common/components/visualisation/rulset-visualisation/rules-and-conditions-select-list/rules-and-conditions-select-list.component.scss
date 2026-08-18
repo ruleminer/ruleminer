@@ -1,0 +1,58 @@
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.normal-font-weight {
+  font-weight: normal;
+}
+
+.h4 {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.fs2 {
+  font-size: 20px;
+}
+
+.border-left {
+  border-left: 3px solid !important;
+}
+
+.bl-black {
+  border-left-color: #0f0f0f;
+}
+
+.search-box {
+  margin-bottom: 1rem;
+}
+
+.list-layout {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 78vh;
+}
+
+.custom-scrollable-list {
+  height: 78vh;
+  overflow-y: scroll;
+}
+
+.subconditions {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-top: 0;
+  padding-left: 0.5em;
+  padding-top: 0;
+  transition: max-height 0.2s ease, opacity 0.2s ease, margin-top 0.2s ease, padding-top 0.2s ease;
+}
+
+.subconditions.show {
+  max-height: 30em;
+  opacity: 1;
+  margin-top: 0.5em;
+  padding-top: 0.5em;
+}

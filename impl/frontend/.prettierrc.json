@@ -1,0 +1,13 @@
+{
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": true,
+  "arrowParens": "always",
+  "printWidth": 120,
+  "bracketSameLine": true,
+  "importOrder": ["^@angular", "rxjs", "<THIRD_PARTY_MODULES>", "^[./|~/]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderParserPlugins": ["decorators-legacy", "typescript"]
+}

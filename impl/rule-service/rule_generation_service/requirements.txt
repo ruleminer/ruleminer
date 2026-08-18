@@ -1,0 +1,8 @@
+celery==5.4.0
+ecs-logging==2.2.0
+numpy==2.2.3
+openpyxl==3.1.5
+pandas==2.2.3
+python-dotenv==1.0.1
+rulekit==2.1.24.2
+scikit-learn==1.6.1

@@ -1,0 +1,28 @@
+<ng-container *rolapLoading="isLoading$ | async">
+  <dx-button-group
+    id="alignment-button-group"
+    class="mt1"
+    [items]="alignments"
+    keyExpr="alignment"
+    stylingMode="outlined"
+    [selectedItemKeys]="['left']"
+    (onItemClick)="selectChart($event)"
+    buttonTemplate="buttonTemplate">
+    <div *dxTemplate="let data of 'buttonTemplate'">
+      <div [id]="'visualization_' + data.index" [title]="data.hint"><i [class]="data.icon"></i> {{ data.text }}</div>
+    </div>
+  </dx-button-group>
+
+  <rolap-rulset-visualisation id="rulset-visualisation" *ngIf="selectedAlignment === 'left'" />
+  <rolap-rulset-histogram
+    id="rulset-histogram"
+    *ngIf="selectedAlignment === 'center'"
+    [datasetId]="v2Tab.ids.dataSetId"
+    [ruleSetId]="v2Tab.ids.ruleSetId"
+    [project]="project" />
+  <rolap-cam-and-speech
+    *ngIf="selectedAlignment === 'right'"
+    [datasetId]="v2Tab.ids.dataSetId"
+    [ruleSetId]="v2Tab.ids.ruleSetId"
+    [projectId]="v2Tab.ids.projectId" />
+</ng-container>

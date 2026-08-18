@@ -1,0 +1,57 @@
+<dx-load-panel [position]="{ of: formElement }" [visible]="isSubmitting" [closeOnOutsideClick]="false" height="100%" />
+<form #formElement [formGroup]="form">
+  <!-- DESCRIPTION -->
+  <div class="dx-field mb1">
+    <div class="dx-field-label">{{ 'report_bug.modal.description_label' | translate }}</div>
+    <rolap-text-area
+      id="description"
+      formControlName="description"
+      [placeholder]="'report_bug.modal.description_placeholder' | translate"
+      [maxlength]="MAX_DESCRIPTION_LENGTH"
+      [maxHeight]="'200px'"
+      [minHeight]="'100px'" />
+    <div class="mt1 ml1">
+      <rolap-validation-message [control]="form.controls['description']" />
+    </div>
+  </div>
+  <!-- ALLOW CONTACT -->
+  <div class="dx-field mb1 flex flex-row align-center">
+    <div class="dx-field-label">{{ 'report_bug.modal.allow_contact_label' | translate }}</div>
+    <dx-check-box id="allowContact" name="allowContact" formControlName="allow_contact" />
+  </div>
+  <!-- SCREENSHOT -->
+  <div class="dx-field">
+    <rolap-info class="mb1" *ngIf="!screenshotAvailable">
+      {{ 'report_bug.modal.screenshot_errors.api_not_available' | translate }}
+    </rolap-info>
+    <rolap-info class="mb1" *ngIf="showPermissionDeniedInfo">
+      {{ 'report_bug.modal.permission_denied_info' | translate }}
+    </rolap-info>
+
+    <div class="dx-field-label">{{ 'report_bug.modal.screenshot_label' | translate }}</div>
+
+    <div class="flex justify-center">
+      <dx-button class="pl1 pr1" stylingMode="outlined" type="default" (onClick)="takeScreenshot()">
+        <fa-icon class="mr2" [icon]="screenshotIcon" />
+        {{ 'report_bug.modal.take_screenshot' | translate }}
+      </dx-button>
+    </div>
+
+    <rolap-bug-report-screenshot-display />
+  </div>
+
+  <div class="buttons-wrapper flex justify-end">
+    <dx-button
+      [disabled]="!form.valid || isSubmitting"
+      class="mr2"
+      text="{{ 'project.button.cancel' | translate }}"
+      (onClick)="cancel()" />
+    <dx-button
+      [disabled]="!form.valid || isSubmitting"
+      text="{{ 'report_bug.modal.submit' | translate }}"
+      stylingMode="contained"
+      type="default"
+      [useSubmitBehavior]="true"
+      (onClick)="submit()" />
+  </div>
+</form>

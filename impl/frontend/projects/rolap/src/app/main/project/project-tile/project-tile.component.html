@@ -1,0 +1,31 @@
+<div #tile class="tile" [attr.id]="titleHtmlId" (click)="navigateToProject(id)" data-cy="project-tile">
+  <div class="tile-column">
+    <div class="descriptions-items">
+      <p data-cy="project-tile-name" class="tile-name center-vertical" [attr.id]="title.htmlId">{{ title.value }}</p>
+      <span class="pt1 tile-description">{{ descriptionData.truncatedValue }}</span>
+      <span class="pt1 tile-description">
+        {{ 'project.last_opening' | translate }} {{ last_opened_at | date : 'dd.MM.yyyy' }}
+      </span>
+    </div>
+  </div>
+  <div class="descriptions">
+    <rolap-project-type-label [type]="type"></rolap-project-type-label>
+    <button
+      class="wide-button"
+      (click)="showProjectInfo($event)"
+      [attr.aria-label]="'project.more_options' | translate"
+      [title]="'project.more_options' | translate">
+      <fa-icon class="last-modification mr1" [icon]="threeDots"></fa-icon>
+    </button>
+  </div>
+</div>
+
+<dx-context-menu
+  [dataSource]="contextMenuItems"
+  [width]="200"
+  target="#project-tile-{{ id }}"
+  [attr.data-cy]="'tile-context-menu--' + id" />
+
+<ng-template #displayNormalTitle>
+  <p class="tile-name">{{ title.value }}</p>
+</ng-template>

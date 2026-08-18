@@ -1,0 +1,78 @@
+{
+  "problem_type": "survival",
+  "name": "DeepRules",
+  "version": "0.3.0",
+  "description_en": "A slower rule induction algorithm capable of learning more complex rule sets containing nested logical conjunctions and disjunctions.",
+  "description_pl": "Wolniejszy algorytm indukcji reguł zdolny do uczenia się bardziej złożonych zestawów reguł zawierających zagnieżdżone spójniki logiczne i dysjunkcje.",
+  "parameters": [
+    {
+      "name": "min_cov",
+      "parameter_name_pl": "Minimalna liczba pokrywanych przykładów (na regułę)",
+      "parameter_name_en": "The minimal number of covered examples (per rule)",
+      "parameter_type": "int",
+      "description_pl": "Minimalna liczba dotychczas niepokrytych przykładów, które muszą zostać objęte regułą (dotyczy pozytywnych przykładów w problemach klasyfikacyjnych).",
+      "description_en": "A minimum number of previously uncovered examples to be covered by a new rule (positive examples for classification problems)",
+      "default_value": "5",
+      "min_value": 1,
+      "max_value": 250
+    },
+    {
+      "name": "max_uncovered_fraction",
+      "parameter_name_pl": "Maksymalny procent (wyrażany jako liczba [0,1]) przykładów jaki może zostać nie pokryty",
+      "parameter_name_en": "The maximum fraction of examples tha may not be covered during rule induction",
+      "parameter_type": "float",
+      "description_pl": "Maksymalny procent (wyrażany jako liczba [0,1]) przykładów jaki może zostać nie pokryty podczas indukcji reguł",
+      "description_en": "The maximum fraction of examples tha may not be covered during rule induction",
+      "default_value": "0.0",
+      "min_value": 0,
+      "max_value": 1
+    },
+    {
+      "name": "max_layers_count",
+      "parameter_name_pl": "Maksymalna liczba skłądników w regule",
+      "parameter_name_en": "The maximum number of components in a rule",
+      "parameter_type": "int",
+      "description_pl": "Składnikiem jest tutaj grupa (koniunkcja lub alternatywa) kilku warunków. Parametr kontroluje ile takich grup może maksymalnie wystąpić w regułe.",
+      "description_en": "The component here is a group (conjunction or alternative) of several conditions. The parameter controls how many such groups can maximally occur in a rule.",
+      "default_value": "10",
+      "min_value": 1,
+      "max_value": 20
+    },
+    {
+      "name": "max_component_length",
+      "parameter_name_pl": "Maksymalna liczba warunków w pojedynczym składniku reguły",
+      "parameter_name_en": "Maximum number of conditions in a single rule component",
+      "parameter_type": "int",
+      "description_pl": "Składnikiem jest tutaj grupa (koniunkcja lub alternatywa) kilku warunków. Parametr kontroluje ile warunków może zawierać taki składnik.",
+      "description_en": "A component here is a group (conjunction or alternative) of several conditions. The parameter controls how many conditions such a component can contain.",
+      "default_value": "3",
+      "min_value": 1,
+      "max_value": 10
+    },
+    {
+      "name": "enable_pruning",
+      "parameter_name_pl": "Kontroluje, czy wykonać fazę przycinania reguł.",
+      "parameter_name_en": "Controls whether to perform the rules pruning phase.",
+      "parameter_type": "bool",
+      "description_pl": "Faza przycinania reguł pozwala uzyskać potencjalnie lepsze i krótsze reguły.",
+      "description_en": "The rule pruning phase allows you to get potentially better and shorter rules.",
+      "default_value": "True",
+      "min_value": null,
+      "max_value": null
+    },
+    {
+      "name": "enable_negations",
+      "parameter_name_pl": "Warunki zanegowane",
+      "parameter_name_en": "Nagated conditions",
+      "parameter_type": "bool",
+      "description_pl": "Dopuszczaj do indukcji reguł zawierających zanegowane warunki elementarne.",
+      "description_en": "Allow induction of rules with negated elementary conditions.",
+      "default_value": "True",
+      "min_value": null,
+      "max_value": null
+    }
+  ],
+  "expert_parameters": [],
+  "questions": [],
+  "na_algorithm_parameters": []
+}

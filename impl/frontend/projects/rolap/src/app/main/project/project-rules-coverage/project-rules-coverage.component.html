@@ -1,0 +1,16 @@
+<ng-container *ngIf="combinedData$ | async as projectRulesTableDataAndLoading">
+  <ng-container *rolapLoading="projectRulesTableDataAndLoading.isLoading">
+    <div class="flex flex-column mt1">
+      <rolap-project-rules-table
+        id="project-rules-coverage"
+        [data]="projectRulesTableDataAndLoading.projectRulesTableData"></rolap-project-rules-table>
+      <rolap-project-rules-coverage-table
+        id="project-rules-coverage-table"
+        [showUniqueCoverage]="true"
+        [tableType]="datasetViewTableType"
+        [cardTitle]="'project.rules_coverage.data_overview' | translate"
+        [cardTooltip]="'tooltips.rules_table.data_overview' | translate">
+      </rolap-project-rules-coverage-table>
+    </div>
+  </ng-container>
+</ng-container>

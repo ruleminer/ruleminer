@@ -1,0 +1,28 @@
+<div class="button-container flex flex-column">
+  <button class="custom-button" (click)="openProcessTab()">
+    <div class="button-content">
+      <span class="flex-wrapper">
+        <rolap-tab-type-icon tabType="process"></rolap-tab-type-icon>
+        <span class="truncated-text" *ngIf="showText$ | async">
+          {{ 'project.treeview.process' | translate }}
+        </span>
+      </span>
+    </div>
+  </button>
+
+  <button
+    class="custom-button"
+    data-cy="add-dataset-btn"
+    [disabled]="isReachedLimitSignal()"
+    [ngClass]="{ 'button-disabled': isReachedLimitSignal(), undefined: !isReachedLimitSignal() }"
+    (click)="openFileImporterModal()">
+    <div class="button-content">
+      <span class="flex-wrapper">
+        <fa-icon [icon]="faIconPlus"></fa-icon>
+        <span class="truncated-text" *ngIf="showText$ | async">
+          {{ 'project.treeview.add_dataset' | translate }}
+        </span>
+      </span>
+    </div>
+  </button>
+</div>

@@ -1,0 +1,55 @@
+<section class="mt2">
+  <rolap-calculate-similarity-button (onCalculatedData)="onCalculatedData($event)" />
+  <div>
+    <rolap-info *ngIf="showSomethingChangeWarningSignal()" class="mb2" [mode]="'warning'">
+      {{ 'comparison_view.something_change' | translate }}
+    </rolap-info>
+    <rolap-card *ngIf="tableDataSignal() as dataSource">
+      <rolap-title class="flex justify-between">
+        <h2>{{ 'comparison_view.selected_rules_similarity' | translate }}</h2>
+        <div class="flex">
+          <rolap-export-dropdown [exportItems]="exportItems"></rolap-export-dropdown>
+        </div>
+      </rolap-title>
+      <dx-data-grid
+        [showBorders]="true"
+        [allowColumnReordering]="true"
+        [showBorders]="true"
+        [sorting]="{ mode: 'multiple' }"
+        [allowColumnResizing]="true"
+        [columnAutoWidth]="true"
+        [dataSource]="dataSource"
+        class="pb2"
+        [noDataText]="'project.rules.table.no_data' | translate">
+        <dxi-column
+          dataField="premiseOneAutoIncrement"
+          caption="#"
+          [allowHiding]="false"
+          [alignment]="'left'"></dxi-column>
+        <dxi-column
+          dataField="premise1"
+          [width]="'45%'"
+          [caption]="rulesetOneNameSignal()"
+          [alignment]="'left'"></dxi-column>
+        <dxi-column
+          dataField="premiseTwoAutoIncrement"
+          caption="#"
+          [allowHiding]="false"
+          [alignment]="'left'"></dxi-column>
+        <dxi-column
+          dataField="premise2"
+          [width]="'45%'"
+          [caption]="rulesetTwoNameSignal()"
+          [alignment]="'left'"></dxi-column>
+
+        <dxi-column
+          caption="{{ 'comparison_view.similarity' | translate }}"
+          dataField="similarity"
+          [visible]="true"
+          [alignment]="'left'"></dxi-column>
+
+        <dxo-scrolling [useNative]="true"></dxo-scrolling>
+      </dx-data-grid>
+    </rolap-card>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+{
+  "name": "salary_data",
+  "description": "A collection of data on earnings depending on factors such as age, education, years of experience, profession. A The dataset was obtained from multiple sources, including surveys, job posting sites, and other publicly available sources.A total of 6704 data points were collected.The dataset included fivevariables: age, experience, job role, and education level and salary level",
+  "selected_columns": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "assigned_column_types": [
+    "num",
+    "cat",
+    "cat",
+    "cat",
+    "num",
+    "cat"
+  ],
+  "assigned_column_classes": [
+    "attr",
+    "attr",
+    "attr",
+    "attr",
+    "attr",
+    "class"
+  ],
+  "missing_value_sign": "nan",
+  "encoding": "utf-8",
+  "delimiter": ",",
+  "decimal_separator": "."
+}

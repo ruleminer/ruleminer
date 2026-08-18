@@ -1,0 +1,72 @@
+@import 'variables';
+
+$project-summary-max-width: 768px;
+
+.project-section {
+  padding-top: 4rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.project-navigation {
+  width: 80%;
+}
+
+.project-list-container {
+  padding-top: 1rem;
+  width: 80%;
+  flex: 1;
+  padding-bottom: 1rem;
+}
+
+.project-navigation-header {
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  text-align: center;
+
+  p {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 25.78px;
+    text-align: left;
+    color: $recent-project-text-color;
+  }
+}
+
+#project-summary {
+  background-color: $logo-font-color;
+  width: 18rem;
+  height: 2.125rem;
+  border-radius: 0.563rem;
+
+  @media (max-width: $project-summary-max-width) {
+    width: 100%;
+    max-width: 18rem;
+  }
+}
+
+.project-search-and-sort {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-list {
+  height: auto;
+  margin-top: 2rem;
+}
+
+.load-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: underline;
+  cursor: pointer;
+}

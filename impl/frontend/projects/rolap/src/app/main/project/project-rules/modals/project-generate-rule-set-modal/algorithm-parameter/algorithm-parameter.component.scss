@@ -1,0 +1,30 @@
+$hint-col-width: 3rem;
+
+.param-col {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+  width: calc(100% - #{$hint-col-width});
+  max-width: 600px;
+  flex-wrap: wrap;
+}
+
+.hint-col {
+  width: $hint-col-width;
+  display: flex;
+  align-items: flex-start;
+}
+
+.param-name {
+  height: 2.2rem;
+  width: 55%;
+  min-width: 230px;
+}
+
+.btn-icon {
+  font-size: 0.7rem;
+}
+
+.expert-parameter-display {
+  width: 100%;
+}

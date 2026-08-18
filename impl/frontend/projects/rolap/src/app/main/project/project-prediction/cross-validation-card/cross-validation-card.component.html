@@ -1,0 +1,42 @@
+<rolap-card>
+  <rolap-title class="flex justify-between">
+    <div class="flex">
+      <h2>{{ 'project.prediction.cross_validation' | translate }}</h2>
+      <rolap-tooltip [tooltip]="'tooltips.rules_table.cross_validation_results' | translate" />
+    </div>
+  </rolap-title>
+  <h3 class="mb2" *ngIf="numOfFolds">{{ 'project.prediction.num_of_folds' | translate }} {{ numOfFolds }}</h3>
+  <dx-data-grid
+    [dataSource]="dataSource"
+    [showBorders]="true"
+    [noDataText]="'project.prediction.data_loading' | translate"
+    [customizeColumns]="customizeColumns"
+    [columnMinWidth]="30"
+    [columnAutoWidth]="true"
+    [wordWrapEnabled]="true"
+    dataRowTemplate="crossValidationTemplate">
+    <ng-container *dxTemplate="let item of 'crossValidationTemplate'">
+      <tr class="dx-row dx-data-row dx-row-lines">
+        <td *ngFor="let item of item.data | keyvalue : originalOrder">
+          <ng-container [ngTemplateOutlet]="displayCell" [ngTemplateOutletContext]="{ data: item.value }" />
+        </td>
+      </tr>
+    </ng-container>
+
+    <div *dxTemplate="let d of 'translateTemplateHeader'">
+      <div class="flex">
+        <span class="ml1 center-vertical"> {{ 'project.prediction.' + d.column.dataField | translate }} </span>
+      </div>
+    </div>
+
+    <dxo-scrolling [useNative]="true" />
+  </dx-data-grid>
+  <rolap-card-footer />
+</rolap-card>
+
+<ng-template #displayCell let-data="data">
+  <ng-container *ngIf="!data.isBold; else boldContent">{{ data.value }}</ng-container>
+  <ng-template #boldContent
+    ><b>{{ data.value }}</b></ng-template
+  >
+</ng-template>

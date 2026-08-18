@@ -1,0 +1,15 @@
+<ng-container *ngIf="firstName$ | async as firstName">
+  <div class="relative" (clickOutside)="closeDropdown()">
+    <button [tabIndex]="1" (click)="toggleDropdown()" data-cy="user-info-menu">
+      <app-avatar
+        *ngIf="showAvatar"
+        [avatarDiameter]="avatarDiameter"
+        [class.margin-10]="showName"
+        [userName]="firstName"
+        class="noselect">
+      </app-avatar>
+      <span *ngIf="showName" class="block margin-10">{{ firstName }} <i class="dx-icon-chevrondown"></i></span>
+    </button>
+    <rolap-user-context-menu [hidden]="!isOpen" />
+  </div>
+</ng-container>

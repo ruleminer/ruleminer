@@ -1,0 +1,17 @@
+@import 'variables';
+
+:host ::ng-deep {
+  .dx-datagrid-borders>.dx-datagrid-header-panel {
+    display: none;
+  }
+}
+
+span {
+  font-size: 12px;
+  font-weight: 400;
+  color: $induction-params;
+}
+
+.correlation-table {
+  max-height: 450px;
+}

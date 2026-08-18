@@ -1,0 +1,75 @@
+<dx-accordion
+  *ngIf="problemType === ProblemTypes.Classification; else attributeSelect"
+  #accordion
+  [dataSource]="decisionClasses"
+  [collapsible]="true"
+  [multiple]="true"
+  [animationDuration]="250"
+  class="accordion">
+  <div *dxTemplate="let decisionClass of 'title'" class="flex justify-between">
+    <span class="decision-class">{{ decisionClass }}</span>
+    <span class="mr3">{{ selectedAttributesCounts[decisionClass] }}</span>
+  </div>
+  <div *dxTemplate="let decisionClass of 'item'">
+    <ng-container [ngTemplateOutlet]="attributeSelect" [ngTemplateOutletContext]="{ class: decisionClass }">
+    </ng-container>
+  </div>
+</dx-accordion>
+
+<ng-template #attributeSelect let-class="class">
+  <div class="dx-field" *ngIf="model && occurrencesModel">
+    <div class="dx-field-label">
+      {{ 'project.expert_induction.select_attributes' | translate }}
+    </div>
+    <div>
+      <dx-tag-box
+        [value]="problemType === ProblemTypes.Classification ? $any(model)[class] : model"
+        (onValueChanged)="onAttributesSelectionChange($event.value, class)"
+        [items]="attributesChoice"
+        [width]="'100%'"
+        [showSelectionControls]="true"
+        [searchEnabled]="true"
+        applyValueMode="useButtons"
+        stylingMode="outlined">
+      </dx-tag-box>
+    </div>
+  </div>
+  <ul>
+    <li
+      *ngFor="let item of problemType === ProblemTypes.Classification ? $any(model)[class] : model; let i = index"
+      class="flex justify-between items-end mb1 mt1">
+      <div class="dx-tag">
+        <div class="dx-tag-content">
+          <span>{{ item }}</span>
+          <div (click)="removeAttribute(i, class)" class="dx-tag-remove-button"></div>
+        </div>
+      </div>
+      <div class="dx-field occurence-field">
+        <div *ngIf="i === 0" class="dx-field-label text-right p0">
+          {{ 'project.expert_induction.attributes_textbox' | translate }}
+        </div>
+        <div class="flex justify-end">
+          <dx-number-box
+            format="#"
+            [min]="1"
+            [value]="
+              problemType === ProblemTypes.Classification
+                ? $any(occurrencesModel)[class][item]
+                : $any(occurrencesModel)[item]
+            "
+            [placeholder]="'project.expert_induction.occurrence_empty_value' | translate"
+            (onValueChanged)="onOccurrenceChange($event.value, item, class)"
+            stylingMode="outlined"></dx-number-box>
+        </div>
+      </div>
+    </li>
+  </ul>
+</ng-template>
+<div class="flex flex-wrap content-end justify-end align-baseline mt3">
+  <dx-button
+    type="normal"
+    class="mr1"
+    (onClick)="modal.close()"
+    text="{{ 'project.rules.save_modal.cancel' | translate }}" />
+  <dx-button type="default" text="{{ 'project.rules.save_modal.save' | translate }}" (onClick)="submitForm()" />
+</div>

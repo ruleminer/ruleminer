@@ -1,0 +1,84 @@
+@import 'styles/mixins/tooltip';
+@import 'variables';
+
+.grid-container {
+  display: flex;
+}
+
+.data-table-column {
+  flex: 1;
+  overflow: hidden;
+}
+
+div h2 {
+  @include custom-heading;
+}
+
+.outdated-grid {
+  opacity: 0.7;
+  position: relative;
+  filter: grayscale(30%);
+  pointer-events: none !important; /* Prevents any clicks/interactions */
+  cursor: not-allowed !important;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.07);
+    z-index: 2;
+    backdrop-filter: blur(0.5px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+.skeleton-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background-color: $project-background-color;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(90deg,
+        rgba($white, 0) 0,
+        rgba($white, 0.2) 20%,
+        rgba($white, 0.5) 60%,
+        rgba(#fff, 0));
+    animation: shimmer 2s infinite;
+    content: '';
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+.overflow-cell {
+  margin: -16px -6px;
+  padding: 16px 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.table-summary {
+  font-size: 12px;
+  font-weight: 400;
+  color: $induction-params;
+  display: flex;
+  align-items: center;
+}

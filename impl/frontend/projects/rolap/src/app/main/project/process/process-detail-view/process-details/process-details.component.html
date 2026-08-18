@@ -1,0 +1,44 @@
+<ng-container *ngIf="processDetailsSignal() as details">
+  <strong>{{ 'process.table.details.details' | translate }}</strong>
+  <div class="info-group">
+    <dl class="process-description">
+      <dt *ngIf="details.meta.filter_algorithm">{{ 'process.table.details.filter_algorithm' | translate }}:</dt>
+      <dd *ngIf="details.meta.filter_algorithm">{{ details.meta.filter_algorithm }}</dd>
+
+      <dt *ngIf="details.meta.generated_rules">{{ 'process.table.details.number_of_rules' | translate }}:</dt>
+      <dd *ngIf="details.meta.generated_rules">{{ details.meta.generated_rules }}</dd>
+
+      <dt *ngIf="details.meta.uncovered_examples_count">
+        {{ 'process.table.details.uncovered_examples_count' | translate }}:
+      </dt>
+      <dd *ngIf="details.meta.uncovered_examples_count">{{ details.meta.uncovered_examples_count }}</dd>
+
+      <dt *ngIf="details.meta.total_examples_count">{{ 'process.table.details.total_examples_count' | translate }}:</dt>
+      <dd *ngIf="details.meta.total_examples_count">{{ details.meta.total_examples_count }}</dd>
+
+      <ng-container *ngIf="showStopProcessBtnSignal()">
+        <dt class="align-center">
+          <button class="status-box stop-btn" (click)="stopProcess()">
+            {{ 'process.table.stop_btn' | translate }}
+          </button>
+        </dt>
+        <dd class="stop-tooltip">
+          <rolap-tooltip [tooltip]="'process.table.tooltips.stop' | translate" />
+        </dd>
+      </ng-container>
+      <ng-container *ngIf="processStatus() as processStatus">
+        <dt class="align-center">
+          <rolap-process-status [status]="processStatus.status"></rolap-process-status>
+        </dt>
+        <dd class="stop-tooltip">
+          <rolap-tooltip [tooltip]="processStatus.statusLowerCaseTooltipText | translate" />
+        </dd>
+      </ng-container>
+      <dt>{{ 'process.table.details.params' | translate }}:</dt>
+      <dd>
+        <ng-container *ngFor="let param of processParams()">
+          <rolap-process-params [param]="param"></rolap-process-params>
+        </ng-container>
+      </dd>
+    </dl></div
+></ng-container>

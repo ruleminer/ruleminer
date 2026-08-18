@@ -1,0 +1,16 @@
+<ng-container *ngIf="preparedHistoryDetails() as details">
+  <div class="mt1 mb1 flex flex-column">
+    <p>
+      <strong>{{ 'process.table.details.title' | translate }}</strong
+      >: {{ details.title }}
+    </p>
+    <p>
+      <strong>{{ 'process.table.details.type' | translate }}</strong
+      >: {{ details.type }}
+    </p>
+  </div>
+</ng-container>
+<strong>{{ 'process.table.details.history' | translate }}</strong>
+<div class="info-group">
+  <rolap-process-history />
+</div>

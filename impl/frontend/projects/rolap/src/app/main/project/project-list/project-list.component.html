@@ -1,0 +1,25 @@
+<div class="projects-container" data-cy="project-list">
+  <ng-container *ngIf="projects; then showProjects; else noProjectsFound"> </ng-container>
+</div>
+
+<ng-template #showProjects>
+  <dx-scroll-view [useNative]="false" [showScrollbar]="'always'" [height]="'100%'">
+    <div class="project-grid">
+      <ng-container *ngFor="let project of projects">
+        <rolap-project-tile
+          [id]="project.id"
+          [name]="project.name"
+          [type]="project.type_of_problem"
+          [description]="project.description"
+          [last_opened_at]="project.last_opened_at"
+          [created_at]="project.created_at"
+          [updated_at]="project.updated_at"
+          (projectDeleted)="onProjectDeleted()"
+          (projectUpdated)="onProjectUpdated()" />
+      </ng-container>
+    </div>
+  </dx-scroll-view>
+</ng-template>
+<ng-template #noProjectsFound>
+  <p class="block">{{ 'project.project_not_found' | translate }}</p>
+</ng-template>

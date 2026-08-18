@@ -1,0 +1,9 @@
+<div
+  id="avatar-circle"
+  class="noselect"
+  [title]="userName"
+  [ngStyle]="{ 'background-color': color, 'width.px': avatarDiameter, 'height.px': avatarDiameter }">
+  <svg xmlns="http://www.w3.org/2000/svg" [attr.viewBox]="'0 0 ' + avatarDiameter + ' ' + avatarDiameter">
+    <text x="50%" y="54%" [ngStyle]="{ 'font-size.px': avatarDiameter / 2.4 }">{{ avatarLetters }}</text>
+  </svg>
+</div>

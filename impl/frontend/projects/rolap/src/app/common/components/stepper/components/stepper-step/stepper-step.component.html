@@ -1,0 +1,5 @@
+<span [class.active]="active" [class.disabled]="disabled" class="step-link">
+  <rolap-stepper-step-header *ngIf="isVisible" [active]="active" [stepNumber]="index + 1">
+    <ng-content select="[step-header]"></ng-content>
+  </rolap-stepper-step-header>
+</span>

@@ -1,0 +1,35 @@
+@import 'variables';
+
+.status {
+  font-weight: 500;
+  margin-right: 0.5rem;
+  text-transform: uppercase;
+}
+
+.history-success {
+  color: $process-status-success-bg-color;
+}
+
+.history-pending {
+  color: $process-status-pending-bg-color;
+}
+
+.history-started {
+  color: darken($process-status-started-bg-color, 15%);
+}
+
+.history-failure {
+  color: $process-status-failure-bg-color;
+}
+
+.history-aborted {
+  color: $process-status-aborted-bg-color;
+}
+
+.history-stopped {
+  color: $process-status-stopped-bg-color;
+}
+
+.history-stopping {
+  color: $process-status-stopping-bg-color;
+}

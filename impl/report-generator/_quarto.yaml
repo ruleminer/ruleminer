@@ -1,0 +1,15 @@
+project:
+  type: default
+
+execute:
+  echo: false
+  freeze: false
+
+format:
+  html:
+    html-table-processing: none
+    embed-resources: true
+    anchor-sections: false
+    grid:
+      body-width: 1000px
+      margin-width: 100px

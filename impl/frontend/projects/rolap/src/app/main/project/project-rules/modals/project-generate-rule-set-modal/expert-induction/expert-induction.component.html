@@ -1,0 +1,36 @@
+<div class="p2 mt2 border rounded" data-cy="expert-induction-container" *ngIf="expertParameters.length > 0">
+  <rolap-title class="flex justify-between items-center mb1">
+    <h2 data-cy="expert-induction-title" class="flex items-center">
+      {{ 'project.rules.add_new_modal.experts_induction' | translate }}
+      <rolap-tooltip data-cy="expert-induction-tooltip" [tooltip]="'tooltips.generate_rule.induction' | translate" />
+    </h2>
+    <div class="flex items-center">
+      <dx-switch
+        [attr.data-cy]="'expert-induction-switch'"
+        class="mr2"
+        [value]="isExpertsInduction"
+        (onValueChanged)="onSwitchValueChange($event.value)" />
+      <div class="expand-toogle-container">
+        <dx-button
+          [attr.data-cy]="'expert-induction-expand-button'"
+          *ngIf="isExpertsInduction"
+          stylingMode="contained"
+          [icon]="isExpanded ? 'spindown' : 'spinup'"
+          (click)="isExpanded = !isExpanded"
+          class="color-inherit fs2 button-position">
+        </dx-button>
+      </div>
+    </div>
+  </rolap-title>
+  <form data-cy="expert-induction-parameters-form" [rolapCollapse]="isExpanded" [formGroup]="expertParamsGroup">
+    <rolap-algorithm-parameter
+      *ngFor="let parameter of expertParameters"
+      [ids]="ids"
+      [parameter]="parameter"
+      [control]="expertParamsGroup.get(parameter.name)!"
+      [currentLanguage]="currentLanguage"
+      [attributes]="attributes"
+      [problemType]="problemType"
+      [classDistribution]="classDistribution" />
+  </form>
+</div>

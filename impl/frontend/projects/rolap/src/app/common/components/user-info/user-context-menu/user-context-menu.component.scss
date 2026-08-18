@@ -1,0 +1,18 @@
+@import 'variables';
+
+.dropdown-content {
+  background-color: $white;
+  width: 12em;
+  right: 0;
+
+  button {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: left;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

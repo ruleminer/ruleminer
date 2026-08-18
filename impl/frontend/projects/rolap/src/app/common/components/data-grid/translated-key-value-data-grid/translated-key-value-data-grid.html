@@ -1,0 +1,33 @@
+<ng-container *ngIf="hasData; then showDataGrid else showNoData"></ng-container>
+
+<ng-template #showDataGrid>
+  <dx-data-grid
+    [wordWrapEnabled]="true"
+    [dataSource]="dataSource"
+    [showBorders]="true"
+    [height]="finalHeight"
+    [scrolling]="{ mode: 'virtual', useNative:true, showScrollbar: 'always' }"
+    [customizeColumns]="customizeColumns"
+    (onContentReady)="onContentReady($event)"
+    [noDataText]="'project.rules.table.data_loading' | translate">
+    <div *dxTemplate="let d of 'translateTemplateHeader'">
+      <div class="flex">
+        <span class="ml1 center-vertical"> {{translationKey +'.'+ d.column.dataField | translate }} </span>
+      </div>
+    </div>
+
+    <div *dxTemplate="let d of 'keyCellTemplate'">
+      <rolap-tooltip
+        class="inline-block"
+        [customClasses]="'btn-tiny'"
+        [data]="indicatorsDescriptions()![d.data.originalKey]" />
+      {{ d.data.key }}
+    </div>
+  </dx-data-grid>
+</ng-template>
+
+<ng-template #showNoData>
+  <div class="dx-datagrid-rowsview dx-datagrid-nowrap dx-empty border mt1">
+    <span class="dx-datagrid-nodata">{{ 'no_data' | translate}}</span>
+  </div>
+</ng-template>

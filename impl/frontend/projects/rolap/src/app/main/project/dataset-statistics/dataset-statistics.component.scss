@@ -1,0 +1,19 @@
+.statistics-wrapper {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr;
+
+  gap: 10px;
+}
+.item1 {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+.item2 {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+}
+.item3 {
+  grid-row: 3 / 4;
+  grid-column: 1 / 2;
+}

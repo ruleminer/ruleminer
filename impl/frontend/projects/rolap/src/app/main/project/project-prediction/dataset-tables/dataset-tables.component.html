@@ -1,0 +1,13 @@
+<rolap-prediction-percentage [predictionPercentage]="predictionPercentage" />
+<rolap-prediction-item [indicator]="generalIndicators" [show]="true" />
+
+<div class="flex mt1">
+  <p *ngIf="!arePredictionIndicatorsEmpty" class="bold center-vertical">
+    {{ 'project.prediction.specific_decision_class' | translate }}
+  </p>
+  <rolap-tooltip *ngIf="problemType === 'classification'" [tooltip]="specificDecisionClass | translate" />
+</div>
+
+<ng-container *ngFor="let indicator of predictionIndicators | keyvalue; first as isFirst">
+  <rolap-prediction-item [indicator]="indicator.value" [title]="indicator.key" [show]="false" />
+</ng-container>

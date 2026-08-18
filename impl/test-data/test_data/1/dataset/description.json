@@ -1,0 +1,41 @@
+{
+  "name": "diabetes_small_768",
+  "description": "small dataset (768 rows) with big ruleset (449 rules)",
+  "selected_columns": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "assigned_column_types": [
+    "num",
+    "num",
+    "num",
+    "num",
+    "num",
+    "num",
+    "num",
+    "num",
+    "cat"
+  ],
+  "assigned_column_classes": [
+    "attr",
+    "attr",
+    "attr",
+    "attr",
+    "attr",
+    "attr",
+    "attr",
+    "attr",
+    "class"
+  ],
+  "missing_value_sign": "nan",
+  "encoding": "utf-8",
+  "delimiter": ",",
+  "decimal_separator": "."
+}

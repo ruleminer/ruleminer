@@ -1,0 +1,30 @@
+<form [formGroup]="form">
+  <div class="dx-field">
+    <div class="dx-field-label">{{ 'project.description_tab.title_label' | translate }}</div>
+    <dx-text-box
+      name="title"
+      formControlName="title"
+      stylingMode="outlined"
+      valueChangeEvent="keyup"
+      [validationStatus]="!!form.controls['title'].errors ? 'invalid' : 'valid'">
+    </dx-text-box>
+    <div class="mt1 ml1">
+      <rolap-validation-message [fieldName]="FieldName.RULE_NAME" [control]="form.controls['title']" />
+    </div>
+  </div>
+  <div class="dx-field">
+    <rolap-text-area label="project.description_tab.desc_label" [height]="350" formControlName="description" />
+    <div class="mt1 ml1">
+      <rolap-validation-message [fieldName]="FieldName.RULE_DESCRIPTION" [control]="form.controls['description']" />
+    </div>
+  </div>
+  <div class="flex justify-end">
+    <dx-button
+      text="{{ 'project.button.save' | translate }}"
+      [disabled]="!form.valid"
+      stylingMode="contained"
+      type="default"
+      [useSubmitBehavior]="true"
+      (onClick)="submit()" />
+  </div>
+</form>

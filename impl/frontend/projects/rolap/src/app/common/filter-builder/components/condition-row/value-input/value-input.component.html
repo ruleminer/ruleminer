@@ -1,0 +1,66 @@
+<ng-container *ngIf="isValueRequired">
+  <div class="flex" *ngIf="isBetweenOperator; else singleValueInput">
+    <ng-container [ngSwitch]="effectiveDataType">
+      <dx-number-box *ngSwitchCase="'numeric'" [formControl]="valueControl"
+        [placeholder]="'value_input.start' | translate" class="condition-part between-part"
+        [attr.data-cy]="'condition-row-value-input-numeric-start-' + rowIndex" width="150px" stylingMode="outlined">
+      </dx-number-box>
+      <span *ngSwitchDefault class="condition-part"></span>
+    </ng-container>
+    <span class="between-separator">and</span>
+    <ng-container *ngIf="valueEndControl">
+      <ng-container [ngSwitch]="effectiveDataType">
+        <dx-number-box *ngSwitchCase="'numeric'" [formControl]="valueEndControl"
+          [placeholder]="'value_input.end' | translate" class="condition-part between-part"
+          [attr.data-cy]="'condition-row-value-input-numeric-end-' + rowIndex" width="150px" stylingMode="outlined">
+        </dx-number-box>
+        <span *ngSwitchDefault class="condition-part"></span>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  <ng-template #singleValueInput>
+    <ng-container *ngIf="isAttrOperator || (selectedField?.lookup?.dataSource ?? []).length > 0; else typedInput">
+      <dx-select-box [formControl]="valueControl" [items]="getLookupOptions()" displayExpr="text" valueExpr="value"
+        [placeholder]="'value_input.select' | translate" [searchEnabled]="true" class="condition-part"
+        [attr.data-cy]="'condition-row-value-input-select-' + rowIndex" width="150px" stylingMode="outlined" />
+    </ng-container>
+
+    <ng-template #typedInput>
+      <ng-container [ngSwitch]="effectiveDataType">
+        <dx-text-box *ngSwitchCase="'text'" [formControl]="valueControl"
+          [placeholder]="'value_input.enter_value' | translate" class="condition-part"
+          [attr.data-cy]="'condition-row-value-input-text-' + rowIndex" width="150px" stylingMode="outlined" />
+        <dx-number-box *ngSwitchCase="'numeric'" [formControl]="valueControl"
+          [placeholder]="'value_input.enter_number' | translate" class="condition-part"
+          [attr.data-cy]="'condition-row-value-input-numeric-' + rowIndex" width="150px" stylingMode="outlined" />
+        <dx-select-box *ngSwitchCase="'boolean'" [formControl]="valueControl" [items]="[
+            { value: 'True', text: 'True' },
+            { value: 'False', text: 'False' },
+          ]" displayExpr="text" valueExpr="value" placeholder="Select..." class="condition-part"
+          [attr.data-cy]="'condition-row-value-input-boolean-' + rowIndex" width="150px" stylingMode="outlined" />
+        <dx-text-box *ngSwitchDefault [formControl]="valueControl" [placeholder]="'value_input.enter_value' | translate"
+          class="condition-part" [attr.data-cy]="'condition-row-value-input-default-' + rowIndex" width="150px"
+          stylingMode="outlined" />
+      </ng-container>
+    </ng-template>
+  </ng-template>
+  <rolap-attr-min-max-value-info *ngIf="selectedField?.dataField" [attributeName]="selectedField?.dataField" />
+
+  <div *ngIf="
+      valueControl?.invalid &&
+      valueControl?.touched &&
+      valueControl?.enabled
+    " class="validation-error" [attr.data-cy]="'condition-row-value-validation-error-' + rowIndex">
+    {{ 'validation_errors.value_required_invalid' | translate }}
+  </div>
+
+
+  <div *ngIf="
+      valueEndControl?.invalid &&
+      valueEndControl?.touched &&
+      valueEndControl?.enabled
+    " class="validation-error" [attr.data-cy]="'condition-row-value-end-validation-error-' + rowIndex">
+    {{ 'validation_errors.end_value_required_invalid' | translate }}
+  </div>
+</ng-container>

@@ -1,0 +1,4 @@
+<div *ngIf="title" class="dx-field-label card-control-label flex">
+  <span class="center-vertical">{{ title.title | translate }}</span>
+  <rolap-tooltip *ngIf="title.tooltip" [tooltip]="title.tooltip | translate" />
+</div>

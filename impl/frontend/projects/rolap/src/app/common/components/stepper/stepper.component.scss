@@ -1,0 +1,41 @@
+@import 'variables';
+@import './stepper_variables.scss';
+
+:host {
+  --current-step-index: 0;
+  --steps-count: 0;
+}
+
+.step-list {
+  background-color: transparent;
+  border-radius: 1px solid $step-line-color;
+  display: flex;
+  position: relative;
+  margin-bottom: 1rem;
+  padding-top: 0.625rem;
+
+  &::after {
+    content: '';
+    background-color: $table-icon-color;
+    width: calc(100% - (100% / var(--steps-count)));
+    height: 2px;
+    display: block;
+    position: absolute;
+    top: calc(#{$step-number-height + 1} / 2);
+    left: calc(100% / var(--steps-count) / 2);
+    opacity: 0.4;
+  }
+
+  &::before {
+    transition: width 0.2s ease-in-out;
+    content: '';
+    background-color: $table-icon-color;
+    width: calc((100% * (var(--current-step-index) / var(--steps-count))));
+    height: 3px;
+    display: block;
+    position: absolute;
+    top: calc(#{$step-number-height + 1} / 2 - 1px);
+    left: calc(100% / var(--steps-count) / 2);
+    opacity: 0.4;
+  }
+}

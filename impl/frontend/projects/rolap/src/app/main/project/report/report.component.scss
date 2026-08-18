@@ -1,0 +1,13 @@
+@import 'mixins/card';
+
+.report-card {
+  @include card;
+  padding: 1rem;
+  min-height: auto;
+  height: 95%;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}

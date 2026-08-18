@@ -1,0 +1,49 @@
+@import 'variables';
+
+.tables-container {
+  width: 100%;
+  display: flex;
+  overflow-x: scroll;
+}
+
+.tables-container .table-container {
+  border-left: 2px solid $sub-title-color;
+  border-right: 2px solid $sub-title-color;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+.tables-container .table-container:first-child {
+  border-left: none;
+}
+
+.tables-container .table-container:last-child {
+  border-right: none;
+}
+
+.header {
+  width: inherit;
+  box-sizing: border-box;
+  display: grid;
+  place-items: flex-start;
+  border: 1px solid $base-border-color;
+  padding: 7px 0px;
+  font-size: 14px;
+  height: auto;
+
+  span {
+    font-weight: 700;
+    color: $sub-title-color;
+    margin-left: 0.5em;
+  }
+}
+
+:host ::ng-deep>.tables-pager {
+  .dx-datagrid-headers {
+    display: none !important;
+  }
+
+  .dx-datagrid-rowsview {
+    display: none !important;
+  }
+}

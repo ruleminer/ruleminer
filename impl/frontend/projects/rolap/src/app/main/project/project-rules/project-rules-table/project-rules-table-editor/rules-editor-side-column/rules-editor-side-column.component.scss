@@ -1,0 +1,9 @@
+@import 'variables';
+
+.bg-darker {
+  background-color: $project-background-color;
+}
+
+.side-column {
+  margin-right: calc(-1 * var(--space-2));
+}

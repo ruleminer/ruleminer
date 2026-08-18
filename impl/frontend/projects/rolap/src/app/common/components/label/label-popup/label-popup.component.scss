@@ -1,0 +1,75 @@
+@import 'variables';
+
+.label-popup {
+  background-color: $label-popup-background-color;
+  border-radius: $label-popup-border-radius;
+  box-shadow: 0 1rem 3rem rgb(0 0 0 / 45%);
+  width: 300px;
+}
+
+.header-padding {
+  padding: $label-popup-padding;
+}
+
+.header-btn {
+  width: $label-popup-header-btn-width;
+  color: $label-popup-header-icon-color;
+
+  &:hover {
+    background-color: $label-popup-header-btn-hover-background;
+    color: darken($label-popup-header-icon-color, 5%);
+  }
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.popup-footer {
+  padding: $label-popup-padding;
+}
+
+.footer-add {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 50px;
+}
+
+.footer-edit {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.popup-title {
+  font-weight: 600;
+}
+
+.popup-back-btn {
+  border-radius: $label-popup-border-radius 0 0 0;
+}
+
+.popup-close-btn {
+  border-radius: 0 $label-popup-border-radius 0 0;
+}
+
+.add-new {
+  font-size: smaller;
+  text-align: center;
+  margin: 5px;
+  color: $sub-title-color;
+  transition: color $color-transition-time ease-out;
+
+  fa-icon {
+    margin-right: 5px;
+  }
+
+  &:hover {
+    color: $project-color;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}

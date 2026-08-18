@@ -1,0 +1,14 @@
+<ng-container *ngIf="isNumberOfFilteredRowZero(); then emptyTable; else filteredCount"> </ng-container>
+
+<ng-template #emptyTable>
+  <rolap-info mode="warning" class="my1">
+    {{ 'project.rules.table_info.table_is_empty' | translate }}
+  </rolap-info>
+</ng-template>
+
+<ng-template #filteredCount>
+  <p class="mb1">
+    {{ 'project.rules.table_info.summary_number_of_filtered_count' | translate }}
+    <span>{{ numberOfFilteredRows() }}</span>
+  </p>
+</ng-template>

@@ -1,0 +1,53 @@
+@import 'variables';
+
+.icon-secondary {
+  color: $table-icon-color;
+  transition: color $color-transition-time ease-out;
+
+  &:not(.no-hover) {
+    &:hover {
+      cursor: pointer;
+      color: $primary-icon-color;
+    }
+
+    &:active {
+      color: darken($primary-icon-color, 5%);
+    }
+  }
+}
+
+button[disabled] {
+  cursor: unset;
+
+  .icon-secondary {
+    cursor: unset;
+    color: $disabled-color;
+
+    &:hover {
+      cursor: unset;
+      color: $disabled-color;
+    }
+  }
+}
+
+.icon-primary {
+  color: $primary-icon-color;
+
+  &:hover {
+    color: darken($primary-icon-color, 4%);
+  }
+}
+
+.icon-card {
+  font-size: 18px;
+}
+
+.icon-close-tab {
+  color: $table-icon-color;
+  margin-left: 0.5rem;
+  transition: color $color-transition-time ease-out;
+
+  &:hover {
+    color: $times-icon-hover-color;
+  }
+}

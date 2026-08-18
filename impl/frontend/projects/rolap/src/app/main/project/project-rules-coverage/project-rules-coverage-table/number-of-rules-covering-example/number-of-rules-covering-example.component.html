@@ -1,0 +1,13 @@
+<ng-container *ngIf="rules">
+  <span (mouseenter)="showTooltip()" (mouseleave)="hideTooltip()" [attr.id]="id">{{ rules.length }}</span>
+
+  <dx-tooltip [target]="'#' + id">
+    <div *dxTemplate="let _ = data; of: 'content'" class="tooltip-content">
+      <ul class="mt1 rule-list" *ngIf="rules">
+        <li class="inline mr1 mb1" *ngFor="let rule of rules">
+          <rolap-rule-chips [rule]="rule" />
+        </li>
+      </ul>
+    </div>
+  </dx-tooltip>
+</ng-container>

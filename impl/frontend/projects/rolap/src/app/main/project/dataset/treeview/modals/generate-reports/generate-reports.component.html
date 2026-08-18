@@ -1,0 +1,52 @@
+<section class="p4 breakpoint-container">
+  <div class="row">
+    <button class="card-style" (click)="handleDataExploration()">
+      <img src="../../../../../../../assets/images/data_exploration.svg" alt="data_exploration" class="card-image" />
+      <div class="card-content">
+        <strong class="title m0">{{
+          'project.treeview.context_menu.modal.generate_reports.explorative_data_analysis' | translate
+        }}</strong>
+        <p class="description m0">
+          {{
+            'project.treeview.context_menu.modal.generate_reports.report_description.explorative_data_analysis'
+              | translate
+          }}
+        </p>
+      </div>
+    </button>
+
+    <button class="card-style" (click)="handleKnowledgeGeneration()">
+      <img
+        src="../../../../../../../assets/images/knowledge_discovery.svg"
+        alt="knowledge_discovery"
+        class="card-image" />
+      <div class="card-content">
+        <strong class="title m0">{{
+          'project.treeview.context_menu.modal.generate_reports.knowledge_discovery' | translate
+        }}</strong>
+        <p class="description m0">
+          {{
+            'project.treeview.context_menu.modal.generate_reports.report_description.knowledge_discovery' | translate
+          }}
+        </p>
+      </div>
+    </button>
+
+    <button class="card-style" (click)="handlePredictiveAnalysis()">
+      <img
+        src="../../../../../../../assets/images/prediction_analysis.svg"
+        alt="prediction_analysis"
+        class="card-image" />
+      <div class="card-content">
+        <strong class="title m0">{{
+          'project.treeview.context_menu.modal.generate_reports.predictive_analisys' | translate
+        }}</strong>
+        <p class="description m0">
+          {{
+            'project.treeview.context_menu.modal.generate_reports.report_description.predictive_analysis' | translate
+          }}
+        </p>
+      </div>
+    </button>
+  </div>
+</section>

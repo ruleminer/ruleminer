@@ -1,0 +1,45 @@
+<rolap-info
+  class="my2"
+  *ngIf="showNeedsRecalculationInfo$ | async"
+  [mode]="'warning'"
+  data-cy="example-needs-recalculation-info">
+  {{ 'project.example.warrning' | translate }}
+</rolap-info>
+
+<ng-container *ngIf="decision$ | async as decision">
+  <!-- INFORMATION ABOUT PREDICTION USING EMPTY RULESET -->
+
+  <rolap-info class="mb2" *ngIf="noRulesCoveringExample$ | async">
+    {{ 'project.example.empty_ruleset_info' | translate }}
+  </rolap-info>
+
+  <p *ngIf="decisionVariable$ | async as decisionVariable">
+    <span class="mr1">
+      {{ 'project.example.decision_variable' | translate }}
+    </span>
+    <span class="accent-color">{{ decisionVariable }}</span>
+  </p>
+  <p class="flex items-center">
+    <span class="mr1">
+      {{ 'project.example.decision' | translate }}
+    </span>
+    <rolap-coverage-prediction-column-cell
+      *ngIf="problemType$ | async as problemType"
+      [problemType]="problemType"
+      [prediction]="decision"
+      [colored]="true"
+      [exampleIndex]="exampleIndex" />
+  </p>
+  <p class="mt2">{{ 'project.example.list' | translate }}</p>
+
+  <ng-container *ngIf="exampleHasResult$ | async; else noData">
+    <rolap-project-rules-table
+      *ngIf="projectRulesTableData$ | async as projectRulesTableData"
+      [data]="projectRulesTableData"
+      data-cy="example-project-rules-table" />
+  </ng-container>
+</ng-container>
+
+<ng-template #noData>
+  <p>{{ 'project.example.no_data' | translate }}</p>
+</ng-template>

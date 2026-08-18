@@ -1,0 +1,23 @@
+@import 'variables';
+
+:host ::ng-deep {
+  .dx-button {
+    border-color: $button-color !important;
+
+    .dx-button-text {
+      color: $button-color !important;
+    }
+
+    .dx-icon {
+      color: $button-color !important;
+    }
+
+    &:hover {
+      border-color: darken($button-color, 10%) !important;
+    }
+
+    &:focus {
+      outline: none !important;
+    }
+  }
+}

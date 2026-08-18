@@ -1,0 +1,16 @@
+<dx-button class="mb2" [text]="'auth.profile.back_btn' | translate" type="default" (onClick)="onBackBtnClick()">
+</dx-button>
+
+<rolap-card class="block">
+  <rolap-title>
+    <h2>
+      {{ 'auth.profile.user_panel' | translate }}
+    </h2>
+  </rolap-title>
+
+  <ng-container *ngIf="userInfo() as user">
+    <rolap-account [email]="user.email" [limits]="user.current_limits"/>
+    <rolap-settings />
+    <rolap-subscription-plan [plan]="user.plan" [limits]="user.current_limits" />
+  </ng-container>
+</rolap-card>

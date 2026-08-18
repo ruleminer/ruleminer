@@ -1,0 +1,13 @@
+:host ::ng-deep {
+  .dx-editor-cell .dx-texteditor .dx-texteditor-input {
+    height: 30px;
+    line-height: 30px;
+  }
+  .dx-datagrid-rowsview.dx-empty {
+    height: auto;
+  }
+}
+
+rolap-project-example-item {
+  display: block;
+}

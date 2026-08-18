@@ -1,0 +1,148 @@
+<form class="content" *ngIf="!loading; else loadingTemplate" [formGroup]="form">
+  <div class="p2 border rounded" id="configuration">
+    <div class="flex items-center mb1" *ngIf="algorithm.na_generation">
+      <h2 class="mr2">{{ 'project.rules.configuration' | translate }}:</h2>
+      <dx-radio-group
+        class="dx-radio-value-container"
+        [items]="[RuleSetConfigurations.Simple, RuleSetConfigurations.Advanced]"
+        [value]="generationMethod"
+        layout="horizontal"
+        (onValueChanged)="onGenerationMethodChange($event)">
+        <div *dxTemplate="let item of 'item'">
+          <div class="flex">
+            <div class="center-vertical">{{ 'project.rules.' + item | translate }}</div>
+          </div>
+        </div>
+      </dx-radio-group>
+    </div>
+    <!-- OTHER SECTIONS -->
+    <ng-container *ngIf="generationMethod === RuleSetConfigurations.Advanced; else notAdvancedTemplate">
+      <rolap-title class="flex justify-between">
+        <h2>{{ 'project.rules.add_new_modal.algorithm_parameters' | translate }}</h2>
+      </rolap-title>
+      <ng-container [formGroupName]="'algorithmParams'">
+        <div class="algorithms-params" *ngFor="let param of algorithmParams.parameters">
+          <div class="mt2 flex flex-wrap content-center align-baseline">
+            <label class="flex items-center mr2">{{ $any(param)['parameter_name_' + currentLanguage] }}</label>
+            <ng-container [ngSwitch]="param.parameter_type">
+              <ng-container *ngSwitchCase="'choice'">
+                <dx-select-box
+                  *ngIf="param.parameter_values"
+                  [items]="param.parameter_values"
+                  displayExpr="value"
+                  valueExpr="value"
+                  formControlName="{{ param.name }}"
+                  [inputAttr]="{ 'aria-label': $any(param)['parameter_name_' + currentLanguage] }"
+                  stylingMode="outlined"
+                  class="input mb1" />
+              </ng-container>
+
+              <dx-number-box
+                *ngSwitchCase="'int'"
+                formControlName="{{ param.name }}"
+                [min]="param.min_value"
+                [max]="param.max_value"
+                [value]="param.default_value"
+                [inputAttr]="{ 'aria-label': $any(param)['parameter_name_' + currentLanguage] }"
+                stylingMode="outlined"
+                class="input mb1" />
+
+              <dx-number-box
+                *ngSwitchCase="'float'"
+                formControlName="{{ param.name }}"
+                [min]="param.min_value"
+                [max]="param.max_value"
+                [value]="param.default_value"
+                [inputAttr]="{ 'aria-label': $any(param)['parameter_name_' + currentLanguage] }"
+                stylingMode="outlined"
+                class="input mb1" />
+              <dx-switch
+                *ngSwitchCase="'bool'"
+                formControlName="{{ param.name }}"
+                class="input mb1"
+                [value]="param.default_value" />
+            </ng-container>
+          </div>
+          <div class="mt2">
+            <rolap-tooltip [data]="param"></rolap-tooltip>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+    <!-- PREDICTION CONFIGURATION -->
+    <div class="mt2" *ngIf="generationMethod !== RuleSetConfigurations.Simple">
+      <rolap-title class="flex justify-between">
+        <h2>{{ 'prediction_config.title' | translate }}</h2>
+      </rolap-title>
+      <rolap-ruleset-prediction-configuration class="block mt1" [data]="predictionConfigurationFormData" />
+    </div>
+  </div>
+
+  <!-- EXPERT INDUCTION -->
+  <rolap-expert-induction
+    *ngIf="algorithm.expert_induction"
+    class="grid-item"
+    [ids]="ids"
+    [decisionAttributeName]="datasetInfo.decisionAttributeName"
+    [attributes]="datasetInfo.datasetAttributes"
+    (formChange)="onExpertInductionParamsChange($event)"
+    [expertParameters]="algorithmParams.expert_parameters"
+    [problemType]="problemType"
+    [classDistribution]="datasetInfo.classDistribution"></rolap-expert-induction>
+
+  <!-- ATTRIBUTES TO OMIT -->
+  <div class="p2 mt2 border rounded">
+    <rolap-title>
+      <div class="flex">
+        <h2 class="center-vertical">{{ 'project.rules.add_new_modal.attributes_to_omit' | translate }}</h2>
+        <rolap-tooltip [tooltip]="'tooltips.generate_rule.attributes_to_omit' | translate" />
+      </div>
+    </rolap-title>
+    <div class="mt2 flex flex-wrap content-center align-baseline">
+      <div class="dx-field-value">
+        <dx-tag-box
+          [items]="datasetInfo.attributes"
+          [searchEnabled]="true"
+          [showSelectionControls]="true"
+          applyValueMode="useButtons"
+          [inputAttr]="{ 'aria-label': 'Attribute' }"
+          [(value)]="attributesToSkip"
+          stylingMode="outlined" />
+      </div>
+    </div>
+  </div>
+
+  <!-- CROSS VALIDATION -->
+  <div class="p2 mt2 mb1 border rounded">
+    <div class="flex items-center">
+      <div class="flex">
+        <dx-check-box
+          data-cy="cross-validation-checkbox"
+          formControlName="crossValidation"
+          text="{{ 'project.rules.add_new_modal.cross_validation_process' | translate }}" />
+        <rolap-tooltip [tooltip]="'tooltips.generate_rule.k_fold' | translate" />
+      </div>
+      <div class="flex ml2">
+        <label class="k-label">{{ 'project.rules.add_new_modal.num_of_folders' | translate }}</label>
+        <dx-number-box
+          [inputAttr]="{ 'aria-label': 'project.rules.add_new_modal.num_of_folders' | translate }"
+          formControlName="numFolds"
+          [min]="0"
+          [max]="100"
+          [width]="80"
+          stylingMode="outlined"
+          data-cy="cross-validation-numfolds" />
+      </div>
+    </div>
+  </div>
+</form>
+
+<ng-template #notAdvancedTemplate>
+  <rolap-simple-rules-generator [questions]="questions" (paramsChange)="onSurveyAnswersChange($event)" />
+</ng-template>
+
+<ng-template #loadingTemplate>
+  <div class="loading">
+    <dx-load-indicator height="60" width="60"></dx-load-indicator>
+  </div>
+</ng-template>

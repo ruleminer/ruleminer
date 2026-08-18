@@ -1,0 +1,12 @@
+<div class="info-group">
+  <dt class="mb1">{{ 'project.description_tab.algo_params' | translate }}</dt>
+  <dl class="process-description">
+    <dd>
+      <rolap-compare-params *ngFor="let param of algorithmParams | keyvalue" [param]="param" />
+    </dd>
+  </dl>
+  <h3 class="mt2 flex" (click)="onEffectClick()">
+    <p class="mr1">{{ 'compare.link' | translate }}</p>
+    <p class="btn-link cursor">{{ currentName }}</p>
+  </h3>
+</div>

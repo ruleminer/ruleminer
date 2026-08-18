@@ -1,0 +1,17 @@
+<div *ngIf="screenshotBase64Image" class="img-container">
+  <div class="overlay">
+    <dx-button (click)="removeScreenshot()" class="pl1 pr1" stylingMode="contained" text="Contained" type="normal">
+      <fa-icon class="mr2" [icon]="screenshotRemoveIcon"></fa-icon>
+      {{ 'report_bug.modal.remove_screenshot' | translate }}
+    </dx-button>
+  </div>
+
+  <img
+    class="mt1 mb1 screenshot"
+    [attr.src]="screenshotBase64Image"
+    [attr.alt]="'report_bug.modal.screenshot_alt' | translate" />
+</div>
+
+<rolap-info *ngIf="showPermissionDeniedInfo" class="mb1">
+  {{ 'report_bug.modal.permission_denied_info' | translate }}
+</rolap-info>

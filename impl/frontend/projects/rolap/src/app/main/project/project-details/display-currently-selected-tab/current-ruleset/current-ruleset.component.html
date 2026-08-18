@@ -1,0 +1,43 @@
+<div class="mt1 flex items-center">
+  <rolap-icons-action-bar />
+   <rolap-rule-table-save-button class="ml1"/>
+</div>
+
+<div class="flex items-center justify-between mt1">
+  <rolap-sub-tab-buttons displayType="ruleSet" />
+  <ng-container *ngFor="let item of subTabs()">
+    <div *ngIf="item.active" class="action-buttons">
+      <ng-container *ngIf="tab() && ['prediction_statistics', 'rules'].includes(item.name)">
+        <rolap-refresh-all-btn (clickEvent)="handleRefreshAll()" />
+      </ng-container>
+    </div>
+  </ng-container>
+</div>
+<div *ngFor="let item of subTabs()">
+  <ng-container *ngIf="item.active">
+    <ng-container [ngSwitch]="item.name">
+      <div *ngSwitchCase="'rules'">
+        <rolap-project-rules />
+      </div>
+      <div *ngSwitchCase="'rule_coverage'">
+        <rolap-project-rules-coverage />
+      </div>
+      <div *ngSwitchCase="'prediction_statistics'">
+        <rolap-project-prediction />
+      </div>
+      <div *ngSwitchCase="'prediction'">
+        <rolap-project-prediction-result />
+      </div>
+      <div *ngSwitchCase="'rules_comparison'">
+        <rolap-project-ruleset-comparison />
+      </div>
+      <div *ngSwitchCase="'visualization'">
+        <rolap-project-visualization />
+      </div>
+      <div *ngSwitchCase="'example'">
+        <rolap-project-example />
+      </div>
+      <div *ngSwitchCase="'description'"><rolap-project-description /></div>
+    </ng-container>
+  </ng-container>
+</div>

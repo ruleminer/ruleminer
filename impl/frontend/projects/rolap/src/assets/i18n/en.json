@@ -1,0 +1,1817 @@
+{
+  "yes": "Yes",
+  "no": "No",
+  "auth": {
+    "login": {
+      "labels": {
+        "email": "Email",
+        "password": "Password"
+      },
+      "title": "Log in",
+      "submit_button": "Log in"
+    },
+    "logout": "Log out",
+    "report_bug": "Report a bug",
+    "documentation": "Documentation",
+    "profile": {
+      "repeat_tutorial": "Do you want to repeat the tutorial?",
+      "repeat_tutorial_button": "Repeat tutorial",
+      "tutorial": "Tutorial",
+      "lang": {
+        "title": "Application Language",
+        "pl": "Polish",
+        "en": "English"
+      },
+      "limits": {
+        "current": "Limits within the current plan",
+        "max_columns": "Maximum number of columns per dataset",
+        "max_datasets": "Maximum number of datasets per project",
+        "max_projects": "Maximum number of projects",
+        "max_reports": "Maximum number of reports per dataset",
+        "max_rows": "Maximum number of rows per dataset",
+        "max_rulesets": "Maximum number of rulesets per dataset",
+        "max_size": "Maximum size of uploaded dataset",
+        "max_sum_size": "Maximum total size of uploaded datasets",
+        "space_used": "Space used"
+      },
+      "change_btn": "Change Plan",
+      "change_plan_page": " page",
+      "change_plan_link": "You can see details of plans on the",
+      "change_plan": "To change the subscription plan that interests you from the list below",
+      "change_sub": "Change Plan",
+      "subscription_plan": "Subscription Plan",
+      "current_plan": "Current Plan: ",
+      "settings": "Settings",
+      "back_btn": "Back",
+      "user_panel": "User Panel",
+      "title": "Profile",
+      "account": "Account",
+      "change_password": "Change Password",
+      "email": "Email"
+    }
+  },
+  "lang": {
+    "switch_lang": "Switch the language"
+  },
+  "validation": {
+    "project_info_name": "{{fieldName}} name is required",
+    "dataset_info_name": "Dataset name is required"
+  },
+  "form_validation_module": {
+    "required": "This field is required.",
+    "minlength": "The minimum required number of characters is {{requiredLength}}, the current number of characters is {{actualLength}}",
+    "maxlength": "The maximum allowed number of characters is {{requiredLength}}, the current number of characters is {{actualLength}}",
+    "email": "Please enter a valid email address.",
+    "pattern": "The {{name}}  may contain only English alphabet letters, digits, spaces, dashes, underscores, and square brackets",
+    "min": "The minimum value is {{min}}.",
+    "max": "The maximum value is {{max}}",
+    "names": {
+      "name": "name",
+      "project_description": "project description",
+      "project_name": "project name",
+      "dataset_description": "dataset description",
+      "dataset_name": "dataset name",
+      "rule_name": "ruleset name",
+      "rule_description": "ruleset description",
+      "report_name": "report name"
+    }
+  },
+  "validators": {
+    "seperatorEqualsDecimal": "The column separator and the decimal separator cannot be the same"
+  },
+  "toast_messages": {
+    "errors": {
+      "default": "Unexpected error. Please try again",
+      "http_errors": {
+        "400": "Invalid server request",
+        "403": "Insufficient permissions to perform the operation",
+        "404": "An error occurred. The resource at the specified address was not found",
+        "409": "A conflict occurred while performing an operation",
+        "500": "An unexpected error occurred"
+      },
+      "server_messages": {
+        "target_attribute_mismatch_error": "Name of the decision attribute in the imported ruleset differs from the name of the attribute in the dataset.",
+        "intervals_value": "The value of intervals is incorrect. The minimum value is 1 and the maximum value is 100.",
+        "rulesets_not_found": "Rulesets not found",
+        "percentage_of_noise_missing": "The survey did not specify the percentage of noise required for this set of responses",
+        "invalid_percentage_of_noise_format": "The specified noise percentage value has an invalid format. A number between 0 and 100 should be provided",
+        "no_file_provided": "No file provided",
+        "unsupported_file_type": "The format of the uploaded file is not supported. You must upload a file with the extension .json or .txt",
+        "ruleset_json_deserialization_error": "Invalid form of the ruleset sent in the .json file. Check if you have prepared the ruleset correctly",
+        "invalid_rule_format": "Invalid format of the rule sent in the .txt file. Check if you have prepared the ruleset correctly",
+        "no_example_covered_error": "The sent rules/conditions do not cover any example",
+        "attribute_mismatch_error": "The ruleset contains conditions on attributes that are not present in the dataset for which the import is taking place",
+        "projects_limit_reached": "The limit of the number of projects has been reached. Your limit is {{limit}}",
+        "datasets_limit_reached": "The limit of the number of datasets assigned to a project has been reached. Your limit is {{limit}}",
+        "rulesets_limit_reached": "The limit of the number of rule sets assigned to a dataset has been reached. Your limit is {{limit}}",
+        "reports_limit_reached": "The limit of the number of reports assigned to a dataset has been reached. Your limit is {{limit}}",
+        "missing_column": "You have uploaded the wrong file, the following columns are missing: \"{{missing_columns}}\"",
+        "invalid_request": "The name of the new dataset must be unique",
+        "task_already_completed": "The task has already been completed",
+        "task_not_found": "Task not found",
+        "algorithm_not_found": "Algorithm not found",
+        "dataset_not_found": "Dataset not found",
+        "importance_result_not_found": "Condition or attribute importance calculation results not found",
+        "prediction_result_not_found": "Prediction result not found",
+        "result_not_found": "Result not found",
+        "ruleset_not_found": "Ruleset not found",
+        "label_not_found": "Label not found",
+        "rule_not_found": "Rule not found",
+        "dataset_attributes_not_found": "Attribute(s) not found in the dataset",
+        "project_not_found": "Project not found",
+        "project_exists": "A project with the specified name already exists",
+        "dataset_exists": "Your project already contains a dataset with the same name",
+        "label_exists": "A label with the specified name already exists",
+        "ruleset_exists": "A ruleset with the same name already exists for this dataset",
+        "dataset_read_write_error": "Dataset read/write error",
+        "ruleset_not_saved": "Ruleset has not been saved",
+        "external_service_error": "External service error",
+        "task_queue_offline": "Failed to submit the task to the queue",
+        "unsupported_download_file_type": "Unsupported file format",
+        "Unknown_error": "Unknown error",
+        "parameter_required": "Missing parameter in the path (query param)",
+        "projects_not_found": "Projects not found",
+        "datasets_not_found": "Datasets not found",
+        "max_rows_limits_exceeded": "Exceeded allowable dataset size limit - rows. The current number of rows is \"{{ value }}\", the allowable number of rows is \"{{ limit }}\"",
+        "max_columns_limits_exceeded": " Exceeded allowable dataset size limit - columns. The current number of columns is \"{{ value }}\", the allowable number of columns is \"{{ limit }}\"",
+        "max_size_limits_exceeded": "Exceeded allowable dataset size limit - file size. The current size is \"{{ value }}\", the allowable limit is \"{{ limit }}\"",
+        "max_sum_size_limits_exceeded": "Exceeded allowable dataset size limit - total data size stored in the application. The current size is \"{{ value }}\", the allowable limit is \"{{ limit }}\"",
+        "unknown_error": "Unexpected error",
+        "invalid_column_type": "Invalid column type entered. The type \"{{ col_type }}\" is not supported. The supported types are: \"{{ allowed_types }}\"",
+        "inconsistent_column_types": "Failed to cast columns: \"{{ columns }}\" to data types consistent with the training dataset. Please review the dataset and upload settings.",
+        "column_casting_error": "Error casting column \"{{ col_name }}\" to type \"{{ col_type }}\"",
+        "missing_column_role": "Missing decision column(s)",
+        "invalid_encoding": "The encoding type \"{{ encoding }}\" of csv file is not supported. The allowed encoding types are: \"{{ allowed_codecs }}\"",
+        "invalid_dataset": "Invalid dataset file",
+        "empty_dataset": "Empty dataset",
+        "invalid_column_number": "The dataset has too few columns. For a problem of type \"{{ problem_type }\", the minimum number of columns in the submitted dataset must be \"{{ min_number }}\". The submitted dataset contains \"{{ number }}\" columns",
+        "invalid_column_names": "Invalid column names \"{{ columns }}\". A column name may contain only English alphabet letters (both lowercase and uppercase), digits, spaces, dashes, underscores, and square brackets",
+        "invalid_column_selection": "Incorrectly selected columns (e.g. wrong indices)",
+        "unsupported_problem_type": "Unsupported analysis type",
+        "max_rows_limit_exceeded": "Row limit exceeded. The current number of rows is \"{{ value }}\", the allowable number is \"{{ limit }}\"",
+        "report_exists": "Your project already contains a report with the same name",
+        "incorrect_report_parameters": "Incorrect report parameters have been provided",
+        "empty_label_column_values": {
+          "classification": "The decision column cannot contain empty values",
+          "regression": "The decision column cannot contain empty values",
+          "survival": "The survival status column cannot contain empty values"
+        },
+        "empty_survival_time_column_values": "The survival time column cannot contain empty values",
+        "invalid_attribute_type_error": "The decision column or the survival time column has an invalid type",
+        "no_label_attribute_specified": "A dataset cannot be created without selecting a decision column",
+        "invalid_survival_time_column_values": "The survival time column must contain values greater than zero",
+        "invalid_label_column_values": {
+          "survival": "Survival status column must contain exactly 2 unique values of 0 and 1.",
+          "classification": "Decision column must have at least 2 unique values.",
+          "regression": "Cannot save: dataset is empty."
+        },
+        "too_many_classes": "The decision column contains too many unique values. The maximum number of classes is {{ limit }}.",
+        "tour_not_completed_yet": "The tour has not been completed yet",
+        "rule_conclusion_format_error": "Invalid format of the rule conclusion part: \"{{ conclusion_part }}\".",
+        "rule_conclusion_float_conversion_error": "Could not convert the rule conclusion value to a numeric type. Make sure the values in the rules are numbers.",
+        "decision_attribute_mismatch_error": "The decision attribute \"{{ given_attribute }}\" does not match the expected attribute \"{{ expected_attribute }}\".",
+        "invalid_survival_time_attribute_error": "Invalid survival time attribute name: \"{{ attribute }}\".",
+        "invalid_condition_format_error": "Invalid condition format in rule: \"{{ condition_str }}\". Check the condition syntax.",
+        "attribute_not_found_error": "The attribute \"{{ attribute_name }}\" used in the rule was not found in the dataset.",
+        "invalid_numeric_value_error": "Invalid numeric value \"{{ value }}\" after the \"{{ operator }}\" operator. A number was expected.",
+        "invalid_value_format_error": "Invalid value format \"{{ value }}\" for the \"{{ operator }}\" operator.",
+        "missing_if_keyword_error": "The rule must begin with the 'IF ' keyword. The issue concerns the rule: \"{{ rule }}\".",
+        "lord_parsing_error": "Error while parsing the LORD model. Make sure that the submitted set of rules originates from the LORD algorithm.",
+        "mlrules_parsing_error": "Error while parsing the MLRules model. Make sure that the submitted set of rules originates from the MLRules algorithm.",
+        "empty_column": "Columns \"{{ column_names }}\" are completely empty. Please remove them from the dataset or fill in the missing values and try again."
+      },
+      "project_remove": "There was a problem deleting the project",
+      "ruleset_generate": "There was a problem generating the ruleset",
+      "test_data_set_change": "There was a problem updating the test data",
+      "ruleset_add": "There was a problem adding the ruleset",
+      "no_content": "No response received; it is possible that the required content does not exist in the database",
+      "fetching_data": "An error occurred while retrieving the data",
+      "dataset_upload": "An error occurred while uploading the dataset",
+      "empty_file": "The file is empty. Please upload a file with data",
+      "wrong_extension": "Incorrect file format.",
+      "supported_formats": "Supported file formats: {{value}}",
+      "duplicate_project": "A project with the specified name already exists. Please provide a different name",
+      "syntactic_comparison_not_supported_for_rules_with_alternatives": "Syntactic rules comparison is not supported for rules containing alternatives (OR operator). Switch similarity type for semantic and try again."
+    },
+    "validation": {
+      "data_set_name": "The dataset name is required"
+    },
+    "success": {
+      "ruleset_generate": "The dataset has been generated",
+      "project_remove": "The project has been removed",
+      "dataset_add": "The dataset has been added",
+      "ruleset_add": "The ruleset has been added"
+    },
+    "info": {
+      "dataset_uploading": "Uploading dataset. Please do not close the website."
+    }
+  },
+  "new_store_version_modal": {
+    "title": "The application has been updated to the latest version",
+    "content": "For this reason, it was necessary to close all open tabs.",
+    "close": "Close"
+  },
+  "data_upload": {
+    "next_step": "Select the decision column to continue",
+    "file_type_error": "Invalid file type. Please upload a file with a supported extension (only CSV is supported).",
+    "has_header": "Does the file have a header?",
+    "encoding": "Choose encoding",
+    "separator": "Separator",
+    "purpose": "Purpose",
+    "decimal": "Decimal character",
+    "missing_values": "Missing values",
+    "class": "Decision column",
+    "target": "Decision column",
+    "survival_status": "Survival status column",
+    "survival_time": "Survival time column",
+    "project_info": "Project information",
+    "dataset_info": "Dataset information",
+    "dataset_description": "Dataset description",
+    "voting_measure": "Measure used to resolve conflicts during prediction",
+    "dataset_name": "Dataset name",
+    "column_choose": {
+      "numeric": "Choose numeric column",
+      "nominal": "Choose nominal column"
+    },
+    "column_type": "Specify column type",
+    "column_types": {
+      "label": "Column types",
+      "num": "Numerical",
+      "cat": "Nominal"
+    },
+    "column_configuration": "Column configuration",
+    "data_format": "Data format",
+    "file_choose": "Choose file",
+    "data_uploaded": "File uploaded",
+    "chosen_file": "Chosen file: {{fileName}}",
+    "drag_drop_file": "Drag and drop the selected file or click to choose a file",
+    "preview": "Preview",
+    "preview_error": {
+      "maxlength": "Some column names are too long. The maximum length is 25 characters.",
+      "pattern": "Some column names contain invalid characters. Column names may only contain letters, numbers, and special characters: \"-\", \"_\", \"[\", \"]\"",
+      "index_column_present": "The file contains a column named \"index\" or \"Index\". Such column names are not allowed. Please rename it and try uploading the file again",
+      "column_name_duplicated": "The file contains more than one column with the same name. Column names must be unique"
+    },
+    "next": "Next",
+    "back": "Previous",
+    "submit": "Accept",
+    "tooltips": {
+      "purpose": "Using the RuleMiner application, you can induce three types of rules: decision (classification), regression, and survival patterns. These rules represent patterns - dependencies - that characterize the data and create a predictive system to predict the values of the decision variable. The user should choose the type of analysis they want to perform.",
+      "classification": "Classification: In the context of the RuleMiner system's functionality, it is the process of discovering rules whose premises (specific values of conditional attributes) are associated with specific categorical (symbolic) values of the decision variable. These values should be assigned to examples that meet the conditions specified in the rule premises covering them",
+      "regression": "Regression: In the context of the RuleMiner system's functionality, regression is the process of discovering rules whose premises (specific values of conditional attributes) are associated with specific numerical (quantitative) values of the decision variable. These values should be assigned to examples that meet the conditions specified in the rule premises covering them",
+      "survival": "Survival: In the context of the RuleMiner system's functionality, it is the process of discovering rules whose premises (specific values of conditional attributes) are associated with specific estimators (survival curves; Kaplan-Meier estimators) that determine the probability of \"survival\" over time for examples that meet the rule premises of the rules",
+      "separator": "Column separator – a character that separates field values in a CSV file. The default value is a comma. ",
+      "decimal": "Decimal Separator, Decimal Point: A character used to separate the integer part from the fractional part of a number. The most common separators are a comma or a period",
+      "missing_values": "Missing value indicator: A character used to denote a missing value. In some datasets, missing values are indicated, for example, by the \"?\" character. In such cases, a question mark should be placed in the field. If the user does not fill in this field, any empty field in individual rows will be considered a missing value",
+      "column_type": "Each column must have its type specified. Columns containing numbers should be designated as numeric, while other columns should be designated as nominal. If columns contain numbers such as 1, 2, 3, which are category names rather than actual numbers, the column should be defined as nominal. The type of each column is determined based on the analysis of the first 10 rows. However, this assignment should be carefully verified. Once the application is in use, it will not be possible to change the column type. ",
+      "classification_tooltip": "Decision Attribute.  The decision column must be of nominal. ",
+      "regression_tooltip": "Decision Attribute (dependent variable values). The decision column must be of numeric type. ",
+      "survival_time_tooltip": " Survival time – a column containing information about the survival time. This column should contain numbers (not dates) and be set as a numeric type.",
+      "survival_status_tooltip": "Survival Status: A column containing information about the occurrence of an event (e.g., death, machine failure). The column must be of nominal type and contain two values: 1 (event occurred) or 0 (no event). "
+    }
+  },
+  "import": {
+    "documentation": "Ruleset preparation for import has been described in the documentation:",
+    "ruleset_name": "Ruleset name",
+    "ruleset_description": "Ruleset description",
+    "next_btn": "Import",
+    "voting_measure_tooltip": "Conflict resolution measure. A metric used to resolve conflicts during prediction",
+    "algorithm": "Select algorithm"
+  },
+  "project": {
+    "close_tab": "Close tab",
+    "limit_reached": "The limit of the number of projects has been reached",
+    "title": {
+      "import_example_project_classification": "Load sample project (Classification)",
+      "import_example_project_regression": "Load sample project (Regression)",
+      "import_example_project_survival": "Load sample project (Survival)"
+    },
+    "type": {
+      "classification": "Classification",
+      "regression": "Regression",
+      "survival": "Survival"
+    },
+    "expert_induction": {
+      "expert_rules_title": "Defining a new rule by the user",
+      "expert_forbidden_conditions_title": "Specify a forbidden condition",
+      "expert_preferred_conditions_title": "Specify a preferred condition",
+      "expert_forbidden_condition_text": "Select classes in which the condition is forbidden",
+      "expert_preferred_condition_text": "Select classes in which the condition is preferred",
+      "expert_preferred_attributes_title": "Select preferred attributes",
+      "expert_preferred_attributes_text": "Select the class for preferred attributes",
+      "expert_forbidden_attributes_title": "Select the class for forbidden attributes",
+      "expert_forbidden_attributes_text": "Select class where attributes should be forbidden",
+      "expert_condition_button": "Add condition",
+      "expert_attributes_button": "Add attributes",
+      "expert_rule_button": "Add rule",
+      "attributes_textbox": "Number of occurrences in rules",
+      "conditions_textbox": "Specify how many times the condition should appear in rules",
+      "select_attributes": "Select attributes",
+      "occurrence_empty_value": "In each rule"
+    },
+    "closed_tabs": {
+      "title": "All tabs have been closed.",
+      "sub_title": "Open the dataset or ruleset available in the menu on the left side, or load a new dataset",
+      "sub_title_br": "The list of active processes is available with the \"Processes\" button (bottom left corner of the page)"
+    },
+    "tab_not_saved_modal": {
+      "title": "Changes not saved",
+      "body": "Are you sure you want to close this tab without saving changes?",
+      "cancel_btn": "Cancel",
+      "confirm_btn": "Close"
+    },
+    "confirm_close_modal": {
+      "title": {
+        "default": "Changes not saved",
+        "custom_modal_title": {
+          "select_rules": "Rule not saved",
+          "rules_generator": "Rule induction not started"
+        }
+      },
+      "body": "Are you sure you want to close without saving changes?",
+      "cancel_btn": "Cancel",
+      "confirm_btn": "Close",
+      "custom_modal_text": {
+        "select_rules": "Are you sure you want to close without seving the rules?",
+        "rules_generator": "Are you sure you want to close without rule induction?",
+        "rules_generator_title": "Rule set will not be generated"
+      }
+    },
+    "uploaded_modal": {
+      "dataset": {
+        "title": "The dataset has been uploaded",
+        "body": "The dataset has been uploaded, do you want to open it now?"
+      },
+      "ruleset": {
+        "title": "The ruleset is ready",
+        "body": "The ruleset is ready, do you want to open it now?"
+      },
+      "confirm_btn": "Open",
+      "cancel_btn": "Cancel"
+    },
+    "delete_project": {
+      "title": "Delete project",
+      "body": "Are you sure you want to delete the project?",
+      "cancel_btn": "Cancel",
+      "confirm_btn": "Delete"
+    },
+    "select_dataset": "Select the dataset",
+    "select_dataset_to_execute_prediction": "Select the dataset to execute prediction",
+    "execute_prediction": "Execute prediction",
+    "recently_opened_projects": "Recently opened projects",
+    "project_not_found": "No projects found",
+    "new_project": "New project",
+    "information": "Project information",
+    "recent_project_list": "Recently opened projects",
+    "sort_by": "Sort by:",
+    "created_at": "Create date",
+    "search_for_project": "Search for project:",
+    "no_projects_found": "No projects found",
+    "last_opening": "Last opening date",
+    "last_modification": "Last modification date",
+    "purpose": "Project purpose",
+    "all_projects": "All projects",
+    "sample_projects": "Sample projects",
+    "search": "Search...",
+    "name": "Project name",
+    "description": "Project description",
+    "more_projects": "More projects...",
+    "project_info": "Information about the dataset",
+    "rule_name": "Ruleset name",
+    "dataset_name": "Dataset name",
+    "selectDataset": "Select rules from existing set of rules",
+    "ruleset_name": "Ruleset name",
+    "selectAttribute": "Conclusion",
+    "clear_selection": "Clear selection",
+    "tabs": {
+      "rules": "Rules",
+      "rule_coverage": "Rule coverage",
+      "prediction": "Prediction",
+      "prediction_statistics": "Prediction quality",
+      "visualization": "Visualization",
+      "example": "Explain decisions",
+      "description": "Details",
+      "dataset": "Dataset",
+      "statistics": "Dataset statistics",
+      "charts": "Charts",
+      "rules_comparison": "Rule comparison"
+    },
+    "visualization_tabs": {
+      "importance": "Importance",
+      "rulset": "Ruleset",
+      "visualization": "3D visualization"
+    },
+    "details": {
+      "prediction_indicator": "Prediction metric",
+      "add_indicator": "+ Add metric",
+      "validity_of_condition": "Condition importance",
+      "validity_of_attributes": "Attribute importance"
+    },
+    "button": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save",
+      "apple_edit": "Save edit",
+      "add_rule": "Add rule",
+      "add_rules": "Add rules",
+      "apply_manually": "Accept",
+      "more": "More"
+    },
+    "treeview": {
+      "add_dataset": "Load new dataset",
+      "rulesets_group": "Rulesets",
+      "reports_group": "Reports",
+      "process": "Processes",
+      "terminate": "Terminate",
+      "generate": "Generating a task",
+      "not_found_task": "No active tasks found.",
+      "process_terminated": "Process terminated successfully",
+      "limit_exceeded": "Data size limit exceeded for the selected subscription plan",
+      "retry": "Retry",
+      "context_menu": {
+        "button": {
+          "edit": "Rename",
+          "delete": "Delete",
+          "duplicate": "Duplicate",
+          "duplicate_with_related": "Duplicate with rulesets",
+          "generate": "Generate a ruleset",
+          "add_ruleset": "Add existing ruleset",
+          "import": "Import a ruleset",
+          "generate_reports": "Generate reports",
+          "compare": "Compare",
+          "split": "Split dataset",
+          "filter": "Filter",
+          "download": "Download"
+        },
+        "modal": {
+          "duplicate": {
+            "title_data_set": "Duplicate a dataset",
+            "title_rule_set": "Duplicate a ruleset",
+            "checkbox_label": "Duplicate with rulesets",
+            "body": "Name",
+            "cancel_btn": "Cancel",
+            "confirm_btn": "Duplicate",
+            "error": "A problem occurred during data duplication",
+            "error_unique": "The dataset name must be unique",
+            "success": "Data has been duplicated"
+          },
+          "delete_confirm": {
+            "rule_set": {
+              "title": "Deleting a ruleset",
+              "body": "Are you sure you want to delete the ruleset?",
+              "cancel_btn": "Cancel",
+              "confirm_btn": "Delete",
+              "delete_error": "A problem occurred during rule delection",
+              "delete_success": "The ruleset has been deleted"
+            },
+            "data_set": {
+              "title": "Deleting a dataset",
+              "body": "Are you sure you want to delete the dataset?",
+              "cancel_btn": "Cancel",
+              "confirm_btn": "Delete",
+              "delete_error": "A problem occurred during data delection",
+              "delete_success": "The dataset has been deleted"
+            },
+            "report": {
+              "title": "Deleting an analytic report",
+              "body": "Are you sure you want to delete the report?",
+              "cancel_btn": "Cancel",
+              "confirm_btn": "Delete",
+              "delete_error": "A problem occurred during report delection",
+              "delete_success": "The report has been deletedData set deleted"
+            }
+          },
+          "train_test": {
+            "title": "Split a dataset",
+            "train": "The name of the training dataset",
+            "test": "The name of the test dataset",
+            "percent": "Size (%) of the test set in relation to all examples",
+            "cancel_btn": "Cancel",
+            "confirm_btn": "Split",
+            "dividing_method": "A method of dataset splitting",
+            "dividing_success": "The dataset has been split",
+            "stratified": "Stratified",
+            "random": "Random",
+            "chronological": "Chronological",
+            "invalid_label_column_values": {
+              "classification": "During the dataset splitting, one of its parts contained examples belonging to only one decision class. The dataset should have at least two decision classes",
+              "survival": "During the dataset splitting, one of its parts contained examples with only one unique value of the survival status column. The dataset should contain both survival statuses.",
+              "chronological": "Change the proportion of the dataset split.",
+              "random": "Change the proportion of the dataset split.",
+              "stratified": "Change the proportion of the dataset split."
+            }
+          },
+          "rename": {
+            "title": "Change the name",
+            "body": "Name",
+            "cancel_btn": "Cancel",
+            "confirm_btn": "Save",
+            "rename_error": "A problem occurred during name changing",
+            "rename_success": "The name has been changed"
+          },
+          "generate_reports": {
+            "report_description": {
+              "explorative_data_analysis": "Get basic data statistics",
+              "knowledge_discovery": "Uncover patterns in the data",
+              "predictive_analysis": "Evaluate the predictive capability of ML-based data models",
+              "disable": "This report is not available in the current version of the application. We are working on making it available in the next version"
+            },
+            "header": "Select report of interest",
+            "body": "Select the type of report",
+            "cancel_btn": "Cancel",
+            "confirm_btn": "Generate",
+            "explorative_data_analysis": "Exploratory analysis",
+            "explorative_data_analysis_title": "Generate report - exploratory data analysis",
+            "knowledge_discovery": "Knowledge discovery",
+            "knowledge_discovery_title": "Generate report - knowledge discovery",
+            "predictive_analisys": "Predictive analysis",
+            "predictive_analisys_title": "Generate report - predictive analysis",
+            "title": "Report name",
+            "settings": "Settings",
+            "analysis_mode": "Model evaluation method",
+            "TT": "Train-test split",
+            "CV": "5-fold cross-validation",
+            "test_size": "Test set size",
+            "grid_search": "Search the hyperparameter space",
+            "scoring": "Evaluation metric",
+            "balanced_accuracy": "Balanced accuracy",
+            "f1_weighted": "F1 score",
+            "roc_auc_ovo": "ROC AUC",
+            "precision_weighted": "Precision",
+            "recall_weighted": "Recall",
+            "r2": "R squared",
+            "neg_mean_squared_error": "Mean squared error",
+            "neg_mean_absolute_error": "Mean absolute error",
+            "explained_variance": "Explained variance",
+            "c_index": "Concordance index",
+            "preprocessing": "Data preprocessing",
+            "use_low_correlation_attr_removal": "Remove attributes weakly correlated with the decision attribute",
+            "unimportant_attribute_elimination": "Remove attributes of low quality",
+            "ismt_threshold": "ISMT threshold",
+            "I": "Excessive number of unique values",
+            "S": "Stability",
+            "M": "Missing values",
+            "T": "Text-like - the variable values resemble text",
+            "missing_values_imputation": "Replace missing values",
+            "strategy_numerical": "For numeric attributes by",
+            "strategy_nominal": "For nominal attributes by",
+            "decision_class_balancing": "Balance the sizes of decision classes",
+            "select_model_to_check": "Select the models you want to check",
+            "algorithms": "Algorithms",
+            "logistic_regression": "Logistic regression",
+            "linear_regression": "Linear regression",
+            "cox_proportional_hazard": "Cox proportional hazard",
+            "decision_tree": "Trees",
+            "knn": "K nearest neighbors",
+            "naive_bayes": "Naive Bayes model",
+            "svm": "Support vector machine",
+            "random_forest": "Random forest",
+            "gradient_boosting": "Gradient Boosted Trees",
+            "generate_report_button": "Generate report",
+            "trees": "Trees",
+            "max_depth": "Maximum depth",
+            "rules": "Rules",
+            "constrain_continuous": "Constrain continuous",
+            "min_covered_examples": "Minimum number of covered examples",
+            "max_rule_length": "Maximum number of elementary conditions",
+            "beam_width": "Beam width",
+            "itemsets_and_associations": "Frequent itemsets and association rules",
+            "exclude_target_column": "Exclude the decision attribute",
+            "max_k_value": "Maximum length",
+            "max_intervals_value": "Maximum number of intervals for numeric attributes",
+            "associations": "Associations",
+            "min_confidence": "Minimum rule confidence",
+            "min_supp": "Minimum support",
+            "max_rows": "Maximum number of best results",
+            "mean": "Mean",
+            "median": "Median",
+            "most_frequent": "Most frequent",
+            "constant": "Constant",
+            "data_preparation": "Data pre-processing",
+            "cannot_select_parameters": "This report is generated fully automatically",
+            "tooltips": {
+              "fixed_value": "The value of this field is fixed for this type of report and problem",
+              "grid_search": "The method searches the hyperparameter space of models to find the best parameter values",
+              "scoring": "The metric whose value optimized during the hyperparameter space search",
+              "use_low_correlation_attr_removal": " Remove attributes for which the correlation value with the decision attribute is in the range [-0.2, 0.2]. Supported are numerical and binary attributes, where binary attribute values are encoded as numerical values 0 and 1.",
+              "unimportant_attribute_elimination": "Remove attributes for which the values of specified criteria exceed the given thresholds",
+              "I": "Remove nominal attributes with too many unique values",
+              "S": "The value of the indicator is calculated as: the number of rows with the most frequently occurring non-missing value divided by the number of rows with non-missing values",
+              "M": "The value of the indicator is calculated as: the number of missing values for the considered attribute divided by the number of rows",
+              "T": "Remove nominal attributes whose values resemble text - in calculations, considers the number of word separators and the length of the text",
+              "missing_values_imputation": "Fills missing data with a specified value. If not selected, rows with missing values will be dropped.",
+              "decision_class_balancing": "The method uses the SMOTE algorithm to balance the sizes of classes. After applying SMOTE, all classes will have the same number of examples as the originally largest class",
+              "max_depth": "Maximum tree depth",
+              "min_covered_examples": "Rules must cover at least - specified parameter value - number of positive examples",
+              "max_rule_length": "Maximum number of elementary conditions that can be included in the premise of a rule",
+              "beam_width": "During the rule growing phase, the beam search strategy is applied. The algorithm analyzes as many temporary solutions as the value of this parameter",
+              "exclude_target_column": "If this option is selected, the decision attribute is not taken into account in the analysis. Otherwise, the decision attribute is treated like any other attribute",
+              "min_supp": "Minimum required support for a frequent set. The value is calculated as the number of occurrences of the frequent set divided by the total number of examples",
+              "max_rows": "Maximum number of best itemsets and association rules to be included in the final result tables",
+              "min_confidence": "Minimum required confidence for association rules",
+              "max_k_value": "Maximum number of attributes forming a frequent set - number of elements forming a frequent set",
+              "max_intervals_value": "Numeric attributes require discretization before determining frequent sets. The report is based on the equal-length interval discretization algorithm"
+            }
+          },
+          "filter": {
+            "name": "Filtered ruleset name",
+            "description": "Description of the filtered ruleset",
+            "title": "Ruleset filtering",
+            "choose_algorithm": "Choose algorithm",
+            "voting_measure": "Choose rule quality criterion",
+            "percent_decrease": "Acceptable percentage decrease in prediction quality after filtering",
+            "filter_button": "Run filtering algorithm",
+            "voting_measure_tooltip": "Conflict resolution measure. A metric used to resolve conflicts during prediction"
+          }
+        }
+      }
+    },
+    "rules": {
+      "not_covered_rules": {
+        "title": "Rules that after transfer do not cover any examples:",
+        "details": "Details",
+        "button": "Remove information",
+        "edit_modal": "Edit the rule so it covers examples",
+        "edit_success": "The rule has been corrected and added to the ruleset",
+        "remove_rules": "The rule has been removed from the list of rules that do not cover any examples"
+      },
+      "configuration": "Configuration",
+      "simple_configuration": "Simple",
+      "advanced_configuration": "Advanced",
+      "advanced_view": "User-driven configuration",
+      "unadvanced_view": "Automatic configuration",
+      "current_parameters": "Current parameters values",
+      "answer_questions": "Answer the questions",
+      "select_ruleset": "Select a ruleset",
+      "select_rules": "Select rules from the ruleset",
+      "rules_not_selectable_info": "The disabled rules do not cover any examples in the currently selected dataset",
+      "rules": "Rules",
+      "compare_title": "Rules to compare",
+      "add_new": "Add rules",
+      "prediction_rate": "Prediction quality for the dataset: ",
+      "validity_of_the_condition": "Condition importance",
+      "validity_of_attributes": "Attribute importance",
+      "quantitative_characteristics": "Ruleset characteristics",
+      "cross_validation_results": "Cross-validation results",
+      "class_name": "Class name",
+      "attribute": "Attribute",
+      "nominal_attribute": "Nominal attribute",
+      "numerical_attribute": "Numerical attribute",
+      "condition_name": "Condition name",
+      "condition": "Condition",
+      "attribute_name": "Attribute name",
+      "general": "General",
+      "condition_importance": "Condition importance",
+      "attribute_importance": "Attribute importance",
+      "importance": "Importance",
+      "description": "Manually means that the user defines the rules themselves",
+      "algorithm_name": "Manually",
+      "names": {
+        "RuleKit": "RuleKit",
+        "DeepRules": "DeepRules",
+        "Manually": "Manually"
+      },
+      "refine": "refine",
+      "refine_description": "Let the algorithm refine the values for this condition",
+      "determine": "determine",
+      "determine_description": "Let the algorithm determine the values for this condition",
+      "empty_ruleset_info": "The ruleset must contain at least one active rule",
+      "deselect_all": "You have just deactivated all rules. The ruleset must contain at least one active rule, so the first rule has been automatically activated.",
+      "table": {
+        "headers": {
+          "considerOtherClasses": "Consider other classes",
+          "extendUsingAutomatic": "Extend using automatic",
+          "extendUsingPreferred": "Extend using preferred",
+          "induceUsingAutomatic": "Induce using automatic",
+          "induceUsingPreferred": "Induce using preferred",
+          "preferredAttributesPerRule": "Preferred attributes per rule",
+          "preferredConditionsPerRule": "Preferred conditions per rule",
+          "fractionExamplesCovered": "Fraction of examples covered by ruleset",
+          "maxError": "Maximum error",
+          "totalConditionsCount": "Total number of conditions",
+          "active": "Active",
+          "ruleName": "#",
+          "approximateBinsCount": "Maximum number of cuts to check during accelerated induction",
+          "approximateInduction": "Accelerated induction mode",
+          "attributeName": "Attribute name",
+          "autoIncrement": "#",
+          "averageCoverage": "Average rule coverage",
+          "averageNumberOfConditions": "Average number of conditions (per rule)",
+          "averagePrecision": "Average rule precision",
+          "avgConditionsCount": "Average number of conditions (per rule)",
+          "avgCoverage": "Average rule coverage",
+          "avgPrecision": "Average rule precision",
+          "bAcc": "BAcc",
+          "balancedAccuracy": "Balanced Accuracy",
+          "cohenKappa": "Cohen's kappa",
+          "accuracy": "Accuracy",
+          "boxplot": "Box-plot",
+          "c2": "C2",
+          "censoredCount": "Censored observations count",
+          "comparison": "Comparison",
+          "complementaryConditions": "Complementary (negated) conditions",
+          "displayConclusion": "Rule conclusion",
+          "condition": "Condition",
+          "conditionName": "Condition name",
+          "conditionsCount": "Number of conditions",
+          "content": "Content",
+          "compare": "Comparison",
+          "controlAprioriPrecision": "Control the apriori precision",
+          "correlation": "Correlation",
+          "coverage": "Coverage",
+          "description": "Rule premise",
+          "eventsCount": "The number of observations for which the event occurred",
+          "f1Score": "F1 score",
+          "f1Macro": "Macro F1",
+          "f1Micro": "Micro F1",
+          "f1Weighted": "Weighted F1",
+          "filterDataset": "Filter the dataset",
+          "fn": "FN",
+          "fp": "FP",
+          "fractionFdrSignificant": "Fraction of FDR-significant rules",
+          "fractionSignificant": "Fraction of significant rules",
+          "gMean": "Gmean",
+          "gMeanMacro": "Macro Gmean",
+          "gMeanMicro": "Micro Gmean",
+          "gMeanWeighted": "Weighted Gmean",
+          "ibs": "Integrated Brier Score (IBS)",
+          "ignoreMissing": "Ignore missing values",
+          "importance": "Importance",
+          "inductionMeasure": "The growing phase",
+          "kaplanMeierEstimator": "Survival curve",
+          "key": "Name",
+          "labelMax": "Global maximum",
+          "labelMin": "Global minimum",
+          "labels": "Labels (HIDDEN)",
+          "labelsText": "Labels",
+          "labelsSwitch": "Switch between compact and normal mode",
+          "lift": "Lift",
+          "logRank": "Logrank",
+          "lrMinus": "LR-",
+          "lRMinus": "LR-",
+          "lrPlus": "LR+",
+          "lRPlus": "LR+",
+          "mae": "MAE",
+          "mAE": "MAE",
+          "mape": "MAPE",
+          "mAPE": "MAPE",
+          "maxGrowing": "Maximum number of conditions in a rule",
+          "maxRuleCount": "Maximum number of rules",
+          "maxUncoveredFraction": "Maximum fraction of uncovered examples",
+          "medianSurvivalTime": "Median survival time",
+          "conditions_count": "Number of conditions",
+          "C2": "C2",
+          "RSS": "RSS",
+          "positive_predictive_value": "Positive predictive value",
+          "negative_predictive_value": "Negative predictive value",
+          "log_rank": "Logrank",
+          "kaplan_meier_estimator": "Kaplan-meier estimator",
+          "median_survival_time": "Median survival time",
+          "median_survival_time_ci_upper": "Upper bound of the confidence interval for survival time",
+          "median_survival_time_ci_lower": "Lower bound of the confidence interval for survival time",
+          "P": "P",
+          "N": "N",
+          "medianSurvivalTimeCiLower": "Lower bound of the confidence interval for survival time",
+          "medianSurvivalTimeCiUpper": "Upper bound of the confidence interval for survival time",
+          "minsuppNew": "Minimum number of covered examples (per rule)",
+          "survivalTimeAttr": "Survival time attributte",
+          "n": "n",
+          "name": "Name",
+          "negativePredictiveValue": "Negative predictive value",
+          "nPV": "NPV",
+          "numberOfRules": "Number of rules",
+          "numOfConditions": "Num_of_conditions",
+          "nUnique": "Unique n",
+          "nUpperCase": "N",
+          "oddRatio": "Odds ratio",
+          "oddsRatio": "Odds ratio",
+          "operations": "Operations",
+          "p": "p",
+          "percentageOfSignificantRules": "% of significant rules",
+          "pPV": "PPV",
+          "precision": "Precision",
+          "pruningMeasure": "Pruning phase",
+          "pUnique": "Unique p",
+          "pUpperCase": "P",
+          "pValAdjusted": "Adjusted p-value",
+          "pValue": "p-value",
+          "p_value": "p-value",
+          "TP": "TP",
+          "FP": "FP",
+          "TN": "TN",
+          "FN": "FN",
+          "lr+": "LR+",
+          "lr-": "LR-",
+          "events_count": "Number of events",
+          "censored_count": "Number of censored observations",
+          "y_covered_avg": "",
+          "relative_risk": "Relative risk",
+          "pMinusvalue": "p-value",
+          "r^2": "R²",
+          "recall": "Recall",
+          "recallMacro": "Macro Recall",
+          "recallMicro": "Micro Recall",
+          "recallWeighted": "Weighted Recall",
+          "relativeRisk": "Relative risk",
+          "r2": "R²",
+          "rMae": "rMAE",
+          "rRmse": "rRMSE",
+          "rMAE": "rMAE",
+          "rmse": "RMSE",
+          "rMSE": "RMSE",
+          "rRMSE": "rRMSE",
+          "rss": "RSS",
+          "rules": "Rules",
+          "rulesCount": "Number of rules",
+          "ruleUuid": "Rule UUID",
+          "selectBestCandidate": "As a result of the growing phase, select the rule with the best quality",
+          "selectRule": "Select rule",
+          "sensitivity": "Sensitivity",
+          "sensivity": "Sensitivity",
+          "showCoverage": "Show coverage",
+          "specificity": "Specificity",
+          "support": "Support",
+          "tn": "TN",
+          "tp": "TP",
+          "mcc": "MCC",
+          "ppv": "PPV",
+          "npv": "NPV",
+          "trainCoveredYMax": "Maximum covered examples",
+          "trainCoveredYMean": "Mean covered examples",
+          "trainCoveredYMin": "Minimum covered examples",
+          "trainCoveredYStd": "Standard deviation of covered examples",
+          "value": "Value",
+          "votingMeasure": "Conflict resolution",
+          "yCoveredAvg": "Mean covered examples",
+          "yCoveredMax": "Maximum covered examples",
+          "yCoveredMean": "Mean covered examples",
+          "yCoveredMedian": "Median of covered examples",
+          "yCoveredMin": "Minimum covered examples",
+          "y_covered_max": "Maximum covered examples",
+          "y_covered_mean": "Mean covered examples",
+          "y_covered_median": "Median of covered examples",
+          "y_covered_min": "Minimum covered examples",
+          "p-value": "p-value",
+          "string": "String",
+          "predictionStrategy": "Prediction strategy",
+          "useDefaultRule": "Use default rule",
+          "coveredCount": "Covered count",
+          "logRankStats": "Logrank"
+        },
+        "data_loading": "Data loading",
+        "no_data": "No data to display",
+        "confirm_delete_message": "Are you sure you want to delete this record?",
+        "column_chooser": "Column Chooser",
+        "delete_row": "Delete",
+        "undo_redo": {
+          "undo": {
+            "remove": "Undid removal: {{ruleString}}",
+            "add": "Undid addition: {{ruleString}}",
+            "edit": "Undid edit: {{ruleString}}",
+            "add_multiple": "Undid addition of multiple"
+          },
+          "redo": {
+            "remove": "Redid removal: {{ruleString}}",
+            "add": "Redid addition: {{ruleString}}",
+            "edit": "Redid edit: {{ruleString}}",
+            "add_multiple": "Redid addition of multiple"
+          }
+        },
+        "context_menu": {
+          "rules": "Rules",
+          "rules_coverage": "Rule coverage",
+          "rules_comparison": "Rule comparison",
+          "visualization": "Visualization",
+          "histogram": "Histogram",
+          "copy": "Copy",
+          "survival_curve": "Survival curve plot"
+        }
+      },
+      "table_info": {
+        "summary_number_of_filtered_count": "Number of rows meeting the filter criteria: ",
+        "table_is_empty": "The number of rows meeting the filter criteria is 0. Try changing the filter criteria."
+      },
+      "rules_manual_selection": {
+        "dataset_selection": "Display rules table columns using:",
+        "current_dataset": "Currently selected dataset",
+        "original_dataset": "Original dataset"
+      },
+      "rule_histogram": {
+        "title": "Histogram",
+        "y_axis_label": "Values of the decision attribute: \"{{ decisionAttributeName }}\""
+      },
+      "rule_survival_curve_plot": {
+        "title": "Survival curve plot",
+        "x_axis_label": "Time",
+        "y_axis_label": "Probability",
+        "default_estimator": "Survival curve for all examples",
+        "selected_conditions": "Survival curve for selected conditions",
+        "not_rule": "not r{{ruleNumber}}"
+      },
+      "rule_editor": {
+        "undo": "Undo",
+        "redo": "Redo",
+        "regression_conclusion": {
+          "select_type": "Select the type of conclusion",
+          "recalculate_coverage": "Calculate the coverage",
+          "automatic": "Automatic",
+          "manual": "Manual",
+          "update": "Update the conclusions",
+          "labels": {
+            "low": "Lower bound",
+            "high": "Upper bound",
+            "value": "Value"
+          }
+        },
+        "survival_conclusion": {
+          "created_rule_label": "Created rule",
+          "edited_rule_label": "Edited rule",
+          "original_rule_label": "Original rule"
+        },
+        "metrics": {
+          "title": "Metrics",
+          "table_headers": {
+            "name": "Name",
+            "value": "Value"
+          }
+        },
+        "no_examples_covered_error": "The rule does not cover any examples",
+        "one_condition_in_group_warning": "Your rule contains a group of conditions consisting of only one condition. Please verify if this is not a mistake."
+      },
+      "add_existing_modal": {
+        "title": "Add an existing ruleset"
+      },
+      "import_ruleset_modal": {
+        "title": "Import a ruleset"
+      },
+      "add_new_modal": {
+        "title_generate": "Rule generation",
+        "title": "Editing the rule #{{ruleNumber}}",
+        "generate": "Generate",
+        "generate_notification_info": "Rules will be generated from the original, unfiltered dataset. If you want to create rules for a filtered dataset, save it as a new dataset and start generation for that set.",
+        "create": "Create",
+        "cross_validation_process": "k-fold cross-validation",
+        "rule_set_name": "The name of the ruleset",
+        "algorithm_parameters": "Algorithm parameters",
+        "prediction_strategy": "Selection of the prediction method",
+        "attributes_to_omit": "Selection of attributes to be omitted (mark those to be omitted)",
+        "induction_measure": "Growing phase",
+        "pruning_measure": "Pruning phase",
+        "voting_measure": "Conflict resolution",
+        "num_of_folders": "k = ",
+        "select_rule_set": "Select a ruleset using the button below",
+        "edit_rule": "Edit rule",
+        "add_rule": "Add rule",
+        "experts_induction": "User-driven rule induction",
+        "add_item": "Add +"
+      },
+      "save_modal": {
+        "title": "Saving the ruleset",
+        "rule_set_name": "Ruleset name:",
+        "overwrite_the_ruleset": "Overwrite the ruleset:",
+        "cancel": "Cancel",
+        "save": "Save",
+        "save_success": "Ruleset has been saved",
+        "save_success_dataset": "Dataset has been saved",
+        "save_error": "There was a problem with saving the ruleset",
+        "save_error_dataset": "There was a problem with saving the dataset",
+        "save_error_dataset_unique": "A dataset with the given name already exists"
+      }
+    },
+    "prediction": {
+      "toggle_visibility": "Toggle visibility",
+      "settings": "Settings",
+      "conflict_resolution_method": "Conflict resolution method",
+      "warning": "Click the refresh button to update the data.",
+      "matrix": {
+        "y_axis": "True value",
+        "x_axis": "Predicted value"
+      },
+      "true_class_label": "True class: ",
+      "predicted_class_label": "Predicted class: ",
+      "element_count_label": "Number of elements: ",
+      "prediction_in_application": "Prediction for the dataset saved in this project",
+      "prediction_in_application_info": "The dataset or prediction settings have changed. Click the Execute prediction button to recalculate the results based on the new selection",
+      "prediction_from_computer": "Prediction for external/temporary datasets provided by the user",
+      "prediction_from_computer_btn": "Add dataset and perform prediction",
+      "prediction_generate_success": "Prediction has been performed",
+      "histogram": {
+        "no_data": "The histogram was not displayed because, in the system version in which the dataset (rules) was created, the option to build a histogram for the training data was unavailable",
+        "y_label": "Number of occurrences",
+        "x_label": "Error (prediction - actual)"
+      },
+      "name": "Name",
+      "rule_coverage": "Rule coverage",
+      "rule_precision": "Rule precision",
+      "number_of_rules": "Number of rules",
+      "recall_micro_test": "Recall micro (test)",
+      "recall_micro_train": "Recall micro (train)",
+      "f_1_score_micro_test": "F1-score micro (test)",
+      "f_1_score_micro_train": "F1-score micro (train)",
+      "balanced_accuracy_test": "Balanced accuracy (test)",
+      "balanced_accuracy_train": "Balanced accuracy (train)",
+      "number_of_conditions_in_a_rule": "Number of conditions in a rule",
+      "max_error_test": "Maximum error (test)",
+      "max_error_train": "Maximum error (train)",
+      "mae_test": "MAE (test)",
+      "mae_train": "MAE (train)",
+      "r_rmse_train": "rRMSE (train)",
+      "r_rmse_test": "rRMSE (test)",
+      "r_mae_train": "rMAE (train)",
+      "r_mae_test": "rMAE (test)",
+      "mape_test": "MAPE (test)",
+      "mape_train": "MAPE (train)",
+      "rmse_test": "RMSE (test)",
+      "rmse_train": "RMSE (train)",
+      "r_2_test": "R² (test)",
+      "r_2_train": "R² (train)",
+      "ibs_test": "IBS (test)",
+      "ibs_train": "IBS (train)",
+      "confusion_matrix": "Confusion matrix",
+      "prediction_percaentage": "Percentage of examples for which the model made a prediction: ",
+      "not_find_prediction": "no information",
+      "training_data_set": "Training dataset",
+      "test_data_set": "Test dataset",
+      "data_set": "Dataset:",
+      "prediction_rate": "Prediction quality for dataset: ",
+      "predicted_condition": "Predicted values",
+      "actual_condition": "Actual values",
+      "cross_validation": "Cross-validation results",
+      "num_of_folds": "Number of folds",
+      "specific_decision_class": "Specific decision classes",
+      "empty_ruleset_info": "The rule set does not contain any active rule",
+      "empty_ruleset_explanation": {
+        "classification": "The prediction was made using the default rule, which classifies examples into the most represented decision class in the training set",
+        "regression": "The prediction was made using the default rule, resulting in the median value of the decision attribute calculated based on all training examples",
+        "survival": "The prediction was made using the default rule, prediction result was calculated based on the Kaplan-Meier estimator derived from all training examples"
+      },
+      "details": "Display prediction details",
+      "details_modal": {
+        "title": "Prediction details for example: #{{ exampleNumber }}"
+      },
+      "update_btn": {
+        "update": "Update all data",
+        "processing": "Data updating",
+        "updated": "Data updated"
+      },
+      "test_btn": "Calculate",
+      "dataset_changed": "Selected test dataset has been changed. Click Calculate button to recalculate the results on the selected set."
+    },
+    "rules_coverage": {
+      "settings": "Filtration settings",
+      "consider_unique_examples": "Consider only examples uniquely covered by the rule",
+      "table": {
+        "rule": "Rule",
+        "p_unique": "Positive unique",
+        "n_unique": "Negative unique"
+      },
+      "real": "Real ({{ column }})",
+      "rules": "Rules",
+      "data_overview": "Data overview",
+      "prediction": "Prediction",
+      "rule_name_prefix": "r",
+      "rules_count_column_name": "Covered by x rules",
+      "rule_name": "Rule name",
+      "select_example": "Explain example",
+      "deselect_rule": "Deselect rule",
+      "filtering_rules": "Showing examples filtered by rules:",
+      "filter_operator": {
+        "label": "Show examples filtered by:",
+        "and": "All of the selected rules (AND)",
+        "or": "Any selected rule (OR)"
+      }
+    },
+    "example": {
+      "title": "Example",
+      "select_example_btn": "Select an example from the dataset",
+      "class": "Decision attribute",
+      "target": "Decision attribute",
+      "list": "List of rules covering the example:",
+      "decision_variable": "The true value of the decision variable:",
+      "decision": "The decision made by the model:",
+      "no_data": "No rules covering the example",
+      "change_example": "Select an example",
+      "recalculate": "Calculate",
+      "modal_title": "Select",
+      "add_card": "Add another example",
+      "select_from_dataset": "Select from dataset",
+      "select_random": "Select random example",
+      "select_empty": "Select empty example",
+      "empty_ruleset_info": "The example is not covered by any rule",
+      "warrning": "Warning: The calculation results are outdated. Click 'Calculate' to update the results."
+    },
+    "description_tab": {
+      "title": "Name and description of the ruleset",
+      "title_label": "Name of the ruleset",
+      "desc_label": "Description of the ruleset",
+      "attributes_title": "Details of the ruleset generation",
+      "attributes_way_to_generate": "Method of generation:",
+      "algo_params": "Algorithm parameters",
+      "save": {
+        "success": "Name or description of the ruleset has been saved",
+        "error": "There was a problem saving the name or description of the ruleset"
+      },
+      "expert_induction": {
+        "title": "User-driven rule induction",
+        "user_defined_rules": "User-defined rules",
+        "preferred_conditions": "User-preferred conditions",
+        "forbidden_conditions": "User-forbidden conditions",
+        "documentation_info": "* Explanation of these settings can be found at the link",
+        "documentation_link_text": "expert induction"
+      }
+    }
+  },
+  "dataset": {
+    "unique_attributes": "Unique attributes values:",
+    "statistic_tab": {
+      "title": "Name and description of the dataset",
+      "dataset_label": "Dataset name",
+      "dataset_description": "Dataset description",
+      "attributes": "Attribute",
+      "missing_values_count": "Number of missing values",
+      "mode": "Mode",
+      "nominal_attributes": "Nominal attributes",
+      "numerical_attributes": "Numerical attributes",
+      "mean": "Mean",
+      "max": "Maximum",
+      "min": "Minimum",
+      "summary": "Information about the dataset",
+      "summary_number_of_columns": "Number of columns: ",
+      "summary_number_of_rows": "Number of rows: ",
+      "no_data": "No data available",
+      "success": "Dataset has been saved",
+      "summary_number_of_filtered_count": "Number of rows meeting the filter criteria: ",
+      "decision_column": "Decision column: ",
+      "decision_survival_status_column": "Survival status column: ",
+      "decision_survival_time_column": "Survival time column: ",
+      "unimportant_attributes": {
+        "title": "We suggest you pay attention to the following columns:",
+        "missing": "The column contains a lot of missing values:",
+        "text_ness": "The values in the column can be text:",
+        "id_ness": "The values in the column can be ID:",
+        "stability": "Most of the values in the column are the same:",
+        "no_data": "No suspicious columns"
+      }
+    },
+    "dataset_view": "Dataset view",
+    "dataset_modal": {
+      "title": "Saving as a new dataset",
+      "set_name": "Dataset name"
+    },
+    "ruleset_select_modal": {
+      "title": "Ruleset selection",
+      "no_ruleset": "There are no rulesets linked to the dataset"
+    },
+    "context_menu": {
+      "classify": "Classify"
+    }
+  },
+  "export_btn": "Export",
+  "button_tooltip": {
+    "refresh_card": "Refresh card",
+    "refreshing": "Data updating",
+    "save_ruleset": "Save",
+    "save_dataset": "Save the filtered dataset",
+    "show_column_chooser": "Column selection",
+    "export_excel_file": "Export to Excel",
+    "export_csv_file": "Export to CSV",
+    "export_json_file": "Export to JSON",
+    "export_txt_file": "Export to TXT"
+  },
+  "visualisation": {
+    "plot_parameters": {
+      "y_axis_title": "Number of occurrences",
+      "x_axis_title": "Value"
+    },
+    "kaplan_meier": {
+      "title": "Kaplan–Meier estimator",
+      "x_axis_title": "Time",
+      "y_axis_title": "Survival probability"
+    },
+    "some_rules_were_unselected": "Modified rules have been deselected",
+    "fullscreen": "Fullscreen",
+    "coverage_table_columns": {
+      "not_covered": "The selected condition does not cover any example. Select another condition",
+      "rule": "Rule",
+      "name_header": "Name",
+      "coverage_count_header": "p",
+      "all_counts_header": "P",
+      "class_name": "Class name",
+      "coverage_count": "Number of examples covered by the conjunction of selected conditions",
+      "all_count": "Total number of examples belonging to this class",
+      "precision": "Precision",
+      "coverage": "Coverage",
+      "covered_y_mean": "Mean",
+      "covered_y_std": "Standard deviation",
+      "covered_y_min": "Minimum",
+      "covered_y_max": "Maximum",
+      "events_count_sum": "Number of observations for which an event occurred",
+      "censored_count_sum": "Number of censored observations",
+      "median_survival_time": "Median survival time",
+      "median_survival_time_ci_lower": "Lower bound of the confidence interval for survival time",
+      "median_survival_time_ci_upper": "Upper bound of the confidence interval for survival time",
+      "number_of_occurrences": "Number of occurrences",
+      "decision_attribute_value": "Decision attribute values"
+    },
+    "select_importance_type": "Select importance type",
+    "numerical_attribute": "Numerical attribute",
+    "attributes_display_count": "Number of attributes to show",
+    "attribute_importance": "Attribute importance",
+    "attribute": "Attribute",
+    "nominal_attribute": "Nominal attribute",
+    "condition_importance": "Condition importance",
+    "condition_display_count": "Number of conditions to show",
+    "search_rule": "Search rule",
+    "select_indicators": "Select metric",
+    "rule": "Modified rule",
+    "original_rule": "Original rule",
+    "conditions": "Original rule",
+    "select": "Select",
+    "legend": "Legend",
+    "legend_desc": {
+      "classification": "On the edges of the graph, the number of examples from each class covered by the condition from which the edge originates is shown. The numbers correspond to the classes in the order visible on the list: ",
+      "regression": "On the edges of the graph, the mean and standard deviation of the decision attribute values for examples covered by the condition from which the edge originates are shown",
+      "survival": "On the edges of the graph, the median survival time for examples covered by the condition from which the edge originates is shown"
+    },
+    "indicators": "Metrics",
+    "selected_condition_phrase": "Selected conditions",
+    "chart_for_rule_indicators": "Chart for metrics characterizing rules",
+    "selected_indicators": "Selected metrics",
+    "chart_control_gestures": "Chart control using gestures",
+    "turn_camera_on": "Turn on the camera",
+    "turn_camera_off": "Turn off the camera",
+    "recognized_gesture": "Recognized gesture",
+    "certainty": "Confidence",
+    "chart_control_voice": "Voice control for chart manipulation",
+    "turn_microphon_on": "Turn on the microphone",
+    "turn_microphon_off": "Turn off the microphone",
+    "command_list": "Command list",
+    "zoom_in": "Zoom in",
+    "zoom_out": "Zoom out",
+    "recognized_command": "Recognized command",
+    "cannot_rotate_2d_around_z": "Cannot rotate 2D chart around Z axis",
+    "correlation_matrix": {
+      "title": "Correlation",
+      "prediction_percentage": "Percentage of examples for which the model made a prediction: ",
+      "big_matrix_info": "The correlation matrix for this dataset would not be readable due to its number of columns and rows therefore it is not displayed. The presentation of the correlation information has been adjusted for better readability.",
+      "confusion_matrix": "The confusion matrix for this dataset would not be readable due to the large number of classes therefore it is not displayed.",
+      "display_types": {
+        "matrix": "Matrix",
+        "table": "Table",
+        "ranking": "Ranking"
+      },
+      "ranking_columns": {
+        "first": "First column",
+        "second": "Second column",
+        "correlation": "Correlation"
+      }
+    },
+    "number_of_bins": "Number of intervals",
+    "graph": "Graph",
+    "rule_editor": {
+      "coverage_count_desc": "Number of examples covered by covered by the rule"
+    }
+  },
+  "comparison_view": {
+    "similarity_type": "Similarity type",
+    "relation_type": "Relation type",
+    "chosen_metric": "Similarity",
+    "select_ruleset": "Select a ruleset",
+    "calculate_similarity": "Calculate similarity",
+    "something_change": "The selected similarity type or relation type has been changed. To update the results, click the Calculate similarity button",
+    "syntactic": "Syntactic",
+    "semantic": "Semantic",
+    "oneToMany": "One to many",
+    "manyToMany": "Many to many",
+    "select_rulsets_to_compare": "Select rulesets to compare",
+    "compare_sets": "Compare rulesets",
+    "similarity": "Similarity",
+    "selected_rules_similarity": "Similarity of selected rules"
+  },
+  "labels": {
+    "toggle_display": "Show labels",
+    "add_popup": {
+      "title": "Add label",
+      "label_name": "Label name",
+      "label_color": "Label color",
+      "example_text": "Label text",
+      "character_limit": "Character limit"
+    },
+    "edit_popup": {
+      "title": "Edit label",
+      "add_new": "Create a new label"
+    },
+    "select_popup": {
+      "title": "Select a label",
+      "no_labels": "No labels available",
+      "context_menu": {
+        "edit": "Edit",
+        "delete": "Delete"
+      },
+      "search": {
+        "placeholder": "Search for label...",
+        "clear_btn": "Clear search"
+      }
+    },
+    "no_empty": "The label name cannot be empty",
+    "add_btn": "Add label",
+    "save_btn": "Save",
+    "delete_btn": "Remove from rule",
+    "selection_marker_tooltip": "Label has been selected"
+  },
+  "process": {
+    "tab_name": "Processes",
+    "active": {
+      "title": "List of active processes"
+    },
+    "ended": {
+      "title": "List of completed processes"
+    },
+    "table": {
+      "process_id": "ID",
+      "start_time": "Start date",
+      "end_time": "End date",
+      "effect": "Effect",
+      "no_data": "No data",
+      "status": {
+        "title": "Status",
+        "success": "finished",
+        "started": "started",
+        "aborted": "aborted",
+        "stopping": "stopping",
+        "stopped": "stopped",
+        "failure": "failure",
+        "pending": "pending"
+      },
+      "type": {
+        "title": "Type",
+        "cross_validation": "cross validation",
+        "report": "generating a report",
+        "ruleset": "generating a ruleset",
+        "save_ruleset": "saving a ruleset",
+        "filter_ruleset": "filtering a rule set"
+      },
+      "operations": "Operations",
+      "cancel_btn": "Cancel",
+      "stop_btn": "Stop",
+      "details": {
+        "title": "Report name",
+        "type": "Report type",
+        "data_set": "Dataset",
+        "create_time": "Task creation time",
+        "start_time": "Start time",
+        "end_time": "End time",
+        "info": "Information",
+        "history": "History",
+        "details": "Details",
+        "number_of_rules": "Number of generated rules",
+        "filter_algorithm": "Filtering algorithm",
+        "params": "Task parameters",
+        "total_examples_count": "Total number of examples",
+        "uncovered_examples_count": "Number of uncovered examples",
+        "report_type": {
+          "knowledge_discovery": "Knowledge discovery",
+          "prediction": "Predictive analysis",
+          "explorative_data_analysis": "Exploratory analysis"
+        }
+      },
+      "refresh": "Refresh the process list",
+      "refreshing": "Data updating",
+      "timer_tooltip": "Time remaining until the list refreshes",
+      "pending_time": "Time since the task started",
+      "execution_time": "Execution time",
+      "tooltips": {
+        "stop": "Stop the process and keep the rules generated so far",
+        "stopping": "The generation of the ruleset has been manually stopped. Depending on the size of the dataset, the final calculation of metrics may take a few additional minutes",
+        "stopped": "The generation of the ruleset has been manually stopped. The set may not be complete"
+      }
+    },
+    "info_modal": {
+      "title": "Process list",
+      "content": {
+        "generation_process_started": "The calculation process has started",
+        "manually_adding_process_started": "The process of saving ruleset has started",
+        "saving_process_started": "The process of saving the ruleset has started",
+        "add_existing_ruleset_process_started": "The process of adding the ruleset to the dataset has started",
+        "follow_process": "You can track it on the tab"
+      }
+    },
+    "errors": {
+      "unknown_error": "An unexpected error occurred. Contact the support team via the 'report bug' form in the upper right corner menu.",
+      "worker_lost": "An error occurred - our service seems to be overloaded. Please try again in a few minutes, and if the problem persists, contact the support team via the 'report bug' form in the upper right corner menu.",
+      "backend_error": "An error occurred - one of our services may be temporarily unavailable. Please try again in a few minutes, and if the problem persists, contact the support team via the 'report bug' form in the upper right corner menu.",
+      "dataset_read_error": "An error occurred while accessing the dataset. One of our services may be temporarily unavailable. Please try again in a few minutes, and if the problem persists, contact the support team via the 'report bug' form in the upper right corner menu.",
+      "report_generation_error": "An error occurred while generating the report. Your dataset may represent an unforeseen edge case. Please contact the support team via the 'report bug' form in the upper right corner menu.",
+      "report_save_error": "An error occurred while saving the report. One of our services may be temporarily unavailable. Please try again in a few minutes, and if the problem persists, contact the support team via the 'report bug' form in the upper right corner menu.",
+      "report_not_implemented_error": "Incorrect configuration or report type was selected. contact the support team via the 'report bug' form in the upper right corner menu.",
+      "ruleset_generation_error": "An error occurred while generating the ruleset. Your dataset may represent an unforeseen edge case. Try adjusting generation parameters; if the problem persists, please contact the support team via the 'report bug' form in the upper right corner menu.",
+      "empty_ruleset_error": "The generated ruleset is empty. Please check the dataset and try again. If the problem persists, contact the support team via the 'report bug' form in the upper right corner menu.",
+      "ruleset_processing_error": "An error occurred while processing the ruleset. Please contact the support team via the 'report bug' form in the upper right corner menu.",
+      "calculation_error": "An error occurred while calculating ruleset indicators. Please contact the support team via the 'report bug' form in the upper right corner menu.",
+      "prediction_configuration_error": "Incorrect configuration or prediction type was selected. Please contact the support team via the 'report bug' form in the upper right corner menu.",
+      "not_supported_for_rules_with_alternatives": "This feature is not supported for rules containing alternatives (OR operator)."
+    }
+  },
+  "compare": {
+    "tab_name": "Compare",
+    "knowledge_discovery": "Knowledge discovery",
+    "predictive_capability": "Predictive capability",
+    "train_dataset": "Train dataset",
+    "test_dataset": "Test dataset",
+    "test_ruleset": "Rulesets to compare",
+    "compare_btn": "Compare",
+    "select_ruleset": "Select rulesets for comparison",
+    "link": "Go to:"
+  },
+  "project_summary": {
+    "title": "Project summary",
+    "table": {
+      "created_at": "Creation date",
+      "last_opened_at": "Last opened",
+      "name": "Project name",
+      "type": "Project type",
+      "updated_at": "Last modification",
+      "total_size": "Total size",
+      "number_of_data_sets": "Number of datasets",
+      "number_of_rule_sets": "Number of rulesets",
+      "number_of_reports": "Number of reports",
+      "dataset_name": "Dataset",
+      "remove": "Delete",
+      "remove_project_title": "Delete selected projects",
+      "remove_dataset_title": "Delete selected datasets",
+      "datasets": "Datasets",
+      "size": "Size",
+      "number_of_rows": "Number of rows",
+      "number_of_columns": "Number of columns",
+      "survival": "Survival",
+      "classification": "Classification",
+      "regression": "Regression"
+    },
+    "limit_info": {
+      "size": "Your current file size limit is {{value}}",
+      "column": "Your current limit is {{value}} columns in a single dataset",
+      "row": "Your current limit is {{value}} rows in a single dataset"
+    },
+    "modal": {
+      "remove_project": {
+        "title": "Deleting a project",
+        "content": "Do you want to delete the selected projects?"
+      },
+      "remove_dataset": {
+        "title": "Deleting a dataset",
+        "content": "Do you want to delete the selected datasets?"
+      },
+      "cancel": "Cancel",
+      "remove": "Delete"
+    },
+    "back_btn": "Return to projects"
+  },
+  "project_space_usage": {
+    "title": "Memory usage level",
+    "content": "Datasets use {{used}} out of {{limit}}"
+  },
+  "footer": {
+    "lukasiewicz-logo-alt": "Logo of Łukasiewicz Research Network – Institute of Artificial Intelligence and Cybersecurity",
+    "menu_links": {
+      "home": "Home",
+      "team": "Team",
+      "publications": "Publications",
+      "contact": "Contact",
+      "documentation": "Documentation",
+      "terms_of_service": "Terms of service",
+      "regulations": "Regulations",
+      "accessibility_statement": "Accessibility statement",
+      "privacy_policy": "Privacy Policy"
+    },
+    "copyright": "© {{year}} RuleMiner | Łukasiewicz Research Network – Institute of Artificial Intelligence and Cybersecurity"
+  },
+  "add": "Add",
+  "save": "Save",
+  "saveing": "Saving",
+  "generate": "Generate",
+  "cancel": "Cancel",
+  "no_data": "No data available",
+  "tooltips": {
+    "initial_value": "Initial value: ",
+    "previous_value": "Previous value: ",
+    "treeview": "For the selected dataset or ruleset, the user can invoke the context menu",
+    "generate_rule": {
+      "RuleKit": "After selecting this option, the rules will be generated automatically. The user only needs to answer a few questions (fill out a form) that will allow for the customization of the induction parameters to suit their needs.",
+      "Manually": "After selecting this option, the user can define the ruleset manually. They can do this by creating individual rules using the editor or by loading (selecting) rules from existing rulesets. The condition for loading a ruleset is that the rules must match the dataset, meaning they are built based on the conditional attributes present in the dataset.",
+      "Manualnie": "After selecting this option, the user can define the ruleset manually. They can do this by creating individual rules using the editor or by loading (selecting) rules from existing rulesets. The condition for loading a ruleset is that the rules must match the dataset, meaning they are built based on the conditional attributes present in the dataset.",
+      "steeper_generator": "Based on the answers provided in the form, the system will automatically set the vules of rule induction parameters. Please remember to accept the submitted answers.",
+      "induction": "This section allows the user to provide specific requirements for the rule induction algorithm regarding the form of the generated rules.",
+      "attributes_to_omit": "Specifying attributes (columns) that will not be considered during rule generation.",
+      "k_fold": "The results of the quality of the rule-based classifier trained in cross-validation mode are available on the \"Prediction summary\" tab. ",
+      "DeepRules": "A slower rule induction algorithm capable of learning more complex rule sets containing nested logical conjunctions and disjunctions."
+    },
+    "rules_table": {
+      "prediction_from_computer": "Allows for making predictions on a dataset that does not contain the decision column. It is important that the submitted dataset has the same conditional attributes (column names) as the dataset for which the ruleset was generated. After clicking the button, the dataset will be uploaded to the server where the prediction will be made using the rule-based model the user is working on. The dataset will then be downloaded with an additional column containing the prediction. The dataset will not be saved in the system. If the user wants to analyze it, they can upload the downloaded dataset to the system.",
+      "rules_comparison": "This tab allows for the examination of rule similarity. Semantic similarity refers to the sets of examples covered by the compared rules. Syntactic similarity refers to the structure of the rules, particularly to the sets of elementary conditions that make up the compared rules. ",
+      "rule_coverage": "The tab contains information about the coverage of examples by individual rules. The table below lists the rules along with basic information about each one, such as the premise and conclusion of the rule, as well as the precision and coverage values. Each rule is assigned a color to better illustrate which examples are covered by the given rule. Using the \"Show column selection\" button, the user can display additional columns. The \"Active\" marker allows the user to exclude/include a specific rule from/to the analysis.",
+      "rules": "The tab presents a summary of the rules that were generated or obtained by other means. The user has the ability to sort the rules by one or more criteria (columns) by using the keys Shift + header of the \"first\" column + header of the next column. To disable sorting, click on the header of any column.",
+      "activity": "The \"Active\" column allows the user to exclude/include a specific rule from/to the ruleset. If a rule is excluded, it is not considered during prediction or when recalculating the values of the metrics characterizing the ruleset.",
+      "prediction": "The values presented in this form provide information about the prediction quality of the active (current) ruleset. Depending on the selected analysis (classification, regression, survival), the form displays the values of the metrics appropriate for the given type of analysis. Detailed information about the metrics and their interpretation can be found in the documentation or on the website https://scikit-learn.org/stable/modules/model_evaluation.html.",
+      "quantitative_characteristics": "The values presented in this form provide information about the quality of the rules. Detailed information about the significance of each metric can be found in the documentation. ",
+      "importance": "The importance of conditions (attribute importance) reflects the significance of conditions (attributes) for the analyzed ruleset, particularly the rules containing a given condition (attribute). The result of the importance analysis is a ranking of conditions (attributes). The lower the rank of a condition (attribute), the more important it is for the considered rules. In the case of classification, importance is determined separately for each class. ",
+      "filter_rules": "The \"Filter\" function allows the user to filter the dataset by selecting examples that meet the conditions (premises) of the enabled rules. The results of this filtration are visible in the \"Data Overview\" table (a maximum of {{maxRules}} rules can be selected).",
+      "visible_coverage": "The \"Visible coverage\" function allows the user to obtain information about which examples are covered by the rules selected by the user. For each of the selected rules (a maximum of {{maxRules}} rules can be selected), a column with the rule's name is added to the \"Data Overview\" table. The rows in this column indicate which examples are covered by this rule.",
+      "data_overview": "The \"Data Overview\" table contains information about the values of the conditional attributes for each example. Additionally, the true value (ground truth) of the decision attribute and the prediction made by the ruleset are visible. The table also shows the number of rules covering each example.",
+      "rules_comapre": "This tab allows for the comparison of rule similarity. Two methods are available for analyzing similarity: syntactic and semantic. ",
+      "relation_type": "The \"one-to-many\" comparison type allows comparing one selected rule with many other rules. The \"many-to-many\" mode enables the examination of the similarity between two sets of rules. Comparisons can be made within a single rule set or between two different rule sets.",
+      "chosen_metric": "This option allows the user to select the metric used to calculate semantic similarity. Detailed formulas for the metrics and the differences between them are described in the documentation. ",
+      "rule_choose_button": "The button allows the selection of rulesets for comparison. ",
+      "execute_prediction": "In this tab, it is possible to make predictions using the selected ruleset. In the \"Data Overview\" section, the generated predictions and the true values (if they exist) of the decision attribute for each example are visible. ",
+      "select_dataset_to_execute_prediction": "From the dropdown list, select the dataset on which you want to make predictions. For this dataset, the rule-based model will return the predicted values of the decision attribute. Of course, this dataset can be any set, but it must be built with the same attributes as the set used to determine the rules. ",
+      "training_data_set": "This section of the form presents statistics describing the quality of predictions on the training set. Details about the metrics used and their interpretation can be found in the documentation or on the website https://scikit-learn.org/stable/modules/model_evaluation.html.",
+      "actual_condition": "The confusion matrix provides details on the number of correct and incorrect decisions (including types of errors) made by the rule-based model.",
+      "specific_decision_class_classification": "This section of the form presents classification quality statistics for each decision class separately. The confusion matrices are built on a \"class\" vs. \"all other classes\" basis. Details about the quality metrics used and their interpretation can be found in the documentation or on the website https://scikit-learn.org/stable/modules/model_evaluation.html. ",
+      "specific_decision_class_regression": "This section of the form presents statistics describing the quality of predictions on the training set. Details about the metrics used and their interpretation can be found in the documentation or on the website https://scikit-learn.org/stable/modules/model_evaluation.html. ",
+      "similarity_type": "Syntactic similarity examines how similar the rules are in terms of their structure, including whether the premises of the rules are built from the same attributes and the range of values of the elementary conditions. Semantic similarity takes into account the sets of examples covered by the compared rules.",
+      "test_data_set": "This section of the form presents statistics describing the quality of predictions on the selected dataset (e.g., test set). Details about the metrics used and their interpretation can be found in the documentation or on the website https://scikit-learn.org/stable/modules/model_evaluation.html. ",
+      "cross_validation_results": "This section of the form presents statistics on the quality of predictions obtained during cross-validation. The metric values displayed are the average results for the rule-based models generated during the cross-validation process. "
+    }
+  },
+  "report_bug": {
+    "modal": {
+      "title": "Report bug",
+      "description_label": "Bug description",
+      "description_placeholder": "A more detailed description of the error will help us resolve it more easily.",
+      "allow_contact_label": "Allow further email contact",
+      "screenshot_label": "Screenshot",
+      "screenshot_text": "Add a screenshot if it may be helpful.",
+      "submit": "Submit",
+      "take_screenshot": "Take a screenshot",
+      "screenshot_alt": "Screenshot",
+      "permission_denied_info": "To add a screenshot you must allow the application to access the card's contents. The application will then take a one-time screenshot. Permission is required for each subsequent screenshot.",
+      "remove_screenshot": "Remove",
+      "screenshot_errors": {
+        "api_not_available": "Your browser or device does not support taking screenshots.",
+        "unknown": "An unknown error occurred while taking a screenshot. The screenshot was not added."
+      },
+      "error": "Unfortunately the submission failed. Please try again or contact us by email."
+    },
+    "thank_you": {
+      "title": "Thank you for your submission",
+      "content": "We will try to address this as soon as possible.",
+      "close_btn": "Close"
+    }
+  },
+  "prediction_config": {
+    "title": "Prediction configuration",
+    "labels": {
+      "prediction_strategy": "Conflict resolution method",
+      "voting_measure": "Conflict resolution measure",
+      "use_default_rule": "Use default rule"
+    },
+    "prediction_strategies": {
+      "vote": "Use voting",
+      "best_rule": "Use best rule"
+    }
+  },
+  "filter_builder": {
+    "loading_filter": "Loading Filter...",
+    "add_condition": "Add Condition",
+    "maximum_group_level_reached": "Maximum group level reached ({{maxGroupLevel}})",
+    "add_nested_group": "Add a nested group",
+    "empty_group_message_1": "This group is empty. Add a condition",
+    "empty_group_message_2": "Click 'Add Condition' to start building your filter rules.",
+    "select_operator": "Select Operator...",
+    "operators": {
+      "equals": "=",
+      "notEquals": "!=",
+      "isNull": "Is empty",
+      "isNotNull": "Is not empty",
+      "between": "Between",
+      "isTrue": "Is true",
+      "isFalse": "Is false",
+      "greaterThan": ">",
+      "lessThan": "<",
+      "greaterThanOrEqual": ">=",
+      "lessThanOrEqual": "<=",
+      "equalsAttr": "= (attribute)",
+      "notEqualsAttr": "!= (attribute)",
+      "isNullAttr": "Is empty (attribute)",
+      "isNotNullAttr": "Is not empty (attribute)",
+      "greaterThanAttr": "> (attribute)",
+      "lessThanAttr": "< (attribute)",
+      "greaterThanOrEqualAttr": ">= (attribute)",
+      "lessThanOrEqualAttr": "<= (attribute)",
+      "betweenAttr": "Between (attribute)",
+      "isTrueAttr": "Is true (attribute)",
+      "isFalseAttr": "Is false (attribute)"
+    }
+  },
+  "value_input": {
+    "enter_value": "Enter value...",
+    "enter_number": "Enter number...",
+    "start": "Start...",
+    "end": "End...",
+    "select": "Select..."
+  },
+  "validation_errors": {
+    "value_required_invalid": "Value required/invalid.",
+    "end_value_required_invalid": "End value required/invalid."
+  },
+  "condition_row": {
+    "no_value_needed": "(No value needed)"
+  },
+  "field_selector": {
+    "select_field": "Select Field..."
+  },
+  "tour": {
+    "config": {
+      "back": "Back",
+      "next": "Next",
+      "exit": "Exit",
+      "title": "Tutorial",
+      "content": "Do you want to start the tutorial?",
+      "confirm": "Start",
+      "cancel": "Cancel",
+      "step": "Step",
+      "repeat": {
+        "error": "Failed to reset the tutorial. Please try again later.",
+        "disabled_button": "The tutorial is blocked because the limit on the number of projects has been reached. Delete any project to be able to go through the tutorial again."
+      }
+    },
+    "element_not_found": "Tutorial element not found. The tour will be stopped.",
+    "create_project": {
+      "title": "Create New Project",
+      "content": "Create a new project by clicking here."
+    },
+    "search": {
+      "title": "Search Projects",
+      "content": "Search through your projects by name"
+    },
+    "summary": {
+      "title": "Project Summary",
+      "content": "View a summary of all your projects"
+    },
+    "sort": {
+      "title": "Sort Projects",
+      "content": "Sort your projects by name, last opened date, or last modified date"
+    },
+    "project_list": {
+      "title": "Project list",
+      "content": "Here you can find all your projects. Click on any project to open it. By clicking … in the bottom right corner, you can access a menu to rename, edit the description, or delete the project."
+    },
+    "rules_table": {
+      "title": "Rules table",
+      "content": " A list of generated rules with their conclusions (decisions based on the rule), precision, and coverage. The “Column selector” button allows you to display additional indicators."
+    },
+    "recent_project_list": {
+      "title": "Example projects",
+      "content": "Here you will find example projects with preloaded datasets and generated rule sets for different problem types. Clicking on a project will open it and add it to your project list. You can work freely on example projects and upload new ones at any time."
+    },
+    "treeView": {
+      "title": "Tree View",
+      "content": "This element represents a dataset. Left-clicking will display it in the main part of the application. Right-clicking or selecting the three dots on the right opens a context menu with additional options, such as generating a rule set.",
+      "datasetItem": "Dataset"
+    },
+    "rulesets_group": {
+      "title": "Rule sets",
+      "content": "This element groups rule sets associated with the dataset it belongs to. Right-clicking or selecting the three dots on the right opens a context menu where you can generate a new rule set or compare existing ones."
+    },
+    "ruleSetItem": {
+      "title": "Rule set",
+      "content": "This element represents a rule set (generated, created, added, or imported) for the associated dataset. Left-clicking will display it in the main part of the application. Right-clicking or selecting the three dots opens a context menu allowing you to perform operations such as filtering to reduce the number of rules."
+    },
+    "tabBar": {
+      "title": "Tab Bar",
+      "content": "Switch between different project views using the tab bar."
+    },
+    "subTabButton": {
+      "title": "Sub Tab Button",
+      "content": "Navigate to specific sections using sub-tab buttons."
+    },
+    "dataset_view_table": {
+      "title": "Dataset view table",
+      "content": "In this table you can explore the dataset. Options include filtering and sorting examples. You can sort by multiple columns by holding the “Shift” key. The column selector allows you to hide specific columns. You can also export the dataset to a .csv or .xlsx file. Clicking the floppy disk icon saves the dataset as a new one (overwriting is not possible). Saving takes into account filtering, sorting, and hidden columns."
+    },
+    "description": {
+      "title": "Dataset description",
+      "content": "In this section you can edit and view the dataset description. Add context, source information, and a brief overview of attributes."
+    },
+    "dataset_information": {
+      "title": "Dataset information",
+      "content": "This section provides detailed information about the dataset, along with suggestions for columns that can be modified to achieve more precise results."
+    },
+    "numerical_attributes": {
+      "title": "Numerical attributes",
+      "content": " The table displays the dataset’s numerical attributes along with their statistics."
+    },
+    "nominal_attributes": {
+      "title": "Nominal attributes",
+      "content": "For each attribute, you can see the number of missing values and the most frequent value, which helps identify dominant categories."
+    },
+    "dataset_correlation_matrix": {
+      "title": "Data correlation matrix",
+      "content": "The visualization shows the correlation matrix for numerical attributes."
+    },
+    "dataset_histogram_chart": {
+      "title": "Numerical attribute chart",
+      "content": " A chart displaying histograms for numerical attributes. You can adjust the number of bins and select the attribute to analyze. The default number of bins is determined automatically based on the data."
+    },
+    "histogram_chart": {
+      "title": "Histogram Chart",
+      "content": "This chart displays the distribution of values for a selected attribute."
+    },
+    "rolap_dataset_bar_chart": {
+      "title": "Nominal attribute chart",
+      "content": "This panel allows you to analyze the distribution of values for a selected nominal attribute."
+    },
+    "rules_prediction_indicators": {
+      "title": "Prediction metrics",
+      "content": "A summary of prediction quality metrics obtained by the rule set on the dataset it is linked to (most often the training set)."
+    },
+    "rules_quantitative_characteristics": {
+      "title": "Quantitative characteristics of the rule set",
+      "content": "A summary of the statistics of the rule set determined on the dataset it is linked to."
+    },
+    "rules_importance_card": {
+      "title": " Importance of conditions and attributes (by class)",
+      "content": "A comparison showing which conditions and attributes are most important in a given class, i.e. those with the greatest impact on the decision."
+    },
+    "project_rules_coverage": {
+      "title": "Rule coverage in the project",
+      "content": "A view of rules with the “Filter dataset” and “Show coverage” columns. Selecting “Filter dataset” filters the dataset according to the rule, so only matching examples are shown in the table below. You can select multiple rules and choose whether to show all examples covered by any of them (OR) or only those matching all rules (AND). The “Show coverage” option highlights the examples covered by a rule, helping to assess its usefulness."
+    },
+    "project_rules_coverage_table": {
+      "title": "Rule coverage table",
+      "content": "A table of examples covered by rules, showing the number of rules covering each row, the predicted class, and the actual label."
+    },
+    "comparison_form": {
+      "title": "Rule comparison form",
+      "content": "Configuration of rule comparison settings. The options determine how the comparison is performed."
+    },
+    "comparison_rules_table": {
+      "title": "Rule comparison table",
+      "content": "A table that allows you to select rules for comparison and analyze their structure."
+    },
+    "alignment_button_group": {
+      "title": "Analysis modes",
+      "content": "A toggle between the “Rule set” and “Importance” modes. It allows quick switching of the analysis perspective."
+    },
+    "rules_and_conditions_select_list": {
+      "title": "Rule and condition selection list",
+      "content": "A selection list of rules and their conditions to be visualized."
+    },
+    "visualisation_coverage_info": {
+      "title": "Information on graph-selected conditions",
+      "content": " After selecting a condition (or multiple) on the graph, information about their combination is displayed. For classification, this is the number of examples from a given class covered by the condition(s). For regression, it is a histogram of decision attribute values. For survival analysis, it is a survival curve based on the covered examples."
+    },
+    "rolap_graph_plot": {
+      "title": "Rule set graph",
+      "content": "A graph-based visualization. The edges from conditions display information about them. In classification, this is the number of examples from a given class covered by the condition. In regression, it is the mean and standard deviation of the decision attribute. In survival analysis, it is the time when the probability of the event drops below 50% for the covered examples."
+    },
+    "ruleset_histogram": {
+      "title": "Ruleset Histogram",
+      "content": "Histogram displaying the ruleset distribution."
+    },
+    "prediction_settings": {
+      "title": "Prediction settings ",
+      "content": "Configuration of prediction settings. Works similarly to the Predictions tab."
+    },
+    "prediction_result": {
+      "title": "Prediction",
+      "content": "A table of prediction results for the selected dataset. Right-clicking a row allows you to go to the “Explain example” tab to see the basis for the model’s decision."
+    },
+    "prediction_computer": {
+      "title": "Prediction for external dataset",
+      "content": "You can run a prediction on your own file. Set the encoding (e.g., UTF-8), field separator, and decimal separator, then drag and drop the file to start the process. The result will be a file with an additional column containing the model’s predictions."
+    },
+    "prediction_test_left": {
+      "title": "Prediction quality – training set",
+      "content": "A table with model quality metrics calculated on the training data."
+    },
+    "prediction_test_right": {
+      "title": " Prediction quality – test set",
+      "content": "A table with model quality metrics calculated on the test data."
+    },
+    "project_example": {
+      "title": "Decision explanation",
+      "content": "This tab allows you to check why the model made a specific decision for a given example. You can select an example from the dataset, pick one randomly, or enter it manually. After selection, you can analyze the decision and the rules that led to it."
+    },
+    "description_left": {
+      "title": "Rule set name and description",
+      "content": "A form for editing the name and description of the rule set."
+    },
+    "description_right": {
+      "title": "Rule set creation details",
+      "content": "A table containing the algorithm parameters and prediction settings used to generate the rule set."
+    },
+    "algorithm": {
+      "title": "Algorithm selection",
+      "content": "Choose how to build the rule set: using the RuleKit algorithm, DeepRules algorithm, or manually. The choice determines the available configuration options."
+    },
+    "algorithm_configuration": {
+      "title": "Algorithm configuration",
+      "content": "In the simple configuration, you answer questions and the system automatically selects algorithm parameters. In the advanced configuration, you can manually adjust all parameters."
+    },
+    "generate-button": {
+      "title": "Rule set generation",
+      "content": "Final step – click “Create” to start generating. Progress will be visible in the “Processes” interface, and once completed, you will be redirected to the analysis view of the new rule set."
+    }
+  }
+}

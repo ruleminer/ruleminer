@@ -1,0 +1,24 @@
+<div class="treeview-wrapper">
+  <div *rolapLoading="!treeView && !showRetryButtonSignal()"></div>
+  <dx-tree-view
+    *ngIf="treeView"
+    id="treeView"
+    class="treeview"
+    [dataSource]="treeView"
+    (onItemExpanded)="onItemExpanded($event)"
+    (onItemCollapsed)="onItemCollapsed($event)"
+    (onItemClick)="selectItem($event)"
+    itemTemplate="treeTemplate">
+    <div *dxTemplate="let data of 'treeTemplate'" class="tree-element">
+      <rolap-tree-item [item]="data" />
+    </div>
+  </dx-tree-view>
+  <div *ngIf="showRetryButtonSignal()" class="retry-container">
+    <dx-button
+      text="{{ 'project.treeview.retry' | translate }}"
+      (onClick)="reFetchTreeBtnClick()"
+      type="normal"
+      stylingMode="contained" />
+  </div>
+  <rolap-tree-footer />
+</div>

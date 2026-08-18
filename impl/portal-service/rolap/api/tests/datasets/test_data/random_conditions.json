@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "attributes": [
+      "A",
+      "B"
+    ]
+  },
+  "conditions": [
+    [
+      {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              0
+            ],
+            "negated": false,
+            "left": 40,
+            "right": null,
+            "left_closed": true,
+            "right_closed": false
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "type": "compound",
+        "operator": "CONJUNCTION",
+        "subconditions": [
+          {
+            "type": "elementary_numerical",
+            "attributes": [
+              1
+            ],
+            "negated": false,
+            "left": null,
+            "right": 50,
+            "left_closed": false,
+            "right_closed": false
+          }
+        ]
+      }
+    ]
+  ]
+}

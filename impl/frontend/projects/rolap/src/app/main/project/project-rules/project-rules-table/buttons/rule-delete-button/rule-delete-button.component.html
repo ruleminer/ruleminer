@@ -1,0 +1,6 @@
+<button
+  [attr.title]="disabled ? ('project.rules.empty_ruleset_info' | translate) : ('project.button.delete' | translate)"
+  [disabled]="disabled"
+  data-cy="project-rules-table-delete-rule-button">
+  <fa-icon [icon]="faTrash" class="icon-secondary"></fa-icon>
+</button>

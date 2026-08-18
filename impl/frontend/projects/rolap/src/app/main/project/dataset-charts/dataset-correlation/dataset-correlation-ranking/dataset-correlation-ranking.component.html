@@ -1,0 +1,44 @@
+<div class="flex justify-between pb2 pr2">
+  <div class="flex">
+    <div class="mr2">
+      <span>{{ 'dataset.statistic_tab.summary_number_of_rows' | translate }}</span>
+      <span>{{ correlationMatrix.x.length * correlationMatrix.y.length }}</span>
+    </div>
+    <div class="mr2">
+      <span>{{ 'dataset.statistic_tab.summary_number_of_columns' | translate }}</span>
+      <span>3</span>
+    </div>
+  </div>
+</div>
+<dx-data-grid
+  #dataGrid
+  [dataSource]="data"
+  [columnAutoWidth]="true"
+  [remoteOperations]="false"
+  [showBorders]="true"
+  [width]="'auto'">
+  <dxo-filter-row [visible]="true" [applyFilter]="'Immediately'"></dxo-filter-row>
+  <dxo-paging [pageSize]="pageSize" />
+  <dxo-pager
+    [visible]="true"
+    [showPageSizeSelector]="true"
+    [showNavigationButtons]="true"
+    [allowedPageSizes]="allowedPageSizes" />
+
+  <dxi-column
+    [caption]="'visualisation.correlation_matrix.ranking_columns.first' | translate"
+    dataField="first"
+    alignment="right">
+  </dxi-column>
+  <dxi-column
+    [caption]="'visualisation.correlation_matrix.ranking_columns.second' | translate"
+    dataField="second"
+    alignment="right">
+  </dxi-column>
+  <dxi-column
+    [caption]="'visualisation.correlation_matrix.ranking_columns.correlation' | translate"
+    dataField="correlation"
+    [sortOrder]="'desc'"
+    alignment="right">
+  </dxi-column>
+</dx-data-grid>

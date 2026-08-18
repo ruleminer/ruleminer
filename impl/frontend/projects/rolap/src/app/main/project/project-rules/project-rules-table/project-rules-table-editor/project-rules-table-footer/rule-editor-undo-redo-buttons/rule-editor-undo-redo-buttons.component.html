@@ -1,0 +1,20 @@
+<dx-button
+  data-cy="rule-editor-undo-button"
+  class="mr2"
+  stylingMode="text"
+  [attr.hint]="('project.rules.rule_editor.undo' | translate) + undoKeyboardShortcutHint"
+  type="normal"
+  [disabled]="(canUndo | async) === false"
+  (click)="undoClick()">
+  <fa-icon [icon]="faRotateLeft"></fa-icon>
+</dx-button>
+<dx-button
+  data-cy="rule-editor-redo-button"
+  class="mr2"
+  stylingMode="text"
+  type="normal"
+  [disabled]="(canRedo | async) === false"
+  [attr.hint]="('project.rules.rule_editor.redo' | translate) + redoKeyboardShortcutHint"
+  (click)="redoClick()">
+  <fa-icon [icon]="faRotateRight"></fa-icon>
+</dx-button>

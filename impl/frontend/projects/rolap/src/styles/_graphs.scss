@@ -1,0 +1,22 @@
+.nodes {
+  circle {
+    &:hover {
+      cursor: default;
+    }
+  }
+
+  rect,
+  text {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.links {
+  text {
+    &:hover {
+      cursor: default;
+    }
+  }
+}

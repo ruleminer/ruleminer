@@ -1,0 +1,55 @@
+<div class="flex justify-between pb2 pr2">
+  <div class="flex">
+    <div class="mr2">
+      <span>{{ 'dataset.statistic_tab.summary_number_of_rows' | translate }}</span>
+      <span>{{ correlationMatrix.x.length }}</span>
+    </div>
+    <div class="mr2">
+      <span>{{ 'dataset.statistic_tab.summary_number_of_columns' | translate }}</span>
+      <span>{{ correlationMatrix.x.length }}</span>
+    </div>
+  </div>
+
+  <rolap-select-columns-btn (buttonClick)="dataGrid.instance.showColumnChooser()" />
+</div>
+<dx-data-grid
+  class="correlation-table"
+  #dataGrid
+  [dataSource]="data"
+  [columnAutoWidth]="true"
+  [remoteOperations]="false"
+  [allowColumnReordering]="true"
+  [rowAlternationEnabled]="true"
+  (onCellPrepared)="onCellPrepared($event)"
+  [showBorders]="true"
+  [height]="'auto'"
+  [width]="'auto'">
+  <dxo-filter-row [visible]="true" [applyFilter]="'Immediately'"></dxo-filter-row>
+  <dxo-column-chooser
+    *ngIf="columns"
+    #columnChooser
+    [getHeightForColumnChooser]="100"
+    [columnCount]="columns.length"
+    #calcHeigh="getHeightForColumnChooser"
+    [height]="calcHeigh.pixelHeight"
+    [enabled]="true"
+    [mode]="'select'">
+  </dxo-column-chooser>
+  <dxi-column
+    *ngFor="let column of columns"
+    [dataField]="column.dataField"
+    [caption]="column.caption"
+    [allowFiltering]="column.allowFiltering"
+    [allowSorting]="column.allowSorting"
+    [alignment]="column.alignment"
+    [fixed]="column.fixed"
+    [fixedPosition]="column.fixedPosition"
+    [dataType]="column.dataType"
+    [allowHiding]="column.allowHiding"
+    headerCellTemplate="headerTemplate">
+  </dxi-column>
+  <dxo-scrolling [mode]="'virtual'" />
+  <div *dxTemplate="let info of 'headerTemplate'">
+    <div>{{ info.column.caption }}</div>
+  </div>
+</dx-data-grid>

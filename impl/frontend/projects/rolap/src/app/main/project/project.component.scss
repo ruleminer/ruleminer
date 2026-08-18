@@ -1,0 +1,31 @@
+@import 'styles/variables';
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 64px);
+  color: $label-color;
+  font-style: normal;
+  max-width: 100%;
+}
+
+.left-panel {
+  width: 70%;
+  height: 100%;
+}
+
+.right-panel {
+  width: 30%;
+  height: 100%;
+  background-color: $logo-font-color;
+
+  h2 {
+    color: $sample-project-text-color;
+  }
+
+  h5 {
+    margin: 4.3125rem 3rem 2.8125rem;
+    color: $sample-project-text-color;
+  }
+}

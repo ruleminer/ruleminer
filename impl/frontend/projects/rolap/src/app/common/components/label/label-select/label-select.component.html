@@ -1,0 +1,38 @@
+<div *ngIf="isSearchVisible" class="search-wrapper">
+  <input
+    type="text"
+    [(ngModel)]="searchValue"
+    (input)="searchLabel($event)"
+    [placeholder]="'labels.select_popup.search.placeholder' | translate" />
+
+  <button
+    *ngIf="searchValue.length"
+    class="clear-btn"
+    (click)="clearSearch()"
+    [title]="'labels.select_popup.search.clear_btn' | translate">
+    <fa-icon [icon]="faXMark"></fa-icon>
+  </button>
+</div>
+
+<div class="preview" [class.no-labels]="!filteredLabels.length">
+  <ng-container *ngIf="isLabelsFetched">
+    <ng-container *ngIf="filteredLabels.length; else noLabelsTemplate">
+      <rolap-label
+        *ngFor="let label of filteredLabels"
+        [id]="label.id"
+        [text]="label.name"
+        [color]="label.color"
+        [selected]="label.selected"
+        [preview]="true"
+        [contextMenu]="true"
+        (labelClick)="onLabelClick($event)"
+        (removeLabel)="onLabelRemove($event)"
+        (editLabel)="onLabelEdit($event)">
+      </rolap-label>
+    </ng-container>
+  </ng-container>
+</div>
+
+<ng-template #noLabelsTemplate>
+  {{ 'labels.select_popup.no_labels' | translate }}
+</ng-template>

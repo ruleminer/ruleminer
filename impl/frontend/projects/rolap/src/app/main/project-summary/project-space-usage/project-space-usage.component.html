@@ -1,0 +1,15 @@
+<div *ngIf="userLimits" class="flex mb2">
+  <span class="nowrap mr2">{{
+    'project_space_usage.content'
+      | translate : { used: userLimits.space_used | fileSize, limit: userLimits.max_sum_size | fileSize }
+  }}</span>
+
+  <dx-progress-bar
+    #progressBar
+    width="100%"
+    [min]="0"
+    [max]="userLimits.max_sum_size"
+    [showStatus]="false"
+    [value]="userLimits.space_used">
+  </dx-progress-bar>
+</div>

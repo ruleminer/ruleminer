@@ -1,0 +1,11 @@
+<div class="search-wrapper">
+  <p class="center-vertical mr1">{{ 'project.search_for_project' | translate }}</p>
+  <dx-text-box
+    class="project-filter"
+    [value]="(searchValue$ | async) ?? ''"
+    [showClearButton]="true"
+    (onInput)="onFilterChange($event)"
+    valueChangeEvent="keyup"
+    placeholder="{{ 'project.search' | translate }}"
+    stylingMode="outlined"></dx-text-box>
+</div>

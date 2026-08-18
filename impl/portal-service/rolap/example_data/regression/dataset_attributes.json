@@ -1,0 +1,156 @@
+[
+    {
+        "name": "CRIM",
+        "type": "num",
+        "role": "attr",
+        "min": 0.00632,
+        "max": 88.9762,
+        "average": 3.61,
+        "missing_values_count": 0,
+        "mode": null,
+        "unique_values": null
+    },
+    {
+        "name": "ZN",
+        "type": "num",
+        "role": "attr",
+        "min": 0.0,
+        "max": 100.0,
+        "average": 11.35,
+        "missing_values_count": 0,
+        "mode": null,
+        "unique_values": null
+    },
+    {
+        "name": "INDUS",
+        "type": "num",
+        "role": "attr",
+        "min": 0.46,
+        "max": 27.74,
+        "average": 11.14,
+        "missing_values_count": 0,
+        "mode": null,
+        "unique_values": null
+    },
+    {
+        "name": "CHAS",
+        "type": "num",
+        "role": "attr",
+        "min": 0.0,
+        "max": 1.0,
+        "average": 0.07,
+        "missing_values_count": 0,
+        "mode": null,
+        "unique_values": null
+    },
+    {
+        "name": "NOX",
+        "type": "num",
+        "role": "attr",
+        "min": 0.385,
+        "max": 0.871,
+        "average": 0.55,
+        "missing_values_count": 0,
+        "mode": null,
+        "unique_values": null
+    },
+    {
+        "name": "RM",
+        "type": "num",
+        "role": "attr",
+        "min": 3.561,
+        "max": 8.78,
+        "average": 6.28,
+        "missing_values_count": 0,
+        "mode": null,
+        "unique_values": null
+    },
+    {
+        "name": "AGE",
+        "type": "num",
+        "role": "attr",
+        "min": 2.9,
+        "max": 100.0,
+        "average": 68.57,
+        "missing_values_count": 0,
+        "mode": null,
+        "unique_values": null
+    },
+    {
+        "name": "DIS",
+        "type": "num",
+        "role": "attr",
+        "min": 1.1296,
+        "max": 12.1265,
+        "average": 3.8,
+        "missing_values_count": 0,
+        "mode": null,
+        "unique_values": null
+    },
+    {
+        "name": "RAD",
+        "type": "num",
+        "role": "attr",
+        "min": 1.0,
+        "max": 24.0,
+        "average": 9.55,
+        "missing_values_count": 0,
+        "mode": null,
+        "unique_values": null
+    },
+    {
+        "name": "TAX",
+        "type": "num",
+        "role": "attr",
+        "min": 187.0,
+        "max": 711.0,
+        "average": 408.24,
+        "missing_values_count": 0,
+        "mode": null,
+        "unique_values": null
+    },
+    {
+        "name": "PTRATIO",
+        "type": "num",
+        "role": "attr",
+        "min": 12.0,
+        "max": 22.0,
+        "average": 18.08,
+        "missing_values_count": 0,
+        "mode": null,
+        "unique_values": null
+    },
+    {
+        "name": "B",
+        "type": "num",
+        "role": "attr",
+        "min": 0.32,
+        "max": 396.9,
+        "average": 356.67,
+        "missing_values_count": 0,
+        "mode": null,
+        "unique_values": null
+    },
+    {
+        "name": "LSTAT",
+        "type": "num",
+        "role": "attr",
+        "min": 1.73,
+        "max": 37.97,
+        "average": 12.65,
+        "missing_values_count": 0,
+        "mode": null,
+        "unique_values": null
+    },
+    {
+        "name": "MEDV",
+        "type": "num",
+        "role": "class",
+        "min": 5.0,
+        "max": 50.0,
+        "average": 22.53,
+        "missing_values_count": 0,
+        "mode": null,
+        "unique_values": null
+    }
+]

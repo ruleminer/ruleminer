@@ -1,0 +1,18 @@
+<form class="row mt0 mb1">
+  <div class="col-lg-4 col-sm-6 mt0">
+    <div class="dx-field p0">
+      <div class="dx-field-label card-control-label flex">
+        <span class="center-vertical">{{ 'project.rules_coverage.filter_operator.label' | translate }}</span>
+      </div>
+      <dx-radio-group
+        [items]="operatorsChoice"
+        layout="horizontal"
+        (onValueChanged)="onFilterOperatorChange()"
+        [(value)]="value">
+        <div *dxTemplate="let element of 'item'">
+          <div>{{ 'project.rules_coverage.filter_operator.' + element | translate }}</div>
+        </div>
+      </dx-radio-group>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,44 @@
+<rolap-dataset-view-summary
+  *ngIf="dataGridReady && tableType === datasetViewTableType.DATA_SET_VIEW"
+  [dataGrid]="dataGrid" />
+<dx-data-grid
+  (onInitialized)="onDataGridInitialized()"
+  data-cy="dataset-table"
+  class="mb2"
+  [dataSource]="dataSource"
+  [height]="settings.height"
+  [showBorders]="true"
+  [columnAutoWidth]="true"
+  [allowColumnReordering]="true"
+  [allowColumnResizing]="true"
+  [columnResizingMode]="'widget'"
+  [customizeColumns]="customizeColumns"
+  [sorting]="{ mode: 'multiple' }"
+  (onCellPrepared)="onCellPrepared($event)"
+  (onSelectionChanged)="selectionChanged($event)"
+  (onContextMenuPreparing)="prepareContextMenu($event)"
+  [remoteOperations]="true"
+  [renderAsync]="true"
+  [noDataText]="
+    !noData && isLoading
+      ? ('project.rules.table.data_loading' | translate)
+      : ('project.rules.table.no_data' | translate)
+  ">
+  <dxo-selection [selectAllMode]="'allPages'" [showCheckBoxesMode]="'none'" [mode]="settings.selectionMode" />
+
+  <dxo-load-panel [enabled]="true" />
+  <dxo-filter-row [visible]="true" [applyFilter]="'Immediately'" />
+  <dxo-pager
+    [visible]="true"
+    [showPageSizeSelector]="true"
+    [showNavigationButtons]="true"
+    [allowedPageSizes]="settings.allowedPageSizes" />
+  <dxo-scrolling [useNative]="true" />
+  <dxo-state-storing
+    [enabled]="true"
+    type="custom"
+    [customLoad]="loadState"
+    [customSave]="saveState"
+    [savingTimeout]="100">
+  </dxo-state-storing>
+</dx-data-grid>

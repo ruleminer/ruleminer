@@ -1,0 +1,60 @@
+@import 'variables';
+
+:host {
+  display: contents;
+}
+
+:host ::ng-deep {
+  .dx-button {
+    box-shadow: none !important;
+  }
+}
+
+.icons-action-bar {
+  display: inline-flex;
+  flex-wrap: wrap;
+  background-color: $white;
+  padding: 0.3125rem 0.625rem;
+  border-radius: 0.625rem;
+  border: 1px solid $project-border-color;
+  gap: 8px;
+
+  .action-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    color: $logo-font-color;
+    padding: 0.25rem;
+
+    &:hover {
+      background-color: rgba($label-color, 0.05);
+    }
+
+    &:active {
+      background-color: $button-color;
+      color: $white;
+      transform: scale(0.97);
+    }
+
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+
+      &:hover,
+      &:active {
+        background-color: transparent;
+        color: $logo-font-color;
+        transform: none;
+      }
+    }
+
+    fa-icon {
+      font-size: 16px;
+    }
+  }
+}

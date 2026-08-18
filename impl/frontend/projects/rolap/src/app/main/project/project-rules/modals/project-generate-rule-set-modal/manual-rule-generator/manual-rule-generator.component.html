@@ -1,0 +1,94 @@
+<div class="grid-container" [ngStyle]="{ 'justify-content': isRuleTable ? 'space-between' : 'initial' }">
+  <div class="data-grid-wrapper">
+    <dx-data-grid
+      data-cy="manual-select-rule-table"
+      #dataGrid
+      [wordWrapEnabled]="true"
+      [dataSource]="dataSource"
+      [showBorders]="true"
+      [customizeColumns]="customizeColumns"
+      class="mt1 data-grid"
+      [noDataText]="'project.rules.table.no_data' | translate">
+      <dxo-scrolling [useNative]="true" showScrollbar="onHover" mode="standard" />
+      <dxi-column
+        caption="#"
+        [allowHiding]="false"
+        [width]="55"
+        cellTemplate="autoIncrementCellTemplate"
+        [alignment]="'left'">
+        <div *dxTemplate="let data of 'autoIncrementCellTemplate'">{{ data.data.autoIncrement }}</div>
+      </dxi-column>
+
+      <dxi-column
+        dataField="string"
+        caption="{{ 'project.rules.table.headers.rules' | translate }}"
+        [alignment]="'left'"></dxi-column>
+      <dxo-scrolling [useNative]="true" />
+
+      <dxi-column
+        dataField="uuid"
+        caption="{{ 'project.rules.table.headers.operations' | translate }}"
+        [allowFiltering]="false"
+        [allowHiding]="false"
+        [allowFiltering]="false"
+        [allowSorting]="false"
+        type="buttons"
+        [alignment]="'center'">
+        <ng-container *dxTemplate="let data of 'editButtonTemplate'">
+          <button>
+            <fa-icon [icon]="faPen" class="icon-secondary" title="{{ 'project.button.edit' | translate }}"></fa-icon>
+          </button>
+        </ng-container>
+        <ng-container *dxTemplate="let data of 'deleteButtonTemplate'">
+          <button>
+            <fa-icon
+              [icon]="faTrash"
+              class="icon-secondary"
+              title="{{ 'project.button.delete' | translate }}"></fa-icon>
+          </button>
+        </ng-container>
+      </dxi-column>
+
+      <dxo-editing
+        mode="popup"
+        [allowUpdating]="true"
+        [allowDeleting]="true"
+        [useIcons]="true"
+        [refreshMode]="'reshape'">
+        <dxo-texts
+          confirmDeleteMessage="{{ 'project.rules.table.confirm_delete_message' | translate }}"
+          deleteRow="{{ 'project.rules.table.delete_row' | translate }}"></dxo-texts>
+        <dxo-texts></dxo-texts>
+      </dxo-editing>
+    </dx-data-grid>
+
+    <div class="button-wrapper mt2">
+      <dx-button
+        class="manually-button mb2"
+        (onClick)="addRule()"
+        text="{{ 'project.button.add_rule' | translate }}"
+        [attr.data-cy]="'add-rule-manual-btn'" />
+      <dx-button
+        [attr.data-cy]="'add-rule-from-another-ruleset-btn'"
+        [disabled]="!hasMatchingTree"
+        class="manually-button mb2"
+        (onClick)="showDataset()"
+        text="{{ 'project.selectDataset' | translate }}" />
+    </div>
+  </div>
+
+  <div *ngIf="isRuleTable" class="flex justify-end mt3">
+    <dx-button
+      class="mr2"
+      type="normal"
+      (click)="closeModal()"
+      text="{{ 'project.treeview.context_menu.modal.duplicate.cancel_btn' | translate }}">
+    </dx-button>
+    <dx-button
+      data-cy="add-rules-to-big-table"
+      (click)="emitRulesFromTable()"
+      type="default"
+      text=" {{ 'project.button.add_rules' | translate }}">
+    </dx-button>
+  </div>
+</div>

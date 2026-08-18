@@ -1,0 +1,12 @@
+<div class="process-detail-view-container" *ngIf="!isCalculatingSignal()" @detailExpand>
+  <ng-container *ngIf="processErrorSignal() as errorKey">
+    <rolap-info class="mb1" [mode]="processStatusMode.ERROR">
+      <p class="wrap">
+        {{ errorKey | translate }}
+      </p>
+    </rolap-info>
+  </ng-container>
+  <rolap-process-info-table />
+  <rolap-process-history-item />
+  <rolap-process-details />
+</div>

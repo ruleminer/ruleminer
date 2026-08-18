@@ -1,0 +1,88 @@
+@import 'variables';
+@import 'styles/mixins/card';
+
+.selected {
+  background-color: $selected-item-color;
+  /* Change as needed */
+}
+
+.title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.plot-card {
+  min-height: 400px;
+}
+
+.indicators {
+  font-weight: 16px;
+}
+
+.chosenIndicators {
+  font-weight: 14px;
+}
+
+.no-right-margin {
+  margin-right: 0;
+}
+
+.no-left-margin {
+  margin-left: 0;
+}
+
+.center {
+  text-align: center;
+}
+
+#webcam-div {
+  margin-top: 1.25rem;
+  position: relative;
+  width: 100%;
+}
+
+.output-canvas {
+  position: absolute;
+  left: 1.1875rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.plot-manipulation-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto 20;
+}
+
+.plot-manipulation-buttons button {
+  width: 90px;
+  margin: 3px auto;
+}
+
+.list-name {
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.full-size {
+  flex: 1;
+}
+
+.custom-card {
+  @include card;
+  padding: 1rem;
+  min-height: auto;
+}
+
+.align-center {
+  align-self: center;
+}
+
+.align-content-right {
+  align-items: self-end;
+}

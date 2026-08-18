@@ -1,0 +1,70 @@
+<section  class="my2">
+  <rolap-predition-settings-card />
+
+  <section class="mb2 mt1">
+    <rolap-card id="prediction-result">
+      <rolap-title>
+        <h2 class="center-vertical">{{ 'project.prediction.prediction_in_application' | translate }}</h2>
+        <rolap-tooltip [tooltip]="'tooltips.rules_table.execute_prediction' | translate" />
+        <rolap-prediction-export-button [isDisabled]="isOutdated$ |async" class="ml-auto" />
+      </rolap-title>
+      <div>
+        <div class="text-left flex">
+          <div class="dx-field-label flex">
+            <span class="center-vertical">{{ 'project.select_dataset_to_execute_prediction' | translate }}</span>
+            <rolap-tooltip [tooltip]="'tooltips.rules_table.select_dataset_to_execute_prediction' | translate" />
+          </div>
+        </div>
+
+        <rolap-info class="mb1 mt1" *ngIf="isOutdated$ |async" mode="warning">
+          {{ 'project.prediction.prediction_in_application_info' | translate }}
+        </rolap-info>
+        <div class="flex mt1">
+          <dx-select-box
+            [width]="300"
+            [dataSource]="datasetDataObservable$ | async"
+            valueExpr="id"
+            [value]="selectedDataSet$ | async"
+            displayExpr="name"
+            stylingMode="outlined"
+            (onItemClick)="onDatasetClick($event)" />
+          <dx-button
+            (onClick)="updateVisibleDataset()"
+            class="ml2"
+            id="webcamButton"
+            stylingMode="contained"
+            type="default"
+            text="{{ 'project.execute_prediction' | translate }}" />
+        </div>
+      </div>
+
+      <ng-container *ngIf="combinedDatasetId$ | async as datasetId">
+     <rolap-project-rules-coverage-table
+       [isOutdated]="isOutdated$ | async"
+        *ngIf="visibleDataset$ | async"
+        class="mt2 block"
+        [tableType]="datasetViewTableType"
+        [showInCard]="false"
+        [overwriteDatasetId]="visibleDataset$ | async"
+        [showPredictionColumn]="true"
+        [showRulesCoverageColumns]="false"
+        [filterMode]="'withTableFilters'">
+      </rolap-project-rules-coverage-table>
+      </ng-container>
+    </rolap-card>
+
+    <div class="my2">
+      <rolap-card id="prediction-computer">
+        <rolap-title>
+          <h2 class="center-vertical">{{ 'project.prediction.prediction_from_computer' | translate }}</h2>
+          <div>
+            <rolap-tooltip [tooltip]="'tooltips.rules_table.prediction_from_computer' | translate" />
+          </div>
+        </rolap-title>
+        <div class="mb2">
+          <rolap-computer-prediction class="w-full" />
+        </div>
+      </rolap-card>
+    </div>
+  </section>
+</section>

@@ -1,0 +1,24 @@
+@import 'variables';
+
+:host {
+  display: flex;
+  align-items: center;
+}
+
+.margin-10 {
+  margin-right: 10px;
+}
+
+span {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: $project-color;
+}
+
+button {
+  border: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+}

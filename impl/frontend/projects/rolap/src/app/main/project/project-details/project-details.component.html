@@ -1,0 +1,35 @@
+<div class="container">
+  <rolap-sidebar [projectId]="projectId!" [ngStyle]="{ 'width.px': sidebarWidth | async }"></rolap-sidebar>
+  <ng-container *ngTemplateOutlet="asyncTemplate; context: { hasTabs: hasTabs$ | async }"></ng-container>
+</div>
+
+<ng-template #asyncTemplate let-hasTabs="hasTabs">
+  <div
+    class="project-details"
+    [ngStyle]="{ width: 'calc(100% - ' + (sidebarWidth | async) + 'px)', 'margin-left.px': sidebarWidth | async }">
+    <ng-container [ngSwitch]="hasTabs">
+      <ng-container *ngSwitchCase="true" [ngTemplateOutlet]="projectDetails"></ng-container>
+      <ng-container *ngSwitchCase="false" [ngTemplateOutlet]="showAllTabsClosed"></ng-container>
+      <ng-container *ngSwitchCase="null"></ng-container>
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #projectDetails>
+  <rolap-tab-bar />
+  <rolap-display-currently-selected-tab />
+</ng-template>
+
+<ng-template #showAllTabsClosed>
+  <div class="logo-container">
+    <div class="flex logo">
+      <rolap-logo />
+      <h1 class="logo-title">RULEMINER</h1>
+    </div>
+    <h2 class="mt2">{{ 'project.closed_tabs.title' | translate }}</h2>
+    <p class="mt1">
+      {{ 'project.closed_tabs.sub_title' | translate }}<br />
+      {{ 'project.closed_tabs.sub_title_br' | translate }}
+    </p>
+  </div>
+</ng-template>

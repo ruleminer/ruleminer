@@ -1,0 +1,68 @@
+<form [formGroup]="trainTestForm">
+  <div class="dx-field">
+    <label class="dx-field-label">{{ 'project.treeview.context_menu.modal.train_test.percent' | translate }}</label>
+    <dx-number-box
+      class="split-ratio-input"
+      name="splitRatio"
+      stylingMode="outlined"
+      formControlName="splitRatio"
+      [inputAttr]="{ 'aria-label': 'project.treeview.context_menu.modal.train_test.percent' | translate }" />
+    <div class="mt1 ml1">
+      <rolap-validation-message [control]="trainTestForm.controls['splitRatio']" />
+    </div>
+  </div>
+
+  <div class="dx-field">
+    <label class="dx-field-label">{{
+      'project.treeview.context_menu.modal.train_test.dividing_method' | translate
+    }}</label>
+    <dx-radio-group formControlName="splitMode" [items]="radioGroupItems">
+      <div *dxTemplate="let item of 'item'">
+        {{ 'project.treeview.context_menu.modal.train_test.' + item | translate }}
+      </div>
+    </dx-radio-group>
+  </div>
+
+  <div class="dx-field">
+    <label class="dx-field-label">{{ 'project.treeview.context_menu.modal.train_test.train' | translate }}</label>
+    <dx-text-box
+      valueChangeEvent="keyup"
+      name="train"
+      stylingMode="outlined"
+      formControlName="train"
+      [inputAttr]="{ 'aria-label': 'project.treeview.context_menu.modal.train_test.train' | translate }" />
+    <div class="mt1 ml1">
+      <rolap-validation-message [fieldName]="FieldName.RULE_NAME" [control]="trainTestForm.controls['train']" />
+    </div>
+  </div>
+
+  <div class="dx-field">
+    <label class="dx-field-label">{{ 'project.treeview.context_menu.modal.train_test.test' | translate }}</label>
+    <dx-text-box
+      valueChangeEvent="keyup"
+      name="test"
+      stylingMode="outlined"
+      formControlName="test"
+      [inputAttr]="{ 'aria-label': 'project.treeview.context_menu.modal.train_test.test' | translate }" />
+    <div class="mt1 ml1">
+      <rolap-validation-message [fieldName]="FieldName.RULE_NAME" [control]="trainTestForm.controls['test']" />
+    </div>
+  </div>
+</form>
+
+<rolap-info *ngIf="hasInvalidLabelsValuesError" [mode]="'error'"> {{ invalidLabelValuesErrorMessage }}</rolap-info>
+
+<div class="flex justify-end mt3">
+  <dx-button
+    class="mr2"
+    type="normal"
+    (click)="closeModal()"
+    text="{{ 'project.treeview.context_menu.modal.train_test.cancel_btn' | translate }}">
+  </dx-button>
+  <dx-button
+    type="default"
+    [disabled]="!trainTestForm.valid"
+    (click)="split()"
+    text="{{ 'project.treeview.context_menu.modal.train_test.confirm_btn' | translate }}">
+  </dx-button>
+</div>

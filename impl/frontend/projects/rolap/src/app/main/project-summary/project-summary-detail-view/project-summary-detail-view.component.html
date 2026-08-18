@@ -1,0 +1,115 @@
+<h3>{{ 'project_summary.table.datasets' | translate }}</h3>
+
+<dx-data-grid
+  class="mb2"
+  [dataSource]="dataSource"
+  [showBorders]="true"
+  [noDataText]="
+    isLoading ? ('project.rules.table.data_loading' | translate) : ('project.rules.table.no_data' | translate)
+  ">
+  <dxo-remote-operations [paging]="true" [sorting]="false" [filtering]="false"></dxo-remote-operations>
+
+  <dxo-paging [pageSize]="20"></dxo-paging>
+  <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="allowedPageSizes"></dxo-pager>
+
+  <!-- DATASET NAME -->
+  <dxi-column dataField="name" caption="{{ 'project_summary.table.dataset_name' | translate }}"> </dxi-column>
+
+  <!-- SIZE -->
+  <dxi-column
+    dataField="size"
+    caption="{{ 'project_summary.table.size' | translate }}"
+    cellTemplate="sizeCellTemplate"
+    alignment="left">
+  </dxi-column>
+
+  <!-- NUMBER OF ROWS -->
+  <dxi-column
+    dataField="number_of_rows"
+    caption="{{ 'project_summary.table.number_of_rows' | translate }}"
+    cellTemplate="numberOfRowsCellTemplate"
+    alignment="left">
+  </dxi-column>
+
+  <!-- NUMBER OF COLUMNS -->
+  <dxi-column
+    dataField="number_of_columns"
+    caption="{{ 'project_summary.table.number_of_columns' | translate }}"
+    cellTemplate="numberOfColumnsCellTemplate"
+    alignment="left">
+  </dxi-column>
+
+  <!-- NUMBER OF RULE SETS -->
+  <dxi-column
+    dataField="ruleset_count"
+    caption="{{ 'project_summary.table.number_of_rule_sets' | translate }}"
+    alignment="left">
+  </dxi-column>
+
+  <!-- NUMBER OF REPORTS -->
+  <dxi-column
+    dataField="report_count"
+    caption="{{ 'project_summary.table.number_of_reports' | translate }}"
+    alignment="left">
+  </dxi-column>
+
+  <!-- REMOVE CHECKBOX -->
+  <dxi-column
+    dataField="id"
+    cellTemplate="removeCellTemplate"
+    headerCellTemplate="removeHeaderTemplate"
+    [allowSorting]="false"
+    alignment="center">
+  </dxi-column>
+
+  <!-- REMOVE COLUMN TEMPLATE -->
+  <span *dxTemplate="let data of 'removeCellTemplate'">
+    <dx-check-box
+      name="hasHeader"
+      stylingMode="outlined"
+      (onValueChanged)="onCheckBoxValueChanged($event.value, data.value)" />
+  </span>
+
+  <!-- REMOVE COLUMN HEADER TEMPLATE -->
+  <div *dxTemplate="let d of 'removeHeaderTemplate'">
+    <div class="flex">
+      <span class="mr1 center-vertical">{{ 'project_summary.table.remove' | translate }}</span>
+      <button
+        class="remove-btn"
+        [title]="'project_summary.table.remove_dataset_title' | translate"
+        (click)="onRemoveDataSetBtnClick()">
+        <fa-icon class="icon-card icon-secondary fa-fw" [icon]="faTrash"> </fa-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- SIZE COLUMN TEMPLATE -->
+  <span *dxTemplate="let data of 'sizeCellTemplate'">
+    <ng-container *ngIf="data.value < userLimits.max_size">{{ data.value | fileSize }}</ng-container>
+    <rolap-dataset-limit-cell
+      *ngIf="data.value >= userLimits.max_size"
+      [value]="data.value | fileSize"
+      [title]="'project_summary.limit_info.size' | translate : { value: userLimits.max_size | fileSize }">
+    </rolap-dataset-limit-cell>
+  </span>
+
+  <!-- NUMBER OF ROWS TEMPLATE -->
+  <span *dxTemplate="let data of 'numberOfRowsCellTemplate'">
+    <ng-container *ngIf="data.value < userLimits.max_rows">{{ data.value }}</ng-container>
+    <rolap-dataset-limit-cell
+      *ngIf="data.value >= userLimits.max_rows"
+      [value]="data.value"
+      [title]="'project_summary.limit_info.row' | translate : { value: userLimits.max_rows }">
+    </rolap-dataset-limit-cell>
+  </span>
+
+  <!-- NUMBER OF COLUMNS TEMPLATE -->
+  <span *dxTemplate="let data of 'numberOfColumnsCellTemplate'">
+    <ng-container *ngIf="data.value < userLimits.max_columns">{{ data.value }}</ng-container>
+    <rolap-dataset-limit-cell
+      *ngIf="data.value >= userLimits.max_columns"
+      [value]="data.value"
+      [title]="'project_summary.limit_info.column' | translate : { value: userLimits.max_columns }">
+    </rolap-dataset-limit-cell>
+  </span>
+</dx-data-grid>

@@ -1,0 +1,197 @@
+[
+  {
+    "value": "C2",
+    "description_pl": "Opis parametru C2",
+    "description_en": "Some description of C2"
+  },
+  {
+    "value": "Correlation",
+    "description_pl": "Opis parametru Correlation",
+    "description_en": "Some description of Correlation"
+  },
+  {
+    "value": "Precision",
+    "description_pl": "Opis parametru Precision",
+    "description_en": "Some description of Precision"
+  },
+  {
+    "value": "Accuracy",
+    "description_pl": "Opis parametru Accuracy",
+    "description_en": "Some description of Accuracy"
+  },
+  {
+    "value": "Kappa",
+    "description_pl": "Opis parametru Kappa",
+    "description_en": "Some description of Kappa"
+  },
+  {
+    "value": "C1",
+    "description_pl": "Opis parametru C1",
+    "description_en": "Some description of C1"
+  },
+  {
+    "value": "CFoil",
+    "description_pl": "Opis parametru CFoil",
+    "description_en": "Some description of CFoil"
+  },
+  {
+    "value": "Coverage",
+    "description_pl": "Opis parametru Coverage",
+    "description_en": "Some description of Coverage"
+  },
+  {
+    "value": "Cn2Significnce",
+    "description_pl": "Opis parametru Cn2Significnce",
+    "description_en": "Some description of Cn2Significnce"
+  },
+  {
+    "value": "FullCoverage",
+    "description_pl": "Opis parametru FullCoverage",
+    "description_en": "Some description of FullCoverage"
+  },
+  {
+    "value": "Laplace",
+    "description_pl": "Opis parametru Laplace",
+    "description_en": "Some description of Laplace"
+  },
+  {
+    "value": "WeightedLaplace",
+    "description_pl": "Opis parametru WeightedLaplace",
+    "description_en": "Some description of WeightedLaplace"
+  },
+  {
+    "value": "Specificity",
+    "description_pl": "Opis parametru Specificity",
+    "description_en": "Some description of Specificity"
+  },
+  {
+    "value": "Sensitivity",
+    "description_pl": "Opis parametru Sensitivity",
+    "description_en": "Some description of Sensitivity"
+  },
+  {
+    "value": "Lift",
+    "description_pl": "Opis parametru Lift",
+    "description_en": "Some description of Lift"
+  },
+  {
+    "value": "RSS",
+    "description_pl": "Opis parametru RSS",
+    "description_en": "Some description of RSS"
+  },
+  {
+    "value": "OddsRatio",
+    "description_pl": "Opis parametru OddsRatio",
+    "description_en": "Some description of OddsRatio"
+  },
+  {
+    "value": "FBayesianConfirmation",
+    "description_pl": "Opis parametru FBayesianConfirmation",
+    "description_en": "Some description of FBayesianConfirmation"
+  },
+  {
+    "value": "FMeasure",
+    "description_pl": "Opis parametru FMeasure",
+    "description_en": "Some description of FMeasure"
+  },
+  {
+    "value": "GeoRSS",
+    "description_pl": "Opis parametru GeoRSS",
+    "description_en": "Some description of GeoRSS"
+  },
+  {
+    "value": "GMeasure",
+    "description_pl": "Opis parametru GMeasure",
+    "description_en": "Some description of GMeasure"
+  },
+  {
+    "value": "InformationGain",
+    "description_pl": "Opis parametru InformationGain",
+    "description_en": "Some description of InformationGain"
+  },
+  {
+    "value": "JMeasure",
+    "description_pl": "Opis parametru JMeasure",
+    "description_en": "Some description of JMeasure"
+  },
+  {
+    "value": "Klosgen",
+    "description_pl": "Opis parametru Klosgen",
+    "description_en": "Some description of Klosgen"
+  },
+  {
+    "value": "LogicalSufficiency",
+    "description_pl": "Opis parametru LogicalSufficiency",
+    "description_en": "Some description of LogicalSufficiency"
+  },
+  {
+    "value": "MEstimate",
+    "description_pl": "Opis parametru MEstimate",
+    "description_en": "Some description of MEstimate"
+  },
+  {
+    "value": "MutualSupport",
+    "description_pl": "Opis parametru MutualSupport",
+    "description_en": "Some description of MutualSupport"
+  },
+  {
+    "value": "Novelty",
+    "description_pl": "Opis parametru Novelty",
+    "description_en": "Some description of Novelty"
+  },
+  {
+    "value": "OneWaySupport",
+    "description_pl": "Opis parametru OneWaySupport",
+    "description_en": "Some description of OneWaySupport"
+  },
+  {
+    "value": "PawlakDependencyFactor",
+    "description_pl": "Opis parametru PawlakDependencyFactor",
+    "description_en": "Some description of PawlakDependencyFactor"
+  },
+  {
+    "value": "Q2",
+    "description_pl": "Opis parametru Q2",
+    "description_en": "Some description of Q2"
+  },
+  {
+    "value": "RelativeRisk",
+    "description_pl": "Opis parametru RelativeRisk",
+    "description_en": "Some description of RelativeRisk"
+  },
+  {
+    "value": "Ripper",
+    "description_pl": "Opis parametru Ripper",
+    "description_en": "Some description of Ripper"
+  },
+  {
+    "value": "RuleInterest",
+    "description_pl": "Opis parametru RuleInterest",
+    "description_en": "Some description of RuleInterest"
+  },
+  {
+    "value": "SBayesian",
+    "description_pl": "Opis parametru SBayesian",
+    "description_en": "Some description of SBayesian"
+  },
+  {
+    "value": "TwoWaySupport",
+    "description_pl": "Opis parametru TwoWaySupport",
+    "description_en": "Some description of TwoWaySupport"
+  },
+  {
+    "value": "WeightedRelativeAccuracy",
+    "description_pl": "Opis parametru WeightedRelativeAccuracy",
+    "description_en": "Some description of WeightedRelativeAccuracy"
+  },
+  {
+    "value": "Yails",
+    "description_pl": "Opis parametru Yails",
+    "description_en": "Some description of Yails"
+  },
+  {
+    "value": "Lord",
+    "description_pl": "Opis parametru Lord",
+    "description_en": "Some description of Lord"
+  }
+]

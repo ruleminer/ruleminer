@@ -1,0 +1,93 @@
+<!-- ruleset-prediction-configuration.component.html -->
+<rolap-card *ngIf="showInCard; else form" class="flex flex-column mb2">
+  <rolap-title class="flex justify-between">
+    <h2>{{ 'prediction_config.title' | translate }}</h2>
+  </rolap-title>
+  <ng-container *ngTemplateOutlet="form" />
+  <rolap-card-footer />
+</rolap-card>
+
+<ng-template #form>
+  <ng-container *ngIf="predictionConfigOptions$ | async as predictionConfigOptions; else loading">
+    <form *ngIf="formGroup" [formGroup]="formGroup" class="flex flex-wrap content-center align-baseline">
+      <!-- Prediction Strategy Dropdown -->
+      <div class="select-container">
+        <label *ngIf="!floatingLabel">{{ 'prediction_config.labels.prediction_strategy' | translate }}</label>
+        <dx-select-box
+          *ngIf="predictionConfigOptions.prediction_strategy"
+          width="200"
+          [items]="predictionConfigOptions.prediction_strategy.choices"
+          [searchEnabled]="true"
+          applyValueMode="useButtons"
+          formControlName="prediction_strategy"
+          fieldTemplate="field"
+          [label]="floatingLabel ? ('prediction_config.labels.prediction_strategy' | translate) : ''"
+          [readOnly]="formIsReadOnly"
+          stylingMode="outlined">
+          <div *dxTemplate="let data of 'field'">
+            <div class="custom-item">
+              <dx-text-box
+                [inputAttr]="{ 'aria-label': 'prediction_config.prediction_strategies.' + data | translate }"
+                class="product-name"
+                [value]="data ? ('prediction_config.prediction_strategies.' + data | translate) : null"
+                [readOnly]="true"></dx-text-box>
+            </div>
+          </div>
+          <div *dxTemplate="let data of 'item'">
+            <ng-container *ngIf="data; else emptyOption">
+              {{ 'prediction_config.prediction_strategies.' + data | translate }}
+            </ng-container>
+            <ng-template #emptyOption></ng-template>
+          </div>
+        </dx-select-box>
+      </div>
+
+      <!-- Conflict Resolution Measure Dropdown -->
+      <div class="select-container" *ngIf="predictionConfigOptions.voting_measure">
+        <label *ngIf="!floatingLabel">{{ 'prediction_config.labels.voting_measure' | translate }}</label>
+        <dx-select-box
+          width="200"
+          [items]="predictionConfigOptions.voting_measure.choices"
+          [searchEnabled]="true"
+          applyValueMode="useButtons"
+          formControlName="voting_measure"
+          fieldTemplate="field"
+          [label]="floatingLabel ? ('prediction_config.labels.voting_measure' | translate) : ''"
+          [readOnly]="formIsReadOnly"
+          stylingMode="outlined">
+          <div *dxTemplate="let data of 'field'">
+            <div class="custom-item">
+              <dx-text-box
+                class="product-name"
+                [value]="data"
+                [inputAttr]="{ 'aria-label': ('prediction_config.labels.voting_measure' | translate) }" />
+            </div>
+          </div>
+          <div *dxTemplate="let data of 'item'">
+            <ng-container *ngIf="data; else emptyOption">
+              {{ data }}
+            </ng-container>
+            <ng-template #emptyOption></ng-template>
+          </div>
+        </dx-select-box>
+      </div>
+
+      <!-- Use Default Rule Checkbox -->
+      <div class="select-container">
+        <dx-check-box
+          formControlName="use_default_rule"
+          [text]="'prediction_config.labels.use_default_rule' | translate"
+          [readOnly]="formIsReadOnly"
+          stylingMode="outlined"
+          data-cy="use-default-rule-checkbox">
+        </dx-check-box>
+      </div>
+    </form>
+  </ng-container>
+</ng-template>
+
+<ng-template #loading>
+  <div class="loading">
+    <dx-load-indicator height="60" width="60"></dx-load-indicator>
+  </div>
+</ng-template>

@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+dx-button {
+  float: right;
+}
+
+#voting-measures {
+  display: flex;
+  align-items: center;
+
+  dx-select-box,
+  rolap-tooltip {
+    display: inline-block;
+  }
+
+  rolap-tooltip {
+    margin-top: 6px;
+  }
+}
+
+.submit-wrapper {
+  margin-top: auto;
+}

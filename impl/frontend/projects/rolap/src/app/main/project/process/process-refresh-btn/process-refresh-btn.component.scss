@@ -1,0 +1,12 @@
+@import 'variables';
+
+:host {
+  display: flex;
+  align-items: center;
+}
+
+.timer {
+  color: $table-icon-color;
+  margin-right: 0.5rem;
+  cursor: default;
+}

@@ -1,0 +1,13 @@
+.step-link {
+  text-decoration: unset;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+li {
+  flex: 1;
+  align-items: center;
+  display: flex;
+}

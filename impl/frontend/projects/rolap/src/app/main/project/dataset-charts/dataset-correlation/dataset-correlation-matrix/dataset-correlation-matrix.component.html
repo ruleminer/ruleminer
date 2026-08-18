@@ -1,0 +1,12 @@
+<div      id="dataset-correlation-matrix">
+<div [attr.id]="'dataset-correlation-matrix--' + id"></div>
+</div>
+<dx-load-panel
+  #loadPanel
+  [position]="{ of: '#dataset-correlation-matrix--' + id }"
+  [(visible)]="loading"
+  [showIndicator]="true"
+  [showPane]="true"
+  [shading]="true"
+  [hideOnOutsideClick]="false">
+</dx-load-panel>

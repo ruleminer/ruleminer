@@ -1,0 +1,21 @@
+<div class="project-create">
+  <dx-button
+     id="create-project"
+    (click)="openFileImporterPopup()"
+    class="new-project-button"
+    [disabled]="isProjectLimitReached"
+    data-cy="project-add-btn">
+    <fa-icon [icon]="faIconPlus"></fa-icon>
+    <p>{{ 'project.new_project' | translate }}</p>
+  </dx-button>
+  <dx-tooltip
+    *ngIf="isProjectLimitReached"
+    target="#project-create"
+    showEvent="mouseenter"
+    hideEvent="mouseleave"
+    [hideOnOutsideClick]="false">
+    <div *dxTemplate="let data = data; of: 'content'">
+      {{ 'project.limit_reached' | translate }}
+    </div>
+  </dx-tooltip>
+</div>

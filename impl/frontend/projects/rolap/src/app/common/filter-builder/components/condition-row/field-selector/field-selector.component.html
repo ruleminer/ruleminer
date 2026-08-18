@@ -1,0 +1,11 @@
+<dx-select-box
+  [formControl]="fieldControl"
+  [items]="availableFields"
+  displayExpr="caption"
+  valueExpr="dataField"
+  placeholder="{{ 'field_selector.select_field' | translate }}"
+  [searchEnabled]="true"
+  class="condition-part"
+  [attr.data-cy]="'condition-row-field-select'"
+  width="150px"
+  stylingMode="outlined" />

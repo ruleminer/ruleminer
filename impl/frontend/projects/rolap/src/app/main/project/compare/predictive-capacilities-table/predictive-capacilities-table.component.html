@@ -1,0 +1,59 @@
+<dx-data-grid [dataSource]="dataSource" (onRowClick)="onPredictiveRowClick($event)">
+  <dxo-paging [pageSize]="20"></dxo-paging>
+  <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="allowedPageSizes"> </dxo-pager>
+
+  <dxo-selection mode="single"></dxo-selection>
+
+  <dxo-master-detail [enabled]="false" template="compareDetail" />
+
+  <div *dxTemplate="let compare of 'compareDetail'">
+    <rolap-compare-detail-view [compare]="compare" />
+  </div>
+</dx-data-grid>
+<div class="mb3 mt2">
+  <div class="selectbox-container flex-wrap justify-between">
+    <div class="flex-item">
+      <h3>{{ 'compare.test_dataset' | translate }}</h3>
+      <dx-select-box
+        width="70%"
+        [items]="listOfMatchingDatasets"
+        displayExpr="name"
+        stylingMode="outlined"
+        [(value)]="selectBoxDatasetValue" />
+    </div>
+    <div class="flex-item">
+      <h3>{{ 'compare.test_ruleset' | translate }}</h3>
+      <dx-tag-box
+        width="70%"
+        [items]="selectBoxList"
+        [searchEnabled]="true"
+        [showSelectionControls]="true"
+        applyValueMode="useButtons"
+        displayExpr="name"
+        [(value)]="selectBoxItems"
+        stylingMode="outlined"
+        [disabled]="!selectBoxList" />
+    </div>
+    <dx-button
+      class="mt2"
+      type="default"
+      [text]="'compare.compare_btn' | translate"
+      [disabled]="selectBoxItems.length === 0"
+      (onClick)="calculateSummary()" />
+  </div>
+</div>
+
+<div class="mt2 mb2" *ngIf="selectBoxItems.length > 0 && dataSourceSummary">
+  <dx-data-grid [dataSource]="dataSourceSummary" (onRowClick)="onRowClick($event)">
+    <dxo-paging [pageSize]="20"></dxo-paging>
+    <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="allowedPageSizes"> </dxo-pager>
+
+    <dxo-selection mode="single"></dxo-selection>
+
+    <dxo-master-detail [enabled]="false" template="compareDetail" />
+
+    <div *dxTemplate="let compare of 'compareDetail'">
+      <rolap-compare-detail-view [compare]="compare" />
+    </div>
+  </dx-data-grid>
+</div>

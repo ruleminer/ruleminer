@@ -1,0 +1,63 @@
+@import 'variables';
+
+:host ::ng-deep {
+  .dx-dropdownbutton {
+    .dx-button {
+      border-color: $button-color !important;
+      color: $button-color !important;
+    }
+
+    .dx-button-text {
+      color: $button-color !important;
+    }
+
+    .dx-icon {
+      color: $button-color !important;
+    }
+
+    &:hover {
+      border-color: darken($button-color, 10%) !important;
+    }
+
+    &:focus {
+      outline: none !important;
+    }
+  }
+
+  .dx-dropdownbutton-content .dx-list-item {
+    color: $button-color !important;
+  }
+
+  .dx-list-item-content {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+  }
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 10px;
+  width: 100%;
+
+  &:hover {
+    background-color: $dropdown-item-hover-bg-color;
+  }
+}
+
+.icon {
+  color: $dropdown-icon-color;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.label {
+  white-space: wrap;
+  text-overflow: ellipsis;
+
+}

@@ -1,0 +1,5 @@
+<p class="pl1 pb2">
+  <b>{{ 'visualisation.legend' | translate }}:</b>
+</p>
+<p *ngIf="problemType" class="pl1 pb2">{{ 'visualisation.legend_desc.' + problemType | translate }}</p>
+<p *ngIf="classDescription" class="pl1 pb2">{{ classDescription }}</p>

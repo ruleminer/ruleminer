@@ -1,0 +1,17 @@
+<rolap-undo-redo-buttons
+  [canUndo]="(canUndo$ | async) ?? false"
+  [canRedo]="(canRedo$ | async) ?? false"
+  (undo)="undo()"
+  (redo)="redo()"
+></rolap-undo-redo-buttons>
+
+<div class="filter-builder-container">
+  <ng-container *ngIf="filterForm; else loading">
+    <rolap-condition-group class="root-group" [groupForm]="filterForm" [availableFields]="processedFields"
+      [maxGroupLevel]="maxGroupLevel" [currentLevel]="0" [isExpertRules]="isExpertRules" [model]="model"
+      [fields]="fields" [getAvailableAttributesToCompare]="getAvailableAttributesToCompare.bind(this)" (conditionsCheckboxesChange)="conditionsCheckboxesChange.emit($event)" />
+  </ng-container>
+  <ng-template #loading>
+    <div>{{ 'filter_builder.loading_filter' | translate }}</div>
+  </ng-template>
+</div>

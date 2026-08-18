@@ -1,0 +1,46 @@
+@import 'variables';
+
+.key {
+  font-weight: bold;
+}
+
+.value {
+  color: $button-color;
+}
+
+.value_status {
+  color: $dataset-survival-column-color;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.first-child {
+  width: 49.5%;
+}
+
+.second-child {
+  width: 49.5%;
+}
+
+.attribute {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: $chips;
+  transition: background-color 0.25s ease-in-out;
+  padding: 0.125rem 0.25rem;
+  font-weight: 500;
+  color: $process-param-key-color;
+  margin-top: 1px;
+  margin-bottom: 1px;
+
+  &:hover {
+    background-color: lighten($chips, 4%);
+    cursor: default;
+  }
+
+  &:not(:last-of-type) {
+    margin-right: 5px;
+  }
+}

@@ -1,0 +1,7 @@
+/.quarto/
+*.ipynb
+*.html
+__pycache__/
+*.py[cod]
+*$py.class
+data/

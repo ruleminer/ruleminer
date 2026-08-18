@@ -1,0 +1,64 @@
+<div class="condition-group" *ngIf="rules" [formGroup]="typedGroupForm"
+  [class.condition-group-and]="typedGroupForm.get('condition')?.value === 'AND'"
+  [class.condition-group-or]="typedGroupForm.get('condition')?.value === 'OR'">
+  <div class="group-header" [class.group-header-and]="typedGroupForm.get('condition')?.value === 'AND'"
+    [class.group-header-or]="typedGroupForm.get('condition')?.value === 'OR'">
+    <div class="group-logic">
+      <dx-select-box formControlName="condition" [items]="[
+          { value: 'AND', text: 'AND' },
+          { value: 'OR', text: 'OR' },
+        ]" displayExpr="text" valueExpr="value" stylingMode="outlined"></dx-select-box>
+      <button type="button" class="filter-action-button filter-action-button-spaced"
+        [attr.data-cy]="'filter-builder-add-condition' + (rowIndex !== null ? '-' + rowIndex : '') + (isRoot ? '-root' : '')"
+        (click)="addCondition()" [title]="'filter_builder.add_condition' | translate">
+        <fa-icon [icon]="faPlus"></fa-icon>
+      </button>
+      <button type="button" class="filter-action-button filter-action-button-spaced"
+        [attr.data-cy]="'filter-builder-add-group' + (rowIndex !== null ? '-' + rowIndex : '') + (isRoot ? '-root' : '')"
+        (click)="addGroup()" [disabled]="!canAddGroup" [title]="
+             !canAddGroup
+               ? ('filter_builder.maximum_group_level_reached' | translate: {maxGroupLevel: maxGroupLevel})
+               : ('filter_builder.add_nested_group' | translate)
+           ">
+        <fa-icon [icon]="faFolderPlus"></fa-icon>
+      </button>
+    </div>
+    <div class="group-actions">
+      <rolap-close-icon *ngIf="!isRoot"
+        [attr.data-cy]="'filter-builder-remove-group' + (rowIndex !== null ? '-' + rowIndex : '')"
+        (close)="removeGroup()"></rolap-close-icon>
+    </div>
+  </div>
+
+  <div class="rules-container" formArrayName="rules">
+    <div *ngFor="let ruleControl of rules.controls; let i = index" class="rule-item-wrapper"
+      [attr.data-cy]="'rule-item-wrapper-' + i">
+      <ng-container [formGroupName]="i">
+        <ng-container *ngIf="isGroup(ruleControl); else conditionTemplate">
+          <rolap-condition-group [groupForm]="ruleControl" [availableFields]="availableFields"
+            [currentLevel]="currentLevel + 1" [maxGroupLevel]="maxGroupLevel" [rowIndex]="i" (remove)="removeRule(i)"
+            [attr.data-cy]="'condition-group-' + i" [isExpertRules]="isExpertRules" [model]="model"
+            [filterValue]="filterValue" [fields]="fields" [getAvailableAttributesToCompare]="getAvailableAttributesToCompare">
+          </rolap-condition-group>
+        </ng-container>
+
+        <ng-template #conditionTemplate>
+          <rolap-condition-row [conditionForm]="$any(ruleControl)" [availableFields]="availableFields"
+            (conditionsCheckboxesChange)="onConditionRowModelChange($event)" [rowIndex]="i"
+            [showRemoveButton]="canShowRemoveButton()" (remove)="removeRule(i)" [attr.data-cy]="'condition-row-' + i"
+            [isExpertRules]="isExpertRules" [model]="model" [filterValue]="filterValue" [fields]="fields"
+            [getAvailableAttributesToCompare]="getAvailableAttributesToCompare"
+            (filterValueChange)="onFilterValueChange($event)">
+          </rolap-condition-row>
+        </ng-template>
+      </ng-container>
+    </div>
+    <div *ngIf="rules.length === 0 && !isRoot" class="empty-group-message">
+      {{ 'filter_builder.empty_group_message_1' | translate }}
+    </div>
+    <div *ngIf="rules.length === 0 && isRoot" class="empty-group-message">
+      {{ 'filter_builder.empty_group_message_2' | translate }}
+    </div>
+
+  </div>
+</div>

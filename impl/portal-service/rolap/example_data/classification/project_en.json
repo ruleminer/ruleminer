@@ -1,0 +1,7 @@
+[
+    {
+        "name": "Example project classification",
+        "description": "This is a sample project to demonstrate the functionality of the system for classification problem",
+        "type_of_problem": "classification"
+    }
+]

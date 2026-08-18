@@ -1,0 +1,14 @@
+li {
+  display: flex;
+  flex-direction: row;
+  .label {
+    text-align: left;
+    flex: 1;
+    padding-right: 1rem;
+  }
+
+  .value {
+    text-align: right;
+    font-weight: bold;
+  }
+}

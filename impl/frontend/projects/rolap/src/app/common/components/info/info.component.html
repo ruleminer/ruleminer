@@ -1,0 +1,5 @@
+<div [attr.class]="'info-container p2 ' + mode">
+  <fa-icon *ngIf="icons[mode]" [icon]="icons[mode]" class="info-icon mr2" />
+  <ng-content></ng-content>
+  <dx-button *ngIf="showCloseButton" icon="close" (onClick)="closeClick()"> </dx-button>
+</div>

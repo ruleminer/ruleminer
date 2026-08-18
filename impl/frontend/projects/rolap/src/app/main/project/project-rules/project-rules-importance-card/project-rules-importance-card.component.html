@@ -1,0 +1,52 @@
+<rolap-card id="rules-importance-card">
+  <rolap-title class="flex justify-between">
+    <div class="flex">
+      <h2 class="center-vertical">{{ 'project.rules.importance' | translate }}</h2>
+      <rolap-tooltip [tooltip]="'tooltips.rules_table.importance' | translate" />
+    </div>
+    <div class="flex">
+      <rolap-refresh-icon
+        class="mr2"
+        [canRefresh]="importance.refresh"
+        [isRefreshing]="isRefreshing"
+        (refresh)="refreshClick()" />
+    </div>
+  </rolap-title>
+
+  <div class="breakpoint-container row">
+    <div [ngClass]="{ 'col-lg-6 col-sm-12': typeOfProblem !== ProblemTypes.Classification }">
+      <div class="download-buttons">
+        <rolap-export-dropdown [exportItems]="exportItemsCondition"></rolap-export-dropdown>
+      </div>
+      <h3 class="sub-heading mb1">{{ 'project.rules.condition_importance' | translate }}</h3>
+      <rolap-project-rules-importance-table
+        [tab]="tab"
+        [table]="importance.conditionImportance.table"
+        [state]="importance.conditionImportance.state"
+        [ruleSetId]="ruleSetId"
+        [dataSetId]="dataSetId"
+        [projectId]="projectId"
+        [isRefreshing]="isRefreshing"
+        importanceType="condition"
+        [typeOfProblem]="typeOfProblem" />
+    </div>
+    <div [ngClass]="{ 'col-lg-6 col-sm-12': typeOfProblem !== ProblemTypes.Classification }">
+      <div class="download-buttons">
+        <rolap-export-dropdown [exportItems]="exportItemsAttribute"></rolap-export-dropdown>
+      </div>
+      <h3 class="sub-heading mb1">{{ 'project.rules.attribute_importance' | translate }}</h3>
+      <rolap-project-rules-importance-table
+        [tab]="tab"
+        [table]="importance.attributesImportance.table"
+        [state]="importance.attributesImportance.state"
+        [ruleSetId]="ruleSetId"
+        [dataSetId]="dataSetId"
+        [projectId]="projectId"
+        [isRefreshing]="isRefreshing"
+        importanceType="attribute"
+        [typeOfProblem]="typeOfProblem" />
+    </div>
+  </div>
+
+  <rolap-card-footer> </rolap-card-footer>
+</rolap-card>

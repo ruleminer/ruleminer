@@ -1,0 +1,24 @@
+<div class="flex items-end" [class.spacer]="!last">
+  <a
+    [attr.id]="item.htmlID"
+    [class.active]="item.isCurrent"
+    [innerHTML]=""
+    [class.long-text]="item.isLongText"
+    (click)="setCurrentTab()">
+    <rolap-tab-type-icon [tabType]="item.type" />
+    {{ item | truncate }}
+  </a>
+  <ng-container *ngIf="item.isLongText">
+    <dx-tooltip
+      [target]="'#' + item.htmlID"
+      showEvent="mouseenter"
+      hideEvent="mouseleave"
+      position="top"
+      [hideOnOutsideClick]="true">
+      <div *dxTemplate="let _ = data; of: 'content'" class="tooltip">
+        {{ item.text }}
+      </div>
+    </dx-tooltip>
+  </ng-container>
+  <rolap-close-icon (close)="closeItem()"></rolap-close-icon>
+</div>

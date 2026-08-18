@@ -1,0 +1,16 @@
+<div class="labels">
+  <rolap-label
+    *ngFor="let label of labels"
+    [id]="label.id"
+    [text]="label.name"
+    [color]="label.color"
+    [ids]="ids"
+    [uuid]="uuid"
+    [readonly]="readonly"
+    [compact]="compact">
+  </rolap-label>
+</div>
+
+<button *ngIf="!readonly" (click)="addLabel($event)" data-cy="add-label-button-to-rule">
+  <fa-icon [icon]="faPlus" class="icon-secondary" title="{{ 'labels.add_btn' | translate }}"></fa-icon>
+</button>

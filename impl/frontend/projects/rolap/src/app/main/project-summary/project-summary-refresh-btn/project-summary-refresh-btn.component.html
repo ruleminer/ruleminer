@@ -1,0 +1,18 @@
+<button>
+  <fa-icon
+    *ngIf="!isRefreshing; else refreshingTemplate"
+    [icon]="faArrowsRotate"
+    class="icon-card icon-secondary fa-fw"
+    [title]="'button_tooltip.refresh_card' | translate"
+    (click)="refresh()">
+  </fa-icon>
+</button>
+
+<ng-template #refreshingTemplate>
+  <fa-icon
+    [icon]="faArrowsRotate"
+    animation="spin"
+    class="icon-card icon-secondary no-hover fa-fw"
+    [title]="'button_tooltip.refreshing' | translate">
+  </fa-icon>
+</ng-template>

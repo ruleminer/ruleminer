@@ -1,0 +1,158 @@
+<dx-scroll-view [height]="'100%'" [showScrollbar]="'always'">
+  <div class="file-importer-wrapper">
+    <rolap-stepper #stepper (stepChange)="onStepChange($event)" [allowGoingFurther]="false">
+      <!-- Project Information Step -->
+      <rolap-stepper-step [visible]="isNewProject">
+        <span step-header>{{ 'data_upload.project_info' | translate }}</span>
+        <div *step-content>
+          <rolap-project-form #projectForm (projectFormValueChange)="onProjectFromChange($event)"></rolap-project-form>
+          <div class="buttons-wrapper buttons-wrapper-column-choice">
+            <dx-button
+              class="submit-btn mt2"
+              stylingMode="contained"
+              text="{{ 'data_upload.next' | translate }}"
+              (click)="stepNext()"
+              [disabled]="!isProjectInfoValid"
+              type="default"
+              data-cy="go-to-upload-step-btn"></dx-button>
+          </div>
+        </div>
+      </rolap-stepper-step>
+      <!-- Choose File Step -->
+      <rolap-stepper-step>
+        <span step-header>{{ 'data_upload.file_choose' | translate }}</span>
+        <div *step-content class="file-importer-file-upload">
+          <div class="file-upload-wrapper">
+            <rolap-data-upload
+              [extensions]="extensions"
+              (fileInfoAndData)="onFileInfoValues($event)"></rolap-data-upload>
+          </div>
+          <div class="buttons-wrapper buttons-wrapper-first">
+            <ng-container *ngIf="isNewProject">
+              <ng-container
+                *ngTemplateOutlet="backButton; context: { dataCy: 'back-button-to-project-info' }"></ng-container>
+            </ng-container>
+            <dx-button
+              class="submit-btn mt2"
+              stylingMode="contained"
+              text="{{ 'data_upload.next' | translate }}"
+              (click)="stepNext()"
+              [disabled]="!isChooseFileStepValid"
+              type="default"
+              data-cy="go-to-format-step-btn"></dx-button>
+          </div>
+        </div>
+      </rolap-stepper-step>
+      <!-- Data Format Step -->
+      <rolap-stepper-step>
+        <span step-header>{{ 'data_upload.data_format' | translate }}</span>
+        <div *step-content class="dx-fieldset">
+          <rolap-file-format-form
+            (fileFormatValues)="onFormValues($event)"
+            [fileData]="fileString"
+            [problemType]="projectInfo.purpose" />
+          <div class="buttons-wrapper pb2">
+            <ng-container
+              *ngTemplateOutlet="backButton; context: { dataCy: 'back-button-to-file-upload' }"></ng-container>
+            <dx-button
+              class="submit-btn mt2"
+              stylingMode="contained"
+              text="{{ 'data_upload.next' | translate }}"
+              (click)="stepNext()"
+              [disabled]="!isDataFormatStepValid"
+              type="default"
+              data-cy="go-to-columns-step-btn" />
+          </div>
+        </div>
+        <div class="buttons-wrapper pb2">
+          <ng-container
+            *ngTemplateOutlet="backButton; context: { dataCy: 'back-button-to-choose-file' }"></ng-container>
+
+          <dx-button
+            class="submit-btn mt2"
+            stylingMode="contained"
+            text="{{ 'data_upload.next' | translate }}"
+            (click)="stepNext()"
+            [disabled]="!isDataFormatStepValid"
+            type="default"></dx-button>
+        </div>
+      </rolap-stepper-step>
+      <!-- Column Configuration Step -->
+      <rolap-stepper-step>
+        <span step-header>{{ 'data_upload.column_configuration' | translate }}</span>
+        <div *step-content>
+          <rolap-columns-choice
+            [problemType]="projectInfo.purpose"
+            [dataSource]="jsonOutput.dataSource"
+            (formDataEmitter)="handleColumnsChoiceFormData($event)"
+            #columSummary />
+          <div class="buttons-wrapper pb2">
+            <ng-container *ngTemplateOutlet="backButton; context: { dataCy: 'back-button' }"></ng-container>
+            <div id="column-configuration-btn">
+              <dx-button
+                class="submit-btn mt2"
+                stylingMode="contained"
+                text="{{ 'data_upload.next' | translate }}"
+                [disabled]="!isColumnConfigurationValid"
+                (click)="stepper.stepNext()"
+                type="default"
+                data-cy="go-to-dataset-info-step-btn">
+              </dx-button>
+            </div>
+            <dx-tooltip
+              *ngIf="!isColumnConfigurationValid"
+              #tooltip
+              [target]="'#column-configuration-btn'"
+              showEvent="mouseenter"
+              position="top"
+              hideEvent="mouseleave"
+              [hideOnOutsideClick]="false">
+              <div *dxTemplate="let data = data; of: 'content'">
+                <span>{{ 'data_upload.next_step' | translate }}</span>
+              </div>
+            </dx-tooltip>
+          </div>
+        </div>
+      </rolap-stepper-step>
+      <!-- Dataset Information Step -->
+      <rolap-stepper-step>
+        <span step-header>{{ 'data_upload.dataset_info' | translate }}</span>
+        <div *step-content>
+          <rolap-dataset-info (formDataEmitter)="handleDatasetFormData($event)" />
+          <div class="buttons-wrapper">
+            <ng-container *ngIf="!isSaving">
+              <ng-container *ngTemplateOutlet="backButton"></ng-container>
+            </ng-container>
+            <dx-button
+              class="submit-btn mt2"
+              stylingMode="contained"
+              text="{{ 'save' | translate }}"
+              (click)="save()"
+              type="default"
+              [disabled]="!datasetInfoValid || isSaving"
+              [template]="'buttonTemplate'"
+              data-cy="submit-btn">
+              <div *dxTemplate="let data of 'buttonTemplate'">
+                <ng-container *ngIf="isSaving">
+                  <fa-icon [icon]="faArrowsRotate" animation="spin" class="loading"></fa-icon>
+                  <span class="ml1 loading">{{ 'saveing' | translate }}...</span>
+                </ng-container>
+                <span *ngIf="!isSaving">{{ 'save' | translate }}</span>
+              </div>
+            </dx-button>
+          </div>
+        </div>
+      </rolap-stepper-step>
+    </rolap-stepper>
+  </div>
+</dx-scroll-view>
+
+<ng-template #backButton let-dataCy="dataCy">
+  <dx-button
+    class="submit-btn mt2 mr2"
+    stylingMode="outlined"
+    text="{{ 'data_upload.back' | translate }}"
+    (click)="stepBack()"
+    type="default"
+    [attr.data-cy]="dataCy" />
+</ng-template>

@@ -1,0 +1,45 @@
+<dx-accordion
+  *ngIf="problemType === ProblemTypes.Classification; else attributeSelect"
+  #accordion
+  [dataSource]="decisionClasses"
+  [collapsible]="true"
+  [multiple]="true"
+  [animationDuration]="250"
+  class="accordion">
+  <div *dxTemplate="let decisionClass of 'title'" class="flex justify-between">
+    <span class="decision-class">{{ decisionClass }}</span>
+    <span class="mr3">{{ selectedAttributesCounts[decisionClass] }}</span>
+  </div>
+  <div *dxTemplate="let decisionClass of 'item'">
+    <ng-container [ngTemplateOutlet]="attributeSelect" [ngTemplateOutletContext]="{ class: decisionClass }">
+    </ng-container>
+  </div>
+</dx-accordion>
+
+<ng-template #attributeSelect let-class="class">
+  <div class="dx-field" *ngIf="model">
+    <div class="dx-field-label">
+      {{ 'project.expert_induction.select_attributes' | translate }}
+    </div>
+    <div>
+      <dx-tag-box
+        [value]="problemType === ProblemTypes.Classification ? $any(model)[class] : model"
+        (onValueChanged)="onAttributesSelectionChange($event.value, class)"
+        [items]="attributesChoice"
+        [width]="'100%'"
+        [showSelectionControls]="true"
+        [searchEnabled]="true"
+        applyValueMode="useButtons"
+        stylingMode="outlined">
+      </dx-tag-box>
+    </div>
+  </div>
+</ng-template>
+<div class="flex flex-wrap content-end justify-end align-baseline mt3">
+  <dx-button
+    type="normal"
+    class="mr1"
+    (onClick)="modal.close()"
+    text="{{ 'project.rules.save_modal.cancel' | translate }}" />
+  <dx-button type="default" text="{{ 'project.rules.save_modal.save' | translate }}" (onClick)="submitForm()" />
+</div>

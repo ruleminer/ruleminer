@@ -1,0 +1,254 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "rolap": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "projects/rolap",
+      "sourceRoot": "projects/rolap/src",
+      "prefix": "rolap",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/rolap",
+            "index": "projects/rolap/src/index.html",
+            "main": "projects/rolap/src/main.ts",
+            "polyfills": "projects/rolap/src/polyfills.ts",
+            "tsConfig": "projects/rolap/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "favicon.ico",
+                "input": "projects/rolap/src/",
+                "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "projects/rolap/src/assets",
+                "output": "assets/"
+              }
+            ],
+            "styles": [
+              "projects/rolap/src/styles/dx.material.rolap-light/dx.material.rolap-light.css",
+              "projects/rolap/src/styles.scss",
+              "node_modules/basscss/css/basscss-important.min.css"
+            ],
+            "scripts": [
+              "./node_modules/hammerjs/hammer.min.js",
+              "./node_modules/plotly.js/dist/plotly.min.js",
+              "./node_modules/@mediapipe/drawing_utils/drawing_utils.js"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules",
+                "projects/rolap/src/styles/",
+                "projects/rolap/src"
+              ]
+            },
+            "allowedCommonJsDependencies": [
+              "jszip",
+              "devexpress-diagram",
+              "devexpress-gantt",
+              "devextreme-quill",
+              "base64-js",
+              "js-sha256",
+              "deepmerge",
+              "papaparse",
+              "lodash",
+              "@mediapipe/hands"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "10mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "12kb",
+                  "maximumError": "14kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "dev": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "10mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "12kb",
+                  "maximumError": "14kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            },
+            "local": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "rolap:build:production"
+            },
+            "development": {
+              "browserTarget": "rolap:build:development"
+            },
+            "local": {
+              "browserTarget": "rolap:build:local",
+              "proxyConfig": "proxy.conf.js"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "rolap:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/rolap/src/test.ts",
+            "polyfills": "projects/rolap/src/polyfills.ts",
+            "tsConfig": "projects/rolap/tsconfig.spec.json",
+            "karmaConfig": "projects/rolap/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "favicon.ico",
+                "input": "projects/rolap/src/",
+                "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "projects/rolap/src/assets",
+                "output": "assets/"
+              }
+            ],
+            "styles": [
+              "projects/rolap/src/styles/dx.material.rolap-light/dx.material.rolap-light.css",
+              "projects/rolap/src/styles.scss",
+              "node_modules/basscss/css/basscss-important.min.css"
+            ],
+            "scripts": ["./node_modules/hammerjs/hammer.min.js"],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules",
+                "projects/rolap/src/styles",
+                "projects/rolap/src" 
+              ]
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["projects/rolap/src/**/*.ts", "projects/rolap/src/**/*.html"]
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "rolap:serve",
+            "configFile": "projects/rolap/cypress.config.js"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "rolap:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "projects/rolap/cypress.config.js"
+          }
+        },
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "rolap:serve",
+            "watch": true,
+            "headless": false,
+            "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "rolap:serve:development"
+            }
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "rolap:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "rolap:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "ebd5e397-ae1d-4d37-bc62-009e666a33d0",
+    "schematicCollections": ["@cypress/schematic", "@angular-eslint/schematics", "@schematics/angular"]
+  }
+}

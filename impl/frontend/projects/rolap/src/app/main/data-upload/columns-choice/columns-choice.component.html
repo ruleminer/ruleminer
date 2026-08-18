@@ -1,0 +1,68 @@
+<div class="columns-choice">
+  <div class="flex">
+    <p>{{ 'data_upload.column_type' | translate }}</p>
+    <rolap-tooltip [customWrapperClasses]="'mt1'" [tooltip]="'data_upload.tooltips.column_type'" />
+  </div>
+  <div class="wrapper p2">
+    <dx-data-grid
+      class="mr2 mt2"
+      [dataSource]="dataSourceWithDropdowns"
+      [showBorders]="true"
+      [columnAutoWidth]="true"
+      [columnMinWidth]="200"
+      [customizeColumns]="customizeColumns"
+      [noDataText]="'project.rules.table.data_loading' | translate">
+      <div *dxTemplate="let info of 'columnDropdownTemplate'">
+        <dx-select-box
+          class="decision-column"
+          *ngIf="columnTypesSelected"
+          [dataSource]="columnTypes"
+          stylingMode="outlined"
+          width="200px"
+          (onInitialized)="onSelectBoxInitialized($event, info)"
+          (onItemClick)="selectBoxChange($event, info)"
+          itemTemplate="itemTemplate"
+          fieldTemplate="field">
+          <div *dxTemplate="let data of 'itemTemplate'">
+            <span>{{
+              (data === 'cat' ? 'data_upload.column_types.cat' : 'data_upload.column_types.num') | translate
+            }}</span>
+          </div>
+          <div *dxTemplate="let data of 'field'">
+            <dx-text-box
+              [inputAttr]="{ 'aria-label': 'data_upload.column_types.label' | translate }"
+              [value]="(data === 'cat' ? 'data_upload.column_types.cat' : 'data_upload.column_types.num') | translate"
+              [readOnly]="true" />
+          </div>
+        </dx-select-box>
+      </div>
+    </dx-data-grid>
+  </div>
+
+  <form class="flex decision-column m2" [formGroup]="form">
+    <div class="decision-column-form dx-field">
+      <div class="flex">
+        <div class="dx-field-label center-vertical">{{ decisionColumnLabel | translate }}</div>
+        <rolap-tooltip [tooltip]="tooltip | translate" />
+      </div>
+      <div class="dx-field-value">
+        <rolap-higlight-selectbox
+          formControlName="decisionColumn"
+          [selectBoxItems]="decisionColumnItems"
+          [dataCy]="'decision-column-select'" />
+      </div>
+    </div>
+    <div class="decision-column-form dx-field" *ngIf="this.form.controls['survivalTimeColumn']">
+      <div class="flex">
+        <div class="dx-field-label center-vertical">{{ 'data_upload.survival_time' | translate }}</div>
+        <rolap-tooltip [tooltip]="'data_upload.tooltips.survival_time_tooltip' | translate" />
+      </div>
+      <div class="dx-field-value">
+        <rolap-higlight-selectbox
+          formControlName="survivalTimeColumn"
+          [selectBoxItems]="survivalTimeColumnItems"
+          [dataCy]="'survival-time-column-select'" />
+      </div>
+    </div>
+  </form>
+</div>

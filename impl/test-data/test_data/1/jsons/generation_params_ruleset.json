@@ -1,0 +1,17 @@
+{
+  "name": "diabetes small - big ruleset",
+  "description": "big ruleset",
+  "algorithm_params": {
+    "induction_measure": "Precision",
+    "pruning_measure": "Precision",
+    "minsupp_new": 1
+  },
+  "prediction_config": {
+    "prediction_strategy": "vote",
+    "use_default_rule": true,
+    "voting_measure": "Precision"
+  },
+  "attributes_to_skip": [],
+  "cross_validation": true,
+  "num_folds": 5
+}

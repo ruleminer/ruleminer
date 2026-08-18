@@ -1,0 +1,66 @@
+<ng-container *ngIf="processDetailsSignal() as processDetails" [ngSwitch]="processDetails.status">
+  <dl *ngSwitchCase="processStatus.success" class="process-description">
+    <dt class="status history-success">{{ 'process.table.status.success' | translate }}</dt>
+    <dd>{{ processDetails.finish_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+
+    <dt class="status history-started">{{ 'process.table.status.started' | translate }}</dt>
+    <dd>{{ processDetails.start_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+
+    <dt class="status history-pending">{{ 'process.table.status.pending' | translate }}</dt>
+    <dd>{{ processDetails.create_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+  </dl>
+
+  <dl *ngSwitchCase="processStatus.pending" class="process-description">
+    <dt class="status history-pending">{{ 'process.table.status.pending' | translate }}</dt>
+    <dd>{{ processDetails.create_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+  </dl>
+
+  <dl *ngSwitchCase="processStatus.aborted" class="process-description">
+    <dt class="status history-aborted">{{ 'process.table.status.aborted' | translate }}</dt>
+    <dd>{{ processDetails.finish_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+
+    <dt class="status history-started">{{ 'process.table.status.started' | translate }}</dt>
+    <dd>{{ processDetails.start_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+
+    <dt class="status history-pending">{{ 'process.table.status.pending' | translate }}</dt>
+    <dd>{{ processDetails.create_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+  </dl>
+
+  <dl *ngSwitchCase="processStatus.stopped" class="process-description">
+    <dt class="status history-stopped">{{ 'process.table.status.stopped' | translate }}</dt>
+    <dd>{{ processDetails.finish_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+
+    <dt class="status history-started">{{ 'process.table.status.started' | translate }}</dt>
+    <dd>{{ processDetails.start_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+
+    <dt class="status history-pending">{{ 'process.table.status.pending' | translate }}</dt>
+    <dd>{{ processDetails.create_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+  </dl>
+
+  <dl *ngSwitchCase="processStatus.stopping" class="process-description">
+    <dt class="status history-started">{{ 'process.table.status.started' | translate }}</dt>
+    <dd>{{ processDetails.start_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+
+    <dt class="status history-pending">{{ 'process.table.status.pending' | translate }}</dt>
+    <dd>{{ processDetails.create_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+  </dl>
+
+  <dl *ngSwitchCase="processStatus.started" class="process-description">
+    <dt class="status history-started">{{ 'process.table.status.started' | translate }}</dt>
+    <dd>{{ processDetails.start_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+
+    <dt class="status history-pending">{{ 'process.table.status.pending' | translate }}</dt>
+    <dd>{{ processDetails.create_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+  </dl>
+
+  <dl *ngSwitchCase="processStatus.failure" class="process-description">
+    <dt class="status history-failure">{{ 'process.table.status.failure' | translate }}</dt>
+    <dd>{{ processDetails.finish_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+
+    <dt class="status history-started">{{ 'process.table.status.started' | translate }}</dt>
+    <dd>{{ processDetails.start_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+
+    <dt class="status history-pending">{{ 'process.table.status.pending' | translate }}</dt>
+    <dd>{{ processDetails.create_timestamp | date : 'dd.MM.yyyy HH:mm:ss' }}</dd>
+  </dl>
+</ng-container>

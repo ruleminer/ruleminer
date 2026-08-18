@@ -1,0 +1,20 @@
+<div class="steps-container">
+  <ul class="step-list">
+    <ng-content></ng-content>
+  </ul>
+</div>
+
+<dx-multi-view
+  #multiview
+  [dataSource]="stepsComponents"
+  [selectedIndex]="activeStepIndex"
+  [loop]="false"
+  [animationEnabled]="true"
+  [swipeEnabled]="false"
+  height="100%">
+  <div *dxTemplate="let stepsComponent of 'item'; let i = index">
+    <ng-container *ngIf="stepsComponent.isVisible">
+      <ng-container *ngTemplateOutlet="stepsComponent.content.templateRef"></ng-container>
+    </ng-container>
+  </div>
+</dx-multi-view>

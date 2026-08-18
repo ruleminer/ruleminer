@@ -1,0 +1,76 @@
+@import 'variables';
+
+$radius: 4px;
+$height: 16px;
+$compact-width: 20px;
+$full-width: 35px;
+$label-toggle-arrow-size: calc($height / 2);
+
+:host {
+  width: 50px;
+}
+
+.label-toggle {
+  position: relative;
+  height: $height;
+  width: $full-width;
+  background-color: $table-icon-color;
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+  margin-left: $label-toggle-arrow-size;
+  transition: width 500ms ease-in-out;
+  transition-delay: 500ms;
+
+  &::before {
+    // arrow
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc($label-toggle-arrow-size * -1);
+    width: 0;
+    height: 0;
+    border-top: calc($height / 2) solid transparent;
+    border-bottom: calc($height / 2) solid transparent;
+    border-right: $label-toggle-arrow-size solid $table-icon-color;
+  }
+
+  &::after {
+    // dot
+    content: '';
+    position: absolute;
+    top: calc($height / 2);
+    left: 0;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: $white;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken($table-icon-color, 10%);
+    width: $compact-width;
+
+    &::before {
+      border-right-color: darken($table-icon-color, 10%);
+    }
+  }
+
+  &.label-compact {
+    background-color: $button-color;
+    width: $compact-width;
+
+    &:before {
+      border-right-color: $button-color;
+    }
+
+    &:hover {
+      width: $full-width;
+    }
+  }
+}
+
+button {
+  padding: 2px;
+}

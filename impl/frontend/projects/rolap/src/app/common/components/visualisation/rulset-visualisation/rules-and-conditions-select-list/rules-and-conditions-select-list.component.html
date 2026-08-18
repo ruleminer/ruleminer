@@ -1,0 +1,61 @@
+<rolap-info
+  *ngIf="!!(showWarning$ | async)"
+  class="mb2"
+  [showCloseButton]="true"
+  (close)="closeWarningClick()"
+  [mode]="'warning'">
+  {{ 'visualisation.some_rules_were_unselected' | translate }}
+</rolap-info>
+<rolap-rules-and-conditions-search />
+<div class="mt2 list-layout">
+  <div class="custom-scrollable-list">
+    <div *ngFor="let data of filteredRules; let i = index" class="mb2">
+      <dx-box direction="row" crossAlign="center">
+        <dxi-item [ratio]="1">
+          <dx-check-box
+            [value]="data.checked"
+            (onValueChanged)="onRuleChecked(data.uuid, $event)"
+            aria-label="Checkbox for rule"
+            class="custom-checkbox">
+          </dx-check-box>
+        </dxi-item>
+        <dxi-item [ratio]="7" class="ml2" (click)="onHiddenClick(data.uuid)">
+          <rolap-rules-and-conditions-info
+            [uuid]="data.uuid"
+            [ruleString]="data.string"
+            [ids]="data.ids"
+            [autoIncrement]="data.autoIncrement"
+            [labels]="data.labels">
+          </rolap-rules-and-conditions-info>
+        </dxi-item>
+
+        <dxi-item [ratio]="1" style="align-items: end">
+          <dx-button
+            [icon]="data.hidden ? 'spinup' : 'spindown'"
+            (onClick)="onHiddenClick(data.uuid)"
+            class="color-inherit fs2">
+          </dx-button>
+        </dxi-item>
+      </dx-box>
+
+      <div class="subconditions" [ngClass]="{ show: !data.hidden }">
+        <dx-box direction="row" class="mt1">
+          <dxi-item [ratio]="1"></dxi-item>
+          <dxi-item [ratio]="5" class="pl1 pt1 border-left bl-black">
+            <ng-container *ngFor="let condition of data.premise.subconditions; let j = index">
+              <dx-box direction="row" class="mb1">
+                <dxi-item [ratio]="1">
+                  <dx-check-box [value]="condition.checked" (onValueChanged)="onConditionChecked(data.uuid, j, $event)">
+                  </dx-check-box>
+                </dxi-item>
+                <dxi-item [ratio]="4">
+                  <p class="align-left mb0">{{ condition.text }}</p>
+                </dxi-item>
+              </dx-box>
+            </ng-container>
+          </dxi-item>
+        </dx-box>
+      </div>
+    </div>
+  </div>
+</div>

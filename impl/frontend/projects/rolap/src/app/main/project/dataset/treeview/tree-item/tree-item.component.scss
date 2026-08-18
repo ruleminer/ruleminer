@@ -1,0 +1,46 @@
+@import 'variables';
+
+.item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 13px 8px; // default devextreme treeview padding
+}
+
+span {
+  display: block;
+  align-self: center;
+  max-width: calc(100% - 24px);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.current {
+  background-color: rgba($color: lighten($treeview-current-selected-color, 60%), $alpha: 0.35);
+  border-radius: 5px;
+
+  span {
+    font-weight: 500;
+  }
+}
+
+.first {
+  margin-top: -5px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.icon-wrapper {
+  margin-left: auto;
+  flex-shrink: 0;
+  z-index: 20;
+  min-width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+

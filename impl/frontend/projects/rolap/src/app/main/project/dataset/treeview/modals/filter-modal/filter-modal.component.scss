@@ -1,0 +1,35 @@
+:host {
+  height: 100%;
+}
+
+dx-button {
+  float: right;
+}
+
+#voting-measures {
+  display: flex;
+  align-items: center;
+
+  dx-select-box,
+  rolap-tooltip {
+    display: inline-block;
+  }
+
+  rolap-tooltip {
+    margin-top: 6px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.custom-width {
+  width: calc(100% - 44px);
+}
+
+.submit-wrapper {
+  margin-top: auto;
+}

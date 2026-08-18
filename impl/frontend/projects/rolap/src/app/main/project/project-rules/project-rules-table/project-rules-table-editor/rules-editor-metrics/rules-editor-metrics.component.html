@@ -1,0 +1,47 @@
+<rolap-card class="block mt1">
+  <rolap-title>{{ 'project.rules.rule_editor.metrics.title' | translate }}</rolap-title>
+  <dx-data-grid
+    class="mb1"
+    [dataSource]="displayedMetrics()"
+    [showBorders]="true"
+    [width]="'100%'"
+    [renderAsync]="true"
+    [noDataText]="(hasNoData() ? noDataText : '') | translate">
+    <dxi-column
+      dataField="name"
+      cellTemplate="indicatorNameCellTemplate"
+      headerCellTemplate="indicatorNameHeaderTemplate">
+      <div *dxTemplate="let d of 'indicatorNameCellTemplate'" class="metric-name">
+        <rolap-tooltip
+          class="inline-block"
+          [customClasses]="'btn-tiny'"
+          [data]="indicatorsDescriptions()![d.data.name]" />
+        {{ 'project.rules.table.headers.' + d.data.name | translate }}
+      </div>
+      <div
+        *dxTemplate="let d of 'indicatorNameHeaderTemplate'"
+        [attr.title]="'project.rules.rule_editor.metrics.table_headers.name' | translate"
+        class="metric-name">
+        {{ 'project.rules.rule_editor.metrics.table_headers.name' | translate }}
+      </div>
+    </dxi-column>
+    <dxi-column
+      dataField="value"
+      cellTemplate="indicatorValueCellTemplate"
+      headerCellTemplate="indicatorValueHeaderTemplate">
+      <div *dxTemplate="let d of 'indicatorValueCellTemplate'">
+        <rolap-value-change-arrow
+          *ngIf="isUserEditedSignal() && d.data.value !== null && indicatorsHigherIsBetterFlags() !== undefined"
+          class="mr2 inline-block"
+          [value]="d.data.value"
+          [valueStore]="tableValuesStore"
+          [higherIsBetter]="indicatorsHigherIsBetterFlags()![d.data.name]"
+          [instanceId]="d.data.name" />
+        {{ d.data.value !== null ? d.data.value : '' }}
+      </div>
+      <div *dxTemplate="let d of 'indicatorValueHeaderTemplate'">
+        {{ 'project.rules.rule_editor.metrics.table_headers.value' | translate }}
+      </div>
+    </dxi-column>
+  </dx-data-grid>
+</rolap-card>

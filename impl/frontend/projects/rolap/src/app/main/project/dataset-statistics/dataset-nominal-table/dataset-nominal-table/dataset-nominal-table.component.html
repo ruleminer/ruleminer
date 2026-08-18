@@ -1,0 +1,35 @@
+<rolap-card class="item2" id="nominal_attributes">
+  <rolap-title class="flex justify-between flex-end">
+    <h2>{{ 'dataset.statistic_tab.nominal_attributes' | translate }}</h2>
+  </rolap-title>
+  <ng-container *ngIf="dataSource | async as data">
+    <dx-data-grid
+      *ngIf="data && data.length > 0; else noData"
+      [customizeColumns]="customizeColumns"
+      [dataSource]="data"
+      [showBorders]="true"
+      class="m2">
+      <dxo-load-panel [enabled]="true"> </dxo-load-panel>
+      <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
+      <div *dxTemplate="let item of 'detail'">
+        <p class="mb1">{{ 'dataset.unique_attributes' | translate }}</p>
+        <div class="chips-wrapper">
+          <div *ngFor="let detail of item.data.detail" class="chips">{{ detail }}</div>
+        </div>
+      </div>
+      <dxo-scrolling [useNative]="true" />
+
+      <div *dxTemplate="let d of 'translateTemplateHeader'">
+        <div class="flex">
+          <span class="ml1 center-vertical"> {{ 'dataset.statistic_tab.' + d.column.dataField | translate }} </span>
+        </div>
+      </div>
+    </dx-data-grid>
+  </ng-container>
+</rolap-card>
+
+<ng-template #noData>
+  <div class="no-data-template">
+    <p class="bold">{{ 'project.rules.table.no_data' | translate }}</p>
+  </div>
+</ng-template>

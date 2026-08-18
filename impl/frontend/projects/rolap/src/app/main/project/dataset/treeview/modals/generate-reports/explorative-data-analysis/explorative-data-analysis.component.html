@@ -1,0 +1,57 @@
+<section class="breakpoint-container mt2 p1" id="mainSection">
+  <form [formGroup]="generateReportForm">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="custom-card">
+          <div class="card-content">
+            <div class="row my1 px2">
+              <div class="flex-wrapper">
+                <div class="name-wrapper">
+                  <p class="pr2 center-vertical">
+                    {{ 'project.treeview.context_menu.modal.generate_reports.title' | translate }}:
+                  </p>
+                  <dx-text-box
+                    class="text-box"
+                    #textBox
+                    id="reportName"
+                    name="reportName"
+                    formControlName="reportName"
+                    stylingMode="outlined"
+                    valueChangeEvent="keyup"
+                    (onInitialized)="onInitialized()"
+                    [inputAttr]="{
+                      'aria-label': 'project.treeview.context_menu.modal.generate_reports.title' | translate
+                    }" />
+                </div>
+                <div class="mt1">
+                  <rolap-validation-message
+                    [fieldName]="fieldName.REPORT_NAME"
+                    [control]="generateReportForm.controls['reportName']" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt1">
+            <div class="col-lg-12 col-md-12 col-sm-12 my1 px2 switch-title">
+              <h6 class="mb1">
+                {{ 'project.treeview.context_menu.modal.generate_reports.cannot_select_parameters' | translate }}
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt2">
+      <div class="col-lg-12 col-md-12 col-sm-12 align-end">
+        <dx-button
+          [disabled]="!generateReportForm.valid"
+          stylingMode="contained"
+          type="default"
+          [text]="'project.treeview.context_menu.modal.generate_reports.generate_report_button' | translate"
+          (onClick)="generateReport()">
+        </dx-button>
+      </div>
+    </div>
+  </form>
+</section>

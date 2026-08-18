@@ -1,0 +1,6 @@
+<div *ngIf="key" [style.backgroundColor]="backgroundColor" [style.height]="height">
+  <span *ngIf="text; else xmarkIcon" [class.white]="whiteText">{{ key }}</span>
+  <ng-template #xmarkIcon>
+    <fa-icon #xmarkIcon [class.white]="whiteText" [icon]="faXmark"></fa-icon>
+  </ng-template>
+</div>

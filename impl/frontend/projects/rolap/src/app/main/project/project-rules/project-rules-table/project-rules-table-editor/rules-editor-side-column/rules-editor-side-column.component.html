@@ -1,0 +1,45 @@
+<ng-container *ngIf="configSignal() as config">
+  <div [hidden]="!(isSideBarReady$ | async)">
+    <!-- EXPERT CONDITIONS CONFIG -->
+    <rolap-card *ngIf="config.isCondition">
+      <ng-container *ngIf="isClassification()">
+        <span>
+          {{
+            config.isForbidden
+              ? ('project.expert_induction.expert_forbidden_condition_text' | translate)
+              : ('project.expert_induction.expert_preferred_condition_text' | translate)
+          }}
+        </span>
+        <dx-list
+          #list
+          [height]="'auto'"
+          selectionMode="multiple"
+          [selectByClick]="true"
+          [dataSource]="decisionAttributeValuesSignal()"
+          [showSelectionControls]="true"
+          [(selectedItems)]="selectedItemKeys"
+          (onSelectionChanged)="onNominalAttributeChange($event)"
+          data-cy="nominal-attribute-list" />
+      </ng-container>
+
+      <div *ngIf="!config.isForbidden" class="mb1">
+        <span>{{ 'project.expert_induction.conditions_textbox' | translate }}</span>
+        <dx-number-box
+          class="mt1"
+          format="#"
+          [min]="1"
+          stylingMode="outlined"
+          [placeholder]="'project.expert_induction.occurrence_empty_value' | translate"
+          [(value)]="preferredConditionCount"
+          (onValueChanged)="updatePreferredConditionCount($event.value)"
+          [inputAttr]="{ 'data-cy': 'preferred-condition-count' }" />
+      </div>
+    </rolap-card>
+    <!-- RULE CONCLUSION EDITOR -->
+    <rolap-rule-conclusion-editor *ngIf="!config.isCondition" class="mb1 block" data-cy="rule-conclusion-editor" />
+    <!-- RULES METRICS -->
+    <ng-container>
+      <rolap-rules-editor-metrics *ngIf="!config.isCondition" class="block mb1" data-cy="rules-editor-metrics" />
+    </ng-container>
+  </div>
+</ng-container>

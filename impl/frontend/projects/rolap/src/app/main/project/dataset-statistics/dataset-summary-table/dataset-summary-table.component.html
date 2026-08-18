@@ -1,0 +1,76 @@
+<div class="flex justify-between wrapper">
+  <div class="first-child" id="rolap-description-form">
+    <rolap-card>
+      <rolap-title class="flex justify-between">
+        <h2>{{ 'dataset.statistic_tab.title' | translate }}</h2>
+      </rolap-title>
+      <rolap-dataset-description-form />
+      <rolap-card-footer> </rolap-card-footer>
+    </rolap-card>
+  </div>
+  <div class="second-child">
+    <rolap-card>
+      <rolap-title class="flex justify-between">
+        <h2>{{ 'dataset.statistic_tab.summary' | translate }}</h2>
+      </rolap-title>
+      <div *ngIf="dataSource | async as data; else noData">
+        <div *ngFor="let item of data | keyvalue">
+          <span class="key">{{ 'dataset.statistic_tab.summary_' + item.key | translate }}</span>
+          <span>{{ item.value }}</span>
+        </div>
+        <div *ngIf="combinedSummary$ | async as summary" class="mt2">
+          <div *ngIf="summary.decisionAttributes.isSurvival; else normalTemplate">
+            <div>
+              <span class="key">{{ 'dataset.statistic_tab.decision_survival_time_column' | translate }}</span>
+              <span class="value_status">{{ summary.decisionAttributes.survivalTime }}</span>
+            </div>
+            <div>
+              <span class="key">{{ 'dataset.statistic_tab.decision_survival_status_column' | translate }}</span>
+              <span class="value">{{ summary.decisionAttributes.label }}</span>
+            </div>
+          </div>
+          <ng-template #normalTemplate>
+            <span class="key">{{ 'dataset.statistic_tab.decision_column' | translate }}</span>
+            <span class="value">{{ summary.decisionAttributes.label }}</span>
+          </ng-template>
+
+          <div>
+            <strong>{{ 'dataset.statistic_tab.unimportant_attributes.title' | translate }}</strong>
+            <div *ngIf="summary.unimportantAttributes; else noAttributesTemplate">
+              <ng-container *ngIf="summary.unimportantAttributes.Missing as missing">
+                <div>{{ 'dataset.statistic_tab.unimportant_attributes.missing' | translate }}</div>
+                <span *ngFor="let attr of missing" class="attribute">{{ attr }}</span>
+              </ng-container>
+              <ng-container *ngIf="summary.unimportantAttributes['Text-ness'] as textNess">
+                <div>{{ 'dataset.statistic_tab.unimportant_attributes.text_ness' | translate }}</div>
+                <span *ngFor="let attr of textNess" class="attribute">{{ attr }}</span>
+              </ng-container>
+              <ng-container *ngIf="summary.unimportantAttributes['ID-ness'] as idNess">
+                <div>{{ 'dataset.statistic_tab.unimportant_attributes.id_ness' | translate }}</div>
+                <span *ngFor="let attr of idNess" class="attribute">{{ attr }}</span>
+              </ng-container>
+              <ng-container *ngIf="summary.unimportantAttributes.Stability as stability">
+                <div>{{ 'dataset.statistic_tab.unimportant_attributes.stability' | translate }}</div>
+                <span *ngFor="let attr of stability" class="attribute">{{ attr }}</span>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+
+        <ng-template #noAttributesTemplate>
+          <div class="no-data-template">
+            <p>{{ 'dataset.statistic_tab.unimportant_attributes.no_data' | translate }}</p>
+          </div>
+        </ng-template>
+      </div>
+
+      <rolap-card-footer> </rolap-card-footer>
+    </rolap-card>
+  </div>
+</div>
+
+<ng-template #noData>
+  <div class="no-data-template">
+    <p class="bold">{{ 'dataset.statistic_tab.no_data' | translate }}</p>
+  </div>
+</ng-template>

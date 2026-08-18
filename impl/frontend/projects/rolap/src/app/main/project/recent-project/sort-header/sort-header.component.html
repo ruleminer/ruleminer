@@ -1,0 +1,13 @@
+<div class="sort-headers">
+  <p class="sort-header center-vertical bold">{{ 'project.sort_by' | translate }}</p>
+  <p
+    *ngFor="let field of sortFields"
+    class="sort-header center-vertical"
+    [class.bold]="boldClasses[field]"
+    (click)="sortProjects(field)">
+    {{ translateKey[field] | translate }}
+    <ng-container *ngIf="icons[field] as icon">
+      <fa-icon class="margin-left" [icon]="icon"></fa-icon>
+    </ng-container>
+  </p>
+</div>

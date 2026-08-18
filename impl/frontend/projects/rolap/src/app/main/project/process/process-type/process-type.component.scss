@@ -1,0 +1,26 @@
+@import 'variables';
+
+.type-report {
+  background-color: $process-type-report-bg-color;
+  color: $white;
+}
+
+.type-cross-validation {
+  background-color: $process-type-cross-validation-bg-color;
+  color: $white;
+}
+
+.type-learning {
+  background-color: $process-type-learning-bg-color;
+  color: $project-color;
+}
+
+.type-save-ruleset {
+  background-color: $process-type-save-ruleset-bg-color;
+  color: $white;
+}
+
+.filter-ruleset {
+  background-color: $process-type-filter-ruleset-bg-color;
+  color: $white;
+}

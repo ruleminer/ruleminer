@@ -1,0 +1,7 @@
+celery==5.4.0
+ecs-logging==2.2.0
+openpyxl==3.1.5
+paramiko==3.5.1
+python-dotenv==1.0.1
+PyYAML==6.0.2
+ydata-profiling==4.10.0

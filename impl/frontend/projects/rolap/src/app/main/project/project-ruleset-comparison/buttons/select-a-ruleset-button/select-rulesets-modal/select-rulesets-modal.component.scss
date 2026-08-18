@@ -1,0 +1,9 @@
+@import 'variables';
+
+.dx-checkbox-icon {
+  background-color: $button-color !important;
+}
+
+:host {
+  height: 100%;
+}

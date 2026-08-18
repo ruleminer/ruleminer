@@ -1,0 +1,22 @@
+<div class="mt1">
+  <rolap-icons-action-bar />
+</div>
+
+<div class="flex items-center stify-between mt2">
+  <rolap-sub-tab-buttons displayType="dataSet" />
+</div>
+<div *ngFor="let item of subTabs$ | async">
+  <ng-container *ngIf="item.active">
+    <ng-container [ngSwitch]="item.name">
+      <div *ngSwitchCase="'dataset'">
+        <rolap-dataset-view />
+      </div>
+      <div *ngSwitchCase="'statistics'">
+        <rolap-dataset-statistics />
+      </div>
+      <div *ngSwitchCase="'charts'">
+        <rolap-dataset-charts />
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

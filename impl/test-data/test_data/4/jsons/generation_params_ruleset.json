@@ -1,0 +1,19 @@
+{
+  "name": "boston housing ruleset",
+  "description": "boston housing ruleset",
+  "algorithm_params": {
+    "induction_measure": "Correlation",
+    "pruning_measure": "Correlation",
+    "max_uncovered_fraction": 0.0,
+    "max_growing": 6,
+    "minsupp_new": 1
+  },
+  "prediction_config": {
+    "prediction_strategy": "vote",
+    "use_default_rule": true,
+    "voting_measure": "Correlation"
+  },
+  "attributes_to_skip": [],
+  "cross_validation": true,
+  "num_folds": 5
+}

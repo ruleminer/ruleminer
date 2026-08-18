@@ -1,0 +1,14 @@
+<div class="absolute p1 m1 border rounded dropdown-content">
+  <button (click)="goToProfile()" data-cy="go-to-profile-btn">
+    <fa-icon class="item-icon mr1" [icon]="profileIcon"></fa-icon>{{ 'auth.profile.title' | translate }}
+  </button>
+  <button [tabIndex]="1" (click)="goToDocumentation()">
+    <fa-icon class="item-icon mr1" [icon]="documentationIcon"></fa-icon> {{ 'auth.documentation' | translate }}
+  </button>
+  <button [tabIndex]="1" (click)="reportBug()">
+    <fa-icon class="item-icon mr1" [icon]="reportBugIcon"></fa-icon>{{ 'auth.report_bug' | translate }}
+  </button>
+  <button [tabIndex]="1" (click)="logout()">
+    <fa-icon class="item-icon mr1" [icon]="logoutIcon"></fa-icon>{{ 'auth.logout' | translate }}
+  </button>
+</div>

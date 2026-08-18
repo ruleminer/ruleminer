@@ -1,0 +1,49 @@
+@import 'variables';
+
+:host {
+  display: block;
+  height: 4rem;
+}
+
+.app-bar {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  border-bottom: 1px solid $project-border-color;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 100;
+
+  .logo {
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    cursor: pointer;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+
+    .logo-title {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1.5rem;
+      line-height: 2rem;
+      color: $logo-font-color;
+      margin-left: 0.687rem;
+      letter-spacing: 1px;
+    }
+  }
+
+  .menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: $project-background-color;
+    height: inherit;
+    border-bottom: 1px solid $project-border-color;
+  }
+}

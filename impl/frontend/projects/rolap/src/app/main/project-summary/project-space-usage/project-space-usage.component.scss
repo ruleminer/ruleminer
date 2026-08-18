@@ -1,0 +1,19 @@
+@import 'variables';
+
+::ng-deep {
+  .dx-progressbar-container {
+    height: $space-usage-progressbar-height;
+  }
+
+  .dx-progressbar-container {
+    background-color: $space-usage-progressbar-container-bg-color;
+  }
+
+  .dx-progressbar-range {
+    background-color: $space-usage-progressbar-range-bg-color;
+  }
+
+  .card {
+    min-height: 0 !important;
+  }
+}

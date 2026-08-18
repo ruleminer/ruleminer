@@ -1,0 +1,38 @@
+<div class="main-container">
+  <ng-container *ngIf="manualRuleSelectIds && ruleSetData && projectRulesTableData; else loading">
+    <!-- DATASET SELECTION -->
+    <rolap-manual-select-rule-dataset-selector
+      [dataSetIds]="manualRuleSelectIds.dataSetIds"
+      [(selectedDataSetId)]="selectedDataSetId"
+      (datasetSelected)="onDataSetSelected()" />
+
+    <rolap-project-rules-table
+      data-cy="manual-select-rule-table"
+      [data]="projectRulesTableData"
+      [ruleSetData]="ruleSetData"
+      (selectedRowsEmitter)="onSelectedRowsChanged($event)" />
+    <div class="buttons mt3">
+      <dx-button
+        class="manually-button"
+        class="mr2"
+        type="normal"
+        (click)="closeModal()"
+        text="{{ 'project.treeview.context_menu.modal.duplicate.cancel_btn' | translate }}">
+      </dx-button>
+      <dx-button
+        data-cy="manual-select-rule-accept-button"
+        type="default"
+        class="manually-button"
+        text="{{ 'project.button.apply_manually' | translate }}"
+        (click)="emitSelectedItems()"></dx-button>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #loading>
+  <div class="loading-container">
+    <div class="loading">
+      <dx-load-indicator id="large-indicator" height="60" width="60"></dx-load-indicator>
+    </div>
+  </div>
+</ng-template>

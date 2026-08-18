@@ -1,0 +1,91 @@
+<form class="mb3" class="form-container" [formGroup]="dataUploadForm">
+  <div class="item-0">
+    <div class="flex content-center align-baseline items-center">
+      <div class="tooltip-wrapper">
+        <p class="block label-paragraph p1">{{ 'data_upload.encoding' | translate }}</p>
+      </div>
+      <dx-select-box
+        class="input"
+        [items]="encodings"
+        formControlName="encoding"
+        valueChangeEvent="keyup"
+        stylingMode="outlined"></dx-select-box>
+    </div>
+  </div>
+  <div class="item-1">
+    <div class="flex content-center align-baseline items-center">
+      <div class="tooltip-wrapper flex">
+        <p class="p1 label-paragraph center-vertical">{{ 'data_upload.separator' | translate }}</p>
+        <rolap-tooltip [tooltip]="'data_upload.tooltips.separator'" />
+      </div>
+      <dx-text-box
+        class="input"
+        id="separator"
+        name="separator"
+        formControlName="separator"
+        customItemCreateEvent="keyup"
+        stylingMode="outlined"
+        [inputAttr]="{ 'aria-label': 'data_upload.separator' | translate }" />
+    </div>
+    <div class="ml1">
+      <rolap-validation-message [control]="dataUploadForm.controls['separator']" />
+    </div>
+  </div>
+  <div class="item-2">
+    <div class="flex content-center align-baseline items-center">
+      <div class="tooltip-wrapper flex">
+        <p class="p1 label-paragraph center-vertical">{{ 'data_upload.decimal' | translate }}</p>
+        <rolap-tooltip [tooltip]="'data_upload.tooltips.decimal'" />
+      </div>
+      <dx-select-box
+        class="input"
+        [items]="decimalItems"
+        id="decimal"
+        formControlName="decimal"
+        customItemCreateEvent="keyup"
+        stylingMode="outlined" />
+    </div>
+    <div class="ml1" *ngIf="dataUploadForm.errors && dataUploadForm.errors['seperatorEqualsDecimal']">
+      <rolap-validation-message [control]="dataUploadForm" [customErrors]="['seperatorEqualsDecimal']" />
+    </div>
+  </div>
+  <div class="item-3">
+    <div class="flex content-center align-baseline items-center">
+      <div class="tooltip-wrapper flex">
+        <p class="p1 label-paragraph center-vertical">{{ 'data_upload.missing_values' | translate }}</p>
+        <rolap-tooltip [tooltip]="'data_upload.tooltips.missing_values'" />
+      </div>
+      <dx-text-box
+        class="input"
+        id="missingValues"
+        name="missingValues"
+        formControlName="missingValues"
+        customItemCreateEvent="keyup"
+        stylingMode="outlined"
+        [inputAttr]="{ 'aria-label': 'data_upload.missing_values' | translate }" />
+    </div>
+  </div>
+</form>
+<div class="mt2">
+  <rolap-data-upload
+    #fileUploader
+    [extensions]="extensions"
+    (fileInfoAndData)="onFileInfoValues($event)"></rolap-data-upload>
+</div>
+<div class="mt2 test">
+  <dx-button
+    class="submit-btn px2"
+    stylingMode="contained"
+    type="default"
+    (onClick)="onPredictButtonClick()"
+    [disabled]="!dataUploadForm || isSaving || !fileInfo"
+    [template]="'buttonTemplate'">
+    <div *dxTemplate="let data of 'buttonTemplate'">
+      <ng-container *ngIf="isSaving">
+        <fa-icon [icon]="faArrowsRotate" animation="spin" class="loading"></fa-icon>
+        <span class="ml1 loading">{{ 'generate' | translate }}...</span>
+      </ng-container>
+      <span *ngIf="!isSaving" class="ml1">{{ 'project.prediction.prediction_from_computer_btn' | translate }}</span>
+    </div>
+  </dx-button>
+</div>

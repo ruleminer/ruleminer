@@ -1,0 +1,36 @@
+<form [formGroup]="duplicateForm">
+  <div class="dx-field">
+    <label class="dx-field-label">{{ 'project.treeview.context_menu.modal.duplicate.body' | translate }}</label>
+    <dx-text-box
+      id="name"
+      name="name"
+      formControlName="name"
+      stylingMode="outlined"
+      valueChangeEvent="keyup"
+      [inputAttr]="{ 'aria-label': 'project.treeview.context_menu.modal.duplicate.body' | translate }" />
+    <div class="mt1 ml1">
+      <rolap-validation-message [control]="duplicateForm.controls['name']" />
+    </div>
+    <dx-check-box
+      *ngIf="type === 'dataSet'"
+      formControlName="cloneRelated"
+      class="mt1"
+      [value]="false"
+      text="{{ 'project.treeview.context_menu.modal.duplicate.checkbox_label' | translate }}" />
+  </div>
+</form>
+
+<div class="flex justify-end mt3">
+  <dx-button
+    class="mr2"
+    type="normal"
+    (click)="closeModal()"
+    text="{{ 'project.treeview.context_menu.modal.duplicate.cancel_btn' | translate }}">
+  </dx-button>
+  <dx-button
+    type="default"
+    [disabled]="!(duplicateForm.dirty && duplicateForm.valid)"
+    (click)="duplicate()"
+    text="{{ 'project.treeview.context_menu.modal.duplicate.confirm_btn' | translate }}">
+  </dx-button>
+</div>

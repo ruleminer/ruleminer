@@ -1,0 +1,167 @@
+// CSS Reset, comment out if not required or using a different module
+@import 'minireset.css/minireset';
+@import '../../../node_modules/@angular/cdk/overlay-prebuilt.css';
+@import './styles/variables';
+@import './custom-devexpress.scss';
+@import './assets/themes/themes';
+@import './styles/modals';
+@import './styles/buttons';
+@import './styles/icons';
+@import './styles/process';
+@import './styles/responsive';
+@import './styles/forms';
+@import './styles/graphs';
+@import './styles/rules_editor';
+
+body {
+  background-color: $project-background-color !important;
+}
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.treeview {
+  fa-icon {
+    font-size: 15px;
+    color: $primary-icon-color !important;
+  }
+}
+
+*[role='columnheader'].special-column {
+  background-color: transparentize($button-color, 0.05) !important;
+  color: transparentize($white, 0.1);
+
+  &:hover {
+    background-color: $button-color !important;
+
+    div.dx-datagrid-text-content {
+      color: $white !important;
+    }
+  }
+}
+
+*[role='gridcell'].special-column {
+  font-weight: bolder;
+  color: $button-color;
+  border-color: $button-color;
+}
+
+*[role='columnheader'].fixed-height-row {
+  height: 39px !important;
+  max-height: 39px !important;
+}
+
+*[role='columnheader'].special-time-column {
+  background-color: transparentize($dataset-survival-column-color, 0.05);
+  color: transparentize($white, 0.1);
+
+  &:hover {
+    background-color: $dataset-survival-column-color !important;
+
+    div.dx-datagrid-text-content {
+      color: $white !important;
+    }
+  }
+}
+
+*[role='gridcell'].special-time-column {
+  font-weight: bolder;
+  color: $dataset-survival-column-color;
+  border-color: $button-color;
+}
+
+.fixed-height-row {
+  height: 32px !important;
+  max-height: 32px !important;
+}
+
+.selected-item {
+  background-color: transparentize($color: $button-color, $amount: 0.85) !important;
+  border: 1px solid $button-color;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  color: darken($color: $button-color, $amount: 0.5);
+
+  margin: -13px -8px;
+  padding: 13px 8px;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+#label-popup-container {
+  position: fixed;
+}
+
+.center-vertical {
+  display: flex;
+  align-items: center;
+}
+
+.custom-tooltip {
+  position: absolute;
+  right: 5px;
+}
+
+.refine-checkbox {
+  display: inline-block;
+}
+
+.w-full {
+  width: 100% !important;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.inactive {
+  color: $treeview-inactive-color !important;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.accent-color {
+  color: $button-color;
+}
+
+.highlight-overlay-inactive {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9997;
+}
+
+/* Ensure highlight overlay appears above CDK overlays */
+.cdk-overlay-container .highlight-overlay {
+  z-index: 10100 !important;
+}
+
+/* High z-index for tour highlight overlay panel */
+.tour-highlight-overlay-panel {
+  z-index: 15000 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+}

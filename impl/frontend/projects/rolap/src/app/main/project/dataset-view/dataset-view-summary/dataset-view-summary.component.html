@@ -1,0 +1,20 @@
+<rolap-title class="flex justify-between">
+  <div class="flex">
+    <h2 class="mr2">
+      {{ 'dataset.dataset_view' | translate }}
+    </h2>
+    <rolap-dataset-summary />
+  </div>
+  <div class="flex mb1">
+    <rolap-export-dropdown [exportItems]="exportItems" class="mr2" />
+    <rolap-rules-table-column-chooser-button
+      *ngIf="savedColumns$ | async as savedColumns"
+      [allColumns]="savedColumns"
+      [displayType]="displayType"
+      [problemType]="problemTypeSignal()"
+      [dataGrid]="dataGrid" />
+    <button (click)="openSaveModal()" class="mr2" title="{{ 'button_tooltip.save_dataset' | translate }}">
+      <fa-icon [icon]="faFloppyDisk" class="ml1 icon-secondary icon-card fa-fw"></fa-icon>
+    </button>
+  </div>
+</rolap-title>

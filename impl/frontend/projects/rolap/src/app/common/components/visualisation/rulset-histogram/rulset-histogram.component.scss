@@ -1,0 +1,30 @@
+@import 'variables';
+@import 'styles/mixins/card';
+
+.custom-card {
+  @include card;
+  padding: 1rem;
+  min-height: auto;
+}
+
+.histogram-area {
+  width: 100%;
+  height: 400px;
+}
+
+.full-width {
+  width: 100% !important;
+}
+
+.wrap-text {
+  text-wrap: wrap;
+}
+
+.list-layout {
+  flex: 1;
+  overflow-y: auto;
+}
+
+[hidden] {
+  display: none !important;
+}

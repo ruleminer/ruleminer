@@ -1,0 +1,11 @@
+project:
+  type: default
+
+execute:
+  echo: false
+  freeze: false
+
+format:
+  html:
+    embed-resources: true
+    anchor-sections: false

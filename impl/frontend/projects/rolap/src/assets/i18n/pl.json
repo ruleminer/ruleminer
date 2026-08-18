@@ -1,0 +1,1813 @@
+{
+  "yes": "Tak",
+  "no": "Nie",
+  "auth": {
+    "login": {
+      "labels": {
+        "email": "Email",
+        "password": "Hasło"
+      },
+      "title": "Zaloguj się",
+      "submit_button": "Zaloguj się"
+    },
+    "logout": "Wyloguj się",
+    "report_bug": "Zgłoś błąd",
+    "documentation": "Dokumentacja",
+    "profile": {
+      "repeat_tutorial": "Czy chcesz powtórzyć samouczek?",
+      "repeat_tutorial_button": "Powtórz samouczek",
+      "tutorial": "Samouczek",
+      "lang": {
+        "title": "Język aplikacji",
+        "pl": "Polski",
+        "en": "Angielski"
+      },
+      "limits": {
+        "current": "Limity w ramach aktulanego planu",
+        "max_columns": "Maksymalna liczba kolumn na zbiór danych",
+        "max_datasets": "Maksymalna liczba zbiorów danych na projekt",
+        "max_projects": "Maksymalna liczba projektów",
+        "max_reports": "Maksymalna liczba raportów na zbiór danych",
+        "max_rows": "Maksymalna liczba wierszy na zbiór danych",
+        "max_rulesets": "Maksymalna liczba zestawów reguł na zbiór danych",
+        "max_size": "Maksymalny rozmiar przesyłanego zbioru danych",
+        "max_sum_size": "Maksymalny łączny rozmiar przesłanych zbiorów danych",
+        "space_used": "Użyta przestrzeń"
+      },
+      "change_btn": "ZMIEŃ PLAN",
+      "change_plan_page": " STRONIE",
+      "change_plan_link": "Dokłady opis planów możesz zobaczyć na",
+      "change_plan": "Aby zmienić plan subskrypcji, który Cię interesuje z listy poniżej",
+      "change_sub": "Zmiana planu",
+      "subscription_plan": "Plan subskrypcji",
+      "current_plan": "Aktualny plan: ",
+      "settings": "Ustawienia",
+      "back_btn": "Wróć",
+      "user_panel": "Panel użytkownika",
+      "title": "Profil",
+      "account": "Konto",
+      "change_password": "Zmień hasło",
+      "email": "E-mail"
+    }
+  },
+  "lang": {
+    "switch_lang": "Przełącz język"
+  },
+  "validation": {
+    "project_info_name": "{{fieldName}} projektu jest wymagana",
+    "dataset_info_name": "Nazwa zbioru danych jest wymagana"
+  },
+  "form_validation_module": {
+    "required": "To pole jest wymagane.",
+    "minlength": "Minimalna wymagana liczba znaków to {{requiredLength}}, aktualna liczba znaków to {{actualLength}}",
+    "maxlength": "Maksymalna dopuszczalna liczba znaków to {{requiredLength}}, aktualna liczba znaków to {{actualLength}}",
+    "email": "Proszę podać prawidłowy adres e-mail",
+    "pattern": "{{name}} może zawierać jedynie litery alfabetu angielskiego, cyfry, spacje, myślniki, podkreślenia oraz nawiasy kwadratowe",
+    "min": "Minimalna wartość to {{min}}",
+    "max": "Maksymalna wartość to {{max}}",
+    "names": {
+      "name": "Nazwa",
+      "project_description": "Opis projektu",
+      "project_name": "Nazwa projektu",
+      "dataset_description": "Opis zbioru danych",
+      "dataset_name": "Nazwa zbioru danych",
+      "rule_name": "Nazwa zbioru reguł",
+      "rule_description": "Opis zbioru reguł",
+      "report_name": "Nazwa raportu"
+    }
+  },
+  "validators": {
+    "seperatorEqualsDecimal": "Separator kolumn oraz separator wartości dziesiętnych nie mogą być takie same"
+  },
+  "toast_messages": {
+    "errors": {
+      "default": "Nieoczekiwany błąd: Spróbuj ponownie",
+      "http_errors": {
+        "400": "Nieprawidłowe zapytanie do serwera",
+        "403": "Brak uprawnień do wykonywania operacji",
+        "404": "Wystąpił błąd. Nie znaleziono zasobu o podanym adresie",
+        "409": "Wystąpił konflikt przy wykonywaniu operacji",
+        "500": "Wystąpił niespodziewany błąd"
+      },
+      "server_messages": {
+        "target_attribute_mismatch_error": "Nazwa atrybutu decyzyjnego we wgrywanym zbiorze reguł różni się od nazwy atrybutu w zbiorze danych.",
+        "intervals_value": "Wartość przedziałów jest niepoprawna. Minimalna wartość to 1, a maksymalna to 100.",
+        "rulesets_not_found": "Nie znaleziono zbiorów reguł",
+        "percentage_of_noise_missing": "Nie podano w ankiecie procentu szumu wymaganego dla tego zestawu odpowiedzi",
+        "invalid_percentage_of_noise_format": "Podana wartość procentu szumu ma nieprawidłowy format. Należy podać liczbę w zakresie od 0 do 100",
+        "no_file_provided": "Nie przesłano pliku",
+        "unsupported_file_type": "Format przesłanego pliku nie jest wspierany. Należy przesłać plik z rozszerzeniem .json lub .txt",
+        "ruleset_json_deserialization_error": "Nieprawidłowa postać zbioru reguł przesłanego w pliku .json. Sprawdź czy prawidłowo przygotowałeś zbiór reguł",
+        "invalid_rule_format": "Nieprawidłowy format reguły przesłanej w pliku .txt. Sprawdź czy prawidłowo przygotowałeś zbiór reguł",
+        "no_example_covered_error": "Przesłane reguły/warunki nie pokrywają żadnego przykładu",
+        "attribute_mismatch_error": "Zbiór reguł zawiera warunki na atrybutach, które nie występują w zbiorze danych dla którego odbywa się import",
+        "projects_limit_reached": "Osiągnięto limit liczby projektów. Twój limit to {{limit}}",
+        "datasets_limit_reached": "Osiągnięto limit liczby zbiorów danych przypadających na projekt. Twój limit to {{limit}}",
+        "rulesets_limit_reached": "Osiągnięto limit liczby zbiorów reguł przypisanych do zbioru danych. Twój limit to {{limit}}",
+        "reports_limit_reached": "Osiągnięto limit liczby raportów przypisanych do zbioru danych. Twój limit to {{limit}}",
+        "missing_column": "Przesłałeś zły plik, brakuje nastepujących kolumn: \"{{missing_columns}}\"",
+        "invalid_request": "Nazwa nowego zbioru danych musi być unikalna",
+        "task_already_completed": "Zadanie zostało już zakończone",
+        "task_not_found": "Nie znaleziono zadania ('task')",
+        "algorithm_not_found": "Nie znaleziono algorytmu(ów)",
+        "dataset_not_found": "Nie znaleziono zbioru danych",
+        "importance_result_not_found": "Nie znaleziono wyniku badania ważności",
+        "prediction_result_not_found": "Nie znaleziono wyniku predykcji",
+        "result_not_found": "Nie znaleziono wyniku",
+        "ruleset_not_found": "Nie znaleziono zbioru reguł",
+        "label_not_found": "Nie znaleziono etykiet reguł",
+        "rule_not_found": "Nie znaleziono reguły",
+        "dataset_attributes_not_found": "Nie znaleziono atrybutów(u) w zbiorze danych",
+        "project_not_found": "Projekt nie istnieje",
+        "project_exists": "Projekt o podanej nazwie już istnieje",
+        "dataset_exists": "W twoim projekcie znajduje się już zbiór danych o takiej samej nazwie",
+        "label_exists": "Etykieta o podanej nazwie już istnieje",
+        "ruleset_exists": "Dla tego zbioru danych istnieje już zbiór reguł o takiej nazwie",
+        "dataset_read_write_error": "Problem z bazą danych zawierającą zbiory danych",
+        "ruleset_not_saved": "Nie udało się zapisać zbioru reguł",
+        "external_service_error": "Problem z połączeniem z innym serwisem",
+        "task_queue_offline": "Nie udało się wysłać zadania do kolejki",
+        "unsupported_download_file_type": "Nieobsługiwany format pliku",
+        "Unknown_error": "Nieznany błąd",
+        "parameter_required": "Brakujący parametr w ścieżce (query param)",
+        "projects_not_found": "Nie znaleziono projektów",
+        "datasets_not_found": "Nie znaleziono zbiorów danych",
+        "max_rows_limits_exceeded": "Przekroczony dopuszczalny limit wielkości zbioru danych – wiersze. Obecna liczba wierszy wynosi \"{{ value }}\" dopuszczalna liczba wierszy to \"{{ limit }}\"",
+        "max_columns_limits_exceeded": "Przekroczony dopuszczalny limit wielkości zbioru danych – kolumny. Obecna liczba kolumn wynosi \"{{ value }}\" dopuszczalna liczba kolumn to \"{{ limit }}\"",
+        "max_size_limits_exceeded": "Przekroczony dopuszczalny rozmiar zbioru danych - rozmiar pliku. Obecny rozmiar wynosi \"{{ value }}\" dopuszczalny limit to \"{{ limit }}\"",
+        "max_sum_size_limits_exceeded": "Przekroczony dopuszczalny limity wielkości zbiorów danych – łączny rozmiar danych przechowywanych w aplikacji. Obecny rozmiar wynosi \"{{ value }}\" dopuszczalny limit to \"{{ limit }}\"",
+        "unknown_error": "Nieprzewidziany błąd",
+        "invalid_column_type": "Wprowadzono niepoprawny typ kolumny. Typ \"{{ “col_type” }}\" nie jest obsługiwany. Obsługiwanymi typami są: \"{{ allowed_types }}\"",
+        "inconsistent_column_types": "Nie udało się ustawić typów danych zgodnych ze zbiorem treningowym dla kolumn: \"{{ columns }}\". Sprawdź zbiór danych oraz ustawienia dodawania zbioru.",
+        "column_casting_error": "Błąd rzutowania kolumny \"{{ col_name }}\" na typ \"{{ col_type }}\"",
+        "missing_column_role": "Brak kolumn(y) decyzyjnych(ej)",
+        "invalid_encoding": "Typ kodowania \"{{ “encoding” }}\" pliku csv nie jest obsługiwany. Dozwolone typy kodowania to: \"{{ allowed_codecs }}\"",
+        "invalid_dataset": "Nieprawidłowy plik ze zbiorem danych",
+        "empty_dataset": "Pusty zbiór danych",
+        "invalid_column_number": "Zbyt mała liczba kolumn w zbiorze danych. Dla problemu typu \"{{ problem_type }}\" minimalna liczba kolumn w przesłanym zbiorze danych musi wynosić \"{{ min_number }}\". Przesłany zbiór danych zawiera \"{{ number }}\" kolumn",
+        "invalid_column_names": "Nieprawidłowe nazwy kolumn \"{{ columns }}\". Nazwa kolumny może zawierać jedynie litery alfabetu angielskiego (zarówno małe, jak i duże), cyfry, spacje, myślniki, podkreślenia oraz nawiasy kwadratowe",
+        "invalid_column_selection": "Nieprawidłowo wybrane kolumny (np. złe indeksy)",
+        "unsupported_problem_type": "Nieobsługiwany typ analizy",
+        "max_rows_limit_exceeded": "Przekroczono limit liczby wierszy. Obecna liczba wierszy to \"{{ value }}\", dopuszczalna liczba wynosi \"{{ limit }}\"",
+        "report_exists": "W Twoim projekcie znajduje się już raport o takiej samej nazwie",
+        "incorrect_report_parameters": "Zadano nieprawidłowe parametry raportu",
+        "empty_label_column_values": {
+          "classification": "Kolumna decyzyjna nie może zawierać wartości pustych",
+          "regression": "Kolumna decyzyjna nie może zawierać wartosci pustych",
+          "survival": "Kolumna statusu przeżycia nie może zawierać wartosci pustych"
+        },
+        "empty_survival_time_column_values": "Kolumna czasu przeżycia nie może zawierać wartości pustych",
+        "invalid_attribute_type_error": "Kolumna decyzyjna lub kolumna czasu przeżycia ma niepoprawny typ",
+        "no_label_attribute_specified": "Nie można utworzyć zbioru danych bez wybrania kolumny decyzyjnej",
+        "invalid_survival_time_column_values": "Kolumna czasu przeżycia musi zawierać wartości większe od zera",
+        "invalid_label_column_values": {
+          "survival": "Kolumna statusu przeżycia powinna zawierać jedynie dwie unikalne wartości: 0 i 1",
+          "classification": "Kolumna decyzyjna powinna mieć przynajmniej dwie różne wartości (wskazywać co najmniej dwie klasy)",
+          "regression": "Nie można zapisać: zbiór danych jest pusty."
+        },
+        "too_many_classes": "Kolumna decyzyjna zawiera zbyt wiele unikalnych wartości. Maksymalna liczba klas to {{ limit }}.",
+        "tour_not_completed_yet": "Samouczek nie został jeszcze ukończony",
+        "rule_conclusion_format_error": "Nieprawidłowy format części wniosku reguły: \"{{ conclusion_part }}\". ",
+        "rule_conclusion_float_conversion_error": "Nie udało się przekonwertować wartości wniosku reguły na typ liczbowy. Upewnij się, że wartości w regułach są liczbami.",
+        "decision_attribute_mismatch_error": "Atrybut decyzyjny \"{{ given_attribute }}\" jest niezgodny z oczekiwanym atrybutem \"{{ expected_attribute }}\".",
+        "invalid_survival_time_attribute_error": "Nieprawidłowa nazwa atrybutu czasu przeżycia: \"{{ attribute }}\".",
+        "invalid_condition_format_error": "Nieprawidłowy format warunku w regule: \"{{ condition_str }}\". Sprawdź składnię warunku.",
+        "attribute_not_found_error": "Atrybut \"{{ attribute_name }}\" użyty w regule nie został odnaleziony w zbiorze danych.",
+        "invalid_numeric_value_error": "Niepoprawna wartość numeryczna \"{{ value }}\" po operatorze \"{{ operator }}\". Oczekiwano liczby.",
+        "invalid_value_format_error": "Nieprawidłowy format wartości \"{{ value }}\" dla operatora \"{{ operator }}\".",
+        "missing_if_keyword_error": "Reguła musi zaczynać się od słowa kluczowego 'IF '. Problem dotyczy reguły: \"{{ rule }}\".",
+        "lord_parsing_error": "Błąd podczas parsowania modelu LORD. Upewnij się, że przesłany zbiór reguł pochodzi z algorytmu LORD.",
+        "mlrules_parsing_error": "Błąd podczas parsowania modelu MLRules. Upewnij się, że przesłany zbiór reguł pochodzi z algorytmu MLRules.",
+        "empty_column": "Kolumny \"{{ column_names }}\" są całkowicie puste. Usuń je ze zbioru danych lub uzupełnij brakujące wartości i spróbuj ponownie.",
+        "not_supported_for_rules_with_alternatives": "Ta funkcja nie jest obsługiwana dla reguł zawierających alternatywy (operator OR)."
+      },
+      "project_remove": "Wystąpił problem z usunięciem projektu",
+      "ruleset_generate": "Wystąpił problem z generowaniem zbioru reguł",
+      "test_data_set_change": "Wystąpił problem z aktualizacją danych testowych",
+      "ruleset_add": "Wystąpił problem z dodaniem zbioru reguł",
+      "no_content": "Nie otrzymano odpowiedzi, możliwe że bazie danych nie istnieje wymagana zawartość",
+      "fetching_data": "Wystąpił błąd podczas pobierania danych",
+      "dataset_upload": "Wystąpił błąd podczas przesyłania zbioru",
+      "empty_file": "Plik jest pusty. Proszę przesłać plik z danymi",
+      "wrong_extension": "Zły format pliku",
+      "supported_formats": "Obsługiwane formaty: {{value}}",
+      "duplicate_project": "Projekt o podanej nazwie już istnieje. Proszę podaj inną nazwę",
+      "syntactic_comparison_not_supported_for_rules_with_alternatives": "Porównanie syntaktyczne nie jest obsługiwane dla reguł zawierających alternatywy (operator OR). Zmień typ podobieństwa na semantyczne i sprobuj ponownie."
+    },
+    "validation": {
+      "data_set_name": "Wymagane jest podanie nazwy zbioru"
+    },
+    "success": {
+      "project_remove": "Projekt został usunięty",
+      "ruleset_generate": "Zbior reguł został wygenerowany",
+      "dataset_add": "Zbiór danych został dodany",
+      "ruleset_add": "Zbiór reguł został dodany"
+    },
+    "info": {
+      "dataset_uploading": "Przesyłanie zbioru danych. Proszę nie zamykaj aplikacji"
+    }
+  },
+  "new_store_version_modal": {
+    "title": "Aplikacja została zaktualizowana do najnowszej wersji",
+    "content": "Z tego powodu konieczne było zamknięcie wszystkich otwartych zakładek",
+    "close": "Zamknij"
+  },
+  "data_upload": {
+    "next_step": "Wybierz kolumne zawierającą wartości decyzyjne aby przejść dalej",
+    "file_type_error": "Nieprawidłowy typ pliku. Prześlij plik z prawidłowym rozszerzeniem (dopuszczalne są tylko pliki CSV)",
+    "has_header": "Czy plik ma nagłówek?",
+    "encoding": "Wybierz kodowanie",
+    "separator": "Separator",
+    "purpose": "Przeznaczenie",
+    "decimal": "Znak, separator wartości dziesiętnej",
+    "missing_values": "Brakujące wartości",
+    "class": "Kolumna decyzyjna",
+    "target": "Kolumna decyzyjna",
+    "survival_status": "Kolumna statusu przeżycia",
+    "survival_time": "Kolumna czasu przeżycia",
+    "project_info": "Informacje o projekcie",
+    "dataset_info": "Informacje o zbiorze",
+    "dataset_description": "Opis zbioru",
+    "voting_measure": "Miara służąca do rozwiązywania konfliktów w trakcie predykcji",
+    "dataset_name": "Nazwa zbioru",
+    "column_choose": {
+      "numeric": "Wybierz kolumnę numeryczną",
+      "nominal": "Wybierz kolumnę nominalną"
+    },
+    "column_type": "Określ typ kolumny",
+    "column_types": {
+      "label": "Typ kolumny",
+      "num": "Numeryczna",
+      "cat": "Nominalna"
+    },
+    "column_configuration": "Konfiguracja kolumn",
+    "data_format": "Format danych",
+    "file_choose": "Wybierz plik",
+    "data_uploaded": "Dodano plik",
+    "chosen_file": "Wybrany plik: {{fileName}}",
+    "drag_drop_file": "Przeciągnij i upuść wybrany plik lub kliknij, aby wybrać plik",
+    "preview": "Podgląd",
+    "preview_error": {
+      "maxlength": "Niektóre nazwy kolumn są zbyt długie. Maksymalna długość to 25 znaków",
+      "pattern": "Niektóre nazwy kolumn zawierają nieprawidłowe znaki. Nazwa kolumny może zawierać jedynie litery, cyfry oraz znaki specjalne: \"- \", \"_ \", \" [\" ,\"] \"",
+      "index_column_present": "Plik zawiera kolumnę o nazwie \"index\" lub \"Index\". Takie nazwy kolumn nie są dopuszczalne. Zmień nazwę i spróbuj wczytać plik ponownie",
+      "column_name_duplicated": "Plik zawiera więcej niż jedną kolumnę o tej samej nazwie. Nazwy kolumn muszą być unikalne"
+    },
+    "next": "Dalej",
+    "back": "Cofnij",
+    "submit": "Zaakceptuj",
+    "tooltips": {
+      "purpose": "Za pomocą aplikacji RuleMiner można wyznaczać trzy typy reguł: decyzyjne (klasyfikacyjne), regresyjne oraz wzorce przeżycia. Reguły te reprezentują wzorce - zależności - jakie charakteryzują dane oraz tworzą system predykcyjny przewidujący wartości zmiennej decyzyjnej. Użytkownik powinien wybrać, jaki typ analizy ma zamiar przeprowadzić. ",
+      "classification": "Klasyfikacja: W kontekście funkcjonalności systemu RuleMiner to proces odkrywania reguł, których przesłanki (określone wartości atrybutów warunkowych) wiążą się z konkretnymi kategorycznymi (symbolicznymi) wartościami zmiennej decyzyjnej. Wartości te należy przyporządkować przykładom spełniającym warunki wyspecyfikowane w przesłankach pokrywających je reguł.",
+      "regression": "Regresja: W kontekście funkcjonlaności systemu RuleMiner regresja to proces odkrywania reguł, których przesłanki (określone wartości atrybutów warunkowych) wiążą się z konkretnymi numerycznymi (liczbowymi) wartościami zmiennej decyzyjnej. Wartości te należy przyporządkować przykładom spełniającym warunki wyspecyfikowane w przesłankach pokrywających je reguł.",
+      "survival": "Analiza przeżycia: W kontekście funkcjonalności systemu RuleMiner to proces odkrywania reguł, których przesłanki (określone wartości atrybutów warunkowych) wiążą się z konkretnymi estymatorami (krzywymi przeżycia; estymatorami Kaplana-Meiera) określającymi prawdopodobieństwo „przeżycia” wraz z upływającym czasem, przykładów spełniających przesłanki reguł.",
+      "separator": "Separator kolumn – znak, który rozdziela wartości pól w pliku CSV. Domyślną wartością jest przecinek. ",
+      "decimal": "Separator dziesiętny, znak dziesiętny – znak używany do oddzielenia części całkowitej od części ułamkowej liczby. Separatorem są najczęściej przecinek lub kropka.",
+      "missing_values": "Znak oznaczający brakującą wartość. W niektórych zbiorach danych brakujące wartości są oznaczane na przykład znakiem „?”, w takiej sytuacji w polu należy postawić znak zapytania. Jeśli użytkownik nie wypełni tego pola, za brakującą wartość zostanie uznane każde nie zawierające wartości pole w poszczególnych wierszach.",
+      "column_type": "Dla każdej kolumny należy określić jej typ. Kolumny zawierające liczby powinny być oznaczone jako numeryczne, pozostałe kolumny jako nominalne. W przypadku kolumn zawierających liczby np. 1,2,3, które jednak są nazwami kategorii, a nie liczbami kolumna powinna zostać oznaczona jako nominalna. Typ każdej z kolumn zostały określone na podstawie analizy pierwszych 10 wierszy. Należy jednak uważnie zweryfikować to przyporządkowanie. W późniejszym etapie korzystania z aplikacji nie ma możliwości zmiany typu kolumn. ",
+      "classification_tooltip": "Atrybut decyzyjny (identyfikator klasy decyzyjnej). Kolumna decyzyjna musi być typu nominalnego. ",
+      "regression_tooltip": "Atrybut decyzyjny (wartości zmiennej zależnej). Kolumna decyzyjna musi być typu numerycznego. ",
+      "survival_time_tooltip": "Czas przeżycia – kolumna zawierająca informację o czasie przeżycia. Kolumna ta powinna zawierać liczby (nie daty) i być typu numerycznego. ",
+      "survival_status_tooltip": " Status przeżycia – kolumna zawierająca informację o wystąpieniu tzw. zdarzenia (np. śmierć, awaria maszyny). Kolumna musi być typu nominalnego i zawierać dwie wartości 1 (wystąpiło zdarzenie) lub 0 (brak zdarzenia). "
+    }
+  },
+  "import": {
+    "documentation": "Sposób przygotowania zbioru reguł do importu został opisany w dokumentacji:",
+    "algorithm": "Wybierz algorytm",
+    "ruleset_name": "Nazwa zbioru reguł",
+    "ruleset_description": "Opis zbioru reguł",
+    "next_btn": "Importuj",
+    "voting_measure_tooltip": "Miara służąca do rozwiązywania konfliktów w trakcie predykcji"
+  },
+  "project": {
+    "close_tab": "Zamknij zakładkę",
+    "limit_reached": "Osiągnięto limit liczby projektów",
+    "title": {
+      "import_example_project_classification": "Wczytaj przykładowy projekt (klasyfikacja)",
+      "import_example_project_regression": "Wczytaj przykładowy projekt (regresja)",
+      "import_example_project_survival": "Wczytaj przykładowy projekt (analiza przeżycia) "
+    },
+    "type": {
+      "classification": "Klasyfikacja",
+      "regression": "Regresja",
+      "survival": "Analiza przeżycia"
+    },
+    "expert_induction": {
+      "expert_rules_title": "Definiowanie nowej reguły przez użytkownika",
+      "expert_forbidden_conditions_title": "Podaj warunek niedozwolony",
+      "expert_preferred_conditions_title": "Podaj warunek preferowany",
+      "expert_forbidden_condition_text": "Wybierz klasy, w których warunek jest niedozwolony",
+      "expert_preferred_condition_text": "Wybierz klasy, w których warunek jest preferowny",
+      "expert_preferred_attributes_title": "Wybór atrybutów preferowanych",
+      "expert_preferred_attributes_text": "Wybierz klasę, dla atrybutów preferowanych",
+      "expert_forbidden_attributes_title": "Wybór atrybutów niedozwolonych",
+      "expert_forbidden_attributes_text": "Wybierz klasę, dla atrybutów niedozwolonych",
+      "expert_condition_button": "Dodaj warunek",
+      "expert_attributes_button": "Dodaj atrybuty",
+      "expert_rule_button": "Dodaj regułę",
+      "attributes_textbox": "Liczba wystąpień w regułach",
+      "conditions_textbox": "Podaj ile razy warunek powinien pojawiać się w regułach",
+      "select_attributes": "Wybierz atrybuty",
+      "occurrence_empty_value": "W każdej regule"
+    },
+    "closed_tabs": {
+      "title": "Wszystkie zakładki zostały zamknięte",
+      "sub_title": "Otwórz zbiór danych lub reguł dostępnych w menu po lewej stronie lub wczytaj nowy zbiór danych",
+      "sub_title_br": "Lista aktywnych procesów jest dostępna po naciśnięciu klawisza Procesy (lewy dolny róg strony)"
+    },
+    "tab_not_saved_modal": {
+      "title": "Nie zapisano zmian",
+      "body": "Czy na pewno chcesz zamknąć tę zakładkę bez zapisywania zmian?",
+      "cancel_btn": "Anuluj",
+      "confirm_btn": "Zamknij"
+    },
+    "confirm_close_modal": {
+      "title": {
+        "default": "Nie zapisano zmian",
+        "custom_modal_title": {
+          "select_rules": "Reguły nie zostały zapisane",
+          "rules_generator": "Nie uruchomiono indukcji"
+        }
+      },
+      "body": "Czy na pewno chcesz zamknąć bez zapisywania?",
+      "cancel_btn": "Anuluj",
+      "confirm_btn": "Zamknij",
+      "custom_modal_text": {
+        "select_rules": "Czy na pewno chcesz zamknąć bez zapisania reguł?",
+        "rules_generator": "Czy na pewno chcesz zamknąć bez indukcji reguł?"
+      }
+    },
+    "uploaded_modal": {
+      "dataset": {
+        "title": "Zbiór danych został przesłany",
+        "body": "Zbiór danych został przesłany, czy chcesz go teraz otworzyć?"
+      },
+      "ruleset": {
+        "title": "Zbior reguł jest gotowy",
+        "body": "Zbior reguł jest gotowy, czy chcesz go teraz otworzyć?"
+      },
+      "confirm_btn": "Otwórz",
+      "cancel_btn": "Anuluj"
+    },
+    "delete_project": {
+      "title": "Usuwanie projektu",
+      "body": "Czy na pewno chcesz usunąć projekt?",
+      "cancel_btn": "Anuluj",
+      "confirm_btn": "Usuń"
+    },
+    "select_dataset": "Wybierz zbiór danych",
+    "execute_prediction": "Wykonaj predykcję",
+    "select_dataset_to_execute_prediction": "Wybierz zbiór danych, na którym ma zostać wykonana predykcja",
+    "recently_opened_projects": "Ostatnio otworzone projekty",
+    "project_not_found": "Nie znaleziono projektów",
+    "new_project": "Nowy projekt",
+    "information": "Informacje o projekcie",
+    "recent_project_list": "Ostatnio otwarte projekty",
+    "sort_by": "Sortuj według:",
+    "search_for_project": "Wyszukaj projekt:",
+    "no_projects_found": "Nie znaleziono projektów",
+    "created_at": "Data utworzenia",
+    "last_opening": "Data ostatniego otwarcia",
+    "last_modification": "Data ostatniej modyfikacji",
+    "purpose": "Przeznaczenie projektu",
+    "all_projects": "Wszystkie projekty",
+    "sample_projects": "Przykładowe projekty",
+    "search": "Szukaj...",
+    "name": "Nazwa projektu",
+    "description": "Opis projektu",
+    "more_projects": "Pokaż więcej projektów...",
+    "project_info": "Informacje o zbiorze danych",
+    "rule_name": "Nazwa zbioru reguł",
+    "dataset_name": "Nazwa zbioru danych",
+    "ruleset_name": "Nazwa zbioru reguł",
+    "selectDataset": "Wybierz reguły z istniejącego zbioru reguł",
+    "selectAttribute": "Konkluzja",
+    "clear_selection": "Wyczyść zaznaczenie",
+    "tabs": {
+      "rules": "Reguły",
+      "rule_coverage": "Pokrycie reguł",
+      "prediction": "Predykcja",
+      "prediction_statistics": "Jakość predykcji",
+      "visualization": "Wizualizacja",
+      "example": "Objaśnij decyzje",
+      "description": "Szczegóły",
+      "dataset": "Zbiór danych",
+      "statistics": "Statystyki zbioru danych",
+      "charts": "Wykresy",
+      "rules_comparison": "Porównanie reguł"
+    },
+    "visualization_tabs": {
+      "importance": "Ważność",
+      "rulset": "Zbiór reguł",
+      "visualization": "Wizualizacja 3D"
+    },
+    "details": {
+      "prediction_indicator": "Wskaźnik predykcji",
+      "add_indicator": "+ Dodaj wskaźnik",
+      "validity_of_condition": "Ważność warunku",
+      "validity_of_attributes": "Ważność atrybutów"
+    },
+    "button": {
+      "edit": "Edytuj",
+      "delete": "Usuń",
+      "cancel": "Anuluj",
+      "save": "Zapisz",
+      "apple_edit": "Zapisz edycję",
+      "add_rule": "Dodaj regułę",
+      "add_rules": "Dodaj reguły",
+      "apply_manually": "Zaakceptuj",
+      "more": "Więcej"
+    },
+    "treeview": {
+      "add_dataset": "Wczytaj nowy zbiór",
+      "rulesets_group": "Zbiory reguł",
+      "reports_group": "Raporty",
+      "process": "Procesy",
+      "terminate": "Zatrzymaj",
+      "generate": "Generowanie zadania",
+      "not_found_task": "Brak aktywnych zadań.",
+      "process_terminated": "Proces zakończono pomyślnie",
+      "limit_exceeded": "Przekroczono limit rozmiaru danych w ramach wybranego planu subskrypcji",
+      "retry": "Ponów próbę",
+      "context_menu": {
+        "button": {
+          "edit": "Zmień nazwę",
+          "delete": "Usuń",
+          "duplicate": "Duplikuj",
+          "duplicate_with_related": "Duplikuj wraz ze zbiorami reguł",
+          "generate": "Generuj zbiór reguł",
+          "add_ruleset": "Dodaj istniejący zbiór reguł",
+          "import": "Importuj zbiór reguł",
+          "generate_reports": "Generuj raporty",
+          "split": "Podziel zbiór",
+          "compare": "Porównaj",
+          "filter": "Filtruj",
+          "download": "Pobierz"
+        },
+        "modal": {
+          "delete_confirm": {
+            "rule_set": {
+              "title": "Usunięcie zbioru reguł",
+              "body": "Czy na pewno chcesz usunąć zbiór reguł?",
+              "cancel_btn": "Anuluj",
+              "confirm_btn": "Usuń",
+              "delete_error": "Wystąpił problem z usunięciem zbioru reguł",
+              "delete_success": "Usunięto zbiór reguł"
+            },
+            "data_set": {
+              "title": "Usunięcie zbioru danych",
+              "body": "Czy na pewno chcesz usunąć zbiór danych?",
+              "cancel_btn": "Anuluj",
+              "confirm_btn": "Usuń",
+              "delete_error": "Wystąpił problem z usunięciem zbioru danych",
+              "delete_success": "Usunięto zbiór danych"
+            },
+            "report": {
+              "title": "Usunięcie raportu",
+              "body": "Czy na pewno chcesz usunąć raport?",
+              "cancel_btn": "Anuluj",
+              "confirm_btn": "Usuń",
+              "delete_error": "Wystąpił problem z usunięciem raportu",
+              "delete_success": "Usunięto raport"
+            }
+          },
+          "train_test": {
+            "title": "Podziel zbiór",
+            "train": "Nazwa treningowego zbioru danych",
+            "test": "Nazwa testowego zbioru danych",
+            "percent": "Rozmiar (%) zbioru testowego w stosunku do wszystkich przykładów",
+            "cancel_btn": "Anuluj",
+            "confirm_btn": "Podziel",
+            "dividing_method": "Metoda podziału zbioru danych",
+            "dividing_success": "Zbiór danych został podzielony",
+            "stratified": "Stratyfikowany",
+            "random": "Losowy",
+            "chronological": "Chronologiczny",
+            "invalid_label_column_values": {
+              "classification": "Podczas podziału zbioru danych jedna z jego części zawierała przykłady należące tylko do jednej klasy decyzyjnej. Zbiór danych powinien posiadać przynajmniej dwie klasy decyzyjne.",
+              "survival": "Podczas podziału zbioru danych jedna z jego części zawierała przykłady tylko z jedną unikalną wartością kolumny statusu przeżycia. Zbiór danych powinien zawierać oba statusy przeżycia.",
+              "chronological": "Zmień proporcję podziału zbiorów.",
+              "random": "Zmień proporcję podziału zbiorów.",
+              "stratified": "Zmień proporcję podziału zbiorów"
+            }
+          },
+          "duplicate": {
+            "title_data_set": "Duplikowanie zbioru danych",
+            "title_rule_set": "Duplikowanie zbioru reguł",
+            "checkbox_label": "Duplikuj wraz ze zbiorami reguł",
+            "body": "Nazwa",
+            "cancel_btn": "Anuluj",
+            "confirm_btn": "Duplikuj",
+            "error": "Wystąpił problem podczas duplikacji",
+            "error_unique": "Zbiór danych o podanej nazwie już istnieje",
+            "success": "Zduplikowano dane"
+          },
+          "rename": {
+            "title": "Zmiana nazwy",
+            "body": "Nazwa",
+            "cancel_btn": "Anuluj",
+            "confirm_btn": "Zapisz",
+            "rename_error": "Wystąpił problem podczas aktualizacji danych",
+            "rename_success": "Zaktualizowano dane"
+          },
+          "generate_reports": {
+            "report_description": {
+              "explorative_data_analysis": "Poznaj wartości podstawowych wskaźników opisujących dane",
+              "knowledge_discovery": "Odkryj wzorce w danych",
+              "predictive_analysis": "Oceń zdolność predykcyjną różnych modeli",
+              "disable": "Ten raport nie jest dostępny w aktualnej wersji aplikacji. Pracujemy nad tym, aby pojawił się w kolejnej wersji"
+            },
+            "header": "Wybierz interesujący Cię raport",
+            "body": "Wybierz rodzaj raportu",
+            "cancel_btn": "Anuluj",
+            "confirm_btn": "Generuj",
+            "explorative_data_analysis": "Analiza eksploracyjna",
+            "explorative_data_analysis_title": "Generowanie raportu - Eksploracyjna analiza danych",
+            "knowledge_discovery": "Odkrywanie wiedzy",
+            "knowledge_discovery_title": "Generowanie raportu - Odkrywanie wiedzy",
+            "predictive_analisys": "Analiza predykcyjna",
+            "predictive_analisys_title": "Generowanie raportu - Analiza predykcyjna",
+            "title": "Nazwa raportu",
+            "settings": "Ustawienia",
+            "analysis_mode": "Sposób oceny modeli",
+            "TT": "Podział train-test",
+            "CV": "5-krotna walidacja krzyżowa",
+            "test_size": "Rozmiar zbioru testowego",
+            "grid_search": "Przeszukaj przestrzeń hiperparametrów",
+            "scoring": "Miara oceny",
+            "balanced_accuracy": "Zrównoważona dokładność",
+            "f1_weighted": "Ważone F1",
+            "roc_auc_ovo": "ROC AUC",
+            "precision_weighted": "Precyzja",
+            "recall_weighted": "Czułość",
+            "r2": "R kwadrat",
+            "neg_mean_squared_error": "Błąd średniokwadratowy",
+            "neg_mean_absolute_error": "Średni błąd bezwzględny",
+            "explained_variance": "Wyjaśniona wariancja",
+            "c_index": "Wskaźnik zgodności",
+            "preprocessing": "Przygotowanie danych",
+            "use_low_correlation_attr_removal": "Usuń atrybuty słabo skorelowane z atrybutem decyzyjnym",
+            "unimportant_attribute_elimination": "Usuń atrybuty o niskiej jakości",
+            "ismt_threshold": "Próg ISMT",
+            "I": "Zbyt duża liczba unikalnych wartości",
+            "S": "Niezmienność wartości",
+            "M": "Brakujące wartości",
+            "T": "Wartości zmiennej są podobne do tekstu",
+            "missing_values_imputation": "Uzupełnij braki danych",
+            "strategy_numerical": "Dla atrybutów numerycznych przez",
+            "strategy_nominal": "Dla atrybutów nominalnych przez",
+            "decision_class_balancing": "Zrównoważ wielkości klas decyzyjnych",
+            "algorithms": "Algorytmy",
+            "logistic_regression": "Regresja logistyczna",
+            "linear_regression": "Regresja liniowa",
+            "cox_proportional_hazard": "Model proporcjonalnego hazardu Coxa",
+            "select_model_to_check": "Wybierz modele, które chcesz sprawdzić",
+            "decision_tree": "Drzewa",
+            "knn": "K najbliższych sąsiadów",
+            "naive_bayes": "Naiwny model bayesowski",
+            "svm": "Maszyna wektorów nośnych",
+            "random_forest": "Las losowy ",
+            "gradient_boosting": "XgBoost",
+            "generate_report_button": "Generuj raport",
+            "trees": "Drzewa",
+            "max_depth": "Maksymalna głębokość",
+            "rules": "Reguły",
+            "constrain_continuous": "Ograniczenie ciągłych",
+            "min_covered_examples": "Minimalne pokrycie",
+            "max_rule_length": "Maksymalna liczba warunków elementarnych",
+            "beam_width": "Szerokość wiązki",
+            "itemsets_and_associations": "Zbiory częste i reguły asocjacyjne",
+            "exclude_target_column": "Nie uwzględniaj atrybutu decyzyjnego",
+            "max_k_value": "Maksymalny rozmiar",
+            "max_intervals_value": "Maksymalna liczba przedziałów, na które zostaną podzielone zakresy wartości atrybutów numerycznych",
+            "associations": "Asocjacje",
+            "min_confidence": "Minimalna ufność",
+            "min_supp": "Minimalne wsparcie",
+            "max_rows": "Maksymalna liczba najlepszych wyników",
+            "mean": "Średnia",
+            "median": "Mediana",
+            "most_frequent": "Najczęstszy",
+            "constant": "Stała",
+            "data_preparation": "Przygotowanie danych",
+            "cannot_select_parameters": "Ten raport generuje się w pełni automatycznie",
+            "tooltips": {
+              "fixed_value": "Wartość tego pola jest stała dla tego typu raportu oraz problemu",
+              "grid_search": "Przeszukuje przestrzeń hiperparametrów modeli w celu znalezienia najlepszego zestawu parametrów",
+              "scoring": "Metryka, której wartość jest optymalizowana podczas przeszukiwania przestrzeni hiperparametrów",
+              "use_low_correlation_attr_removal": "Usuwa atrybuty, dla których wartość korelacji z atrybutem decyzyjnym jest w przedziale [-0.2, 0.2]. Obsługiwane są atrybuty numeryczne i binomionalne, wartości atrybutów binominalnych kodowane są jako wartości numeryczne 0 oraz 1",
+              "unimportant_attribute_elimination": "Usuwa atrybuty, dla których wartości zadanych kryteriów są powyżej podanych progów",
+              "I": "Usuwa atrybuty nominalne ze zbyt dużą liczbą unikalnych wartości",
+              "S": "Wartość wskażnika obliczana jako: liczba wierszy z najczęściej występującą niepustą wartością podzielona przez liczbę wierszy z niepustymi wartościami",
+              "M": "Wartość wskaźnika obliczana jako: liczba brakujących wartości dla rozważanego atrybutu podzielona przez liczbę wierszy",
+              "T": "Usuwa atrybuty nominalne, których wartości są podobne do tekstu - w obliczeniach uwzględnia liczbę separatorów słów oraz długość tekstu",
+              "missing_values_imputation": "Uzupełnia braki danych zadaną wartością. W przypadku niewybrania tej opcji, wiersze zawierające brakujące wartości zostaną pominięte.",
+              "decision_class_balancing": "Wykorzystuje algorytm SMOTE do zrównoważenia wielkości klas. Po zastosowaniu SMOTE wszystkie klasy będą miały tę samą liczbę przykładów, co pierwotnie najliczniejsza klasa",
+              "max_depth": "Maksymalna głębokość drzewa",
+              "min_covered_examples": "Reguły muszą pokrywać co najmniej - zdaną wartością parametru - liczbę przykładów pozytywnych",
+              "max_rule_length": "Maksymalna liczba warunków elementarnych jaka może znaleźć się w przesłance reguły",
+              "beam_width": "Podczas fazy wzrostu reguły stosowana jest strategie przeszukiwania wiązką. Algorytm analizuje tyle rozwiązań tymczasowych ile wynosi wartość tego parametru",
+              "exclude_target_column": "Jeżeli wybrano tę opcję to, atrybut decyzyjny nie jest brany pod uwagę w analizie. W innym przypadku atrybut decyzyjny traktowany jest jak każdy inny atrybut.",
+              "min_supp": "Minimalne wymagane wsparcie zbioru częstego, liczone jako liczba wystąpień zbioru częstego podzielona przez liczbę wszystkich przykładów",
+              "max_rows": "Maksymalna liczba najlepszych zbiorów częstych i reguł asocjacyjnych zwróconych w wynikowych tabelach",
+              "min_confidence": "Minimalne wymagana ufność reguł asocjacyjnych",
+              "max_k_value": "Maksymalna liczba atrybutów tworzących zbiór częsty - liczba elementów tworzących zbiór częsty",
+              "max_intervals_value": "Atrybuty numeryczne wymagają dyskretyzacji przed wyznaczeniem zbirów częstych. Raport bazuje na algorytmie dyskretyzacji według równej długości przedziału"
+            }
+          },
+          "filter": {
+            "name": "Nazwa przefiltrowanego zbioru reguł",
+            "description": "Opis przefiltrowanego zbioru reguł",
+            "title": "Filtracja zbioru reguł",
+            "choose_algorithm": "Wybierz algorytm",
+            "voting_measure": "Wybierz kryterium jakości reguły",
+            "percent_decrease": "Dopuszczalny procentowy spadek jakości predykcji po filtracji",
+            "filter_button": "Uruchom algorytm filtrowania",
+            "voting_measure_tooltip": "Miara służąca do rozwiązywania konfliktów w trakcie predykcji"
+          }
+        }
+      }
+    },
+    "rules": {
+      "not_covered_rules": {
+        "title": "Reguły, które po przeniesieniu nie pokrywają żadnych przykładów:",
+        "details": "Szczegóły",
+        "button": "Usuń informacje",
+        "edit_modal": "Popraw regułę aby pokrywała przykłady",
+        "edit_success": "Reguła została poprawiona oraz dodana do zbioru reguł",
+        "remove_rules": "Reguła została usunięta z listy reguł, które nie pokrywają żadnych przykładów"
+      },
+      "configuration": "Konfiguracja",
+      "simple_configuration": "Prosta",
+      "advanced_configuration": "Zaawansowana",
+      "advanced_view": "Konfiguracja użytkownika",
+      "unadvanced_view": "Konfiguracja automatyczna",
+      "current_parameters": "Aktualne wartości parametrów",
+      "answer_questions": "Odpowiedz na pytania",
+      "select_ruleset": "Wybierz zbiór reguł",
+      "select_rules": "Wybierz reguły ze zbioru reguł",
+      "rules_not_selectable_info": "Wyszarzone reguły nie pokrywają żadnych przykładów w aktualnie wybranym zbiorze danych",
+      "rules": "Reguły",
+      "compare_title": "Reguły do porównania",
+      "add_new": "Dodaj reguły",
+      "prediction_rate": "Jakość predykcji dla zbioru: ",
+      "validity_of_the_condition": "Ważność warunków",
+      "validity_of_attributes": "Ważność atrybutów",
+      "quantitative_characteristics": "Charakterystyka zbioru reguł",
+      "cross_validation_results": "Wyniki walidacji krzyżowej",
+      "class_name": "Nazwa klasy",
+      "condition_name": "Nazwa warunku",
+      "condition": "Warunek",
+      "attribute_name": "Nazwa atrybutu",
+      "attribute": "Atrybut",
+      "general": "Ogólne",
+      "nominal_attribute": "Atrybut nominalny",
+      "numerical_attribute": "Atrybut numeryczny",
+      "condition_importance": "Ważność warunków",
+      "attribute_importance": "Ważność atrybutów",
+      "importance": "Ważność",
+      "description": "Manualnie oznacza, że użytkownik sam definiuje reguły",
+      "algorithm_name": "Manualnie",
+      "names": {
+        "RuleKit": "RuleKit",
+        "DeepRules": "DeepRules",
+        "Manually": "Manualnie"
+      },
+      "refine": "doprecyzuj",
+      "refine_description": "Pozwól algorytmowi doprecyzować wartości dla tego warunku",
+      "determine": "ustal",
+      "determine_description": "Pozwół algorytmowi ustalić wartości dla tego warunku",
+      "empty_ruleset_info": "Zbiór reguł musi zawierać co najmniej jedną aktywną regułę",
+      "deselect_all": "Właśnie dezaktywowałeś wszystkie reguły. Zbiór reguł musi zawierać co najmniej jedną aktywną regułę, dlatego też automatycznie aktywowano pierwszą regułę",
+      "table": {
+        "headers": {
+          "considerOtherClasses": "Rozważ inne klasy",
+          "extendUsingAutomatic": "Rozszerz używając automatyki",
+          "extendUsingPreferred": "Rozszerz używając preferencji",
+          "induceUsingAutomatic": "Indukuj używając automatyki",
+          "induceUsingPreferred": "Indukuj używając preferencji",
+          "preferredAttributesPerRule": "Preferowane atrybuty na regułę",
+          "preferredConditionsPerRule": "Preferowane warunki na regułę",
+          "fractionExamplesCovered": "Frakcja przykładów pokrytych przez zbiór reguł",
+          "maxError": "Maksymalny błąd",
+          "totalConditionsCount": "Sumaryczna liczba warunków",
+          "active": "Aktywna",
+          "ruleName": "#",
+          "approximateBinsCount": "Maksymalna liczba cięć do sprawdzenia podczas indukcji przyspieszonej",
+          "approximateInduction": "Tryb indukcji przyspieszonej",
+          "attributeName": "Nazwa atrybutu",
+          "autoIncrement": "#",
+          "averageCoverage": "Średnie pokrycie reguły",
+          "averageNumberOfConditions": "Średnia liczba warunków w regule",
+          "averagePrecision": "Średnia precyzja reguły",
+          "avgConditionsCount": "Średnia liczba warunków w regule",
+          "avgCoverage": "Średnie pokrycie reguły",
+          "avgPrecision": "Średnia precyzja reguły",
+          "bAcc": "Balanced Accuracy",
+          "balancedAccuracy": "Balanced Accuracy",
+          "cohenKappa": "Kappa Cohena",
+          "accuracy": "Accuracy",
+          "boxplot": "box-plot",
+          "c2": "C2",
+          "censoredCount": "Liczba obserwacji cenzurowanych",
+          "comparison": "Porównanie",
+          "complementaryConditions": "Warunki komplementarne (zanegowane)",
+          "displayConclusion": "Konkluzja reguły",
+          "condition": "Warunek",
+          "conditionName": "Nazwa warunku",
+          "conditionsCount": "Liczba warunków",
+          "content": "Zawartość",
+          "compare": "Porównanie",
+          "controlAprioriPrecision": "Kontrola pierwotnej precyzji",
+          "correlation": "Korelacja",
+          "coverage": "Pokrycie",
+          "description": "Przesłanka reguły",
+          "eventsCount": "Liczba obserwacji dla których wystąpiło zdarzenie",
+          "f1Score": "F1 score",
+          "f1Macro": "Makro F1",
+          "f1Micro": "Mikro F1",
+          "f1Weighted": "Ważone F1",
+          "filterDataset": "Filtruj zbiór danych",
+          "fn": "FN",
+          "fp": "FP",
+          "fractionFdrSignificant": "Frakcja reguł FDR-istotnych",
+          "fractionSignificant": "Frakcja reguł istotnych",
+          "gMean": "Gmean",
+          "gMeanMacro": "Makro Gmean",
+          "gMeanMicro": "Mikro Gmean",
+          "gMeanWeighted": "Ważony Gmean",
+          "ibs": "Integrated Brier Score (IBS)",
+          "ignoreMissing": "Ignoruj brakujące wartości",
+          "importance": "Ważność",
+          "inductionMeasure": "Faza wzrostu",
+          "kaplanMeierEstimator": "Krzywa przeżycia",
+          "key": "Nazwa",
+          "labelMax": "Globalne maximum",
+          "labelMin": "Globalne minimum",
+          "labels": "Etykiety (HIDDEN)",
+          "labelsText": "Etykiety",
+          "labelsSwitch": "Przełącz między trybem kompaktowym, a normalnym",
+          "lift": "Lift",
+          "logRank": "Logrank",
+          "lrMinus": "LR-",
+          "lRMinus": "LR-",
+          "lrPlus": "LR+",
+          "lRPlus": "LR+",
+          "r2": "R²",
+          "rMae": "rMAE",
+          "rRmse": "rRMSE",
+          "mae": "MAE",
+          "mAE": "MAE",
+          "mape": "MAPE",
+          "mAPE": "MAPE",
+          "maxGrowing": "Maksymalna liczba warunków w regule",
+          "maxRuleCount": "Maksymalna liczba reguł",
+          "maxUncoveredFraction": "Maksymalna frakcja niepokrytych przykładów",
+          "conditions_count": "Liczba warunków",
+          "C2": "C2",
+          "RSS": "RSS",
+          "log_rank": "Logrank",
+          "kaplan_meier_estimator": "Estymator Kaplana-Meiera",
+          "median_survival_time": "Mediana czasu przeżycia",
+          "median_survival_time_ci_upper": "Górna granica przedziału ufności czasu przeżycia",
+          "median_survival_time_ci_lower": "Dolna granica przedziału ufności czasu przeżycia",
+          "P": "P",
+          "N": "N",
+          "medianSurvivalTime": "Mediana czasu przeżycia",
+          "medianSurvivalTimeCiLower": "Dolna granica przedziału ufności czasu przeżycia",
+          "medianSurvivalTimeCiUpper": "Górna granica przedziału ufności czasu przeżycia",
+          "minsuppNew": "Minimalna liczba pokrywanych przykładów (na regułę)",
+          "survivalTimeAttr": "Kolumna czasu przeżycia",
+          "n": "n",
+          "name": "Nazwa",
+          "negativePredictiveValue": "Nagative predictive value",
+          "nPV": "NPV",
+          "numberOfRules": "Liczba reguł",
+          "numOfConditions": "Num_of_conditions",
+          "nUnique": "Unikalne n",
+          "nUpperCase": "N",
+          "oddRatio": "Odds ratio",
+          "oddsRatio": "Odds ratio",
+          "operations": "Operacje",
+          "p": "p",
+          "percentageOfSignificantRules": "% znaczących reguł",
+          "pPV": "PPV",
+          "precision": "Precyzja",
+          "pruningMeasure": "Faza przycinania",
+          "pUnique": "Unikalne p",
+          "pUpperCase": "P",
+          "pValAdjusted": "Skorygowana p wartość",
+          "pValue": "p wartość",
+          "p_value": "p wartość",
+          "TP": "TP",
+          "FP": "FP",
+          "TN": "TN",
+          "FN": "FN",
+          "negative_predictive_value": "Ujemna wartość predykcyjna",
+          "lr+": "LR+",
+          "lr-": "LR-",
+          "events_count": "Liczba zdarzeń",
+          "censored_count": "Liczba obserwacji cenzurowanych",
+          "relative_risk": "Ryzyko względne",
+          "pMinusvalue": "p wartość",
+          "r^2": "R²",
+          "recall": "Recall",
+          "recallMacro": "Makro Recall",
+          "recallMicro": "Mikro Recall",
+          "recallWeighted": "Ważony Recall",
+          "relativeRisk": "Relative risk",
+          "rMAE": "rMAE",
+          "rmse": "RMSE",
+          "rMSE": "RMSE",
+          "rRMSE": "rRMSE",
+          "rss": "RSS",
+          "rules": "Reguły",
+          "rulesCount": "Liczba reguł",
+          "ruleUuid": "UUID reguły",
+          "selectBestCandidate": "Jako wynik fazy wzrostu wybierz regułę z najlepszą jakością",
+          "selectRule": "Wybierz regułę",
+          "sensitivity": "Czułość",
+          "sensivity": "Czułość",
+          "showCoverage": "Pokaż pokrycie",
+          "specificity": "Swoistość",
+          "support": "Wsparcie",
+          "tn": "TN",
+          "tp": "TP",
+          "mcc": "MCC",
+          "ppv": "PPV",
+          "npv": "NPV",
+          "trainCoveredYMax": "Maksimum pokrytych przykładów",
+          "trainCoveredYMean": "Średnia pokrytych przykładów",
+          "trainCoveredYMin": "Minimum pokrytych przykładów",
+          "trainCoveredYStd": "Odchylenie std. pokrytych przykładów",
+          "value": "Wartość",
+          "p-value": "p-wartość",
+          "votingMeasure": "Rozwiązywanie konfliktów",
+          "yCoveredAvg": "Średnia pokrytych przykładów",
+          "yCoveredMax": "Maximum pokrytych przykładów",
+          "yCoveredMean": "Średnia pokrytych przykładów",
+          "yCoveredMedian": "Mediana dla pokrytych przykładów",
+          "yCoveredMin": "Minimum pokrytych przykładów",
+          "y_covered_avg": "Średnia pokrytych przykładów",
+          "y_covered_max": "Maximum pokrytych przykładów",
+          "y_covered_mean": "Średnia pokrytych przykładów",
+          "y_covered_median": "Mediana dla pokrytych przykładów",
+          "y_covered_min": "Minimum pokrytych przykładów",
+          "string": "String",
+          "predictionStrategy": "Strategia Predykcji",
+          "useDefaultRule": "Używaj domyślnej reguły",
+          "coveredCount": "Liczba pokrytych przykładów",
+          "logRankStats": "Logrank"
+        },
+        "data_loading": "Ładowanie danych",
+        "no_data": "Brak danych do wyświetlenia",
+        "confirm_delete_message": "Czy na pewno chcesz usunąć ten rekord?",
+        "column_chooser": "Selektor kolumn",
+        "delete_row": "Usuń",
+        "undo_redo": {
+          "undo": {
+            "remove": "Cofnięto usunięcie: {{ruleString}}",
+            "add": "Cofnięto dodanie: {{ruleString}}",
+            "edit": "Cofnięto edycję: {{ruleString}}",
+            "add_multiple": "Cofnięto dodanie wielu"
+          },
+          "redo": {
+            "remove": "Ponowiono usunięcie: {{ruleString}}",
+            "add": "Ponowiono dodanie: {{ruleString}}",
+            "edit": "Ponowiono edycję: {{ruleString}}",
+            "add_multiple": "Ponowiono dodanie wielu"
+          }
+        },
+        "context_menu": {
+          "rules": "Reguły",
+          "rules_coverage": "Pokrycie reguł",
+          "rules_comparison": "Porównanie reguł",
+          "visualization": "Wizualizacja",
+          "histogram": "Histogram",
+          "copy": "Kopiuj",
+          "survival_curve": "Wykres krzywej przeżycia"
+        }
+      },
+      "table_info": {
+        "summary_number_of_filtered_count": "Liczba wierszy spełniających kryteria filtracji: ",
+        "table_is_empty": "Liczba wierszy spełniających kryteria filtracji wynosi 0. Spróbuj zmienić kryteria filtracji."
+      },
+      "rules_manual_selection": {
+        "dataset_selection": "Pokaż metryki reguł na:",
+        "current_dataset": "Aktualnie wybranym zbiorze danych",
+        "original_dataset": "Oryginalnym zbiorze danych"
+      },
+      "rule_histogram": {
+        "title": "Histogram",
+        "y_axis_label": "Wartości atrybutu decyzyjnego: \"{{ decisionAttributeName }}\""
+      },
+      "rule_survival_curve_plot": {
+        "title": "Wykres krzywej przeżycia",
+        "x_axis_label": "Czas",
+        "y_axis_label": "Prawdopodobieństwo",
+        "default_estimator": "Krzywa przeżycia dla wszystkich przykładów",
+        "selected_conditions": "Krzywa przeżycia dla wybranych warunków",
+        "not_rule": "nie r{{ruleNumber}}"
+      },
+      "rule_editor": {
+        "undo": "Cofnij",
+        "redo": "Ponów",
+        "regression_conclusion": {
+          "select_type": "Wybierz rodzaj konkluzji",
+          "recalculate_coverage": "Oblicz pokrycie",
+          "automatic": "Automatyczna",
+          "manual": "Manualna",
+          "update": "Aktualizuj konkluzje",
+          "labels": {
+            "low": "Dolna granica przedziału",
+            "high": "Górna granica przedziału",
+            "value": "Wartość"
+          }
+        },
+        "survival_conclusion": {
+          "created_rule_label": "Tworzona reguła",
+          "edited_rule_label": "Edytowana reguła",
+          "original_rule_label": "Oryginalna reguła"
+        },
+        "metrics": {
+          "title": "Metryki",
+          "table_headers": {
+            "name": "Nazwa",
+            "value": "Wartość"
+          }
+        },
+        "no_examples_covered_error": "Reguła nie pokrywa żadnych przykładów",
+        "one_condition_in_group_warning": "W Twojej regule występuja grupa warunków składająca się z jednego warunku. Zweryfikuj czy nie jest to pomyłka."
+      },
+      "add_existing_modal": {
+        "title": "Dodaj istniejący zbiór reguł"
+      },
+      "import_ruleset_modal": {
+        "title": "Importuj zbiór reguł"
+      },
+      "add_new_modal": {
+        "title_generate": "Generowanie reguł",
+        "title": "Edytowanie reguły #{{ruleNumber}}",
+        "generate": "Generuj",
+        "generate_notification_info": "Reguły zostaną wygenerowane na podstawie oryginalnego, nieprzefiltrowanego zbioru danych. Jeśli chcesz utworzyć reguły dla przefiltrowanego zbioru, zapisz go jako nowy zbiór danych i włącz dla niego generowanie.",
+        "create": "Utwórz",
+        "cross_validation_process": "k-krotna walidacja krzyżowa",
+        "rule_set_name": "Nazwa zbioru reguł",
+        "algorithm_parameters": "Parametry algorytmu",
+        "attributes_to_omit": "Wybór atrybutów do pominięcia (zaznacz te, które należy pominąć)",
+        "prediction_strategy": "Wybór sposobu predykcji",
+        "induction_measure": "Faza wzrostu",
+        "pruning_measure": "Faza przycinania",
+        "voting_measure": "Rozwiązywanie konfliktów",
+        "num_of_folders": "k = ",
+        "select_rule_set": "Wybierz zbiór reguł korzystając z przycisku poniżej",
+        "edit_rule": "Edytuj regułe",
+        "add_rule": "Dodaj regułe",
+        "experts_induction": "Indukcja reguł sterowana przez użytkownika",
+        "add_item": "Dodaj +"
+      },
+      "save_modal": {
+        "title": "Zapisywanie zbioru reguł",
+        "rule_set_name": "Nazwa zbioru reguł:",
+        "overwrite_the_ruleset": "Nadpisz zbiór reguł:",
+        "cancel": "Anuluj",
+        "save": "Zapisz",
+        "save_success": "Zapisano zbiór reguł",
+        "save_success_dataset": "Zapisano zbiór danych",
+        "save_error": "Wystąpił problem z zapisem zbioru reguł",
+        "save_error_dataset": "Wystąpił problem z zapisem zbioru danych",
+        "save_error_dataset_unique": "Zbiór danych o podanej nazwie już istnieje"
+      }
+    },
+    "prediction": {
+      "toggle_visibility": "Przełącz widoczność",
+      "settings": "Ustawienia",
+      "conflict_resolution_method": "Metoda rozwiązywania konfliktów",
+      "warning": "Kliknij przycisk odświeżania, aby zaktualizować dane.",
+      "matrix": {
+        "y_axis": "Wartość prawdziwa",
+        "x_axis": "Wartość przewidziana"
+      },
+      "true_class_label": "Prawdziwa klasa: ",
+      "predicted_class_label": "Przewidziana klasa: ",
+      "element_count_label": "Liczba elementów: ",
+      "prediction_in_application": "Predykcja dla zbioru danych zapisanego w niniejszym projekcie",
+      "prediction_in_application_info": "Wybór zbioru danych lub ustawień został zmieniony. Kliknij przycisk Wykonaj predykcję, aby ponownie obliczyć wyniki zgodnie z nowym wyborem. ",
+      "prediction_from_computer": "Predykcja dla zbioru danych zewnętrznych/tymczasowych przekazanych przez użytkownika",
+      "prediction_from_computer_btn": "Dodaj zbiór i wykonaj predykcje",
+      "prediction_generate_success": "Predykcja został wykonana",
+      "histogram": {
+        "no_data": "Histogram nie został wyświetlony, ponieważ w wersji systemu, w której utowrzono zbiór danych (reguł) opcja budowy histogramu dla danych treningowych była niedostępna",
+        "y_label": "Liczba wystąpień ",
+        "x_label": "Błąd (predykcja - rzeczywista)"
+      },
+      "name": "Nazwa",
+      "rule_coverage": "Pokrycie reguł",
+      "rule_precision": "Precyzja reguł",
+      "number_of_rules": "Liczba reguł",
+      "recall_micro_test": "Recall mikro (test)",
+      "recall_micro_train": "Recall mikro (train)",
+      "f_1_score_micro_test": "F1 mikro (test)",
+      "f_1_score_micro_train": "F1 mikro (train)",
+      "balanced_accuracy_test": "Balanced Accuracy (test)",
+      "balanced_accuracy_train": "Balanced Accuracy (train)",
+      "number_of_conditions_in_a_rule": "Liczba warunków w regule",
+      "confusion_matrix": "Macierz pomyłek",
+      "training_data_set": "Zbiór danych treningowych",
+      "test_data_set": "Zbiór danych testowych",
+      "data_set": "Zbiór danych:",
+      "max_error_test": "Maksymalny błąd (test)",
+      "max_error_train": "Maksymalny błąd (train)",
+      "mae_test": "MAE (test)",
+      "mae_train": "MAE (train)",
+      "r_rmse_train": "rRMSE (train)",
+      "r_rmse_test": "rRMSE (test)",
+      "r_mae_train": "rMAE (train)",
+      "r_mae_test": "rMAE (test)",
+      "mape_test": "MAPE (test)",
+      "mape_train": "MAPE (train)",
+      "rmse_test": "RMSE (test)",
+      "rmse_train": "RMSE (train)",
+      "r_2_test": "R² (test)",
+      "r_2_train": "R² (train)",
+      "ibs_test": "IBS (test)",
+      "ibs_train": "IBS (train)",
+      "predicted_condition": "Wartości przewidziane",
+      "actual_condition": "Wartości prawdziwe",
+      "cross_validation": "Wyniki walidacji krzyżowej",
+      "num_of_folds": "Liczba części (foldów):",
+      "specific_decision_class": "Poszczególne klasy",
+      "prediction_percaentage": "Procent przykładów, dla których model dokonał predykcji:  ",
+      "not_find_prediction": "brak informacji",
+      "empty_ruleset_info": "Zbiór reguł nie zawiera żadnej aktywnej reguły",
+      "empty_ruleset_explanation": {
+        "classification": "Predykcję wykonano za pomocą reguły domyślnej, klasyfikującej przykłady do najliczniej reprezentowanej klasy decyzyjnej w zbiorze treningowym",
+        "regression": "Predykcję wykonano za pomocą reguły domyślnej, wynikiem predykcji jest mediana wartości atrybutu decyzyjnego obliczona na podstawie wszystkich przykładów treningowych",
+        "survival": "Predykcję wykonano za pomocą reguły domyślnej, wyniki predykcji obliczono na podstawie estymatora Kaplana-Meiera wyznaczonego na podstawie wszystkich przykładów treningowych"
+      },
+      "details": "Wyświetl szczegóły predykcji",
+      "details_modal": {
+        "title": "Szczegóły predykcji dla przykładu: #{{ exampleIndex }}"
+      },
+      "update_btn": {
+        "update": "Odśwież wszystkie dane",
+        "processing": "Odświeżanie danych",
+        "updated": "Dane są aktualne"
+      },
+      "test_btn": "Przelicz",
+      "dataset_changed": "Wybrany testowy zbiór danych został zmieniony. Kliknij przycisk Przelicz, aby ponownie obliczyć wyniki na wybranym zbiorze danych."
+    },
+    "rules_coverage": {
+      "settings": "Ustawienia filtracji",
+      "consider_unique_examples": "Uwzględnij tylko przykłady unikalnie pokryte przez regułę",
+      "table": {
+        "rule": "Reguła",
+        "p_unique": "Pozytywne unikalne",
+        "n_unique": "Negatywne unikalne"
+      },
+      "real": "Rzeczywiste ({{ column }})",
+      "rules": "Reguły",
+      "data_overview": "Przegląd danych",
+      "prediction": "Predykcja",
+      "rule_name_prefix": "r",
+      "rules_count_column_name": "Pokryte przez x reguł",
+      "rule_name": "Nazwa reguły",
+      "select_example": "Objaśnij przykład",
+      "deselect_rule": "Odznacz regułę",
+      "filtering_rules": "Prezentowane są przykłady przefiltrowane regułami:",
+      "filter_operator": {
+        "label": "Pokaż przykłady przefiltrowane przez:",
+        "and": "Wszystkie wybrane reguły (AND)",
+        "or": "Którąkolwiek z wybranych reguł (OR)"
+      }
+    },
+    "example": {
+      "title": "Przykład",
+      "select_example_btn": "Wybierz przykład ze zbioru danych",
+      "class": "Atrybut decyzyjny",
+      "target": "Atrybut decyzyjny",
+      "list": "Lista reguł pokrywających przykład:",
+      "decision_variable": "Prawdziwa wartość zmiennej decyzyjnej:",
+      "decision": "Decyzja dla przykładu:",
+      "no_data": "Brak reguł pokrywających przykład",
+      "change_example": "Wybierz przykład",
+      "recalculate": "Przelicz",
+      "modal_title": "Wybierz",
+      "add_card": "Dodaj kolejny przykład",
+      "select_from_dataset": "Wybierz przykład ze zbioru danych",
+      "select_random": "Wybierz losowy przykład",
+      "select_empty": "Wybierz pusty przykład",
+      "empty_ruleset_info": "Przykład nie jest pokrywany przez żadną z reguł",
+      "warrning": "Uwaga: Rezultaty przeliczenia nie są aktualne. Kliknij 'Przelicz', aby zaktualizować wyniki."
+    },
+    "description_tab": {
+      "title": "Nazwa i opis zbioru reguł",
+      "title_label": "Nazwa zbioru reguł",
+      "desc_label": "Opis zbioru reguł",
+      "attributes_title": "Szczegóły dot. utworzenia zbioru reguł",
+      "attributes_way_to_generate": "Sposób utworzenia:",
+      "algo_params": "Parametry algorytmu",
+      "save": {
+        "success": "Nazwa lub opis zbioru reguł został zapisany",
+        "error": "Wystąpił problem z zapisem nazwy lub opisu zbioru reguł"
+      },
+      "expert_induction": {
+        "title": "Indukcja reguł sterowana przez użytkownika",
+        "user_defined_rules": "Reguły definiowane przez użytkownika",
+        "preferred_conditions": "Warunki preferowane przez użytkownika",
+        "forbidden_conditions": "Warunki zabronione przez użytkownika",
+        "documentation_info": "* Wytłumaczenie powyższych ustawień można znaleźć pod linkiem",
+        "documentation_link_text": "indukcja ekspercka"
+      }
+    }
+  },
+  "dataset": {
+    "unique_attributes": "Unikalne wartości atrybutów:",
+    "statistic_tab": {
+      "title": "Nazwa i opis zbioru danych",
+      "dataset_label": "Nazwa zbioru danych",
+      "dataset_description": "Opis zbioru danych",
+      "attributes": "Atrybut",
+      "missing_values_count": "Liczba brakujących wartości",
+      "mode": "Najczęściej występująca wartość",
+      "nominal_attributes": "Atrybuty nominalne",
+      "numerical_attributes": "Atrybuty numeryczne",
+      "mean": "Średnia",
+      "max": "Maksimum",
+      "min": "Minimum",
+      "summary": "Informacje o zbiorze danych",
+      "summary_number_of_columns": "Liczba kolumn: ",
+      "summary_number_of_rows": "Liczba wierszy: ",
+      "no_data": "Brak danych",
+      "success": "Zapisano zbiór danych",
+      "summary_number_of_filtered_count": "Liczba wierszy spełniających kryteria filtracji: ",
+      "decision_column": "Kolumna decyzyjna: ",
+      "decision_survival_status_column": "Kolumna statusu przeżycia: ",
+      "decision_survival_time_column": "Kolumna czasu przeżycia: ",
+      "unimportant_attributes": {
+        "title": "Sugerujemy zwrócić uwagę na następujące kolumny:",
+        "missing": "Kolumna zawiera dużo wartości brakujących:",
+        "text_ness": "Wartości w kolumnie mogą być tekstem:",
+        "id_ness": "Wartości w kolumnie mogą być ID:",
+        "stability": "Większość wartości w kolumnie jest taka sama:",
+        "no_data": "Brak podejrzanych kolumn"
+      }
+    },
+    "dataset_view": "Widok zbioru danych",
+    "dataset_modal": {
+      "title": "Zapisywanie jako nowy zbiór danych",
+      "set_name": "Nazwa zbioru danych"
+    },
+    "ruleset_select_modal": {
+      "title": "Wybór zbioru reguł",
+      "no_ruleset": "Brak zbiorów reguł dowiązanych do zbioru danych"
+    },
+    "context_menu": {
+      "classify": "Sklasyfikuj"
+    }
+  },
+  "export_btn": "Eksportuj",
+  "button_tooltip": {
+    "refresh_card": "Odśwież kartę",
+    "refreshing": "Aktualizacja danych",
+    "save_ruleset": "Zapisz",
+    "save_dataset": "Zapisz przefiltrowany zbiór danych",
+    "show_column_chooser": "Selektor kolumn",
+    "export_excel_file": "Eksportuj do Excela",
+    "export_csv_file": "Eksportuj do CSV",
+    "export_json_file": "Eksportuj do JSON",
+    "export_txt_file": "Eksportuj do TXT"
+  },
+  "visualisation": {
+    "plot_parameters": {
+      "y_axis_title": "Liczba wystąpień",
+      "x_axis_title": "Wartość"
+    },
+    "kaplan_meier": {
+      "title": "Estymator Kaplana-Meiera",
+      "x_axis_title": "Czas",
+      "y_axis_title": "Prawdopodobieństwo przeżycia"
+    },
+    "some_rules_were_unselected": "Zmodyfikowane reguły zostały odznaczone",
+    "fullscreen": "Pełny ekran",
+    "coverage_table_columns": {
+      "not_covered": "Wybrany warunek nie pokrywa żadnego przykładu. Wybierz inny warunek",
+      "rule": "Reguła",
+      "name_header": "Nazwa",
+      "coverage_count_header": "p",
+      "all_counts_header": "P",
+      "class_name": "Nazwa klasy",
+      "coverage_count": "Liczba przykładów pokrywanych przez koniunkcję zaznaczony warunków",
+      "all_count": "Liczba wszystkich przykładów należących do tej klasy",
+      "precision": "Precyzja",
+      "coverage": "Pokrycie",
+      "covered_y_mean": "Średnia",
+      "covered_y_std": "Odchylenie standardowe",
+      "covered_y_min": "Minimum",
+      "covered_y_max": "Maksimum",
+      "events_count_sum": "Liczba obserwacji dla których wystąpiło zdarzenie",
+      "censored_count_sum": "Liczba obserwacji cenzurowanych",
+      "median_survival_time": "Mediana czasu przeżycia",
+      "median_survival_time_ci_lower": "Dolna granica przedziału ufności czasu przeżycia",
+      "median_survival_time_ci_upper": "Górna granica przedziału ufności czasu przeżycia",
+      "number_of_occurrences": "Liczba wystąpień",
+      "decision_attribute_value": "Wartości atrybutu decyzyjnego"
+    },
+    "select_importance_type": "Wybierz typ ważności",
+    "attributes_display_count": "Liczba atrybutów do pokazania",
+    "attribute_importance": "Ważność atrybutu",
+    "attribute": "Atrybut",
+    "nominal_attribute": "Atrybut nominalny",
+    "numerical_attribute": "Atrybut numeryczny",
+    "condition_importance": "Ważność warunku",
+    "condition_display_count": "Liczba warunków do pokazania",
+    "search_rule": "Wyszukaj regułę",
+    "rule": "Zmodyfikowana reguła",
+    "original_rule": "Oryginalna reguła",
+    "conditions": "Warunki",
+    "legend": "Legenda",
+    "legend_desc": {
+      "classification": "Na krawędziach grafu przedstawiono liczbę przykładów z każdej klasy pokrywanych przez warunek z którego wychodzi krawędź. Kolejne liczby dotyczą kolejnych klas zgodnie z kolejnością widoczną na liście:",
+      "regression": "Na krawędziach grafu przedstawiono średnią oraz odchylenie standardowe wartości atrybutu decyzyjnego dla przykładów pokrywanych przez warunek z którego wychodzi krawędź",
+      "survival": "Na krawędziach grafu przedstawiono mediane czasu przeżycia dla przykładów pokrywanych przez warunek z którego wychodzi krawędź"
+    },
+    "selected_condition_phrase": "Wybrane warunki",
+    "chart_for_rule_indicators": "Wykres wartości miar charakteryzujących reguły",
+    "selected_indicators": "Wybrane miary",
+    "select_indicators": "Wybierz miarę",
+    "indicators": "Miary",
+    "select": "Wybierz",
+    "chart_control_gestures": "Obsługa wykresu za pomocą gestów",
+    "turn_camera_on": "Włącz kamerę",
+    "turn_camera_off": "Wyłącz kamerę",
+    "recognized_gesture": "Rozpoznane gest",
+    "certainty": "Pewność",
+    "chart_control_voice": "Obsługa wykresu za pomocą głosu",
+    "turn_microphon_on": "Włącz mikrofon",
+    "turn_microphon_off": "Wyłącz mikrofon",
+    "command_list": "Lista komend",
+    "zoom_in": "Przybliż",
+    "zoom_out": "Oddal",
+    "recognized_command": "Rozpoznana komenda",
+    "cannot_rotate_2d_around_z": "Nie można obrócić wykresu 2D wokół osi Z",
+    "correlation_matrix": {
+      "title": "Korelacja",
+      "big_matrix_info": "Macierz korelacji dla tego zbioru byłaby nieczytelna ze względu na jej liczbę kolumn i wierszy dlatego nie jest ona wyświetlana. Sposób prezentacji informacji dotyczących korelacji został dostosowany dla lepszej czytelności",
+      "confusion_matrix": "Macierz pomyłek dla tego zbioru byłaby nieczytelna ze względu na dużą liczbę klas dlatego nie jest ona wyświetlana",
+      "display_types": {
+        "matrix": "Macierz",
+        "table": "Tabela",
+        "ranking": "Ranking"
+      },
+      "ranking_columns": {
+        "first": "Pierwsza kolumna",
+        "second": "Druga kolumna",
+        "correlation": "Korelacja"
+      }
+    },
+    "number_of_bins": "Liczba przedziałów",
+    "graph": "Graf",
+    "rule_editor": {
+      "coverage_count_desc": "Liczba przykładów pokrytych przez regułę"
+    }
+  },
+  "comparison_view": {
+    "similarity_type": "Typ podobieństwa",
+    "relation_type": "Typ relacji",
+    "chosen_metric": "Podobieństwo",
+    "select_ruleset": "Wybierz zbiór reguł",
+    "calculate_similarity": "Przelicz podobieństwo",
+    "something_change": "Ustawiony typ podobieństwa lub typ relacji zostały zmienione. Aby zaktualizować wyniki kliknij przycisk Przelicz podobieństwo",
+    "syntactic": "Syntaktyczne",
+    "semantic": "Semantyczne",
+    "oneToMany": "Jeden do wielu",
+    "manyToMany": "Wiele do wielu",
+    "select_rulsets_to_compare": "Wybierz zbiory reguł do porównania",
+    "compare_sets": "Porównaj zbiory",
+    "similarity": "Podobieństwo",
+    "selected_rules_similarity": "Podobieństwo wybranych reguł"
+  },
+  "labels": {
+    "toggle_display": "Pokaż etykiety",
+    "add_popup": {
+      "title": "Dodaj etykietę",
+      "label_name": "Nazwa etykiety",
+      "label_color": "Kolor etykiety",
+      "example_text": "Tekst etykiety",
+      "character_limit": "Limit znaków"
+    },
+    "edit_popup": {
+      "title": "Edytuj etykietę",
+      "add_new": "Utwórz nową etykietę"
+    },
+    "select_popup": {
+      "title": "Wybierz etykietę",
+      "no_labels": "Brak etykiet",
+      "context_menu": {
+        "edit": "Edytuj",
+        "delete": "Usuń"
+      },
+      "search": {
+        "placeholder": "Wyszukaj etykietę...",
+        "clear_btn": "Wyczyść wyszukiwanie"
+      }
+    },
+    "no_empty": "Nazwa etykiety nie może być pusta",
+    "add_btn": "Dodaj etykietę",
+    "save_btn": "Zapisz",
+    "delete_btn": "Usuń z reguły",
+    "selection_marker_tooltip": "Wybrano etykietę"
+  },
+  "process": {
+    "tab_name": "Procesy",
+    "active": {
+      "title": "Lista aktywnych procesów"
+    },
+    "ended": {
+      "title": "Lista zakończonych procesów"
+    },
+    "table": {
+      "process_id": "ID",
+      "start_time": "Data rozpoczęcia",
+      "end_time": "Data zakończenia",
+      "effect": "Efekt",
+      "no_data": "Brak danych",
+      "status": {
+        "title": "Status",
+        "success": "ukończone",
+        "started": "rozpoczęte",
+        "aborted": "anulowane",
+        "stopping": "zatrzymywanie",
+        "stopped": "zatrzymane",
+        "failure": "błąd",
+        "pending": "oczekuje"
+      },
+      "type": {
+        "title": "Typ",
+        "cross_validation": "walidacja krzyżowa",
+        "report": "generowanie raportu",
+        "ruleset": "generowanie zbioru reguł",
+        "save_ruleset": "zapisywanie zbioru reguł",
+        "filter_ruleset": "filtracja zbioru reguł"
+      },
+      "operations": "Operacje",
+      "cancel_btn": "Anuluj",
+      "stop_btn": "Zatrzymaj",
+      "details": {
+        "title": "Nazwa raportu",
+        "type": "Typ raportu",
+        "data_set": "Zbiór danych",
+        "create_time": "Data zlecenia zadania",
+        "start_time": "Data rozpoczęcia",
+        "end_time": "Data zakończenia",
+        "info": "Informacje",
+        "history": "Historia zadania",
+        "details": "Szczegóły zadania",
+        "number_of_rules": "Liczba wygenerowanych reguł",
+        "filter_algorithm": "Algorytm filtrujący",
+        "params": "Parametry zadania",
+        "total_examples_count": "Łączna liczba przykładów",
+        "uncovered_examples_count": "Liczba niepokrytych przykładów",
+        "report_type": {
+          "knowledge_discovery": "Odkrywanie wiedzy",
+          "prediction": "Analiza predykcyjna",
+          "explorative_data_analysis": "Analiza eksploracyjna"
+        }
+      },
+      "refresh": "Odśwież listę procesów",
+      "refreshing": "Aktualizacja danych",
+      "timer_tooltip": "Czas pozostały do odświeżenia listy",
+      "pending_time": "Czas od rozpoczęcia zadania",
+      "execution_time": "Czas wykonania",
+      "tooltips": {
+        "stop": "Zatrzymaj proces z zachowaniem dotychczas wygenerowanych reguł",
+        "stopping": "Generowanie zbioru reguł zostało ręcznie zatrzymane. W zależności od wielkości zbioru danych, końcowe obliczenia wskaźników mogą potrwać do kilku minut dłużej",
+        "stopped": "Generowanie zbioru reguł zostało ręcznie zatrzymane. Zbiór może nie być kompletny"
+      }
+    },
+    "info_modal": {
+      "title": "Lista procesów",
+      "content": {
+        "generation_process_started": "Proces obliczeń został rozpoczęty",
+        "manually_adding_process_started": "Proces zapisywania zbioru reguł został rozpoczęty",
+        "saving_process_started": "Proces zapisywania zbioru reguł został rozpoczęty",
+        "add_existing_ruleset_process_started": "Proces dodawania zbioru reguł do zbioru danych został rozpoczęty",
+        "follow_process": "Możesz go śledzić na zakładce"
+      }
+    },
+    "errors": {
+      "unknown_error": "Wystąpił nieoczekiwany błąd. Skontaktuj się z naszym zespołem wsparcia technicznego za pośrednictwem formularza 'zgłoś błąd' w menu w prawym górnym rogu.",
+      "worker_lost": "Wystąpił błąd - nasz serwis wydają się być przeciążone. Spróbuj ponownie za kilka minut, a jeśli problem będzie się powtarzał, skontaktuj się z naszym zespołem wsparcia technicznego za pośrednictwem formularza 'zgłoś błąd' w menu w prawym górnym rogu.",
+      "backend_error": "Wystąpił błąd - jeden z naszych serwisów może być tymczasowo niedostępny. Spróbuj ponownie za kilka minut, a jeśli problem będzie się powtarzał, skontaktuj się z naszym zespołem wsparcia technicznego za pośrednictwem formularza 'zgłoś błąd' w menu w prawym górnym rogu.",
+      "dataset_read_error": "Wystąpił błąd podczas uzyskiwania dostępu do zbioru danych. Jedna z naszych usług może być tymczasowo niedostępna. Spróbuj ponownie za kilka minut, a jeśli problem będzie się powtarzał, skontaktuj się z naszym zespołem wsparcia technicznego za pośrednictwem formularza 'zgłoś błąd' w menu w prawym górnym rogu.",
+      "report_generation_error": "Wystąpił błąd podczas generowania raportu. Twój zbiór danych może reprezentować nieprzewidziany przypadek brzegowy. Wypróbuj inny zestaw parametrów; jeśli problem będzie się powtarzał, skontaktuj się z naszym zespołem wsparcia technicznego za pośrednictwem formularza 'zgłoś błąd' w menu w prawym górnym rogu.",
+      "report_save_error": "Wystąpił błąd podczas zapisywania raportu. Jedna z naszych usług może być tymczasowo niedostępna. Spróbuj ponownie za kilka minut, a jeśli problem będzie się powtarzał, skontaktuj się z naszym zespołem wsparcia technicznego za pośrednictwem formularza 'zgłoś błąd' w menu w prawym górnym rogu.",
+      "report_not_implemented_error": "Wybrano nieprawidłową konfigurację lub typ raportu. Skontaktuj się z naszym zespołem wsparcia technicznego za pośrednictwem formularza 'zgłoś błąd' w menu w prawym górnym rogu.",
+      "ruleset_generation_error": "Wystąpił błąd podczas generowania zbiór reguł. Twój zbiór danych może reprezentować nieprzewidziany przypadek brzegowy. Skontaktuj się z naszym zespołem wsparcia technicznego za pośrednictwem formularza 'zgłoś błąd' w menu w prawym górnym rogu.",
+      "empty_ruleset_error": "Wygenerowany zbiór reguł jest pusty. Sprawdź zbiór danych i spróbuj ponownie. Jeśli problem będzie się powtarzał, skontaktuj się z naszym zespołem wsparcia technicznego za pośrednictwem formularza 'zgłoś błąd' w menu w prawym górnym rogu.",
+      "ruleset_processing_error": "Wystąpił błąd podczas przetwarzania zbioru reguł. Skontaktuj się z naszym zespołem wsparcia technicznego za pośrednictwem formularza 'zgłoś błąd' w menu w prawym górnym rogu.",
+      "calculation_error": "Wystąpił błąd podczas obliczania wskaźników zbioru reguł. Skontaktuj się z naszym zespołem wsparcia technicznego za pośrednictwem formularza 'zgłoś błąd' w menu w prawym górnym rogu.",
+      "prediction_configuration_error": "Wybrano nieprawidłową konfigurację lub typ predykcji. Skontaktuj się z naszym zespołem wsparcia technicznego za pośrednictwem formularza 'zgłoś błąd' w menu w prawym górnym rogu."
+    }
+  },
+  "compare": {
+    "tab_name": "Porównanie",
+    "knowledge_discovery": "Odkrywanie wiedzy",
+    "predictive_capability": "Zdolność predykcyjna",
+    "train_dataset": "Zbiór danych treningowych",
+    "test_dataset": "Zbiór danych testowych",
+    "test_ruleset": "Zbióry reguł do porównania",
+    "compare_btn": "Wykonaj predykcję",
+    "select_ruleset": "Wybierz zbiory reguł do porównania",
+    "link": "Przejdz do:"
+  },
+  "project_summary": {
+    "title": "Podsumowanie projektów",
+    "table": {
+      "created_at": "Data utworzenia",
+      "name": "Nazwa projektu",
+      "type": "Typ projektu",
+      "updated_at": "Ostatnia modyfikacja",
+      "last_opened_at": "Ostatnie otwarcie",
+      "total_size": "Zajmowane miejsce",
+      "number_of_data_sets": "Liczba zbiorów danych",
+      "number_of_rule_sets": "Liczba zbiorów reguł",
+      "number_of_reports": "Liczba raportów",
+      "dataset_name": "Zbiór danych",
+      "remove": "Usuń",
+      "remove_project_title": "Usuń zaznaczone projekty",
+      "remove_dataset_title": "Usuń zaznaczone zbiory danych",
+      "datasets": "Zbiory danych",
+      "size": "Rozmiar",
+      "number_of_rows": "Liczba wierszy",
+      "number_of_columns": "Liczba kolumn",
+      "survival": "Analiza przeżycia",
+      "classification": "Klasyfikacja",
+      "regression": "Regresja"
+    },
+    "limit_info": {
+      "size": "Twój aktualny limit rozmiaru pliku to {{value}}",
+      "column": "Twój aktualny limit to {{value}} kolumn w jednym zbiorze",
+      "row": "Twój aktualny limit to {{value}} wierszy w jednym zbiorze"
+    },
+    "modal": {
+      "remove_project": {
+        "title": "Usuwanie projektu",
+        "content": "Czy chcesz usunąć zaznaczone projekty?"
+      },
+      "remove_dataset": {
+        "title": "Usuwanie zbioru danych",
+        "content": "Czy chcesz usunąć zaznaczone zbiory danych?"
+      },
+      "cancel": "Anuluj",
+      "remove": "Usuń"
+    },
+    "back_btn": "Wróć do projektów"
+  },
+  "project_space_usage": {
+    "title": "Poziom wykorzystania pamięci",
+    "content": "Zbiory danych zajmują {{used}} z {{limit}}"
+  },
+  "footer": {
+    "lukasiewicz-logo-alt": "Logo Sieć Badawcza Łukasiewicz – Instytut Sztucznej Inteligencji i Cyberbezpieczeństwa",
+    "menu_links": {
+      "home": "Strona główna",
+      "team": "Zespół",
+      "publications": "Publikacje",
+      "contact": "Kontakt",
+      "documentation": "Materiały i dokumentacje",
+      "terms_of_service": "Terms of service",
+      "regulations": "Regulamin aplikacji",
+      "accessibility_statement": "Deklaracja dostępności",
+      "privacy_policy": "Polityka prywatności"
+    },
+    "copyright": "© {{year}} RuleMiner | Sieć Badawcza Łukasiewicz – Instytut Sztucznej Inteligencji i Cyberbezpieczeństwa"
+  },
+  "add": "Dodaj",
+  "save": "Zapisz",
+  "saveing": "Zapisywanie",
+  "generate": "Generowanie",
+  "cancel": "Anuluj",
+  "no_data": "Brak danych",
+  "tooltips": {
+    "initial_value": "Wartosć początkowa: ",
+    "previous_value": "Poprzednia wartosć: ",
+    "treeview": "Dla wybranego zbioru danych lub reguł, użytkownik może wywołać menu kontekstowe",
+    "generate_rule": {
+      "RuleKit": "Po wybraniu tej opcji reguły zostaną wygenerowane w sposób automatyczny. Użytkownik musi jedynie odpowiedzieć na kilka pytań (wypełnić formularz), które pozwolą na dostosowanie parametrów indukcji do jego potrzeb.",
+      "Manually": "Po wybraniu tej opcji użytkownik może samodzielnie zdefiniować zbiór reguł. Może to zrobić tworząc kolejne reguły przy pomocy edytora lub wczytać (wybrać) reguły z istniejących zbiorów reguł. Warunkiem wczytania zbioru reguł jest to, że pasują one do zbioru danych tzn. zbudowane są w oparciu o atrybuty warunkowe, które występują w zbiorze danych.",
+      "Manualnie": "Po wybraniu tej opcji użytkownik może samodzielnie zdefiniować zbiór reguł. Może to zrobić tworząc kolejne reguły przy pomocy edytora lub wczytać (wybrać) reguły z istniejących zbiorów reguł. Warunkiem wczytania zbioru reguł jest to, że pasują one do zbioru danych tzn. zbudowane są w oparciu o atrybuty warunkowe, które występują w zbiorze danych.",
+      "steeper_generator": "Na podstawie odpowiedzi na pytania zawarte na formularzu system automatycznie dobierze parametry indukcji reguł. Należy pamiętać, aby zaakceptować wprowadzone odpowiedzi.",
+      "induction": "Ta sekcja umożliwia przekazanie do algorytmu indukcji, specyficznych wymagań użytkownika dotyczących budowy generowanych reguł.",
+      "attributes_to_omit": "Wskazanie atrybutów (kolumn), które nie będą brane pod uwagę podczas generowania reguł.",
+      "k_fold": "Wyniki jakości klasyfikatora regułowego trenowanego w trybie walidacji krzyżowej umieszczono na zakładce \"Statystyki predykcji\".",
+      "DeepRules": "Wolniejszy algorytm indukcji reguł zdolny do uczenia się bardziej złożonych zestawów reguł zawierających zagnieżdżone alternatywy i koniunkcje logiczne."
+    },
+    "rules_table": {
+      "prediction_from_computer": "Umożliwia wykonanie predykcji na zbiorze danych, który nie zawiera kolumny decyzyjnej. Ważne, aby przesyłany zbiór danych miał te same kolumny, co zbiór dla którego został wygenerowany zbiór reguł. Po kliknięciu przycisku zbiór zostanie przesłany na serwer gdzie zostanie dokonana predykcja modelem regułowym nad którym użytkownik pracuje, a następnie zostanie pobrany przesłany zbiór z dodatkową kolumną zawierającą predykcję. Zbiór danych nie zostanie zapisany w systemie. Jeżeli użytkownik będzie chciał dokonać jego analizy może wgrać pobrany zbiór do systemu.",
+      "rules_comparison": "Zakładka ta umożliwia badanie podobieństwa reguł. Podobieństwo semantyczne odnosi sie do zbiorów przykładów pokrywanych przez porównywane reguły. Podobieństwo syntaktyczne odnosi się do budowy reguł, w szczególności do zbiorów warunków elementarnych z jakich zbudowane są porównywane reguły. ",
+      "rule_coverage": "W zakładce zawarte są informacje o pokryciu przykładów przez poszczególne reguły. W poniższej tabeli znajduje się lista reguł wraz z podstawowymi informacjami o każdej z nich tj. widoczne są przesłanka i konkluzja reguły oraz wartości precyzji i pokrycia. Każda reguła ma przypisany kolor, aby lepiej zobrazować, który przykłady pokrywa dana reguła. Za pomocą przycisku Pokaż wybór kolumn użytkownik może wyświetlić dodatkowe kolumny. Za pomocą znacznika Aktywna użytkownik może wyłączyć/włączyć daną regułę z/do analizy.",
+      "rules": "W zakładce zaprezentowano zestawienie wygenerowanych lub uzyskanych w inny sposób reguł. Użytkownik ma możliwość sortowania reguł wg jednego lub większej liczby kryteriów (kolumn) korzystając z klawiszy Shift + nagłówek 1 kolumny + nagłówek kolejnej kolumny. Aby wyłączyć sortowanie należy kliknąć w nagłówek dowolnej kolumny.",
+      "activity": "Kolumna Aktywna umożliwia wyłączenie/włączenie danej reguły ze/do zbioru reguł. W przypadku wyłączenia reguły, nie jest ona brana pod uwagę podczas wykonywania predykcji ani przeliczania wartości wskaźników charakteryzujących zbiór reguł.",
+      "prediction": "Wartości prezentowane w tym formularzu informują o jakości predykcji aktywnego (aktualnego) zbioru reguł. W zależności od wybranej analizy (klasyfikacja, regresja, analiza przeżycia), w formularzu prezentowane są wartości miar odpowiednich dla danego typu analizy. Szczegółowe informacje na temat miar i ich interpretacji można znaleźć w dokumentacji lub na stronie https://scikit-learn.org/stable/modules/model_evaluation.html.",
+      "quantitative_characteristics": "Wartości prezentowane w tym formularzu informują o jakości reguł. Szczegółowe informacje na temat znaczenia poszczególnych miar można znaleźć w dokumentacji.",
+      "importance": "Ważność warunków (ważność atrybutów) odzwierciedla znaczenie (ważność) warunków (atrybutów) dla analizowanego zbioru reguł - w szczególności reguł zawierających danych warunek (atrybut). Wynikiem badania ważności jest ranking warunków (atrybutów). Im niższa ranga warunku (atrybutu) tym warunek (atrybut) jest ważniejszy dla rozważanych reguł. W przypadku klasyfikacji ważność wyznaczana jest dla każdej klasy oddzielnie.",
+      "filter_rules": "Funkcja Filtruj zbiór danych pozwala użytkownikowi przefiltrować zbiór danych poprzez wybór przykładów które spełniają warunki (przesłanki) włączonych reguł. Wyniki tej filtracji są widoczne w tabeli Przegląd danych (można wybrać maksymalnie {{maxRules}} reguł). ",
+      "visible_coverage": "Funkcja Widoczne pokrycie umożliwia uzyskanie informacji o tym, które przykłady pokrywane są przez wybrane przez uzytkownika reguły. Dla każdej z wybranych reguł (można wybrać maksymalnie {{maxRules}} reguł). W tabeli Przegląd danych dodawana jest kolumna z nazwą danej reguły, wiersze w tej kolumnie wskazują, które z przykładów są, a które nie są pokrywane przez tę regułę. ",
+      "data_overview": "W tabeli Przegląd danych znajduje się informacja o wartościach atrybutów warunkowych poszczególnych przykładów. Dodatkowo widoczna jest prawdziwa wartość atrybutu decyzyjnego oraz predykcja wykonana przez zbiór reguł. W tabeli widoczna jest również liczba reguł pokrywających danych przykład. ",
+      "rules_comapre": "Zakładka ta umożliwia porównanie podobieństwa reguł. Dostępne są dwie metody badania podobieństwa: syntaktyczne i semantyczne. ",
+      "similarity_type": "Podobieństwo syntaktyczne bada jak bardzo podobne są reguły z punktu widzenia ich budowy, badane jest czy przesłanki reguł zbudowane są z tych samych atrybutów oraz jaki jest zakres wartości warunków elementarnych. Podobieństwo semantyczne bierze pod uwagę zbiory przykładów pokrywanych przez porównywane reguły.",
+      "relation_type": "Typ porównania \"jeden do wielu\" pozwala porównać jedną wybrane regułę z wieloma innymi regułami. Tryb \"wiele do wielu\" pozwala na zbadanie podobieństwa dwóch zbiorów reguł. Porównania mogą być wykonywane w obrębie jednego lub dwóch różnych zbiorów reguł. ",
+      "chosen_metric": "Ta opcja umożliwia wybranie miary która jest stosowana do obliczenia podobieństwa semantycznego. Dokładne wzory miar oraz różnice między nimi zostały opisane w dokumentacji.",
+      "rule_choose_button": "Przycisk umożliwia wybór zbioru reguł do porównań. ",
+      "execute_prediction": "W tej zakładce możliwe jest wykonanie predykcji za pomocą wybranego zbioru reguł. W sekcji \"Podgląd danych\" widoczne są wygenerowane predykcje oraz rzeczywiste (jeśli istnieją) wartości atrybut decyzyjnego dla kolejnych przykładów.",
+      "select_dataset_to_execute_prediction": "Z listy rozwijanej należy wybrać zbiór danych, na którym chcemy dokonać predykcji. Dla tego zbioru model regułowy zwróci przewidywane przez niego wartości atrybutu decyzyjnego. Oczywiście, zbiór ten może być dowolny ale musi być zbudowany z tych samych atrybutów z jakich zbudowany jest zbiór użyty do wyznaczenie reguł. ",
+      "training_data_set": "Ta część formularza przedstawia statystyki opisujące jakość predykcji na zbiorze treningowym. Szczegóły na temat użytych miar i interpretacji ich wyników można znaleźć w dokumentacji lub na stronie https://scikit-learn.org/stable/modules/model_evaluation.html. ",
+      "actual_condition": "Macierz pomyłek przedstawia szczegóły dotyczące liczby poprawnych i niepoprawnych (z uwzględnieniem typów pomyłek) decyzji modelu regułowego. ",
+      "specific_decision_class_classification": "Ta część formularza prezentuje statystyki jakości klasyfikacji dla każdej klasy decyzyjnej oddzielnie. Macierze pomyłek budowane są na zasadzie 'klasa' vs 'wszystkie pozostałe klasy'. Szczegóły na temat użytych miar jakości i interpretacji ich wyników można znaleźć w dokumentacji lub na stronie https://scikit-learn.org/stable/modules/model_evaluation.html. ",
+      "specific_decision_class_regression": "Ta część formularza przedstawia statystyki opisujące jakość predykcji na zbiorze treningowym. Szczegóły na temat użytych miar i interpretacji ich wyników można znaleźć w dokumentacji lub na stronie https://scikit-learn.org/stable/modules/model_evaluation.html.  ",
+      "test_data_set": "Ta część formularza przedstawia statystyki opisujące jakość predykcji na wybranym (np. testowym) zbiorze danych. Szczegóły na temat użytych miar i interpretacji ich wyników można znaleźć w dokumentacji lub na stronie https://scikit-learn.org/stable/modules/model_evaluation.html.",
+      "cross_validation_results": "Ta część formularza przedstawia statystyki dotyczące jakości prognoz uzyskane podczas walidacji krzyżowej. Prezentowane wartości miar są średnimi wynikami dla modeli regułowych, które powstały w trakcie kolejnych przebiegów procesu walidacji krzyżowej. "
+    }
+  },
+  "report_bug": {
+    "modal": {
+      "title": "Zgłoś błąd",
+      "description_label": "Opis błędu",
+      "description_placeholder": "Dokładniejszy opis błędu pomoże nam łatwiej go rozwiązać.",
+      "allow_contact_label": "Zezwalam na dalszy kontakt mailowy",
+      "screenshot_label": "Zrzut ekranu",
+      "screenshot_text": "Dodaj zrzut ekranu, jeśli może być on pomocny.",
+      "submit": "Wyślij zgłoszenie",
+      "take_screenshot": "Wykonaj zrzut ekranu",
+      "screenshot_alt": "Zrzut ekranu",
+      "permission_denied_info": "Aby dodać zrzut ekranu musisz zezwolić aplikacji na dostęp do zawartości karty. Aplikacja wykona wtedy jednorazowy zrzut ekranu. Zezwolenie jest wymagane przy każdym kolejnym zrzucie ekranu.",
+      "remove_screenshot": "Usuń",
+      "screenshot_errors": {
+        "api_not_available": "Twoja przegądarka lub urządzenie nie obsługuje wykonywania zrzutów ekranów.",
+        "unknown": "Podczas wykonywania zrzutu ekranu wystąpił nieznany błąd. Zrzut ekranu nie został dodany."
+      },
+      "error": "Niestety nie udało się wysłania zgłoszenia. Sprobuj ponownie lub skontaktuj się z nami mailowo."
+    },
+    "thank_you": {
+      "title": "Dziękujemy za Twoje zgłoszenie",
+      "content": "Postaramy się zająć tym jak najszybciej.",
+      "close_btn": "Zamknij"
+    }
+  },
+  "prediction_config": {
+    "title": "Ustawienia predykcji",
+    "labels": {
+      "prediction_strategy": "Metoda rozwiązywania konfliktów",
+      "voting_measure": "Miara rozstrzygania konfliktów",
+      "use_default_rule": "Używaj domyślnej reguły"
+    },
+    "prediction_strategies": {
+      "vote": "Głosowanie",
+      "best_rule": "Z użyciem najlepszej reguły"
+    }
+  },
+  "tour": {
+    "config": {
+      "back": "Wstecz",
+      "next": "Dalej",
+      "exit": "Zakończ",
+      "title": "Samouczek",
+      "content": "Czy chcesz rozpocząć samouczek?",
+      "confirm": "Rozpocznij",
+      "cancel": "Anuluj",
+      "step": "Krok",
+      "repeat": {
+        "error": "Nie udało się zresetować samouczka. Spróbuj ponownie później.",
+        "disabled_button": "Samouczek jest zablokowany z powodu osiągniętego limitu liczby projektów. Usuń dowolny projekt, aby móc ponownie przejść samouczek."
+      }
+    },
+    "element_not_found": "Element samouczka nie został znaleziony. Samouczek zostanie zatrzymany.",
+    "create_project": {
+      "title": "Utwórz nowy projekt",
+      "content": "Utwórz nowy projekt klikając tutaj.  "
+    },
+    "search": {
+      "title": "Wyszukaj projekty",
+      "content": "Wyszukaj projekty po nazwie"
+    },
+    "summary": {
+      "title": "Podsumowanie projektów",
+      "content": "Zobacz podsumowanie wszystkich swoich projektów"
+    },
+    "sort": {
+      "title": "Sortuj projekty",
+      "content": "Sortuj projekty według nazwy, daty ostatniego otwarcia lub daty ostatniej modyfikacji"
+    },
+    "project_list": {
+      "title": "Lista projektów",
+      "content": "Tutaj znajdziesz wszystkie swoje projekty. Kliknij na dowolny projekt, aby go otworzyć. Klikając … w prawym dolnym rogu, możesz otworzyć menu umożliwiające zmianę nazwy, edycję opisu lub usunięcie projektu."
+    },
+    "recent_project_list": {
+      "title": "Przykładowe projekty",
+      "content": "Tutaj znajdziesz przykładowe projekty z wgranymi zbiorami danych oraz wygenerowanymi zbiorami reguł dla różnych typów problemów. Kliknięcie w projekt otworzy go i doda do listy Twoich projektów. Możesz dowolnie pracować na przykładowych projektach oraz w każdej chwili wgrać kolejny nowy."
+    },
+    "treeView": {
+      "title": "Drzewo nawigacyjne",
+      "content": "Ten element reprezentuje zbiór danych. Kliknięcie lewym przyciskiem myszy wyświetli go w głównej części aplikacji. Kliknięcie prawym przyciskiem lub na ikonę 3 kropek po prawej stronie otworzy menu kontekstowe z dodatkowymi opcjami, takimi jak generowanie zbioru reguł.",
+      "datasetItem": "Zbiór danych"
+    },
+    "rulesets_group": {
+      "title": "Zbiory reguł",
+      "content": "Ten element grupuje zbiory reguł powiązane ze zbiorem danych, pod którym się znajduje. Kliknięcie prawym przyciskiem lub na ikonę 3 kropek po prawej stronie otworzy menu kontekstowe, w którym możesz wygenerować nowy zbiór reguł lub porównać istniejące."
+    },
+    "rules_table": {
+      "title": "Tabela reguł",
+      "content": "Lista wygenerowanych reguł wraz z konkluzją (decyzją opartą na regule), precyzją i pokryciem. Przycisk „Selektor kolumn” umożliwia wyświetlenie dodatkowych wskaźników."
+    },
+    "ruleSetItem": {
+      "title": "Zbiór reguł",
+      "content": "Ten element reprezentuje zbiór reguł (wygenerowany, utworzony, dodany lub zaimportowany) dla powiązanego zbioru danych. Kliknięcie lewym przyciskiem wyświetli go w głównej części aplikacji. Kliknięcie prawym przyciskiem lub na ikonę 3 kropek otworzy menu kontekstowe, które pozwala m.in. filtrować reguły i zmniejszać ich liczbę."
+    },
+    "tabBar": {
+      "title": "Pasek kart",
+      "content": "Przełączaj się między różnymi widokami projektu za pomocą paska kart."
+    },
+    "subTabButton": {
+      "title": "Przycisk podkarty",
+      "content": "Przejdź do konkretnych sekcji za pomocą przycisków podkart."
+    },
+    "dataset_view_table": {
+      "title": "Tabela widoku zbioru danych",
+      "content": "W tej tabeli możesz przeglądać zbiór danych. Dostępne są opcje filtrowania i sortowania przykładów. Możesz sortować po wielu kolumnach, przytrzymując klawisz „Shift”. Selektor kolumn pozwala ukrywać wybrane kolumny. Możesz także eksportować zbiór danych do pliku .csv lub .xlsx. Kliknięcie ikony dyskietki pozwala zapisać zbiór danych jako nowy (nadpisywanie nie jest możliwe). Zapis uwzględnia filtrowanie, sortowanie i ukryte kolumny."
+    },
+    "description": {
+      "title": "Opis zbioru danych",
+      "content": "W tej sekcji możesz edytować i przeglądać opis zbioru danych. Dodaj kontekst, źródło oraz krótką charakterystykę atrybutów."
+    },
+    "dataset_information": {
+      "title": "Informacje o zbiorze danych",
+      "content": "Sekcja zawiera szczegółowe informacje o zbiorze oraz sugestie dotyczące kolumn, które można zmodyfikować, aby uzyskać dokładniejsze wyniki."
+    },
+    "numerical_attributes": {
+      "title": "Atrybuty numeryczne",
+      "content": "Tabela prezentuje numeryczne atrybuty zbioru wraz z ich statystykami."
+    },
+    "nominal_attributes": {
+      "title": "Atrybuty nominalne",
+      "content": "Dla każdego atrybutu wyświetlana jest liczba braków oraz najczęściej występująca wartość, co ułatwia identyfikację dominujących kategorii."
+    },
+    "dataset_correlation_matrix": {
+      "title": "Macierz korelacji danych",
+      "content": "Wizualizacja przedstawia macierz korelacji dla atrybutów numerycznych."
+    },
+    "dataset_histogram_chart": {
+      "title": "Wykres atrybutów numerycznych",
+      "content": "Wykres prezentujący histogramy atrybutów numerycznych. Możesz zmieniać liczbę przedziałów oraz wybierać analizowany atrybut. Domyślna liczba przedziałów wyznaczana jest automatycznie na podstawie danych."
+    },
+    "histogram_chart": {
+      "title": "Wykres histogramu",
+      "content": "Ten wykres pokazuje rozkład wartości dla wybranego atrybutu."
+    },
+    "rolap_dataset_bar_chart": {
+      "title": "Wykres atrybutów nominalnych",
+      "content": "Panel umożliwia analizę rozkładu wartości wybranego atrybutu nominalnego."
+    },
+    "rules_prediction_indicators": {
+      "title": "Wskaźniki predykcji",
+      "content": "Zestawienie wskaźników jakości predykcji uzyskanych przez zbiór reguł na zbiorze danych, do którego jest przypisany (najczęściej zbiór treningowy)."
+    },
+    "rules_quantitative_characteristics": {
+      "title": "Charakterystyka ilościowa zbioru reguł",
+      "content": "Podsumowanie statystyk zbioru reguł wyznaczonych na zbiorze danych, do którego jest przypisany."
+    },
+    "rules_importance_card": {
+      "title": "Ważność warunków i atrybutów (według klasy)",
+      "content": "Porównanie pokazujące, które warunki i atrybuty są najważniejsze w danej klasie, czyli mają największy wpływ na decyzję."
+    },
+    "project_rules_coverage": {
+      "title": "Pokrycie zasad w projekcie",
+      "content": "Widok reguł z kolumnami „Filtruj zbiór danych” i „Pokaż pokrycie”. Zaznaczenie opcji „Filtruj zbiór danych” powoduje filtrowanie zbioru danych zgodnie z regułą, dzięki czemu w tabeli poniżej pojawią się tylko przykłady spełniające jej warunki. Możesz zaznaczyć kilka reguł i wybrać, czy mają być pokazane wszystkie przykłady pokrywane przez dowolną z nich (OR), czy tylko te spełniające wszystkie reguły (AND). Opcja „Pokaż pokrycie” umożliwia podświetlenie przykładów pokrywanych przez regułę, co pomaga ocenić jej użyteczność."
+    },
+    "project_rules_coverage_table": {
+      "title": "Tabela pokrycia zasad",
+      "content": "Tabela z przykładami pokrywanymi przez reguły. Zawiera m.in. liczbę reguł pokrywających dany wiersz, przewidywaną klasę oraz rzeczywistą etykietę."
+    },
+    "comparison_form": {
+      "title": "Formularz porównania reguł",
+      "content": "Konfiguracja ustawień porównania reguł. Opcje determinują sposób przeprowadzania analizy porównawczej."
+    },
+    "comparison_rules_table": {
+      "title": "Tabela porównania reguł",
+      "content": "Tabela umożliwiająca zaznaczanie reguł do porównania i analizę ich struktury."
+    },
+    "alignment_button_group": {
+      "title": "Tryby analizy",
+      "content": "Przełącznik między trybami „Zbiór reguł” a „Ważność”. Umożliwia szybkie przełączanie perspektywy analizy."
+    },
+    "rules_and_conditions_select_list": {
+      "title": "Lista wyboru reguł i warunków",
+      "content": "Lista wyboru reguł i ich warunków, które mają zostać przedstawione wizualnie."
+    },
+    "visualisation_coverage_info": {
+      "title": "Informacje dotyczące warunków wybranych na grafie",
+      "content": "Po wybraniu warunku (lub kilku) na grafie wyświetlone zostaną informacje o ich połączeniu. Dla klasyfikacji jest to liczba przykładów z danej klasy pokrywanych przez warunek lub grupę warunków. Dla regresji – histogram wartości atrybutu decyzyjnego. Dla analizy przeżycia – krzywa przeżycia wyznaczona na podstawie pokrywanych przykładów."
+    },
+    "rolap_graph_plot": {
+      "title": "Graf przedstawiający zbiór reguł",
+      "content": "Wizualizacja w formie grafu. Na krawędziach wychodzących z warunków prezentowane są informacje o nich. W klasyfikacji jest to liczba przykładów z danej klasy pokrywanych przez warunek. W regresji – średnia i odchylenie standardowe wartości atrybutu decyzyjnego. W analizie przeżycia – czas, w którym prawdopodobieństwo zdarzenia dla pokrywanych przykładów spada poniżej 50%."
+    },
+    "rulset_histogram": {
+      "title": "Histogram zbioru zasad",
+      "content": "Analiza zbioru zasad przy pomocy histogramu."
+    },
+    "prediction_settings": {
+      "title": "Ustawienia predykcji",
+      "content": "Konfiguracja ustawień predykcji. Działa analogicznie jak na zakładce Predykcji"
+    },
+    "prediction_result": {
+      "title": "Predykcja",
+      "content": "Tabela z wynikami predykcji dla wybranego zbioru danych. Kliknięcie prawym przyciskiem w wiersz tabeli pozwala przejść do zakładki „Objaśnij przykład” i sprawdzić, na jakiej podstawie model podjął decyzję."
+    },
+    "prediction_computer": {
+      "title": "Predykcja dla zewnętrznego zbioru",
+      "content": "Możesz wykonać predykcję na własnym pliku. Ustal kodowanie (np. UTF-8), separator pól oraz znak dziesiętny, a następnie przeciągnij i upuść plik, aby uruchomić proces. Wynikiem będzie plik z dodatkową kolumną zawierającą predykcję modelu."
+    },
+    "prediction_test_left": {
+      "title": "Jakość predykcji – zbiór treningowy",
+      "content": "Tabela ze wskaźnikami jakości modelu obliczonymi dla danych treningowych."
+    },
+    "prediction_test_right": {
+      "title": "Jakość predykcji – zbiór testowy",
+      "content": "Tabela ze wskaźnikami jakości modelu obliczonymi dla danych testowych."
+    },
+    "project_example": {
+      "title": "Objaśnienie decyzji",
+      "content": "Zakładka umożliwia sprawdzenie, dlaczego model podjął określoną decyzję dla danego przykładu. Przykład można wybrać z danych, wylosować lub wprowadzić ręcznie. Po wybraniu można przeanalizować decyzję oraz reguły, które do niej doprowadziły."
+    },
+    "description_left": {
+      "title": "Nazwa i opis zbioru reguł",
+      "content": "Formularz do edycji nazwy i opisu zbioru reguł.  "
+    },
+    "description_right": {
+      "title": "Szczegóły utworzenia zbioru reguł",
+      "content": "Tabela z parametrami algorytmu i ustawieniami predykcji użytymi podczas generacji zbioru reguł."
+    },
+    "algorithm": {
+      "title": "Wybór algorytmu",
+      "content": "Wybierz sposób budowy zbioru reguł: przy użyciu algorytmu RuleKit, DeepRules lub ręcznie. Od wyboru zależy zakres dostępnej konfiguracji."
+    },
+    "algorithm_configuration": {
+      "title": "Konfiguracja algorytmu",
+      "content": "W konfiguracji prostej odpowiadasz na pytania, a system sam dobierze parametry algorytmu. W konfiguracji zaawansowanej możesz samodzielnie ustawić wszystkie parametry."
+    },
+    "generate-button": {
+      "title": "Generowanie zbioru reguł",
+      "content": "Ostatni krok – kliknij „Utwórz”, aby rozpocząć generowanie. Postęp będzie widoczny w interfejsie „Procesy”, a po zakończeniu przejdziesz do widoku analizy nowego zbioru reguł."
+    }
+  },
+  "filter_builder": {
+    "loading_filter": "Ładowanie filtra...",
+    "add_condition": "Dodaj warunek",
+    "maximum_group_level_reached": "Osiągnięto maksymalny poziom zagnieżdżenia ({{maxGroupLevel}})",
+    "add_nested_group": "Dodaj grupę zagnieżdżoną",
+    "empty_group_message_1": "Ta grupa jest pusta. Dodaj warunek.",
+    "empty_group_message_2": "Kliknij 'Dodaj warunek', aby rozpocząć tworzenie reguł filtrowania.",
+    "select_operator": "Wybierz operator...",
+    "operators": {
+      "equals": "=",
+      "notEquals": "!=",
+      "isNull": "Jest pusty",
+      "isNotNull": "Nie jest pusty",
+      "between": "Pomiędzy",
+      "isTrue": "Jest prawdziwe",
+      "isFalse": "Jest fałszywe",
+      "greaterThan": ">",
+      "lessThan": "<",
+      "greaterThanOrEqual": ">=",
+      "lessThanOrEqual": "<=",
+      "equalsAttr": "= (atrybut)",
+      "notEqualsAttr": "!= (atrybut)",
+      "isNullAttr": "Jest pusty (atrybut)",
+      "isNotNullAttr": "Nie jest pusty (atrybut)",
+      "greaterThanAttr": "> (atrybut)",
+      "lessThanAttr": "< (atrybut)",
+      "greaterThanOrEqualAttr": ">= (atrybut)",
+      "lessThanOrEqualAttr": "<= (atrybut)",
+      "betweenAttr": "Pomiędzy (atrybut)",
+      "isTrueAttr": "Jest prawdziwe (atrybut)",
+      "isFalseAttr": "Jest fałszywe (atrybut)"
+    }
+  },
+  "value_input": {
+    "enter_value": "Wprowadź wartość...",
+    "enter_number": "Wprowadź liczbę...",
+    "start": "Początek...",
+    "end": "Koniec...",
+    "select": "Wybierz..."
+  },
+  "validation_errors": {
+    "value_required_invalid": "Wymagana/nieprawidłowa wartość.",
+    "end_value_required_invalid": "Wymagana/nieprawidłowa wartość końcowa."
+  },
+  "condition_row": {
+    "no_value_needed": "(Nie wymagana wartość)"
+  },
+  "field_selector": {
+    "select_field": "Wybierz pole..."
+  }
+}

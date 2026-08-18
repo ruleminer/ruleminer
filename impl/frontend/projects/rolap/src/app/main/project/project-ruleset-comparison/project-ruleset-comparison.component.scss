@@ -1,0 +1,10 @@
+@import 'variables';
+
+.selected-text {
+  color: $label-color;
+  font-weight: bold;
+}
+
+.selected {
+  background-color: $selected-item-color;
+}

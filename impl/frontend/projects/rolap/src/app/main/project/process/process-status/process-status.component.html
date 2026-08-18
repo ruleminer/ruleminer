@@ -1,0 +1,44 @@
+<ng-container [ngSwitch]="status">
+  <div
+    *ngSwitchCase="processStatus.success"
+    class="status-box status-success"
+    [title]="'process.table.status.success' | translate">
+    {{ 'process.table.status.success' | translate }}
+  </div>
+  <div
+    *ngSwitchCase="processStatus.aborted"
+    class="status-box status-aborted"
+    [title]="'process.table.status.aborted' | translate">
+    {{ 'process.table.status.aborted' | translate }}
+  </div>
+  <div
+    *ngSwitchCase="processStatus.stopped"
+    class="status-box status-stopped"
+    [title]="'process.table.status.stopped' | translate">
+    {{ 'process.table.status.stopped' | translate }}
+  </div>
+  <div
+    *ngSwitchCase="processStatus.stopping"
+    class="status-box status-stopping"
+    [title]="'process.table.status.stopping' | translate">
+    {{ 'process.table.status.stopping' | translate }}
+  </div>
+  <div
+    *ngSwitchCase="processStatus.failure"
+    class="status-box status-failure"
+    [title]="'process.table.status.failure' | translate">
+    {{ 'process.table.status.failure' | translate }}
+  </div>
+  <div
+    *ngSwitchCase="processStatus.pending"
+    class="status-box status-pending"
+    [title]="'process.table.status.pending' | translate">
+    {{ 'process.table.status.pending' | translate }}
+  </div>
+  <div
+    *ngSwitchCase="processStatus.started"
+    class="status-box status-started"
+    [title]="'process.table.status.started' | translate">
+    {{ 'process.table.status.started' | translate }}
+  </div>
+</ng-container>

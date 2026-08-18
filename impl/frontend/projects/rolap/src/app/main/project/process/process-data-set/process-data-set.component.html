@@ -1,0 +1,7 @@
+<button *ngIf="dataSetData; else noDataTemplate" class="btn-link" (click)="onDataSetClick()">
+  {{ dataSetData.text }}
+</button>
+
+<ng-template #noDataTemplate>
+  {{ 'no_data' | translate | lowercase }}
+</ng-template>

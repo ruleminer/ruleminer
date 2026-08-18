@@ -1,0 +1,73 @@
+<form *rolapLoading="!initialized" [formGroup]="filterForm" class="form">
+  <dx-scroll-view [useNative]="false" style="flex: 1" [showScrollbar]="'always'">
+    <div>
+      <div class="dx-field">
+        <div class="dx-field-label">{{ 'project.treeview.context_menu.modal.filter.name' | translate }}</div>
+        <dx-text-box formControlName="name" valueChangeEvent="keyup" stylingMode="outlined" />
+        <div class="mt1 ml1">
+          <rolap-validation-message [fieldName]="FieldName.RULE_DESCRIPTION" [control]="filterForm.controls['name']" />
+        </div>
+      </div>
+      <div class="textarea-wrapper">
+        <rolap-text-area
+          label="project.treeview.context_menu.modal.filter.description"
+          formControlName="description"
+          [height]="140" />
+        <div class="mt1 ml1">
+          <rolap-validation-message
+            [fieldName]="FieldName.RULE_DESCRIPTION"
+            [control]="filterForm.controls['description']" />
+        </div>
+      </div>
+
+      <div class="dx-field">
+        <div class="dx-field-label">
+          {{ 'project.treeview.context_menu.modal.filter.choose_algorithm' | translate }}
+        </div>
+        <dx-radio-group [items]="algorithms" [value]="algorithms[0]" formControlName="filter_algorithm">
+          <div *dxTemplate="let item of 'item'">
+            {{ item | titlecase }}
+          </div>
+        </dx-radio-group>
+      </div>
+
+      <div *ngIf="displayVotingMeasures" class="dx-field mb1">
+        <div class="dx-field-label">{{ 'project.treeview.context_menu.modal.filter.voting_measure' | translate }}</div>
+        <div *ngIf="$votingMeasures | async as votingMeasures" id="voting-measures">
+          <dx-select-box
+            class="custom-width"
+            [items]="votingMeasures"
+            displayExpr="value"
+            valueExpr="value"
+            formControlName="votingMeasures"
+            valueChangeEvent="keyup"
+            stylingMode="outlined"
+            [validationStatus]="votingMeasuresStatus">
+          </dx-select-box>
+          <rolap-tooltip
+            [tooltip]="'project.treeview.context_menu.modal.filter.voting_measure_tooltip'"></rolap-tooltip>
+        </div>
+      </div>
+
+      <div class="dx-field" *ngIf="isAlgorithmCovered">
+        <div class="dx-field-label">
+          {{ 'project.treeview.context_menu.modal.filter.percent_decrease' | translate }}
+        </div>
+        <dx-number-box formControlName="loss" valueChangeEvent="keyup" width="60" stylingMode="outlined" />
+        <div class="mt1 ml1">
+          <rolap-validation-message [control]="filterForm.controls['loss']" />
+        </div>
+      </div>
+    </div>
+  </dx-scroll-view>
+  <div class="submit-wrapper">
+    <dx-button
+      class="submit-btn mt1"
+      stylingMode="contained"
+      text="{{ 'project.treeview.context_menu.modal.filter.filter_button' | translate }}"
+      (click)="filter()"
+      [disabled]="!filterForm.valid"
+      type="default">
+    </dx-button>
+  </div>
+</form>

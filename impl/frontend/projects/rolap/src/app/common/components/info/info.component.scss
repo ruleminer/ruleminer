@@ -1,0 +1,40 @@
+@import 'variables';
+
+:host {
+  display: block;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: row;
+
+  border-radius: $info-border-radius;
+
+  align-items: center;
+
+  .info-icon {
+    font-size: 1.5rem;
+  }
+
+  &.info {
+    background-color: $info-bg-color;
+    border: 1px solid $info-border-color;
+    color: $info-color;
+  }
+
+  &.warning {
+    background-color: $warning-bg-color;
+    border: 1px solid $warning-border-color;
+    color: $warning-color;
+  }
+
+  &.error {
+    background-color: $error-bg-color;
+    border: 1px solid $error-border-color;
+    color: $error-color;
+  }
+
+  dx-button {
+    margin-left: auto;
+  }
+}

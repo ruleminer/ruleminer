@@ -1,0 +1,14 @@
+<dx-check-box
+  name="hasHeader"
+  stylingMode="outlined"
+  [value]="isChecked"
+  [disabled]="isDisabled"
+  (onValueChanged)="onCheckBoxValueChanged($event)" />
+<div class="flex">
+  <rolap-rules-table-header-text
+    class="ml1 center-vertical"
+    [problemType]="problemType"
+    [displayType]="displayType"
+    [dataField]="dataField" />
+  <rolap-tooltip [tooltip]="'tooltips.rules_table.activity' | translate" />
+</div>

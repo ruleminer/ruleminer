@@ -1,0 +1,58 @@
+@import 'variables';
+
+:host ::ng-deep {
+  .custom-column-chooser {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: calc(100%);
+    z-index: 999;
+    top: 0;
+    right: 0;
+    border-radius: 0 0.625rem 0.625rem 0;
+
+    .back-drop {
+      width: 70%;
+      height: 100%;
+      background-color: $column-chooser-back-drop-color;
+    }
+
+    .chooser {
+      background-color: $column-chooser-bg-color;
+      border-radius: 0 0.625rem 0.625rem 0;
+      border-left: 1px solid $column-chooser-border-color;
+      width: 30%;
+      min-width: 300px;
+    }
+
+    .dx-list-item {
+      padding: 0 1em;
+    }
+
+    .dx-list-item:first-of-type {
+      margin-top: 0px;
+    }
+
+    .dx-list.dx-list-with-search .dx-scrollable-wrapper {
+      height: calc(100% - 39px);
+    }
+
+    .dx-list-search {
+      margin-bottom: 0;
+    }
+
+    .dx-list-item {
+      padding: 0 2em;
+    }
+
+    .chooser-title {
+      color: $column-chooser-title-font-color;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+}
+
+.h-full {
+  height: 100%;
+}

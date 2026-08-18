@@ -1,0 +1,47 @@
+@import 'variables';
+@import 'mixins/tooltip';
+
+:host ::ng-deep {
+  .dx-datagrid-borders>.dx-datagrid-header-panel {
+    display: none;
+  }
+
+  .dx-datagrid .dx-link {
+    color: $table-icon-color;
+  }
+
+  .dx-link-edit {
+    margin-right: 10px;
+  }
+
+  .label-column:not([role='columnheader']) {
+    padding: 0 6px;
+  }
+}
+
+.acivity-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 95px;
+}
+
+.cell-header {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  white-space: normal;
+  vertical-align: middle;
+}
+
+div h2 {
+  @include custom-heading;
+}
+
+.dx-button-content {
+  align-items: normal;
+}
+
+.big-table-container {
+  position: relative;
+  overflow: hidden;
+}

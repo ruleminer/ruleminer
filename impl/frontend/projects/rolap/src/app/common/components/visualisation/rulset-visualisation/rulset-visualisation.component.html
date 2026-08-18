@@ -1,0 +1,19 @@
+<div class="breakpoint-container mt2">
+  <div class="row">
+    <div class="col-lg-4 mb2" id="rules-and-conditions-select-list">
+      <rolap-card class="card-layout">
+        <rolap-rules-and-conditions-select-list />
+      </rolap-card>
+    </div>
+    <div class="col-lg-8 mb2">
+      <div class="row">
+        <div class="col-12 mb2">
+          <rolap-ruleset-visualisation-coverage-info [isConditionNotCovered]="isConditionNotCovered" />
+        </div>
+        <div class="col-12">
+          <rolap-graph-plot [(isConditionNotCovered)]="isConditionNotCovered" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

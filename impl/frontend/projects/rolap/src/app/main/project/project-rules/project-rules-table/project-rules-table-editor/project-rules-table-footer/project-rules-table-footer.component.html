@@ -1,0 +1,54 @@
+<ng-container *ngIf="configSignal() as config">
+  <div class="string-container">
+    <!-- ORIGINAL RULE TEXT -->
+    <span *ngIf="stringSignal() && config.isEdit" class="mt2">
+      <span class="normal">{{ 'visualisation.original_rule' | translate }}: </span>
+      <span class="bold" data-cy="original-rule-text">{{ originalString() }}</span>
+    </span>
+
+    <!-- ACTUAL RULE TEXT -->
+    <span *ngIf="stringSignal() && !config.isCondition" class="mt2">
+      <span class="normal">{{ 'visualisation.rule' | translate }}: </span>
+      <span class="bold" data-cy="actual-rule-text" *ngIf="isDxListNotEmptySignal() && !hasValueInputsValidationErrorsSignal()">{{ stringSignal() }}</span>
+    </span>
+
+    <!-- CONDITIONS TEXT (FOR CONDITIONS EDITOR ONLY) -->
+    <span *ngIf="stringSignal() && config.isCondition" class="mt2">
+      <span class="normal">{{ 'visualisation.conditions' | translate }}: </span>
+      <span class="bold">{{ stringWithoutIfAndThenSignal() }}</span>
+    </span>
+  </div>
+  <!-- NO EXAMPLES COVERED INFO -->
+  <rolap-info data-cy="no-examples-covered-error" *ngIf="hasNoExamplesCoveredErrorSignal()" [mode]="'error'">
+    {{ 'project.rules.rule_editor.no_examples_covered_error' | translate }}
+  </rolap-info>
+
+    <!-- ONE CONDITION IN GROUP WARNING -->
+    <rolap-info data-cy="one-condition-in-group-warning" *ngIf="hasOneConditionInGroupWarningSignal()" [mode]="'info'">
+      {{ 'project.rules.rule_editor.one_condition_in_group_warning' | translate }}
+    </rolap-info>
+
+  <!-- MODAL FOOTER WITH SAVE AND CANCEL BUTTONS -->
+  <div class="flex justify-end mt2">
+    <!-- UNDO AND REDO BUTTONS -->
+    <!-- <rolap-rule-editor-undo-redo-buttons /> -->
+
+    <dx-button
+      class="mr2"
+      type="normal"
+      data-cy="cancel-button"
+      (click)="onCancel()"
+      text="{{ 'project.treeview.context_menu.modal.duplicate.cancel_btn' | translate }}">
+    </dx-button>
+    <dx-button
+      type="default"
+      [disabled]="!valid() || hasNoExamplesCoveredErrorSignal() || hasValueInputsValidationErrorsSignal()"
+      (onClick)="onSubmit()"
+      [text]="
+        config.isCondition
+          ? ('project.expert_induction.expert_condition_button' | translate)
+          : ((config.isEdit ? 'project.button.apple_edit' : 'project.button.add_rule') | translate)
+      "
+      data-cy="rule-editor-submit-btn"></dx-button>
+  </div>
+</ng-container>

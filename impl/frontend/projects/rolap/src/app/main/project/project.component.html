@@ -1,0 +1,18 @@
+<div class="container">
+  <ng-container *ngTemplateOutlet="recentProjects"></ng-container>
+</div>
+
+<ng-template #recentProjects>
+  <div class="left-panel">
+    <rolap-recent-project [isProjectLimitReached]="isProjectLimitReached" (projectDeleted)="onProjectDeleted($event)" />
+  </div>
+
+  <div class="right-panel">
+    <h5 data-cy="project-sample-projects">{{ 'project.sample_projects' | translate }}</h5>
+    <div id="sample-projects">
+    <rolap-sample-project id="ProjectTypeClassification" [problemType]="ProblemTypes.Classification" [isProjectLimitReached]="isProjectLimitReached" />
+    <rolap-sample-project [problemType]="ProblemTypes.Regression" [isProjectLimitReached]="isProjectLimitReached" />
+    <rolap-sample-project [problemType]="ProblemTypes.Survival" [isProjectLimitReached]="isProjectLimitReached" />
+  </div>
+  </div>
+</ng-template>

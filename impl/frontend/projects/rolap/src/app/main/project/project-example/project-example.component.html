@@ -1,0 +1,10 @@
+<rolap-card class="block my1" id="project-example">
+  <ng-container *ngIf="cardsIds() as cardsIds">
+    <ng-container *ngFor="let cardId of cardsIds; index as i">
+      <rolap-project-example-item [cardId]="cardId" [index]="i" />
+    </ng-container>
+  </ng-container>
+  <div class="flex justify-end mb2">
+  <rolap-add-card-button />
+  </div>
+</rolap-card>

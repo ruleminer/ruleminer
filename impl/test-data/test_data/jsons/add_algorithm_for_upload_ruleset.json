@@ -1,0 +1,30 @@
+[
+    {
+        "name": "LORD",
+        "implementation_url": "https://github.com/vqphuynh/LORD",
+        "description_pl": "Algorytm uczenia reguł klasyfikacji, który dla każdego przykładu treningowego wyszukuje lokalnie optymalną regułę. Dzięki niezależnemu przetwarzaniu przykładów, LORD może być uruchamiany równolegle w środowiskach współdzielonej pamięci lub rozproszonych.",
+        "description_en": "A rule learning algorithm that searches for a locally optimal rule for each training example. Due to independent processing of examples, LORD can run in parallel in shared-memory or distributed environments.",
+        "supported_problem_types": ["classification"]
+    },
+    {
+        "name": "MLRules",
+        "implementation_url": "https://github.com/fracpete/mlrules-weka-package",
+        "description_pl": "Pakiet dla WEKA implementujący algorytm uczenia reguł, umożliwiający tworzenie modeli opartych na regułach w środowisku WEKA.",
+        "description_en": "A WEKA package implementing a rule learning algorithm, allowing the creation of rule-based models within the WEKA environment.",
+        "supported_problem_types": ["classification"]
+    },
+    {
+        "name": "TEXT",
+        "implementation_url": "",
+        "description_pl": "Import reguł z pliku tekstowego w standardowym formacie.",
+        "description_en": "Import rules from a text file in the standard format.",
+        "supported_problem_types": ["classification", "regression", "survival"]
+    },
+    {
+        "name": "JSON",
+        "implementation_url": "",
+        "description_pl": "Import reguł w formacie JSON przy użyciu pakietu decision-rules.",
+        "description_en": "Import rules in JSON format using the decision-rules package.",
+        "supported_problem_types": ["classification", "regression", "survival"]
+    }
+]

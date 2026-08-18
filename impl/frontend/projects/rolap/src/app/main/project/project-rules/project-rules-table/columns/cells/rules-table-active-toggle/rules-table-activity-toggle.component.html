@@ -1,0 +1,8 @@
+<div [attr.title]="isDisabled ? ('project.rules.empty_ruleset_info' | translate) : ''">
+  <dx-check-box
+    name="hasHeader"
+    stylingMode="outlined"
+    [disabled]="isDisabled"
+    [value]="isChecked"
+    (onValueChanged)="onCheckBoxValueChanged($event)" />
+</div>
